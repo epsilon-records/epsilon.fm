@@ -15,5 +15,5 @@ export const actions = {
             throw error(500, 'Error creating user')
         }
 
-        throw redirect(303, '/')
+        throw redirect(303, 'login/')
 }
