@@ -1,1 +1,0 @@
-<div class="w-full max-w-md pt2"></div>
