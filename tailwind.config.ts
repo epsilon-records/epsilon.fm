@@ -1,63 +1,39 @@
-import { join } from 'path'
-import type { Config } from 'tailwindcss'
+const colors = require('tailwindcss/colors');
+const svelteUx = require('svelte-ux/plugins/tailwind.cjs');
+
+import type { Config } from 'tailwindcss';
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
-import { skeleton } from '@skeletonlabs/tw-plugin'
 
 export default {
 	darkMode: 'class',
-	content: ['./src/**/*.{html,js,svelte,ts}', join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')],
+	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		extend: {},
+		extend: {}
 	},
-	plugins: [
-		forms,
-		typography,
-		skeleton({
-			themes: {
-				preset: [
-					{
-						name: 'skeleton',
-						enhancements: true,
-					},
-					{
-						name: 'wintry',
-						enhancements: true,
-					},
-					{
-						name: 'modern',
-						enhancements: true,
-					},
-					{
-						name: 'hamlindigo',
-						enhancements: true,
-					},
-					{
-						name: 'rocket',
-						enhancements: true,
-					},
-					{
-						name: 'sahara',
-						enhancements: true,
-					},
-					{
-						name: 'gold-nouveau',
-						enhancements: true,
-					},
-					{
-						name: 'vintage',
-						enhancements: true,
-					},
-					{
-						name: 'seafoam',
-						enhancements: true,
-					},
-					{
-						name: 'crimson',
-						enhancements: true,
-					},
-				],
+	ux: {
+		themes: {
+			light: {
+				primary: colors['orange']['500'],
+				'primary-content': 'white',
+				secondary: colors['blue']['500'],
+				'surface-100': 'white',
+				'surface-200': colors['gray']['100'],
+				'surface-300': colors['gray']['300'],
+				'surface-content': colors['gray']['900'],
+				'color-scheme': 'light'
 			},
-		}),
-	],
+			dark: {
+				primary: colors['orange']['500'],
+				'primary-content': 'white',
+				secondary: colors['blue']['500'],
+				'surface-100': colors['zinc']['800'],
+				'surface-200': colors['zinc']['900'],
+				'surface-300': colors['zinc']['950'],
+				'surface-content': colors['zinc']['100'],
+				'color-scheme': 'dark'
+			}
+		}
+	},
+	plugins: [svelteUx, forms, typography]
 } satisfies Config;
