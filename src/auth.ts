@@ -7,5 +7,5 @@ import { db } from './schema';
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
 	adapter: DrizzleAdapter(db),
-	providers: [Google, GitHub, Spotify]
+	providers: [Google]
 });
