@@ -1,8 +1,21 @@
-import { boolean, timestamp, pgTable, text, primaryKey, integer } from 'drizzle-orm/pg-core';
-import { drizzle } from 'drizzle-orm/postgres-js';
 import type { AdapterAccountType } from '@auth/core/adapters';
-import { sql } from '@vercel/postgres';
 
+import { drizzle } from 'drizzle-orm/vercel-postgres';
+import { sql } from '@vercel/postgres';
+import {
+	pgTable,
+	boolean,
+	serial,
+	text,
+	primaryKey,
+	integer,
+	timestamp,
+	varchar,
+	date,
+	decimal
+} from 'drizzle-orm/pg-core';
+
+// Use this object to send drizzle queries to your DB
 export const db = drizzle(sql);
 
 export const users = pgTable('user', {
