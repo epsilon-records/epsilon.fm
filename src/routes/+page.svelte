@@ -2,7 +2,7 @@
 	import * as Card from '$lib/components/ui/card';
 	import Mail from 'lucide-svelte/icons/mail';
 	import { Button } from '$lib/components/ui/button/index.js';
-	import { SignIn } from '@auth/sveltekit/components';
+	import { signIn } from '@auth/sveltekit/client';
 </script>
 
 <svelte:head>
@@ -28,8 +28,9 @@
 			</p>
 		</Card.Content>
 		<Card.Footer>
-			<Button>
-				<SignIn provider="google" signInPage="signin" />
+			<Button on:click={() => signIn()}>
+				<Mail class="mr-2 h-4 w-4" />
+				Login to get started
 			</Button>
 		</Card.Footer>
 	</Card.Root>
