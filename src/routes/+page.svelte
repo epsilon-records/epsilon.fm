@@ -1,5 +1,8 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card';
+	import Mail from 'lucide-svelte/icons/mail';
+	import { Button } from '$lib/components/ui/button/index.js';
+	import { signIn } from '@auth/sveltekit/client';
 </script>
 
 <svelte:head>
@@ -25,7 +28,10 @@
 			</p>
 		</Card.Content>
 		<Card.Footer>
-			<p>Join now and start creating your own music distribution platform.</p>
+			<Button on:click={() => signIn()}>
+				<Mail class="mr-2 h-4 w-4" />
+				Login with Email
+			</Button>
 		</Card.Footer>
 	</Card.Root>
 </section>
