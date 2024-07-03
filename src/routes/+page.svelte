@@ -28,7 +28,7 @@
 			</p>
 		</Card.Content>
 		<Card.Footer>
-			<Button on:click={() => signIn()}>
+			<Button on:click={() => signIn('google')}>
 				<Mail class="mr-2 h-4 w-4" />
 				Login to get started
 			</Button>
