@@ -30,7 +30,7 @@
 		<Card.Footer>
 			<Button on:click={() => signIn()}>
 				<Mail class="mr-2 h-4 w-4" />
-				Login with Email
+				Login to get started
 			</Button>
 		</Card.Footer>
 	</Card.Root>
