@@ -16,7 +16,6 @@
 
 	<footer>
 		<p>Made with ❤️ by Epsilon</p>
-		<Badge>{data.nodeEnv}</Badge>
 	</footer>
 </div>
 
