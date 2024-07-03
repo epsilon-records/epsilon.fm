@@ -1,20 +1,31 @@
-<script>
-	import { superForm } from 'sveltekit-superforms';
-	import { Button } from 'svelte-ux';
-	import { ThemeSelect, Card } from 'svelte-ux';
-
-	export let data;
-
-	// Client API:
-	const { form } = superForm(data.form);
-
+<script lang="ts">
+	import * as Card from '$lib/components/ui/card';
 </script>
 
-<main class="p-2 grid place-items-center content-center">
+<svelte:head>
+	<title>Home</title>
+	<meta name="description" content="Svelte demo app" />
+</svelte:head>
 
-	<Card title="Epsilon Distribution" subheading="A modern music distribution platform." />
-	<div class="card p-4 w-4/5">  
-		Welcome to our exclusive members-only music distribution site, where artists and enthusiasts come together to support and celebrate the world of music. As a collective backed by our devoted members, we provide a host of benefits designed to amplify your musical reach. Membership includes access to exclusive releases, behind-the-scenes content, powerful distribution tools, networking opportunities with industry professionals, and invitations to private events. Join us and become part of a dynamic community that empowers and elevates the art of music distribution.
-	</div>
-	<Card title="Create Release" subheading="Get started by creating a release." />
-</main>
+<section>
+	<Card.Root>
+		<Card.Header>
+			<Card.Title>Epsilon Distribution</Card.Title>
+			<Card.Description>A modern music distribution platform.</Card.Description>
+		</Card.Header>
+		<Card.Content>
+			<p>
+				Welcome to our exclusive members-only music distribution site, where artists and enthusiasts
+				come together to support and celebrate the world of music. As a collective backed by our
+				devoted members, we provide a host of benefits designed to amplify your musical reach.
+				Membership includes access to exclusive releases, behind-the-scenes content, powerful
+				distribution tools, networking opportunities with industry professionals, and invitations to
+				private events. Join us and become part of a dynamic community that empowers and elevates
+				the art of music distribution.
+			</p>
+		</Card.Content>
+		<Card.Footer>
+			<p>Join now and start creating your own music distribution platform.</p>
+		</Card.Footer>
+	</Card.Root>
+</section>
