@@ -15,6 +15,7 @@
 
 	<footer>
 		<p>Made with ❤️ by Epsilon</p>
+		<p>{data.nodeEnv}</p>
 	</footer>
 </div>
 
