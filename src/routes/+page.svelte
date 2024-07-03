@@ -28,7 +28,7 @@
 			</p>
 		</Card.Content>
 		<Card.Footer>
-			<Button on:click={() => signIn()}>
+			<Button>
 				<SignIn provider="google" signInPage="signin" />
 			</Button>
 		</Card.Footer>
