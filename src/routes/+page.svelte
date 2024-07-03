@@ -2,7 +2,7 @@
 	import * as Card from '$lib/components/ui/card';
 	import Mail from 'lucide-svelte/icons/mail';
 	import { Button } from '$lib/components/ui/button/index.js';
-	import { signIn } from '@auth/sveltekit/client';
+	import { SignIn } from '@auth/sveltekit/components';
 </script>
 
 <svelte:head>
