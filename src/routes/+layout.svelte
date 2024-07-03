@@ -2,6 +2,7 @@
 	import '../app.css';
 	import Header from './Header.svelte';
 	import type { LayoutServerData } from './$types';
+	import { Badge } from '$lib/components/ui/badge/index.js';
 
 	export let data: LayoutServerData;
 </script>
@@ -15,7 +16,7 @@
 
 	<footer>
 		<p>Made with ❤️ by Epsilon</p>
-		<p>{data.nodeEnv}</p>
+		<Badge>{data.nodeEnv}</Badge>
 	</footer>
 </div>
 
