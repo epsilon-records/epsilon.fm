@@ -1,6 +1,9 @@
-<script>
+<script lang="ts">
 	import '../app.css';
 	import Header from './Header.svelte';
+	import type { LayoutServerData } from './$types';
+
+	export let data: LayoutServerData;
 </script>
 
 <div class="app">
