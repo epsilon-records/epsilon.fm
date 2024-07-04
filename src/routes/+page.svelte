@@ -5,6 +5,7 @@
 	import SignInButton from 'clerk-sveltekit/client/SignInButton.svelte';
 	import SignUpButton from 'clerk-sveltekit/client/SignUpButton.svelte';
 	import partners from '$lib/images/partners.png';
+	import { Badge } from '$lib/components/ui/badge/index';
 </script>
 
 <svelte:head>
@@ -19,7 +20,7 @@
 			<Card.Description>A modern open-source music distribution platform.</Card.Description>
 		</Card.Header>
 		<Card.Content>
-			<p>Experience unlimited music distribution for just $99/year.</p>
+			<p>Experience unlimited music distribution for just <Badge>$99/year</Badge></p>
 			<SignedOut>
 				<Button class="m-2">
 					<SignInButton mode="modal">Login</SignInButton>
