@@ -68,7 +68,7 @@
 		</div>
 		<NavUl class="order-1">
 			<NavLi href="/" active={true}>Home</NavLi>
-			<NavLi href="/">FAQ</NavLi>
+			<NavLi href="/faq">FAQ</NavLi>
 			<NavLi href="/profile">Profile</NavLi>
 			<NavLi href="/">Releases</NavLi>
 			<NavLi href="/">Merch</NavLi>
