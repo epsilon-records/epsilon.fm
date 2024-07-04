@@ -25,7 +25,7 @@
 			<NavBrand href="/">
 				<SignedIn>
 					<div class="flex items-center">
-						<OrganizationSwitcher />
+						<OrganizationSwitcher hidePersonal={true} />
 					</div>
 				</SignedIn>
 				<SignedOut>

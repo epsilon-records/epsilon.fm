@@ -6,7 +6,16 @@ import { CLERK_SECRET_KEY } from '$env/static/private';
 export const handle: Handle = sequence(
 	handleClerk(CLERK_SECRET_KEY, {
 		debug: true,
-		protectedPaths: ['/admin', '/profile'],
+		protectedPaths: [
+			'/admin',
+			'/profile',
+			'releases',
+			'merch',
+			'website',
+			'social',
+			'royalties',
+			'admin'
+		],
 		signInUrl: '/sign-in'
 	})
 );
