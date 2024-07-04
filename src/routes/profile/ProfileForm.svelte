@@ -103,6 +103,38 @@
 			</Form.Field>
 		</div>
 	</div>
+	<div class="mb-4 grid gap-4 sm:grid-cols-2">
+		<div>
+			<Form.Field {form} name="stageName">
+				<Form.Control let:attrs>
+					<Form.Label>Spotify Artist Link</Form.Label>
+					<Input
+						{...attrs}
+						bind:value={$formData.spotifyArtistLink}
+						placeholder="Spotify Artist Link"
+					/>
+				</Form.Control>
+				<Form.Description>Your Spotify artist profile link.</Form.Description>
+				<Form.FieldErrors />
+			</Form.Field>
+		</div>
+	</div>
+	<div class="mb-4 grid gap-4 sm:grid-cols-2">
+		<div>
+			<Form.Field {form} name="stageName">
+				<Form.Control let:attrs>
+					<Form.Label>YouTube Channel Link</Form.Label>
+					<Input
+						{...attrs}
+						bind:value={$formData.youtubeChannelLink}
+						placeholder="YouTube Channel Link"
+					/>
+				</Form.Control>
+				<Form.Description>Your YouTube artist channel link.</Form.Description>
+				<Form.FieldErrors />
+			</Form.Field>
+		</div>
+	</div>
 	<div>
 		<Form.Button>Submit</Form.Button>
 		<SuperDebug data={$formData} />
