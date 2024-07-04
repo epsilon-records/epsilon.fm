@@ -8,8 +8,8 @@ import { PUBLIC_CLERK_PUBLISHABLE_KEY } from '$env/static/public';
 initializeClerkClient(PUBLIC_CLERK_PUBLISHABLE_KEY, {
 	afterSignInUrl: '/admin/',
 	afterSignUpUrl: '/admin/',
-	signInUrl: '/signin',
-	signUpUrl: '/signup'
+	signInUrl: '/sign-in',
+	signUpUrl: '/sign-up'
 });
 
 export const handleError: HandleClientError = async ({ error, event }) => {
