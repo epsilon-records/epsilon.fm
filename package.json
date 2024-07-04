@@ -44,9 +44,6 @@
   },
   "type": "module",
   "dependencies": {
-    "@auth/core": "^0.34.1",
-    "@auth/drizzle-adapter": "^1.4.1",
-    "@auth/sveltekit": "^1.4.1",
     "@vercel/postgres": "^0.9.0",
     "bits-ui": "^0.21.11",
     "clsx": "^2.1.1",
