@@ -16,7 +16,7 @@
 
 	<footer>
 		<p>Made with ❤️ by Epsilon</p>
-		<Badge class="m-2" variant={data.nodeEnv == 'development' ? 'destructive' : ''}
+		<Badge class="m-2" variant={data.nodeEnv == 'development' ? 'destructive' : 'success'}
 			>{data.nodeEnv}</Badge
 		>
 	</footer>
