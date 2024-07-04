@@ -15,7 +15,7 @@
 	</main>
 
 	<footer>
-		<p>Made with ❤️ by Epsilon</p>
+		<p>Made with ❤️ by Epsilon Records</p>
 		<Badge class="m-2" variant={data.nodeEnv == 'development' ? 'destructive' : 'success'}
 			>{data.nodeEnv}</Badge
 		>
