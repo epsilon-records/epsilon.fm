@@ -1,5 +1,4 @@
 <script>
-	import { page } from '$app/stores';
 	import logo from '$lib/images/acid-logo.png';
 	import github from '$lib/images/github.svg';
 	import UserButton from 'clerk-sveltekit/client/UserButton.svelte';
@@ -7,12 +6,12 @@
 	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
 	import OrganizationSwitcher from 'clerk-sveltekit/client/OrganizationSwitcher.svelte';
 	import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
-	import Sun from 'lucide-svelte/icons/sun';
-	import Moon from 'lucide-svelte/icons/moon';
+	// import Sun from 'lucide-svelte/icons/sun';
+	// import Moon from 'lucide-svelte/icons/moon';
 
-	import { resetMode, setMode } from 'mode-watcher';
-	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
-	import { Button } from '$lib/components/ui/button';
+	// import { resetMode, setMode } from 'mode-watcher';
+	// import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
+	// import { Button } from '$lib/components/ui/button';
 
 	let bookmarks = false;
 	let fullUrls = true;
@@ -163,9 +162,5 @@
 		letter-spacing: 0.1em;
 		text-decoration: none;
 		transition: color 0.2s linear;
-	}
-
-	a:hover {
-		color: var(--color-theme-1);
 	}
 </style>

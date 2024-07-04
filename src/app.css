@@ -46,6 +46,9 @@
     --input: 240 100% 15%; /* Dark blue-gray */
     --ring: 300 100% 50%; /* Neon magenta */
   }
+  a:hover {
+		color: var(--color-theme-1);
+	}
 }
  
 @layer base {
