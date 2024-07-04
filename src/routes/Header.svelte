@@ -15,7 +15,7 @@
 </script>
 
 <header>
-	<Navbar>
+	<Navbar class="m-4">
 		<NavBrand href="/">
 			<img src={logo} class="me-3 h-9 sm:h-9" alt="Epsilon Distribution" />
 		</NavBrand>
@@ -34,15 +34,15 @@
 		</div>
 		<NavUl class="order-1">
 			<NavLi href="/" active={true}>Home</NavLi>
-			<NavLi href="/faq">FAQ</NavLi>
+			<NavLi href="/">FAQ</NavLi>
 			<NavLi href="/profile">Profile</NavLi>
-			<NavLi href="/releases">Releases</NavLi>
-			<NavLi href="/merch">Merch</NavLi>
-			<NavLi href="/website">Website</NavLi>
-			<NavLi href="/social">Social</NavLi>
-			<NavLi href="/royalties">Royalties</NavLi>
-			<NavLi href="/admin">Admin</NavLi>
-			<NavLi href="/settings">Settings</NavLi>
+			<NavLi href="/">Releases</NavLi>
+			<NavLi href="/">Merch</NavLi>
+			<NavLi href="/">Website</NavLi>
+			<NavLi href="/">Social</NavLi>
+			<NavLi href="/">Royalties</NavLi>
+			<NavLi href="/">Admin</NavLi>
+			<NavLi href="/">Settings</NavLi>
 		</NavUl>
 	</Navbar>
 </header>
