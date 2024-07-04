@@ -4,47 +4,47 @@
  
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 20 14.3% 4.1%;
+    --background: 0 0% 96%;
+    --foreground: 224 71.4% 4.1%;
     --card: 0 0% 100%;
-    --card-foreground: 20 14.3% 4.1%;
+    --card-foreground: 224 71.4% 4.1%;
     --popover: 0 0% 100%;
-    --popover-foreground: 20 14.3% 4.1%;
-    --primary: 47.9 95.8% 53.1%;
-    --primary-foreground: 26 83.3% 14.1%;
-    --secondary: 60 4.8% 95.9%;
-    --secondary-foreground: 24 9.8% 10%;
-    --muted: 60 4.8% 95.9%;
-    --muted-foreground: 25 5.3% 44.7%;
-    --accent: 60 4.8% 95.9%;
-    --accent-foreground: 24 9.8% 10%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
     --destructive: 0 72.22% 50.59%;
-    --destructive-foreground: 60 9.1% 97.8%;
-    --border: 20 5.9% 90%;
-    --input: 20 5.9% 90%;
-    --ring: 20 14.3% 4.1%;
-    --radius: 0rem;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262.1 83.3% 57.8%;
+    --radius: 0.5rem;
   }
   .dark {
-    --background: 240 100% 5%; /* Dark blue */
-    --foreground: 60 100% 95%; /* Bright white */
-    --card: 240 100% 5%; /* Dark blue */
-    --card-foreground: 60 100% 95%; /* Bright white */
-    --popover: 240 100% 5%; /* Dark blue */
-    --popover-foreground: 60 100% 95%; /* Bright white */
-    --primary: 300 100% 50%; /* Neon magenta */
-    --primary-foreground: 60 100% 95%; /* Bright white */
-    --secondary: 180 100% 40%; /* Neon cyan */
-    --secondary-foreground: 60 100% 95%; /* Bright white */
-    --muted: 270 100% 25%; /* Muted purple */
-    --muted-foreground: 60 100% 95%; /* Bright white */
-    --accent: 120 100% 40%; /* Neon green */
-    --accent-foreground: 60 100% 95%; /* Bright white */
-    --destructive: 0 100% 50%; /* Bright red */
-    --destructive-foreground: 60 100% 95%; /* Bright white */
-    --border: 240 100% 15%; /* Dark blue-gray */
-    --input: 240 100% 15%; /* Dark blue-gray */
-    --ring: 300 100% 50%; /* Neon magenta */
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 263.4 70% 50.4%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 263.4 70% 50.4%;
   }
   a:hover {
 		color: var(--color-theme-1);

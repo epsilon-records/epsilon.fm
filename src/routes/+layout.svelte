@@ -4,6 +4,7 @@
 	import type { LayoutServerData } from './$types';
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import { ModeWatcher } from 'mode-watcher';
+	import { Separator } from '$lib/components/ui/separator';
 
 	export let data: LayoutServerData;
 </script>
@@ -17,7 +18,7 @@
 	</main>
 
 	<footer>
-		<p>Made with ❤️ by Epsilon Records</p>
+		<p class="text-sm text-muted-foreground">Made with ❤️ by Epsilon Records</p>
 		<Badge class="m-2" variant={data.nodeEnv == 'development' ? 'destructive' : 'outline'}
 			>{data.nodeEnv}</Badge
 		>
