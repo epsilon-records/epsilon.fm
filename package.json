@@ -46,6 +46,7 @@
   "dependencies": {
     "@vercel/postgres": "^0.9.0",
     "bits-ui": "^0.21.11",
+    "clerk-sveltekit": "^0.4.2",
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.31.2",
     "formsnap": "^1.0.1",

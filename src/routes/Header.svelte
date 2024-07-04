@@ -27,7 +27,6 @@
 			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
 		</svg>
 	</nav>
-
 	<div class="corner">
 		<a href="https://github.com/natehouk/epsilon.fm">
 			<img src={github} alt="GitHub" />

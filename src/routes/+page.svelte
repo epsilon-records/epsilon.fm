@@ -1,7 +1,11 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card';
-	import Mail from 'lucide-svelte/icons/mail';
-	import { Button } from '$lib/components/ui/button/index.js';
+	import { Button } from '$lib/components/ui/button/index';
+	import UserButton from 'clerk-sveltekit/client/UserButton.svelte';
+	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
+	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
+	import SignInButton from 'clerk-sveltekit/client/SignInButton.svelte';
+	import SignUpButton from 'clerk-sveltekit/client/SignUpButton.svelte';
 </script>
 
 <svelte:head>
@@ -27,10 +31,17 @@
 			</p>
 		</Card.Content>
 		<Card.Footer>
-			<Button>
-				<Mail class="mr-2 h-4 w-4" />
-				Login to get started
-			</Button>
+			<SignedIn>
+				<UserButton afterSignOutUrl="/" />
+			</SignedIn>
+			<SignedOut>
+				<Button class="m-2">
+					<SignInButton mode="modal">Login</SignInButton>
+				</Button>
+				<Button class="m-2">
+					<SignUpButton mode="modal">Sign up</SignUpButton>
+				</Button>
+			</SignedOut>
 		</Card.Footer>
 	</Card.Root>
 </section>
