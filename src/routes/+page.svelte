@@ -12,7 +12,7 @@
 	<title>Epsilon Distribution</title>
 	<meta
 		name="description"
-		content="Our modern open-source platform includes features like an artist website, social media management, and merch, empowering you with global reach and full control over your creative work."
+		content="Our modern open-source music distribution platform includes features like an artist website, social media management, and merch, empowering you with global reach and full control over your creative work."
 	/>
 </svelte:head>
 
