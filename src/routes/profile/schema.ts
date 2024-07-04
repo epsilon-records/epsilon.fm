@@ -18,7 +18,7 @@ const artistSchema = z.object({
 	tiktokProfileLink: z.string().max(255).optional(),
 	soundcloudProfileLink: z.string().max(255).optional(),
 	songkickProfileLink: z.string().max(255).optional(),
-	bandsintownLink: z.string().max(255).optional(),
+	bandsintownProfileLink: z.string().max(255).optional(),
 	referralSource: z.string().max(255).optional(), // Better column name for how_did_you_hear_about_us
 	anrReferral: z.string().max(255).optional()
 });

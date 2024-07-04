@@ -45,7 +45,7 @@
 			</Form.Field>
 		</div>
 	</div>
-	<div class="mb-4 grid gap-4 sm:grid-cols-2">
+	<div class="mb-4 grid gap-4 sm:grid-cols-1">
 		<div>
 			<Form.Field {form} name="email">
 				<Form.Control let:attrs>
@@ -56,20 +56,22 @@
 				<Form.FieldErrors />
 			</Form.Field>
 		</div>
+	</div>
+	<div class="mb-4 grid gap-4 sm:grid-cols-1">
 		<div>
-			<Form.Field {form} name="phone" class="flex flex-col">
+			<Form.Field {form} name="phone">
 				<Form.Control let:attrs>
 					<Form.Label>Phone</Form.Label>
 					<Input {...attrs} bind:value={$formData.phone} placeholder="Phone" />
-					<Form.FieldErrors />
 				</Form.Control>
 				<Form.Description>Your phone number.</Form.Description>
+				<Form.FieldErrors />
 			</Form.Field>
 		</div>
 	</div>
-	<div class="mb-4 grid gap-4 sm:grid-cols-2">
+	<div class="mb-4 grid gap-4 sm:grid-cols-1">
 		<div>
-			<Form.Field {form} name="address" class="flex flex-col">
+			<Form.Field {form} name="address">
 				<Form.Control let:attrs>
 					<Form.Label>Address</Form.Label>
 					<Input {...attrs} bind:value={$formData.address} placeholder="Address" />
@@ -79,7 +81,7 @@
 			</Form.Field>
 		</div>
 	</div>
-	<div class="mb-4 grid gap-4 sm:grid-cols-2">
+	<div class="mb-4 grid gap-4 sm:grid-cols-1">
 		<div>
 			<Form.Field {form} name="stageName">
 				<Form.Control let:attrs>
@@ -91,11 +93,11 @@
 			</Form.Field>
 		</div>
 	</div>
-	<div class="mb-4 grid gap-4 sm:grid-cols-2">
+	<div class="mb-4 grid gap-4 sm:grid-cols-1">
 		<div>
 			<Form.Field {form} name="biography">
 				<Form.Control let:attrs>
-					<Form.Label>Artist Stage Name</Form.Label>
+					<Form.Label>Artist Biography</Form.Label>
 					<Textarea {...attrs} bind:value={$formData.biography} placeholder="Biography" />
 				</Form.Control>
 				<Form.Description>Your artist biography.</Form.Description>
@@ -103,7 +105,7 @@
 			</Form.Field>
 		</div>
 	</div>
-	<div class="mb-4 grid gap-4 sm:grid-cols-2">
+	<div class="mb-4 grid gap-4 sm:grid-cols-1">
 		<div>
 			<Form.Field {form} name="stageName">
 				<Form.Control let:attrs>
@@ -119,9 +121,9 @@
 			</Form.Field>
 		</div>
 	</div>
-	<div class="mb-4 grid gap-4 sm:grid-cols-2">
+	<div class="mb-4 grid gap-4 sm:grid-cols-1">
 		<div>
-			<Form.Field {form} name="stageName">
+			<Form.Field {form} name="youtubeChannelLink">
 				<Form.Control let:attrs>
 					<Form.Label>YouTube Channel Link</Form.Label>
 					<Input
@@ -135,8 +137,118 @@
 			</Form.Field>
 		</div>
 	</div>
+	<div class="mb-4 grid gap-4 sm:grid-cols-1">
+		<div>
+			<Form.Field {form} name="instagramProfileLink">
+				<Form.Control let:attrs>
+					<Form.Label>Instagram Profile Link</Form.Label>
+					<Input
+						{...attrs}
+						bind:value={$formData.instagramProfileLink}
+						placeholder="Instagram Profile Link"
+					/>
+				</Form.Control>
+				<Form.Description>Your YouTube artist channel link.</Form.Description>
+				<Form.FieldErrors />
+			</Form.Field>
+		</div>
+	</div>
+	<div class="mb-4 grid gap-4 sm:grid-cols-1">
+		<div>
+			<Form.Field {form} name="facebookProfileLink">
+				<Form.Control let:attrs>
+					<Form.Label>Facebook Profile Link</Form.Label>
+					<Input
+						{...attrs}
+						bind:value={$formData.facebookProfileLink}
+						placeholder="Facebook Profile Link"
+					/>
+				</Form.Control>
+				<Form.Description>Your Facebook artist profile link.</Form.Description>
+				<Form.FieldErrors />
+			</Form.Field>
+		</div>
+	</div>
+	<div class="mb-4 grid gap-4 sm:grid-cols-1">
+		<div>
+			<Form.Field {form} name="xProfileLink">
+				<Form.Control let:attrs>
+					<Form.Label>X Profile Link</Form.Label>
+					<Input {...attrs} bind:value={$formData.xProfileLink} placeholder="X Profile Link" />
+				</Form.Control>
+				<Form.Description>Your X artist profile link.</Form.Description>
+				<Form.FieldErrors />
+			</Form.Field>
+		</div>
+	</div>
+	<div class="mb-4 grid gap-4 sm:grid-cols-1">
+		<div>
+			<Form.Field {form} name="tiktokProfileLink">
+				<Form.Control let:attrs>
+					<Form.Label>TikTok Profile Link</Form.Label>
+					<Input
+						{...attrs}
+						bind:value={$formData.tiktokProfileLink}
+						placeholder="TikTok Profile Link"
+					/>
+				</Form.Control>
+				<Form.Description>Your TikTok artist profile link.</Form.Description>
+				<Form.FieldErrors />
+			</Form.Field>
+		</div>
+	</div>
+	<div class="mb-4 grid gap-4 sm:grid-cols-1">
+		<div>
+			<Form.Field {form} name="soundcloudProfileLink">
+				<Form.Control let:attrs>
+					<Form.Label>SoundCloud Profile Link</Form.Label>
+					<Input
+						{...attrs}
+						bind:value={$formData.soundcloudProfileLink}
+						placeholder="SoundCloud Profile Link"
+					/>
+				</Form.Control>
+				<Form.Description>Your SoundCloud artist profile link.</Form.Description>
+				<Form.FieldErrors />
+			</Form.Field>
+		</div>
+	</div>
+	<div class="mb-4 grid gap-4 sm:grid-cols-1">
+		<div>
+			<Form.Field {form} name="songkickProfileLink">
+				<Form.Control let:attrs>
+					<Form.Label>Songkick Profile Link</Form.Label>
+					<Input
+						{...attrs}
+						bind:value={$formData.songkickProfileLink}
+						placeholder="Songkick Profile Link"
+					/>
+				</Form.Control>
+				<Form.Description>Your Songkick artist profile link.</Form.Description>
+				<Form.FieldErrors />
+			</Form.Field>
+		</div>
+	</div>
+	<div class="mb-4 grid gap-4 sm:grid-cols-1">
+		<div>
+			<Form.Field {form} name="bandsintownProfileLink">
+				<Form.Control let:attrs>
+					<Form.Label>Bandsintown Profile Link</Form.Label>
+					<Input
+						{...attrs}
+						bind:value={$formData.bandsintownProfileLink}
+						placeholder="Bandsintown Profile Link"
+					/>
+				</Form.Control>
+				<Form.Description>Your Bandsintown artist profile link.</Form.Description>
+				<Form.FieldErrors />
+			</Form.Field>
+		</div>
+	</div>
 	<div>
 		<Form.Button>Submit</Form.Button>
+	</div>
+	<div class="m-4">
 		<SuperDebug data={$formData} />
 	</div>
 </form>
