@@ -1,17 +1,19 @@
 <script>
 	import { page } from '$app/stores';
-	import logo from '$lib/images/svelte-logo.svg';
+	import logo from '$lib/images/acid-logo.png';
 	import github from '$lib/images/github.svg';
+	import UserButton from 'clerk-sveltekit/client/UserButton.svelte';
+	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
+	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
 </script>
 
 <header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
+	<div class="corner m-8">
+		<a href="https://epsilon.fm">
+			<img src={logo} alt="Epsilon Distribution" />
 		</a>
 	</div>
-
-	<nav>
+	<nav class="m-8">
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
 		</svg>
@@ -19,18 +21,44 @@
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
 				<a href="/">Home</a>
 			</li>
+			<li aria-current={$page.url.pathname === '/faq' ? 'page' : undefined}>
+				<a href="/faq">FAQ</a>
+			</li>
 			<li aria-current={$page.url.pathname === '/profile' ? 'page' : undefined}>
 				<a href="/profile">Profile</a>
+			</li>
+			<li aria-current={$page.url.pathname === '/releases' ? 'page' : undefined}>
+				<a href="/releases">Releases</a>
+			</li>
+			<li aria-current={$page.url.pathname === '/merch' ? 'page' : undefined}>
+				<a href="/merch">Merch</a>
+			</li>
+			<li aria-current={$page.url.pathname === '/website' ? 'page' : undefined}>
+				<a href="/website">Website</a>
+			</li>
+			<li aria-current={$page.url.pathname === '/social' ? 'page' : undefined}>
+				<a href="/social">Social</a>
+			</li>
+			<li aria-current={$page.url.pathname === '/admin' ? 'page' : undefined}>
+				<a href="/admin">Admin</a>
+			</li>
+			<li aria-current={$page.url.pathname === '/settings' ? 'page' : undefined}>
+				<a href="/settings">Settings</a>
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
 		</svg>
 	</nav>
-	<div class="corner">
-		<a href="https://github.com/natehouk/epsilon.fm">
-			<img src={github} alt="GitHub" />
-		</a>
+	<div class="corner m-8">
+		<SignedIn>
+			<UserButton afterSignOutUrl="/" />
+		</SignedIn>
+		<SignedOut>
+			<a href="https://github.com/natehouk/epsilon.fm">
+				<img src={github} alt="GitHub" />
+			</a>
+		</SignedOut>
 	</div>
 </header>
 

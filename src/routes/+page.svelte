@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card';
 	import { Button } from '$lib/components/ui/button/index';
-	import UserButton from 'clerk-sveltekit/client/UserButton.svelte';
+	import github from '$lib/images/github.svg';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
 	import SignInButton from 'clerk-sveltekit/client/SignInButton.svelte';
@@ -23,9 +23,6 @@
 			<p>$99/year, unlimited music distribution.</p>
 		</Card.Content>
 		<Card.Footer>
-			<SignedIn>
-				<UserButton afterSignOutUrl="/" />
-			</SignedIn>
 			<SignedOut>
 				<Button class="m-2">
 					<SignInButton mode="modal">Login</SignInButton>
