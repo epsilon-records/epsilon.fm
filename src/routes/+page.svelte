@@ -20,8 +20,6 @@
 		</Card.Header>
 		<Card.Content>
 			<p>Experience unlimited music distribution for just $99/year.</p>
-		</Card.Content>
-		<Card.Content>
 			<SignedOut>
 				<Button class="m-2">
 					<SignInButton mode="modal">Login</SignInButton>
