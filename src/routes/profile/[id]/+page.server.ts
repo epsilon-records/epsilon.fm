@@ -4,14 +4,16 @@ import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { artistSchema } from './schema';
 import { db } from '$lib/db';
+import { artist } from '$lib/db/schema';
+import { eq } from 'drizzle-orm';
 
 export const load: PageServerLoad = async ({ locals }) => {
-	// Get the userId from auth() -- if null, the user is not signed in
+	// Adjusted to correctly access session data
 
-	const userId = locals.session.userId;
-	const orgId = locals.session.claims.ordId;
+	const userId = locals?.session?.userId ?? null;
+	const orgId = locals?.session?.claims?.ordId ?? null;
 
-	const result = await db.query.artist.findFirst({ where: { id: userId } });
+	const result = await db.select().from(artist);
 	console.log(result);
 
 	return {
