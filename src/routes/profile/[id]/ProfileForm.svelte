@@ -23,62 +23,6 @@
 </script>
 
 <form method="POST" use:enhance>
-	<div class="mb-4 grid gap-4 sm:grid-cols-2">
-		<div>
-			<Form.Field {form} name="firstName">
-				<Form.Control let:attrs>
-					<Form.Label>First Name</Form.Label>
-					<Input {...attrs} bind:value={$formData.firstName} placeholder="First Name" />
-				</Form.Control>
-				<Form.Description>Your legal first name.</Form.Description>
-				<Form.FieldErrors />
-			</Form.Field>
-		</div>
-		<div>
-			<Form.Field {form} name="lastName">
-				<Form.Control let:attrs>
-					<Form.Label>Last Name</Form.Label>
-					<Input {...attrs} bind:value={$formData.lastName} placeholder="Last Name" />
-				</Form.Control>
-				<Form.Description>Your legal last name.</Form.Description>
-				<Form.FieldErrors />
-			</Form.Field>
-		</div>
-	</div>
-	<div class="mb-4 grid gap-4 sm:grid-cols-2">
-		<div>
-			<Form.Field {form} name="email">
-				<Form.Control let:attrs>
-					<Form.Label>Email</Form.Label>
-					<Input {...attrs} bind:value={$formData.email} placeholder="Email" />
-				</Form.Control>
-				<Form.Description>Your email address.</Form.Description>
-				<Form.FieldErrors />
-			</Form.Field>
-		</div>
-	</div>
-	<div class="mb-4 grid gap-4 sm:grid-cols-2">
-		<div>
-			<Form.Field {form} name="address">
-				<Form.Control let:attrs>
-					<Form.Label>Address</Form.Label>
-					<Input {...attrs} bind:value={$formData.address} placeholder="Address" />
-					<Form.FieldErrors />
-				</Form.Control>
-				<Form.Description>Your address.</Form.Description>
-			</Form.Field>
-		</div>
-		<div>
-			<Form.Field {form} name="phone">
-				<Form.Control let:attrs>
-					<Form.Label>Phone</Form.Label>
-					<Input {...attrs} bind:value={$formData.phone} placeholder="Phone" />
-				</Form.Control>
-				<Form.Description>Your phone number.</Form.Description>
-				<Form.FieldErrors />
-			</Form.Field>
-		</div>
-	</div>
 	<div class="mb-4 grid gap-4 sm:grid-cols-1">
 		<div>
 			<Form.Field {form} name="stageName">
