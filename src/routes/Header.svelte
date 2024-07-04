@@ -39,6 +39,9 @@
 			<li aria-current={$page.url.pathname === '/social' ? 'page' : undefined}>
 				<a href="/">Social</a>
 			</li>
+			<li aria-current={$page.url.pathname === '/royalties' ? 'page' : undefined}>
+				<a href="/">Royalties</a>
+			</li>
 			<li aria-current={$page.url.pathname === '/admin' ? 'page' : undefined}>
 				<a href="/">Admin</a>
 			</li>
