@@ -3,5 +3,5 @@
 </script>
 
 <div>
-	<SignUp redirectUrl="/admin" />
+	<SignUp redirectUrl="/" />
 </div>
