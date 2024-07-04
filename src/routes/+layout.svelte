@@ -3,6 +3,7 @@
 	import Header from './Header.svelte';
 	import type { LayoutServerData } from './$types';
 	import { Badge } from '$lib/components/ui/badge/index.js';
+	import { ModeWatcher } from 'mode-watcher';
 
 	export let data: LayoutServerData;
 </script>
@@ -11,7 +12,8 @@
 	<Header></Header>
 
 	<main>
-		<slot></slot>
+		<ModeWatcher />
+		<slot />
 	</main>
 
 	<footer>

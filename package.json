@@ -61,6 +61,7 @@
     "drizzle-zod": "^0.5.1",
     "formsnap": "^1.0.1",
     "lucide-svelte": "^0.399.0",
+    "mode-watcher": "^0.3.1",
     "postgres": "^3.4.4",
     "svelte-sonner": "^0.3.24",
     "svelte-tel-input": "^3.4.1",

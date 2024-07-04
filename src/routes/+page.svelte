@@ -49,6 +49,7 @@
 			<p>
 				We collaborate with top music industry companies to deliver the ultimate experience for you.
 			</p>
+			<br />
 			<img alt="Epsilon Distribution Partners" src={partners} />
 		</Card.Content>
 		<Card.Footer></Card.Footer>
