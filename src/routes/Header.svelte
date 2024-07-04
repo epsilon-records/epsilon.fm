@@ -69,7 +69,7 @@
 		<NavUl class="order-1">
 			<NavLi href="/" active={true}>Home</NavLi>
 			<NavLi href="/faq">FAQ</NavLi>
-			<NavLi href="/profile">Profile</NavLi>
+			<SignedIn let:user><NavLi href="/profile/{user?.id}">Profile</NavLi></SignedIn>
 			<NavLi href="/">Releases</NavLi>
 			<NavLi href="/">Merch</NavLi>
 			<NavLi href="/">Website</NavLi>
