@@ -8,6 +8,7 @@ import {
 	date,
 	decimal
 } from 'drizzle-orm/pg-core';
+import { z } from 'zod';
 
 export const artist = pgTable('artist', {
 	id: serial('id').primaryKey(),
