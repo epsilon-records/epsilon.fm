@@ -20,7 +20,11 @@
 			<Card.Description>A modern music distribution platform.</Card.Description>
 		</Card.Header>
 		<Card.Content>
-			<p>$99/year, unlimited music distribution.</p>
+			<p>
+				Experience unlimited music distribution with our modern open-source platform for just
+				$99/year, including features like an artist website, social media management, and merch,
+				empowering you with global reach and full control over your creative work.
+			</p>
 		</Card.Content>
 		<Card.Footer>
 			<SignedOut>
