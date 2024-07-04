@@ -5,6 +5,7 @@
 	import UserButton from 'clerk-sveltekit/client/UserButton.svelte';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
+	import OrganizationSwitcher from 'clerk-sveltekit/client/OrganizationSwitcher.svelte';
 	import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
 	import Sun from 'lucide-svelte/icons/sun';
 	import Moon from 'lucide-svelte/icons/moon';
@@ -21,11 +22,18 @@
 
 <header>
 	<Navbar class="m-4">
-		<NavBrand href="/">
-			<img src={logo} class="me-3 h-9 sm:h-9" alt="Epsilon Distribution" />
-		</NavBrand>
+		<SignedIn>
+			<div class="flex items-center">
+				<OrganizationSwitcher />
+			</div>
+		</SignedIn>
+		<SignedOut>
+			<NavBrand href="/">
+				<img src={logo} class="me-3 h-9 sm:h-9" alt="Epsilon Distribution" />
+			</NavBrand>
+		</SignedOut>
 		<div class="flex md:order-2">
-			<div class="corner pt-1">
+			<!-- <div class="corner">
 				<DropdownMenu.Root>
 					<DropdownMenu.Trigger asChild let:builder>
 						<Button builders={[builder]} variant="ghost" size="icon">
@@ -44,7 +52,7 @@
 						<DropdownMenu.Item on:click={() => resetMode()}>System</DropdownMenu.Item>
 					</DropdownMenu.Content>
 				</DropdownMenu.Root>
-			</div>
+			</div> -->
 			<div class="corner">
 				<SignedIn>
 					<UserButton afterSignOutUrl="/" />
