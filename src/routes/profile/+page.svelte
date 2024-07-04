@@ -2,6 +2,7 @@
 	import * as Card from '$lib/components/ui/card';
 	import type { PageData } from './$types.js';
 	import ProfileForm from './ProfileForm.svelte';
+	import UserProfile from 'clerk-sveltekit/client/UserProfile.svelte';
 	export let data: PageData;
 </script>
 
