@@ -22,28 +22,28 @@
 				<a href="/">Home</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/faq' ? 'page' : undefined}>
-				<a href="/faq">FAQ</a>
+				<a href="/">FAQ</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/profile' ? 'page' : undefined}>
 				<a href="/profile">Profile</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/releases' ? 'page' : undefined}>
-				<a href="/releases">Releases</a>
+				<a href="/">Releases</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/merch' ? 'page' : undefined}>
-				<a href="/merch">Merch</a>
+				<a href="/">Merch</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/website' ? 'page' : undefined}>
-				<a href="/website">Website</a>
+				<a href="/">Website</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/social' ? 'page' : undefined}>
-				<a href="/social">Social</a>
+				<a href="/">Social</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/admin' ? 'page' : undefined}>
-				<a href="/admin">Admin</a>
+				<a href="/">Admin</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/settings' ? 'page' : undefined}>
-				<a href="/settings">Settings</a>
+				<a href="/">Settings</a>
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
