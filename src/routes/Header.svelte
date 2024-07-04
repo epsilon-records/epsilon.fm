@@ -21,16 +21,18 @@
 
 <header>
 	<Navbar class="m-4">
-		<SignedIn>
-			<div class="flex items-center">
-				<OrganizationSwitcher />
-			</div>
-		</SignedIn>
-		<SignedOut>
+		<div class="corner pt-2">
 			<NavBrand href="/">
-				<img src={logo} class="me-3 h-9 sm:h-9" alt="Epsilon Distribution" />
+				<SignedIn>
+					<div class="flex items-center">
+						<OrganizationSwitcher />
+					</div>
+				</SignedIn>
+				<SignedOut>
+					<img src={logo} class="me-3 h-9 sm:h-9" alt="Epsilon Distribution" />
+				</SignedOut>
 			</NavBrand>
-		</SignedOut>
+		</div>
 		<div class="flex md:order-2">
 			<!-- <div class="corner">
 				<DropdownMenu.Root>
@@ -52,7 +54,7 @@
 					</DropdownMenu.Content>
 				</DropdownMenu.Root>
 			</div> -->
-			<div class="corner">
+			<div class="corner pt-2">
 				<SignedIn>
 					<UserButton afterSignOutUrl="/" />
 				</SignedIn>
@@ -74,7 +76,6 @@
 			<NavLi href="/">Social</NavLi>
 			<NavLi href="/">Royalties</NavLi>
 			<NavLi href="/">Admin</NavLi>
-			<NavLi href="/">Settings</NavLi>
 		</NavUl>
 	</Navbar>
 </header>
