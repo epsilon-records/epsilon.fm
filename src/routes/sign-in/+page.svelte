@@ -4,7 +4,7 @@
 </script>
 
 <div>
-	<Card.Root class="m-4">
+	<Card.Root class="m-4 content-center">
 		<SignIn redirectUrl="/" />
 	</Card.Root>
 </div>
