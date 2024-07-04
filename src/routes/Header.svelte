@@ -5,64 +5,46 @@
 	import UserButton from 'clerk-sveltekit/client/UserButton.svelte';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
+	import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Button, Input } from 'flowbite-svelte';
+	import * as Menubar from '$lib/components/ui/menubar';
+
+	let bookmarks = false;
+	let fullUrls = true;
+
+	const profileRadioValue = 'benoit';
 </script>
 
 <header>
-	<div class="corner m-8">
-		<a href="https://epsilon.fm">
-			<img src={logo} alt="Epsilon Distribution" />
-		</a>
-	</div>
-	<nav class="m-8">
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">Home</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/faq' ? 'page' : undefined}>
-				<a href="/">FAQ</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/profile' ? 'page' : undefined}>
-				<a href="/profile">Profile</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/releases' ? 'page' : undefined}>
-				<a href="/">Releases</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/merch' ? 'page' : undefined}>
-				<a href="/">Merch</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/website' ? 'page' : undefined}>
-				<a href="/">Website</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/social' ? 'page' : undefined}>
-				<a href="/">Social</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/royalties' ? 'page' : undefined}>
-				<a href="/">Royalties</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/admin' ? 'page' : undefined}>
-				<a href="/">Admin</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/settings' ? 'page' : undefined}>
-				<a href="/">Settings</a>
-			</li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
-	</nav>
-	<div class="corner m-8">
-		<SignedIn>
-			<UserButton afterSignOutUrl="/" />
-		</SignedIn>
-		<SignedOut>
-			<a href="https://github.com/natehouk/epsilon.fm">
-				<img src={github} alt="GitHub" />
-			</a>
-		</SignedOut>
-	</div>
+	<Navbar>
+		<NavBrand href="/">
+			<img src={logo} class="me-3 h-9 sm:h-9" alt="Epsilon Distribution" />
+		</NavBrand>
+		<div class="flex md:order-2">
+			<div class="corner">
+				<SignedIn>
+					<UserButton afterSignOutUrl="/" />
+				</SignedIn>
+				<SignedOut>
+					<a href="https://github.com/natehouk/epsilon.fm">
+						<img src={github} alt="GitHub" />
+					</a>
+				</SignedOut>
+			</div>
+			<NavHamburger />
+		</div>
+		<NavUl class="order-1">
+			<NavLi href="/" active={true}>Home</NavLi>
+			<NavLi href="/faq">FAQ</NavLi>
+			<NavLi href="/profile">Profile</NavLi>
+			<NavLi href="/releases">Releases</NavLi>
+			<NavLi href="/merch">Merch</NavLi>
+			<NavLi href="/website">Website</NavLi>
+			<NavLi href="/social">Social</NavLi>
+			<NavLi href="/royalties">Royalties</NavLi>
+			<NavLi href="/admin">Admin</NavLi>
+			<NavLi href="/settings">Settings</NavLi>
+		</NavUl>
+	</Navbar>
 </header>
 
 <style>

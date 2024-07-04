@@ -8,7 +8,7 @@
 <Card.Root class="m-4">
 	<Card.Header>
 		<Card.Title>Artist Profile</Card.Title>
-		<Card.Description>Update your profile.</Card.Description>
+		<Card.Description>Update your profile 🎨</Card.Description>
 	</Card.Header>
 	<Card.Content>
 		<ProfileForm data={data.form} />
