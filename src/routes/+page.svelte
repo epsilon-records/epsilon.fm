@@ -6,6 +6,7 @@
 	import SignUpButton from 'clerk-sveltekit/client/SignUpButton.svelte';
 	import partners from '$lib/images/partners.png';
 	import { Badge } from '$lib/components/ui/badge/index';
+	import Typewriter from 'svelte-typewriter';
 </script>
 
 <svelte:head>
@@ -17,13 +18,12 @@
 </svelte:head>
 
 <section>
-	<Card.Root>
+	<Card.Root class="m-4">
 		<Card.Header>
 			<Card.Title>Epsilon Distribution</Card.Title>
 			<Card.Description>A modern open-source music distribution platform.</Card.Description>
 		</Card.Header>
 		<Card.Content>
-			<p>Experience unlimited music distribution for just <Badge>$99/year</Badge></p>
 			<SignedOut>
 				<Button class="m-2">
 					<SignInButton mode="modal">Login</SignInButton>
@@ -32,6 +32,11 @@
 					<SignUpButton mode="modal">Sign up</SignUpButton>
 				</Button>
 			</SignedOut>
+		</Card.Content>
+		<Card.Content>
+			<h4 class="scroll-m-20 text-xl font-semibold tracking-tight">
+				Experience unlimited music distribution for just <Badge>$99/year</Badge>
+			</h4>
 		</Card.Content>
 		<Card.Content>
 			<p>
