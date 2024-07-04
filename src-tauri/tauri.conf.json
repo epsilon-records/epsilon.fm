@@ -6,7 +6,7 @@
     "distDir": "../public"
   },
   "package": {
-    "productName": "epsilon",
+    "productName": "Epsilon",
     "version": "0.1.0"
   },
   "tauri": {

@@ -9,8 +9,11 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Epsilon Distribution</title>
+	<meta
+		name="description"
+		content="Our modern open-source platform includes features like an artist website, social media management, and merch, empowering you with global reach and full control over your creative work."
+	/>
 </svelte:head>
 
 <section>
