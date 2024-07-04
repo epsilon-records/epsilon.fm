@@ -44,6 +44,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@sveltejs/enhanced-img": "^0.3.0",
     "@vercel/postgres": "^0.9.0",
     "bits-ui": "^0.21.11",
     "clerk-sveltekit": "^0.4.2",

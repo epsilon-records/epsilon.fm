@@ -1,11 +1,10 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card';
 	import { Button } from '$lib/components/ui/button/index';
-	import github from '$lib/images/github.svg';
-	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
 	import SignInButton from 'clerk-sveltekit/client/SignInButton.svelte';
 	import SignUpButton from 'clerk-sveltekit/client/SignUpButton.svelte';
+	import partners from '$lib/images/partners.png';
 </script>
 
 <svelte:head>
@@ -17,18 +16,12 @@
 	<Card.Root>
 		<Card.Header>
 			<Card.Title>Epsilon Distribution</Card.Title>
-			<Card.Description>A modern music distribution platform.</Card.Description>
+			<Card.Description>A modern open-source music distribution platform.</Card.Description>
 		</Card.Header>
 		<Card.Content>
 			<p>Experience unlimited music distribution for just $99/year.</p>
-			<br />
-			<p>
-				Our modern open-source platform includes features like an artist website, social media
-				management, and merch, empowering you with global reach and full control over your creative
-				work.
-			</p>
 		</Card.Content>
-		<Card.Footer>
+		<Card.Content>
 			<SignedOut>
 				<Button class="m-2">
 					<SignInButton mode="modal">Login</SignInButton>
@@ -37,6 +30,20 @@
 					<SignUpButton mode="modal">Sign up</SignUpButton>
 				</Button>
 			</SignedOut>
-		</Card.Footer>
+		</Card.Content>
+		<Card.Content>
+			<p>
+				Our modern open-source platform includes features like an artist website, social media
+				management, and merch, empowering you with global reach and full control over your creative
+				work.
+			</p>
+		</Card.Content>
+		<Card.Content>
+			<p>
+				We collaborate with top music industry companies to deliver the ultimate experience for you.
+			</p>
+			<img alt="Epsilon Distribution Partners" src={partners} />
+		</Card.Content>
+		<Card.Footer></Card.Footer>
 	</Card.Root>
 </section>
