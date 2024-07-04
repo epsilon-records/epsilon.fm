@@ -1,7 +1,10 @@
 <script lang="ts">
+	import * as Card from '$lib/components/ui/card';
 	import SignUp from 'clerk-sveltekit/client/SignUp.svelte';
 </script>
 
 <div>
-	<SignUp redirectUrl="/" />
+	<Card.Root class="m-4">
+		<SignUp redirectUrl="/" />
+	</Card.Root>
 </div>
