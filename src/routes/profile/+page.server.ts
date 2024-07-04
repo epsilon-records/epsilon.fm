@@ -10,16 +10,16 @@ export const load: PageServerLoad = async () => {
 	};
 };
 
-// export const actions: Actions = {
-// 	default: async (event) => {
-// 		const form = await superValidate(event, zod(artistSchema));
-// 		if (!form.valid) {
-// 			return fail(400, {
-// 				form
-// 			});
-// 		}
-// 		return {
-// 			form
-// 		};
-// 	}
-// };
+export const actions: Actions = {
+	default: async (event) => {
+		const form = await superValidate(event, zod(artistSchema));
+		if (!form.valid) {
+			return fail(400, {
+				form
+			});
+		}
+		return {
+			form
+		};
+	}
+};
