@@ -59,9 +59,12 @@
 					<UserButton afterSignOutUrl="/" />
 				</SignedIn>
 				<SignedOut>
-					<a href="https://github.com/natehouk/epsilon.fm">
-						<img src={github} alt="GitHub" />
-					</a>
+					<div id="i18n-dropdown"></div>
+					<div>
+						<a href="https://github.com/natehouk/epsilon.fm">
+							<img src={github} alt="GitHub" />
+						</a>
+					</div>
 				</SignedOut>
 			</div>
 			<NavHamburger />
