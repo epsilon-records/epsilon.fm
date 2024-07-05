@@ -1,61 +1,63 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
-  :root {
-    --background: 0 0% 96%;
-    --foreground: 224 71.4% 4.1%;
-    --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
-    --primary: 262.1 83.3% 57.8%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 220.9 39.3% 11%;
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
-    --accent: 220 14.3% 95.9%;
-    --accent-foreground: 220.9 39.3% 11%;
-    --destructive: 0 72.22% 50.59%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 262.1 83.3% 57.8%;
-    --radius: 0.5rem;
-  }
-  .dark {
-    --background: 224 71.4% 4.1%;
-    --foreground: 210 20% 98%;
-    --card: 224 71.4% 4.1%;
-    --card-foreground: 210 20% 98%;
-    --popover: 224 71.4% 4.1%;
-    --popover-foreground: 210 20% 98%;
-    --primary: 263.4 70% 50.4%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 215 27.9% 16.9%;
-    --secondary-foreground: 210 20% 98%;
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 217.9 10.6% 64.9%;
-    --accent: 215 27.9% 16.9%;
-    --accent-foreground: 210 20% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
-    --ring: 263.4 70% 50.4%;
-  }
-  a:hover {
-		color: var(--color-theme-1);
+	:root {
+		--background: 0 0% 100%; /* White background */
+		--foreground: 220 20% 20%; /* Dark gray text */
+		--card: 10 30% 97%; /* Very light gray cards */
+		--card-foreground: 220 20% 20%; /* Dark gray text for cards */
+		--popover: 220 20% 95%; /* Very light gray popovers */
+		--popover-foreground: 220 20% 20%; /* Dark gray text for popovers */
+		--primary: 262.1 83.3% 57.8%; /* Bright blue */
+		--primary-foreground: 0 0% 100%; /* White text */
+		--secondary: 220 14.3% 95.9%; /* Light gray */
+		--secondary-foreground: 220.9 39.3% 11%; /* Darker gray */
+		--muted: 220 14.3% 95.9%; /* Light gray */
+		--muted-foreground: 220 8.9% 46.1%; /* Medium gray */
+		--accent: 262.1 83.3% 57.8%; /* Bright blue */
+		--accent-foreground: 0 0% 100%; /* White text */
+		--destructive: 0 72.22% 50.59%; /* Bright red */
+		--destructive-foreground: 0 0% 100%; /* White text */
+		--border: 220 13% 91%; /* Light gray border */
+		--input: 220 13% 91%; /* Light gray input background */
+		--ring: 262.1 83.3% 57.8%; /* Bright blue ring */
+		--radius: 0.5rem; /* Border radius */
+	}
+
+	.dark {
+		--background: 230 20% 15%; /* Dark navy background */
+		--foreground: 210 100% 85%; /* Bright neon green text */
+		--card: 240 20% 10%; /* Darker navy cards */
+		--card-foreground: 210 100% 85%; /* Bright neon green text for cards */
+		--popover: 240 20% 10%; /* Darker navy popovers */
+		--popover-foreground: 210 100% 85%; /* Bright neon green text for popovers */
+		--primary: 310 100% 50%; /* Neon pink */
+		--primary-foreground: 0 0% 100%; /* White text */
+		--secondary: 290 100% 50%; /* Neon purple */
+		--secondary-foreground: 0 0% 100%; /* White text */
+		--muted: 290 100% 50%; /* Neon purple */
+		--muted-foreground: 0 0% 100%; /* White text */
+		--accent: 310 100% 50%; /* Neon pink */
+		--accent-foreground: 0 0% 100%; /* White text */
+		--destructive: 0 100% 50%; /* Neon red */
+		--destructive-foreground: 0 0% 100%; /* White text */
+		--border: 240 20% 10%; /* Darker navy border */
+		--input: 240 20% 10%; /* Darker navy input background */
+		--ring: 310 100% 50%; /* Neon pink ring */
+	}
+
+	a:hover {
+		color: var(--primary); /* Use primary color for hover effect */
 	}
 }
- 
+
 @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
 }

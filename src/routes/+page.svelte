@@ -20,9 +20,16 @@
 <section>
 	<Card.Root class="m-4">
 		<Card.Header>
-			<Card.Title>Epsilon Distribution</Card.Title>
+			<Card.Title class="text-4xl">Epsilon Distribution</Card.Title>
 			<Card.Description>A modern open-source music distribution platform.</Card.Description>
 		</Card.Header>
+		<Card.Content>
+			<Typewriter>
+				<h4 class="scroll-m-20 text-center text-xl font-semibold tracking-tight">
+					Experience unlimited music distribution for just $99/year
+				</h4>
+			</Typewriter>
+		</Card.Content>
 		<Card.Content>
 			<SignedOut>
 				<Button class="m-2">
@@ -33,25 +40,56 @@
 				</Button>
 			</SignedOut>
 		</Card.Content>
+	</Card.Root>
+	<Card.Root class="m-4">
+		<Card.Header>
+			<p class="font-mono">
+				🎉 Discover our modern open-source platform, meticulously designed with your needs in mind.
+				We offer a comprehensive suite of features that empower you to take control of your creative
+				journey. 🎨 Whether you're an emerging artist or an established performer, our tools are
+				tailored to help you thrive in the digital age. 🌟 With capabilities such as creating a
+				professional artist website 🌐, managing social media 📱, and offering merchandise options
+				🛍️, you can expand your global reach and fully manage your artistic presence. 🌍✨
+			</p>
+		</Card.Header>
+	</Card.Root>
+	<Card.Root class="m-4">
+		<Card.Header>
+			<div class="flex items-center justify-center">
+				<p class="font-serif text-2xl">Join our Newsletter</p>
+			</div>
+		</Card.Header>
 		<Card.Content>
-			<h4 class="scroll-m-20 text-xl font-semibold tracking-tight">
-				Experience unlimited music distribution for just <Badge>$99/year</Badge>
-			</h4>
+			<div class="flex items-center justify-center">
+				<script
+					async
+					data-uid="47e61bac90"
+					src="https://epsilon.ck.page/47e61bac90/index.js"
+				></script>
+			</div>
 		</Card.Content>
+	</Card.Root>
+	<Card.Root class="m-4">
+		<Card.Header>
+			<div class="flex items-center justify-center">
+				<p class="font-serif text-2xl">Industry Partners</p>
+			</div></Card.Header
+		>
 		<Card.Content>
-			<p>
-				Our modern open-source platform includes features like an artist website, social media
-				management, and merch, empowering you with global reach and full control over your creative
-				work.
+			<p class="font-mono">
+				We believe in the power of collaboration. That’s why we partner with leading companies in
+				the music industry to bring you unparalleled opportunities and experiences. Our extensive
+				network ensures you have access to the best resources and support available. From
+				distribution to promotion, we provide everything you need to succeed. Our platform makes it
+				easy to get your music on all major streaming platforms and digital stores, ensuring your
+				tracks are available to listeners everywhere.
 			</p>
 		</Card.Content>
 		<Card.Content>
-			<p>
-				We collaborate with top music industry companies to deliver the ultimate experience for you.
-			</p>
-			<br />
 			<img alt="Epsilon Distribution Partners" src={partners} />
 		</Card.Content>
-		<Card.Footer></Card.Footer>
+		<Card.Content>
+			<div class="text-center"></div>
+		</Card.Content>
 	</Card.Root>
 </section>

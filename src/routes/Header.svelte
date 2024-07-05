@@ -6,12 +6,12 @@
 	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
 	import OrganizationSwitcher from 'clerk-sveltekit/client/OrganizationSwitcher.svelte';
 	import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
-	// import Sun from 'lucide-svelte/icons/sun';
-	// import Moon from 'lucide-svelte/icons/moon';
+	import Sun from 'lucide-svelte/icons/sun';
+	import Moon from 'lucide-svelte/icons/moon';
 
-	// import { resetMode, setMode } from 'mode-watcher';
-	// import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
-	// import { Button } from '$lib/components/ui/button';
+	import { resetMode, setMode } from 'mode-watcher';
+	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
+	import { Button } from '$lib/components/ui/button';
 
 	let bookmarks = false;
 	let fullUrls = true;
@@ -20,7 +20,7 @@
 </script>
 
 <header>
-	<Navbar class="m-4">
+	<Navbar>
 		<div class="corner pt-2">
 			<NavBrand href="/">
 				<SignedIn>
@@ -34,7 +34,7 @@
 			</NavBrand>
 		</div>
 		<div class="flex md:order-2">
-			<!-- <div class="corner">
+			<div class="corner">
 				<DropdownMenu.Root>
 					<DropdownMenu.Trigger asChild let:builder>
 						<Button builders={[builder]} variant="ghost" size="icon">
@@ -53,32 +53,32 @@
 						<DropdownMenu.Item on:click={() => resetMode()}>System</DropdownMenu.Item>
 					</DropdownMenu.Content>
 				</DropdownMenu.Root>
-			</div> -->
+			</div>
 			<div class="corner pt-2">
 				<SignedIn>
 					<UserButton afterSignOutUrl="/" />
 				</SignedIn>
 				<SignedOut>
-					<div>
-						<a href="https://github.com/natehouk/epsilon.fm">
-							<img src={github} alt="GitHub" />
-						</a>
-					</div>
+					<a href="https://github.com/natehouk/epsilon.fm">
+						<img src={github} alt="GitHub" />
+					</a>
 				</SignedOut>
 			</div>
 			<NavHamburger />
 		</div>
-		<NavUl class="order-1">
-			<NavLi href="/" active={true}>Home</NavLi>
-			<NavLi href="/faq">FAQ</NavLi>
-			<SignedIn let:user><NavLi href="/profile/{user?.id}">Profile</NavLi></SignedIn>
-			<NavLi href="/">Releases</NavLi>
-			<NavLi href="/">Merch</NavLi>
-			<NavLi href="/">Website</NavLi>
-			<NavLi href="/">Social</NavLi>
-			<NavLi href="/">Royalties</NavLi>
-			<NavLi href="/">Admin</NavLi>
-			<NavLi><div id="i18n-dropdown"></div></NavLi>
+		<NavUl class="order-1 m-2">
+			<SignedOut
+				><NavLi class="mt-2" href="/" active={true}>Home</NavLi>
+				<NavLi class="mt-2" href="/faq">FAQ</NavLi></SignedOut
+			>
+			<SignedIn let:user><NavLi class="mt-2" href="/profile/{user?.id}">Profile</NavLi></SignedIn>
+			<NavLi class="mt-2" href="/">Releases</NavLi>
+			<NavLi class="mt-2" href="/">Merch</NavLi>
+			<NavLi class="mt-2" href="/">Website</NavLi>
+			<NavLi class="mt-2" href="/">Social</NavLi>
+			<NavLi class="mt-2" href="/">Royalties</NavLi>
+			<NavLi class="mt-2" href="/">Admin</NavLi>
+			<NavLi id="i18n-dropdown"></NavLi>
 		</NavUl>
 	</Navbar>
 </header>
