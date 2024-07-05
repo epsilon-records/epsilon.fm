@@ -1,5 +1,5 @@
 <script>
-	import logo from '$lib/images/acid-logo.png';
+	import logo from '$lib/images/logo.png';
 	import github from '$lib/images/github.svg';
 	import UserButton from 'clerk-sveltekit/client/UserButton.svelte';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
