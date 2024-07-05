@@ -10,15 +10,20 @@ import {
 } from 'drizzle-orm/pg-core';
 import { z } from 'zod';
 
-export const artist = pgTable('artist', {
+export const user = pgTable('user', {
 	id: serial('id').primaryKey(),
-	firstName: varchar('first_name', { length: 50 }).notNull(),
-	lastName: varchar('last_name', { length: 50 }).notNull(),
-	stageName: varchar('stage_name', { length: 50 }),
-	email: varchar('email', { length: 100 }).notNull(),
+	authId: varchar('auth_id', { length: 255 }).notNull(),
 	birthdate: date('birthdate').notNull(),
 	phone: varchar('phone', { length: 15 }),
 	address: text('address'),
+	referralSource: varchar('referral_source', { length: 255 }), // Better column name for how_did_you_hear_about_us
+	anrReferral: varchar('anr_referral', { length: 255 })
+});
+
+export const artist = pgTable('artist', {
+	id: serial('id').primaryKey(),
+	orgId: varchar('org_id', { length: 255 }).notNull(),
+	stageName: varchar('stage_name', { length: 50 }),
 	biography: text('biography'),
 	spotifyArtistLink: varchar('spotify_artist_link', { length: 255 }),
 	youtubeChannelLink: varchar('youtube_channel_link', { length: 255 }),
@@ -28,9 +33,7 @@ export const artist = pgTable('artist', {
 	tiktokProfileLink: varchar('tiktok_profile_link', { length: 255 }),
 	soundcloudProfileLink: varchar('soundcloud_profile_link', { length: 255 }),
 	songkickProfileLink: varchar('songkick_profile_link', { length: 255 }),
-	bandsintownLink: varchar('bandsintown_link', { length: 255 }),
-	referralSource: varchar('referral_source', { length: 255 }), // Better column name for how_did_you_hear_about_us
-	anrReferral: varchar('anr_referral', { length: 255 })
+	bandsintownLink: varchar('bandsintown_link', { length: 255 })
 });
 
 export const genre = pgTable('genre', {
