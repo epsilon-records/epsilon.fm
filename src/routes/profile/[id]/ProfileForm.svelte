@@ -22,7 +22,7 @@
 	const placeholder = 'Destination city';
 </script>
 
-<form method="POST" use:enhance>
+<form method="POST" action="?/save" use:enhance>
 	<div class="mb-4 grid gap-4 sm:grid-cols-1">
 		<div>
 			<Form.Field {form} name="stageName">
