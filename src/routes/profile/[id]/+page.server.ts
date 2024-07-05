@@ -17,7 +17,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 	}
 	const data = await db.select().from(artist).where(eq(artist.orgId, orgId));
 	console.log(data);
-	const form = await superValidate(data[0], zod(artistSchema));
+	const form = await superValidate({ data }, zod(artistSchema));
 	form.data.orgId = orgId;
 	return {
 		authId: authId,

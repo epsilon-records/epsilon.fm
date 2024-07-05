@@ -8,19 +8,17 @@
 	import { zodClient } from 'sveltekit-superforms/adapters';
 
 	export let data: SuperValidated<Infer<ArtistSchema>>;
-	export let orgId;
+	export const orgId = null;
 
-	const form = superForm(data, {
+	const { form, errors, constraints, message } = superForm(data, {
 		validators: zodClient(artistSchema)
 	});
-
-	const { form: formData, enhance } = form;
 </script>
 
 <form method="POST" use:enhance>
 	<Form.Field {form} name="orgId">
 		<Form.Control let:attrs>
-			<Input {...attrs} bind:value={$formData.orgId} type="hidden" />
+			<Input {...attrs} bind:value={$form.orgId} type="hidden" />
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
@@ -29,7 +27,7 @@
 			<Form.Field {form} name="stageName">
 				<Form.Control let:attrs>
 					<Form.Label>Artist Stage Name</Form.Label>
-					<Input {...attrs} bind:value={$formData.stageName} placeholder="Stage Name" />
+					<Input {...attrs} bind:value={$form.stageName} placeholder="Stage Name" />
 				</Form.Control>
 				<Form.Description>Correct capitalisation and spelling required.</Form.Description>
 				<Form.FieldErrors />
@@ -41,7 +39,7 @@
 			<Form.Field {form} name="biography">
 				<Form.Control let:attrs>
 					<Form.Label>Artist Biography</Form.Label>
-					<Textarea {...attrs} bind:value={$formData.biography} placeholder="Biography" />
+					<Textarea {...attrs} bind:value={$form.biography} placeholder="Biography" />
 				</Form.Control>
 				<Form.Description>Your artist biography.</Form.Description>
 				<Form.FieldErrors />
@@ -55,7 +53,7 @@
 					<Form.Label>Spotify Artist Link</Form.Label>
 					<Input
 						{...attrs}
-						bind:value={$formData.spotifyArtistLink}
+						bind:value={$form.spotifyArtistLink}
 						placeholder="Spotify Artist Link"
 					/>
 				</Form.Control>
@@ -71,7 +69,7 @@
 					<Form.Label>YouTube Channel Link</Form.Label>
 					<Input
 						{...attrs}
-						bind:value={$formData.youtubeChannelLink}
+						bind:value={$form.youtubeChannelLink}
 						placeholder="YouTube Channel Link"
 					/>
 				</Form.Control>
@@ -87,7 +85,7 @@
 					<Form.Label>Instagram Profile Link</Form.Label>
 					<Input
 						{...attrs}
-						bind:value={$formData.instagramProfileLink}
+						bind:value={$form.instagramProfileLink}
 						placeholder="Instagram Profile Link"
 					/>
 				</Form.Control>
@@ -103,7 +101,7 @@
 					<Form.Label>Facebook Profile Link</Form.Label>
 					<Input
 						{...attrs}
-						bind:value={$formData.facebookProfileLink}
+						bind:value={$form.facebookProfileLink}
 						placeholder="Facebook Profile Link"
 					/>
 				</Form.Control>
@@ -117,7 +115,7 @@
 			<Form.Field {form} name="xProfileLink">
 				<Form.Control let:attrs>
 					<Form.Label>X Profile Link</Form.Label>
-					<Input {...attrs} bind:value={$formData.xProfileLink} placeholder="X Profile Link" />
+					<Input {...attrs} bind:value={$form.xProfileLink} placeholder="X Profile Link" />
 				</Form.Control>
 				<Form.Description>Your X artist profile link.</Form.Description>
 				<Form.FieldErrors />
@@ -131,7 +129,7 @@
 					<Form.Label>TikTok Profile Link</Form.Label>
 					<Input
 						{...attrs}
-						bind:value={$formData.tiktokProfileLink}
+						bind:value={$form.tiktokProfileLink}
 						placeholder="TikTok Profile Link"
 					/>
 				</Form.Control>
@@ -147,7 +145,7 @@
 					<Form.Label>SoundCloud Profile Link</Form.Label>
 					<Input
 						{...attrs}
-						bind:value={$formData.soundcloudProfileLink}
+						bind:value={$form.soundcloudProfileLink}
 						placeholder="SoundCloud Profile Link"
 					/>
 				</Form.Control>
@@ -163,7 +161,7 @@
 					<Form.Label>Songkick Profile Link</Form.Label>
 					<Input
 						{...attrs}
-						bind:value={$formData.songkickProfileLink}
+						bind:value={$form.songkickProfileLink}
 						placeholder="Songkick Profile Link"
 					/>
 				</Form.Control>
@@ -179,7 +177,7 @@
 					<Form.Label>Bandsintown Profile Link</Form.Label>
 					<Input
 						{...attrs}
-						bind:value={$formData.bandsintownProfileLink}
+						bind:value={$form.bandsintownProfileLink}
 						placeholder="Bandsintown Profile Link"
 					/>
 				</Form.Control>
@@ -192,6 +190,6 @@
 		<Form.Button>Submit</Form.Button>
 	</div>
 	<div class="m-4">
-		<SuperDebug data={$formData} />
+		<SuperDebug data={$form} />
 	</div>
 </form>
