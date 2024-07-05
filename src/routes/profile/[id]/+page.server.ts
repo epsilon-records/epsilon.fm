@@ -1,5 +1,5 @@
 import type { PageServerLoad, Actions } from '../$types.js';
-import { fail } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { artistSchema } from './schema';
@@ -8,12 +8,12 @@ import { artist } from '$lib/db/schema';
 import { eq } from 'drizzle-orm';
 
 export const load: PageServerLoad = async ({ locals }) => {
-	const authId = locals?.session?.userId ?? null;
-	const orgId = locals?.session?.claims?.org_id ?? null;
+	const authId = locals.session.userId ?? null;
+	const orgId = locals.session.claims.org_id ?? null;
 	console.log(authId);
 	console.log(orgId);
 	if (!authId || !orgId) {
-		fail(500); // TODO: cleanup
+		error(500);
 	}
 	const data = await db.select().from(artist).where(eq(artist.orgId, orgId));
 	console.log(data);

@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import type { PageData } from './$types';
 	import { Field, Control, Label, FieldErrors, Description } from 'formsnap';
 	import { Input } from '$lib/components/ui/input';
 	import { Textarea } from '$lib/components/ui/textarea';
@@ -11,10 +9,10 @@
 
 	export let data: SuperValidated<Infer<ArtistSchema>>;
 
+	// formsnap.dev/docs
 	const form = superForm(data, {
 		validators: zodClient(artistSchema)
 	});
-
 	const { form: formData, enhance } = form;
 </script>
 
