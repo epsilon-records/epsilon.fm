@@ -17,7 +17,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 		return fail(500);
 	}
 	console.log(data);
-	const form = await superValidate({ ...data }, zod(artistSchema));
+	const form = await superValidate({ data }, zod(artistSchema));
 
 	return {
 		authId: authId,
