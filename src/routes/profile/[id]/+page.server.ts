@@ -9,16 +9,16 @@ import { eq } from 'drizzle-orm';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	const authId = locals?.session?.userId ?? null;
-	const orgId = locals?.session?.claims?.ordId ?? null;
-
-	const data = await db.select().from(artist).where(eq(artist.orgId, orgId));
-
-	if (!data) {
-		return fail(500);
+	const orgId = locals?.session?.claims?.org_id ?? null;
+	console.log(authId);
+	console.log(orgId);
+	if (!authId || !orgId) {
+		fail(500); // TODO: cleanup
 	}
+	const data = await db.select().from(artist).where(eq(artist.orgId, orgId));
 	console.log(data);
-	const form = await superValidate({ data }, zod(artistSchema));
-
+	const form = await superValidate(data[0], zod(artistSchema));
+	form.data.orgId = orgId;
 	return {
 		authId: authId,
 		orgId: orgId,
@@ -27,7 +27,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 };
 
 export const actions: Actions = {
-	save: async (event) => {
+	default: async (event) => {
 		const form = await superValidate(event, zod(artistSchema));
 		console.log(form);
 		if (!form.valid) {

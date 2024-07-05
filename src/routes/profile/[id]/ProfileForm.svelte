@@ -17,18 +17,13 @@
 	const { form: formData, enhance } = form;
 </script>
 
-<form method="POST" action="?/save" use:enhance>
-	<div class="mb-4 grid gap-4 sm:grid-cols-1">
-		<div>
-			<Form.Field {form} name="orgId">
-				<Form.Control let:attrs>
-					<Form.Label>Organisation Identifier</Form.Label>
-					<Input {...attrs} bind:value={$formData.orgId} />
-				</Form.Control>
-				<Form.FieldErrors />
-			</Form.Field>
-		</div>
-	</div>
+<form method="POST" use:enhance>
+	<Form.Field {form} name="orgId">
+		<Form.Control let:attrs>
+			<Input {...attrs} bind:value={$formData.orgId} type="hidden" />
+		</Form.Control>
+		<Form.FieldErrors />
+	</Form.Field>
 	<div class="mb-4 grid gap-4 sm:grid-cols-1">
 		<div>
 			<Form.Field {form} name="stageName">
