@@ -8,8 +8,6 @@ import { artist } from '$lib/db/schema';
 import { eq } from 'drizzle-orm';
 
 export const load: PageServerLoad = async ({ locals }) => {
-	// Adjusted to correctly access session data
-
 	const authId = locals?.session?.userId ?? null;
 	const orgId = locals?.session?.claims?.ordId ?? null;
 
