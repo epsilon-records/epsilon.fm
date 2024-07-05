@@ -69,7 +69,8 @@
 		<NavUl class="order-1 m-2">
 			<SignedOut
 				><NavLi class="mt-2" href="/" active={true}>Home</NavLi>
-				<NavLi class="mt-2" href="/faq">FAQ</NavLi></SignedOut
+				<NavLi class="mt-2" href="/faq">FAQ</NavLi>
+				<NavLi class="mt-2" href="/faq">Pricing</NavLi></SignedOut
 			>
 			<SignedIn let:user
 				><NavLi class="mt-2" href="/profile/{user?.id}">Profile</NavLi>
