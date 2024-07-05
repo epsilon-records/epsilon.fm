@@ -55,7 +55,7 @@
 		"windows": [
 			{
 				"fullscreen": false,
-				"height": 1200,
+				"height": 600,
 				"resizable": true,
 				"title": "Epsilon Distribution",
 				"width": 1200
