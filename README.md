@@ -1,6 +1,6 @@
 # epsilon.fm
 
-Our modern open-source platform includes features like an artist website, social media management, and merch, empowering you with global reach and full control over your creative work.```
+Our modern open-source platform includes features like an artist website, social media management, and merch, empowering you with global reach and full control over your creative work.
 
 ## Developing
 
@@ -22,5 +22,3 @@ bun run build
 ```
 
 You can preview the production build with `bun run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
