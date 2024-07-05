@@ -1,5 +1,5 @@
 import type { PageServerLoad, Actions } from '../$types.js';
-import { error } from '@sveltejs/kit';
+import { fail, error } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { artistSchema } from './schema';
