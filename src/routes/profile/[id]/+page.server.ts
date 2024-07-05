@@ -10,14 +10,13 @@ import { eq } from 'drizzle-orm';
 export const load: PageServerLoad = async ({ locals }) => {
 	// Adjusted to correctly access session data
 
-	const userId = locals?.session?.userId ?? null;
+	const authId = locals?.session?.userId ?? null;
 	const orgId = locals?.session?.claims?.ordId ?? null;
 
-	const result = await db.select().from(artist);
-	console.log(result);
+	const result = await db.select().from(artist).where(eq(artist.orgId, orgId));
 
 	return {
-		userId: userId,
+		authId: authId,
 		orgId: orgId,
 		form: await superValidate(zod(artistSchema))
 	};
@@ -31,6 +30,7 @@ export const actions: Actions = {
 				form
 			});
 		}
+		console.log(form);
 		return {
 			form
 		};
