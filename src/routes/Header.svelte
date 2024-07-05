@@ -59,13 +59,10 @@
 					<UserButton afterSignOutUrl="/" />
 				</SignedIn>
 				<SignedOut>
-					<div class="grid gap-4 sm:grid-cols-2">
-						<div id="i18n-dropdown"></div>
-						<div>
-							<a href="https://github.com/natehouk/epsilon.fm">
-								<img src={github} alt="GitHub" />
-							</a>
-						</div>
+					<div>
+						<a href="https://github.com/natehouk/epsilon.fm">
+							<img src={github} alt="GitHub" />
+						</a>
 					</div>
 				</SignedOut>
 			</div>
@@ -81,6 +78,7 @@
 			<NavLi href="/">Social</NavLi>
 			<NavLi href="/">Royalties</NavLi>
 			<NavLi href="/">Admin</NavLi>
+			<NavLi><div id="i18n-dropdown"></div></NavLi>
 		</NavUl>
 	</Navbar>
 </header>
