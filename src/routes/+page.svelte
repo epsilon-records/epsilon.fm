@@ -20,8 +20,8 @@
 <section>
 	<Card.Root class="m-4">
 		<Card.Header>
-			<Card.Title class="text-4xl">Epsilon Distribution</Card.Title>
-			<Card.Description>A modern open-source music distribution platform.</Card.Description>
+			<Card.Title class="text-4xl">EpsilonFM</Card.Title>
+			<Card.Description>A modern open-source music business platform.</Card.Description>
 		</Card.Header>
 		<Card.Content>
 			<Typewriter>
