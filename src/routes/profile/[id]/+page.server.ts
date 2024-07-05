@@ -6,18 +6,23 @@ import { artistSchema } from './schema';
 import { db } from '$lib/db';
 import { artist } from '$lib/db/schema';
 import { eq } from 'drizzle-orm';
-import { ZodError } from 'zod';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	const authId = locals?.session?.userId ?? null;
 	const orgId = locals?.session?.claims?.ordId ?? null;
 
-	const result = await db.select().from(artist).where(eq(artist.orgId, orgId));
+	const data = await db.select().from(artist).where(eq(artist.orgId, orgId));
+
+	if (!data) {
+		return fail(500);
+	}
+	console.log(data);
+	const form = await superValidate({ ...data }, zod(artistSchema));
 
 	return {
 		authId: authId,
 		orgId: orgId,
-		form: await superValidate(zod(artistSchema))
+		form: form
 	};
 };
 
@@ -30,7 +35,6 @@ export const actions: Actions = {
 				form
 			});
 		}
-		console.log(form);
 		try {
 			await db
 				.insert(artist)
@@ -39,10 +43,8 @@ export const actions: Actions = {
 					target: artist.orgId,
 					set: { stageName: form.data.stageName }
 				});
-		} catch {
-			return fail(500, {
-				form
-			});
+		} catch (error) {
+			console.log(error);
 		}
 		return {
 			form

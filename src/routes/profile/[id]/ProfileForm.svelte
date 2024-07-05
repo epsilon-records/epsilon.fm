@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Field, Control, Label, Description, FieldErrors, Fieldset, Legend } from 'formsnap';
+	import { page } from '$app/stores';
 	import * as Form from '$lib/components/ui/form';
 	import { Input } from '$lib/components/ui/input';
 	import { Textarea } from '$lib/components/ui/textarea';
@@ -8,21 +8,27 @@
 	import { zodClient } from 'sveltekit-superforms/adapters';
 
 	export let data: SuperValidated<Infer<ArtistSchema>>;
+	export let orgId;
 
 	const form = superForm(data, {
 		validators: zodClient(artistSchema)
 	});
 
 	const { form: formData, enhance } = form;
-
-	const options = {
-		fields: ['address_components', 'geometry'],
-		types: ['(cities)']
-	};
-	const placeholder = 'Destination city';
 </script>
 
 <form method="POST" action="?/save" use:enhance>
+	<div class="mb-4 grid gap-4 sm:grid-cols-1">
+		<div>
+			<Form.Field {form} name="orgId">
+				<Form.Control let:attrs>
+					<Form.Label>Organisation Identifier</Form.Label>
+					<Input {...attrs} bind:value={$formData.orgId} />
+				</Form.Control>
+				<Form.FieldErrors />
+			</Form.Field>
+		</div>
+	</div>
 	<div class="mb-4 grid gap-4 sm:grid-cols-1">
 		<div>
 			<Form.Field {form} name="stageName">
@@ -49,7 +55,7 @@
 	</div>
 	<div class="mb-4 grid gap-4 sm:grid-cols-1">
 		<div>
-			<Form.Field {form} name="stageName">
+			<Form.Field {form} name="spotifyArtist">
 				<Form.Control let:attrs>
 					<Form.Label>Spotify Artist Link</Form.Label>
 					<Input
