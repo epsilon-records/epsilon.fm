@@ -1,14 +1,19 @@
 import { z } from 'zod';
 
-const artistSchema = z.object({
+const userSchema = z.object({
 	id: z.number().optional(),
-	firstName: z.string().max(50),
-	lastName: z.string().max(50),
-	stageName: z.string().max(50).optional(),
-	email: z.string().max(100),
+	authId: z.string().max(255),
 	birthdate: z.string(), // Using string to represent date
 	phone: z.string().max(15).optional(),
 	address: z.string().optional(),
+	referralSource: z.string().max(255).optional(), // Better column name for how_did_you_hear_about_us
+	anrReferral: z.string().max(255).optional()
+});
+
+const artistSchema = z.object({
+	id: z.number().optional(),
+	orgId: z.string().max(255),
+	stageName: z.string().max(50).optional(),
 	biography: z.string().optional(),
 	spotifyArtistLink: z.string().max(255).optional(),
 	youtubeChannelLink: z.string().max(255).optional(),
@@ -18,9 +23,7 @@ const artistSchema = z.object({
 	tiktokProfileLink: z.string().max(255).optional(),
 	soundcloudProfileLink: z.string().max(255).optional(),
 	songkickProfileLink: z.string().max(255).optional(),
-	bandsintownProfileLink: z.string().max(255).optional(),
-	referralSource: z.string().max(255).optional(), // Better column name for how_did_you_hear_about_us
-	anrReferral: z.string().max(255).optional()
+	bandsintownProfileLink: z.string().max(255).optional()
 });
 
 const genreSchema = z.object({
@@ -74,4 +77,4 @@ const trackSubgenreSchema = z.object({
 
 export type ArtistSchema = typeof artistSchema;
 
-export { artistSchema, genreSchema, releaseSchema, trackSchema, trackSubgenreSchema };
+export { userSchema, artistSchema, genreSchema, releaseSchema, trackSchema, trackSubgenreSchema };
