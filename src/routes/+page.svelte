@@ -43,6 +43,11 @@
 	</Card.Root>
 	<Card.Root class="m-4">
 		<Card.Header>
+			<div class="flex items-center justify-center">
+				<p class="font-mono text-2xl">Goodbye DistroKid. Hello Epsilon.</p>
+			</div></Card.Header
+		>
+		<Card.Content>
 			<p class="font-mono">
 				🎉 Discover our modern open-source platform, meticulously designed with your needs in mind.
 				We offer a comprehensive suite of features that empower you to take control of your creative
@@ -51,12 +56,12 @@
 				professional artist website 🌐, managing social media 📱, and offering merchandise options
 				🛍️, you can expand your global reach and fully manage your artistic presence. 🌍✨
 			</p>
-		</Card.Header>
+		</Card.Content>
 	</Card.Root>
 	<Card.Root class="m-4">
 		<Card.Header>
 			<div class="flex items-center justify-center">
-				<p class="font-serif text-2xl">Join our Newsletter</p>
+				<p class="font-mono text-2xl">Join our Newsletter</p>
 			</div>
 		</Card.Header>
 		<Card.Content>
@@ -72,7 +77,7 @@
 	<Card.Root class="m-4">
 		<Card.Header>
 			<div class="flex items-center justify-center">
-				<p class="font-serif text-2xl">Industry Partners</p>
+				<p class="font-mono text-2xl">Industry Partners</p>
 			</div></Card.Header
 		>
 		<Card.Content>
