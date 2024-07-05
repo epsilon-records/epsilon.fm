@@ -71,13 +71,15 @@
 				><NavLi class="mt-2" href="/" active={true}>Home</NavLi>
 				<NavLi class="mt-2" href="/faq">FAQ</NavLi></SignedOut
 			>
-			<SignedIn let:user><NavLi class="mt-2" href="/profile/{user?.id}">Profile</NavLi></SignedIn>
-			<NavLi class="mt-2" href="/">Releases</NavLi>
-			<NavLi class="mt-2" href="/">Merch</NavLi>
-			<NavLi class="mt-2" href="/">Website</NavLi>
-			<NavLi class="mt-2" href="/">Social</NavLi>
-			<NavLi class="mt-2" href="/">Royalties</NavLi>
-			<NavLi class="mt-2" href="/">Admin</NavLi>
+			<SignedIn let:user
+				><NavLi class="mt-2" href="/profile/{user?.id}">Profile</NavLi>
+				<NavLi class="mt-2" href="/">Releases</NavLi>
+				<NavLi class="mt-2" href="/">Merch</NavLi>
+				<NavLi class="mt-2" href="/">Website</NavLi>
+				<NavLi class="mt-2" href="/">Social</NavLi>
+				<NavLi class="mt-2" href="/">Royalties</NavLi>
+				<NavLi class="mt-2" href="/">Admin</NavLi></SignedIn
+			>
 			<NavLi id="i18n-dropdown"></NavLi>
 		</NavUl>
 	</Navbar>
