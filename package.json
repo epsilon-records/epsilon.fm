@@ -64,11 +64,13 @@
     "lucide-svelte": "^0.399.0",
     "mode-watcher": "^0.3.1",
     "postgres": "^3.4.4",
+    "svelte-preprocess-react": "^0.17.0",
     "svelte-sonner": "^0.3.24",
     "svelte-tel-input": "^3.4.1",
     "sveltekit-superforms": "^2.15.2",
     "tailwind-merge": "^2.3.0",
     "tailwind-variants": "^0.2.1",
+    "talkjs": "^0.22.0",
     "vercel": "^34.3.0",
     "zod": "^3.23.8"
   }

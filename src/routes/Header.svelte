@@ -12,11 +12,6 @@
 	import { resetMode, setMode } from 'mode-watcher';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import { Button } from '$lib/components/ui/button';
-
-	let bookmarks = false;
-	let fullUrls = true;
-
-	const profileRadioValue = 'benoit';
 </script>
 
 <header>

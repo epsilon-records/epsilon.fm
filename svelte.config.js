@@ -1,11 +1,12 @@
 import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import preprocessReact from 'svelte-preprocess-react/preprocessReact';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
-	preprocess: vitePreprocess(),
+	preprocess: [vitePreprocess(), preprocessReact()],
 	onwarn: (warning, handler) => {
 		if (warning.code === 'css-unused-selector') {
 			return;
