@@ -14,11 +14,6 @@ export default defineConfig({
 		sveltekit(),
 		enhancedImages()
 	],
-	build: {
-		commonjsOptions: {
-			transformMixedEsModules: true
-		}
-	},
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	}
