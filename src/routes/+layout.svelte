@@ -13,7 +13,7 @@
 
 	<main>
 		<ModeWatcher />
-		<slot />s
+		<slot />
 	</main>
 
 	<footer>
