@@ -22,8 +22,8 @@
 			<div>
 				<Field {form} name="stageName">
 					<Control let:attrs>
-						<Label class="text-xl">Artist Stage Name</Label>
-						<Input {...attrs} class="bg-muted" bind:value={$formData.stageName} readonly />
+						<Label>Artist Stage Name</Label>
+						<Input {...attrs} class="bg-muted text-xl" bind:value={$formData.stageName} readonly />
 					</Control>
 					<div class="grid gap-4 text-xs">
 						<Description>
