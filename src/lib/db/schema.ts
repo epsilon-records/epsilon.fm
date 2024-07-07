@@ -33,7 +33,7 @@ export const artist = pgTable('artist', {
 	tiktokProfileLink: varchar('tiktok_profile_link', { length: 255 }),
 	soundcloudProfileLink: varchar('soundcloud_profile_link', { length: 255 }),
 	songkickProfileLink: varchar('songkick_profile_link', { length: 255 }),
-	bandsintownLink: varchar('bandsintown_link', { length: 255 })
+	bandsintownProfileLink: varchar('bandsintown_profile_link', { length: 255 })
 });
 
 export const genre = pgTable('genre', {

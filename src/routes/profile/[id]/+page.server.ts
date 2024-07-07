@@ -6,7 +6,7 @@ import { db } from '$lib/db';
 import { artist } from '$lib/db/schema';
 import { eq } from 'drizzle-orm';
 import { clerkClient } from '@clerk/clerk-sdk-node';
-import { error } from '@sveltejs/kit';
+import { error, fail } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	const organizationId = locals.session.claims.org_id ?? null;
@@ -20,12 +20,10 @@ export const load: PageServerLoad = async ({ locals }) => {
 	const data = await db.select().from(artist).where(eq(artist.orgId, organizationId));
 	if (data.length != 0) {
 		form = await superValidate(data[0], zod(artistSchema));
-		console.log(form);
-		form.data.orgId = organizationId;
-		form.data.stageName = organizationName;
-		form.data.orgSlug = organizationSlug;
-		console.log(form);
 	}
+	form.data.orgId = organizationId;
+	form.data.stageName = organizationName;
+	form.data.orgSlug = organizationSlug;
 	return {
 		form: form
 	};
@@ -33,7 +31,6 @@ export const load: PageServerLoad = async ({ locals }) => {
 
 export const actions: Actions = {
 	default: async (event) => {
-		console.log('TEST');
 		const form = await superValidate(event, zod(artistSchema));
 		console.log(form);
 		if (!form.valid) {
@@ -42,15 +39,11 @@ export const actions: Actions = {
 				form
 			});
 		}
-		console.log('hellow');
 		try {
-			await db
-				.insert(artist)
-				.values(form.data)
-				.onConflictDoUpdate({
-					target: artist.orgId,
-					set: { stageName: form.data.stageName }
-				});
+			await db.insert(artist).values(form.data).onConflictDoUpdate({
+				target: artist.orgId,
+				set: form.data
+			});
 		} catch (error) {
 			console.log(error);
 		}
