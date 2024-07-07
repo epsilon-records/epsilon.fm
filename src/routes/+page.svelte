@@ -77,22 +77,6 @@
 		<Card.Root class="m-4">
 			<Card.Header>
 				<div class="flex items-center justify-center">
-					<p class="font-mono text-2xl">Join our Newsletter</p>
-				</div>
-			</Card.Header>
-			<Card.Content>
-				<div class="flex items-center justify-center">
-					<script
-						async
-						data-uid="47e61bac90"
-						src="https://epsilon.ck.page/47e61bac90/index.js"
-					></script>
-				</div>
-			</Card.Content>
-		</Card.Root>
-		<Card.Root class="m-4">
-			<Card.Header>
-				<div class="flex items-center justify-center">
 					<p class="font-mono text-2xl">Industry Partners</p>
 				</div></Card.Header
 			>
@@ -111,6 +95,22 @@
 			</Card.Content>
 			<Card.Content>
 				<div class="text-center"></div>
+			</Card.Content>
+		</Card.Root>
+		<Card.Root class="m-4">
+			<Card.Header>
+				<div class="flex items-center justify-center">
+					<p class="font-mono text-2xl">Join our Newsletter</p>
+				</div>
+			</Card.Header>
+			<Card.Content>
+				<div class="flex items-center justify-center">
+					<script
+						async
+						data-uid="47e61bac90"
+						src="https://epsilon.ck.page/47e61bac90/index.js"
+					></script>
+				</div>
 			</Card.Content>
 		</Card.Root>
 	</SignedOut>
