@@ -67,7 +67,7 @@
 							Your artist website may me accessed at <a
 								class="text-blue-500"
 								href="https://{$formData.orgSlug}.epsilon.fm">{$formData.orgSlug}.epsilon.fm</a
-							>. You may change this at any time by updating your organization slug.
+							> and you may update this at any time by changing your organization slug.
 						</Description>
 					</div>
 				</Field>
