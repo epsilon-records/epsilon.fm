@@ -41,7 +41,7 @@
 			<Card.Content>
 				<Typewriter>
 					<h4 class="scroll-m-20 text-center text-4xl font-semibold tracking-tight">
-						Experience unlimited music distribution for just $99/year
+						Experience unlimited music distribution for just $29/month
 					</h4>
 				</Typewriter>
 			</Card.Content>
