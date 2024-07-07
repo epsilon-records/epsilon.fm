@@ -10,7 +10,7 @@
 	import toast, { Toaster } from 'svelte-french-toast';
 	export let data: SuperValidated<Infer<ArtistSchema>>;
 
-	const form = superForm(data, {
+	const { form, message } = superForm(data, {
 		validators: zodClient(artistSchema),
 		resetForm: false,
 		onUpdated({ form }) {
