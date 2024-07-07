@@ -24,7 +24,6 @@ export const load: PageServerLoad = async ({ locals }) => {
 	form.data.orgId = organizationId;
 	form.data.stageName = organizationName;
 	form.data.orgSlug = organizationSlug;
-	console.log(form);
 	return {
 		form: form
 	};
@@ -33,9 +32,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 export const actions: Actions = {
 	default: async (request) => {
 		const form = await superValidate(request, zod(artistSchema), { strict: true });
-		console.log(form);
 		if (!form.valid) {
-			console.log(form.errors);
 			return fail(400, {
 				form
 			});
@@ -45,12 +42,13 @@ export const actions: Actions = {
 				target: artist.orgId,
 				set: form.data
 			});
-			console.log(form);
-		} catch (error) {
-			console.log(error);
+		} catch {
+			return message(form, 'error', {
+				status: 500
+			});
 		}
-		return {
-			form
-		};
+		return message(form, 'success', {
+			status: 200
+		});
 	}
 };
