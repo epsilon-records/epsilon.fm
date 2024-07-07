@@ -7,6 +7,7 @@ import { artist } from '$lib/db/schema';
 import { eq } from 'drizzle-orm';
 import { clerkClient } from '@clerk/clerk-sdk-node';
 import { error, fail } from '@sveltejs/kit';
+import toast from 'svelte-french-toast';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	const organizationId = locals.session.claims.org_id ?? null;
@@ -46,6 +47,7 @@ export const actions: Actions = {
 				set: form.data
 			});
 			console.log(form);
+			toast.success('Saved!');
 		} catch (error) {
 			console.log(error);
 		}
