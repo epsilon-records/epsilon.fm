@@ -76,7 +76,6 @@
 				<NavLi class="mt-2" href="/">Royalties</NavLi>
 				<NavLi class="mt-2" href="/">Admin</NavLi></SignedIn
 			>
-			<NavLi id="i18n-dropdown"></NavLi>
 		</NavUl>
 	</Navbar>
 </header>
