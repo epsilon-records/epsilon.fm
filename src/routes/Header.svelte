@@ -63,18 +63,18 @@
 		</div>
 		<NavUl class="order-1 m-2">
 			<SignedOut
-				><NavLi class="mt-2" href="/" active={true}>Home</NavLi>
-				<NavLi class="mt-2" href="/faq">FAQ</NavLi>
-				<NavLi class="mt-2" href="/">Pricing</NavLi></SignedOut
+				><NavLi href="/" active={true}>Home</NavLi>
+				<NavLi href="/faq">FAQ</NavLi>
+				<NavLi href="/">Pricing</NavLi></SignedOut
 			>
 			<SignedIn let:user
-				><NavLi class="mt-2" href="/profile/{user?.id}">Profile</NavLi>
-				<NavLi class="mt-2" href="/">Releases</NavLi>
-				<NavLi class="mt-2" href="/">Merch</NavLi>
-				<NavLi class="mt-2" href="/">Website</NavLi>
-				<NavLi class="mt-2" href="/">Social</NavLi>
-				<NavLi class="mt-2" href="/">Royalties</NavLi>
-				<NavLi class="mt-2" href="/">Admin</NavLi></SignedIn
+				><NavLi href="/profile/{user?.id}">Profile</NavLi>
+				<NavLi href="/">Releases</NavLi>
+				<NavLi href="/">Merch</NavLi>
+				<NavLi href="/">Website</NavLi>
+				<NavLi href="/">Social</NavLi>
+				<NavLi href="/">Royalties</NavLi>
+				<NavLi href="/">Admin</NavLi></SignedIn
 			>
 		</NavUl>
 	</Navbar>
