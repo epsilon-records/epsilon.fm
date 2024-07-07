@@ -16,10 +16,7 @@
 		onUpdated({ form }) {
 			console.log(form);
 			if (form.message) {
-				// Display the message using a toast library
-				toast(form.message.text, {
-					icon: form.message.status == 'success' ? '✅' : '❌'
-				});
+				toast.success('Successfully toasted!');
 			}
 		},
 		onError({ error }) {
