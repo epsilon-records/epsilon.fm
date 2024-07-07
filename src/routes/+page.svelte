@@ -7,6 +7,19 @@
 	import SignUpButton from 'clerk-sveltekit/client/SignUpButton.svelte';
 	import partners from '$lib/images/partners.png';
 	import Typewriter from 'svelte-typewriter';
+
+	import { createUploader } from '$lib/utils/uploadthing';
+	import { UploadDropzone } from '@uploadthing/svelte';
+
+	const uploader = createUploader('imageUploader', {
+		onClientUploadComplete: (res) => {
+			console.log(`onClientUploadComplete`, res);
+			alert('Upload Completed');
+		},
+		onUploadError: (error: Error) => {
+			alert(`ERROR! ${error.message}`);
+		}
+	});
 </script>
 
 <svelte:head>
@@ -18,7 +31,7 @@
 </svelte:head>
 
 <section>
-	<SignedIn></SignedIn>
+	<SignedIn><UploadDropzone {uploader} /></SignedIn>
 	<SignedOut>
 		<Card.Root class="m-4">
 			<Card.Header>
