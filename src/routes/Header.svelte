@@ -20,7 +20,11 @@
 			<NavBrand href="/">
 				<SignedIn>
 					<div class="flex items-center">
-						<OrganizationSwitcher hidePersonal={true} afterSelectOrganizationUrl="/profile" />
+						<OrganizationSwitcher
+							hidePersonal={true}
+							afterCreateOrganizationUrl="/profile"
+							afterSelectOrganizationUrl="/profile"
+						/>
 					</div>
 				</SignedIn>
 				<SignedOut>
