@@ -48,6 +48,7 @@
 			<div>
 				<Field {form} name="orgSlug">
 					<Control let:attrs>
+						<Label>Artist Website</Label>
 						<input type="hidden" name="orgSlug" bind:value={$formData.orgSlug} />
 					</Control>
 					<div class="grid gap-4 text-xs">
