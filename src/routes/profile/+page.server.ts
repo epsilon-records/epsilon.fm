@@ -43,12 +43,10 @@ export const actions: Actions = {
 				set: form.data
 			});
 		} catch {
-			return message(form, 'error', {
-				status: 500
+			return fail(500, {
+				form
 			});
 		}
-		return message(form, 'success', {
-			status: 200
-		});
+		return message(form, 'success');
 	}
 };
