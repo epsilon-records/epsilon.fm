@@ -14,12 +14,16 @@
 		validators: zodClient(artistSchema),
 		resetForm: false,
 		onUpdated({ form }) {
+			console.log(form);
 			if (form.message) {
 				// Display the message using a toast library
 				toast(form.message.text, {
 					icon: form.message.status == 'success' ? '✅' : '❌'
 				});
 			}
+		},
+		onError({ error }) {
+			console.log(error);
 		}
 	});
 	const { form: formData, enhance } = form;
