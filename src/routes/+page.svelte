@@ -40,7 +40,7 @@
 			</Card.Header>
 			<Card.Content>
 				<Typewriter>
-					<h4 class="scroll-m-20 text-center text-xl font-semibold tracking-tight">
+					<h4 class="scroll-m-20 text-center text-2xl font-semibold tracking-tight">
 						Experience unlimited music distribution for just $99/year
 					</h4>
 				</Typewriter>
