@@ -67,8 +67,8 @@
 				<NavLi href="/faq">FAQ</NavLi>
 				<NavLi href="/">Pricing</NavLi></SignedOut
 			>
-			<SignedIn let:user
-				><NavLi href="/profile/{user?.id}">Profile</NavLi>
+			<SignedIn
+				><NavLi href="/profile">Profile</NavLi>
 				<NavLi href="/">Releases</NavLi>
 				<NavLi href="/">Merch</NavLi>
 				<NavLi href="/">Website</NavLi>
