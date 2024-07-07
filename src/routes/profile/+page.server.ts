@@ -1,5 +1,5 @@
 import type { PageServerLoad, Actions } from '../$types.js';
-import { superValidate } from 'sveltekit-superforms';
+import { message, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { artistSchema } from './schema';
 import { db } from '$lib/db';
@@ -43,6 +43,7 @@ export const actions: Actions = {
 				set: form.data
 			});
 		} catch {
+			console.log(error);
 			return fail(500, {
 				form
 			});

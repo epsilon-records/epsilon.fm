@@ -7,20 +7,17 @@
 	import SuperDebug, { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
-	import toast, { Toaster } from 'svelte-french-toast';
+	import toast from 'svelte-french-toast';
 	export let data: SuperValidated<Infer<ArtistSchema>>;
 
-	const { form, message } = superForm(data, {
+	const form = superForm(data, {
 		validators: zodClient(artistSchema),
 		resetForm: false,
 		onUpdated({ form }) {
 			console.log(form);
 			if (form.message) {
-				toast.success('Successfully toasted!');
+				toast.success('Successfully saved!');
 			}
-		},
-		onError({ error }) {
-			console.log(error);
 		}
 	});
 	const { form: formData, enhance } = form;
@@ -251,5 +248,4 @@
 			<SuperDebug data={$formData} />
 		</div> -->
 	</form>
-	<Toaster />
 </SignedIn>
