@@ -35,12 +35,12 @@
 	<SignedOut>
 		<Card.Root class="m-4">
 			<Card.Header>
-				<Card.Title class="text-4xl">EpsilonFM</Card.Title>
+				<Card.Title class="text-xl">EpsilonFM</Card.Title>
 				<Card.Description>A modern open-source music business platform.</Card.Description>
 			</Card.Header>
 			<Card.Content>
 				<Typewriter>
-					<h4 class="scroll-m-20 text-center text-2xl font-semibold tracking-tight">
+					<h4 class="scroll-m-20 text-center text-4xl font-semibold tracking-tight">
 						Experience unlimited music distribution for just $99/year
 					</h4>
 				</Typewriter>
