@@ -5,7 +5,6 @@
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import { ModeWatcher } from 'mode-watcher';
 	import { Separator } from '$lib/components/ui/separator';
-	import { Toaster } from 'svelte-french-toast';
 	export let data: LayoutServerData;
 </script>
 
@@ -14,8 +13,7 @@
 
 	<main>
 		<ModeWatcher />
-		<slot />
-		<Toaster />
+		<slot />s
 	</main>
 
 	<footer>

@@ -7,7 +7,7 @@
 	import SuperDebug, { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
-	import toast from 'svelte-french-toast';
+	import toast, { Toaster } from 'svelte-french-toast';
 	export let data: SuperValidated<Infer<ArtistSchema>>;
 
 	const form = superForm(data, {
@@ -250,4 +250,5 @@
 			<SuperDebug data={$formData} />
 		</div> -->
 	</form>
+	<Toaster />
 </SignedIn>
