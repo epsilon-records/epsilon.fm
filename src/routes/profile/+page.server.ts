@@ -43,7 +43,6 @@ export const actions: Actions = {
 				set: form.data
 			});
 		} catch {
-			console.log(error);
 			return fail(500, {
 				form
 			});

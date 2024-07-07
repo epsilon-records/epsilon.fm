@@ -14,8 +14,7 @@
 		validators: zodClient(artistSchema),
 		resetForm: false,
 		onUpdated({ form }) {
-			console.log(form);
-			if (form.message) {
+			if (form.message == 'success') {
 				toast.success('Successfully saved!');
 			}
 		}
