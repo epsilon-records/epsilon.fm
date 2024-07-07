@@ -19,19 +19,20 @@ export const load: PageServerLoad = async ({ locals }) => {
 	let form = await superValidate(zod(artistSchema));
 	const data = await db.select().from(artist).where(eq(artist.orgId, organizationId));
 	if (data.length != 0) {
-		form = await superValidate(data[0], zod(artistSchema));
+		form = await superValidate(data[0], zod(artistSchema), { strict: true });
 	}
 	form.data.orgId = organizationId;
 	form.data.stageName = organizationName;
 	form.data.orgSlug = organizationSlug;
+	console.log(form);
 	return {
 		form: form
 	};
 };
 
 export const actions: Actions = {
-	default: async (event) => {
-		const form = await superValidate(event, zod(artistSchema));
+	default: async (request) => {
+		const form = await superValidate(request, zod(artistSchema), { strict: true });
 		console.log(form);
 		if (!form.valid) {
 			console.log(form.errors);
@@ -44,6 +45,7 @@ export const actions: Actions = {
 				target: artist.orgId,
 				set: form.data
 			});
+			console.log(form);
 		} catch (error) {
 			console.log(error);
 		}

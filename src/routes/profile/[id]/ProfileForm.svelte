@@ -10,7 +10,8 @@
 	export let data: SuperValidated<Infer<ArtistSchema>>;
 
 	const form = superForm(data, {
-		validators: zodClient(artistSchema)
+		validators: zodClient(artistSchema),
+		resetForm: false
 	});
 	const { form: formData, enhance } = form;
 </script>
@@ -22,7 +23,7 @@
 				<Field {form} name="stageName">
 					<Control let:attrs>
 						<Label class="text-xl">Artist Stage Name</Label>
-						<Input {...attrs} bind:value={$formData.stageName} readonly />
+						<Input {...attrs} class="bg-muted" bind:value={$formData.stageName} readonly />
 					</Control>
 					<div class="grid gap-4 text-xs">
 						<Description>
@@ -30,34 +31,22 @@
 							correct capitalization and spelling is required to ensure proper music delivery.
 						</Description>
 					</div>
-					<FieldErrors class="text-red-500" />
+					<FieldErrors class="text-right text-red-500" />
 				</Field>
 			</div>
 		</div>
-		<input type="hidden" name="orgId" bind:value={$formData.orgId} />
-		<div class="mb-4 grid gap-4 sm:grid-cols-1">
-			<div>
-				<Field {form} name="orgId">
-					<Control let:attrs>
-						<Label>ID</Label>
-						<div class="text-sm text-muted-foreground">{$formData.orgId}</div>
-					</Control>
-					<FieldErrors />
-				</Field>
-			</div>
-		</div>
-		<input type="hidden" name="orgSlug" bind:value={$formData.orgSlug} />
-		<div class="mb-4 grid gap-4 sm:grid-cols-1">
-			<div>
-				<Field {form} name="orgSlug">
-					<Control let:attrs>
-						<Label>Slug</Label>
-						<div class="text-sm text-muted-foreground">{$formData.orgSlug}</div>
-					</Control>
-					<FieldErrors />
-				</Field>
-			</div>
-		</div>
+		<Field {form} name="orgId">
+			<Control let:attrs>
+				<input type="hidden" name="orgId" bind:value={$formData.orgId} />
+			</Control>
+			<FieldErrors class="text-right text-red-500" />
+		</Field>
+		<Field {form} name="orgSlug">
+			<Control let:attrs>
+				<input type="hidden" name="orgSlug" bind:value={$formData.orgSlug} />
+			</Control>
+			<FieldErrors class="text-right text-red-500" />
+		</Field>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
 				<Field {form} name="biography">
@@ -67,7 +56,7 @@
 					</Control>
 					<div class="grid gap-4 text-xs sm:grid-cols-2">
 						<Description class="">Your artist biography.</Description>
-						<FieldErrors class="text-red-500" />
+						<FieldErrors class="text-right text-red-500" />
 					</div>
 				</Field>
 			</div>
@@ -83,8 +72,10 @@
 							placeholder="Spotify Artist Link"
 						/>
 					</Control>
-					<Description>Your Spotify artist profile link.</Description>
-					<FieldErrors />
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your Spotify artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
 				</Field>
 			</div>
 		</div>
@@ -99,8 +90,10 @@
 							placeholder="YouTube Channel Link"
 						/>
 					</Control>
-					<Description>Your YouTube artist channel link.</Description>
-					<FieldErrors />
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your YouTube artist channel link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
 				</Field>
 			</div>
 		</div>
