@@ -39,7 +39,7 @@
 				<Field {form} name="orgId">
 					<Control let:attrs>
 						<Label>ID</Label>
-						<Input {...attrs} class="bg-muted text-xl" bind:value={$formData.orgId} readonly />
+						<Input {...attrs} class="bg-muted" bind:value={$formData.orgId} readonly />
 					</Control>
 				</Field>
 			</div>
@@ -49,7 +49,7 @@
 				<Field {form} name="orgSlug">
 					<Control let:attrs>
 						<Label>Artist Website</Label>
-						<Input {...attrs} class="bg-muted text-xl" bind:value={$formData.orgSlug} readonly />
+						<Input {...attrs} class="bg-muted" bind:value={$formData.orgSlug} readonly />
 					</Control>
 					<div class="grid gap-4 text-xs">
 						<Description>
