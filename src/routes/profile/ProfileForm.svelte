@@ -31,22 +31,35 @@
 							correct spelling and capitalization are required to ensure proper music delivery.
 						</Description>
 					</div>
-					<FieldErrors class="text-right text-red-500" />
 				</Field>
 			</div>
 		</div>
-		<Field {form} name="orgId">
-			<Control let:attrs>
-				<input type="hidden" name="orgId" bind:value={$formData.orgId} />
-			</Control>
-			<FieldErrors class="text-right text-red-500" />
-		</Field>
-		<Field {form} name="orgSlug">
-			<Control let:attrs>
-				<input type="hidden" name="orgSlug" bind:value={$formData.orgSlug} />
-			</Control>
-			<FieldErrors class="text-right text-red-500" />
-		</Field>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="orgId">
+					<Control let:attrs>
+						<Label>ID</Label>
+						<input type="hidden" name="orgId" bind:value={$formData.orgId} />
+					</Control>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="orgSlug">
+					<Control let:attrs>
+						<input type="hidden" name="orgSlug" bind:value={$formData.orgSlug} />
+					</Control>
+					<div class="grid gap-4 text-xs">
+						<Description>
+							Your artist website may me accessed at <a
+								href="https://{$formData.orgSlug}.epsilon.fm">{$formData.orgSlug}.epsilon.fm</a
+							>. You may change this at any time by updating your organization slug.
+						</Description>
+					</div>
+				</Field>
+			</div>
+		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
 				<Field {form} name="biography">
