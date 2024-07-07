@@ -208,8 +208,8 @@
 		<div>
 			<Form.Button>Submit</Form.Button>
 		</div>
-		<div class="m-4">
+		<!-- <div class="m-4">
 			<SuperDebug data={$formData} />
-		</div>
+		</div> -->
 	</form>
 </SignedIn>
