@@ -27,8 +27,8 @@
 					</Control>
 					<div class="grid gap-4 text-xs">
 						<Description>
-							You may update your artist stage name by changing your organization name, noting that
-							correct capitalization and spelling is required to ensure proper music delivery.
+							Your artist stage name may be updated by changing your organization name, noting that
+							correct spelling and capitalization are required to ensure proper music delivery.
 						</Description>
 					</div>
 					<FieldErrors class="text-right text-red-500" />
@@ -108,8 +108,10 @@
 							placeholder="Instagram Profile Link"
 						/>
 					</Control>
-					<Description>Your Instagram artist profile link.</Description>
-					<FieldErrors />
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your Instagram artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
 				</Field>
 			</div>
 		</div>
@@ -124,8 +126,10 @@
 							placeholder="Facebook Profile Link"
 						/>
 					</Control>
-					<Description>Your Facebook artist profile link.</Description>
-					<FieldErrors />
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your Facebook artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
 				</Field>
 			</div>
 		</div>
@@ -136,8 +140,10 @@
 						<Label>X Profile Link</Label>
 						<Input {...attrs} bind:value={$formData.xProfileLink} placeholder="X Profile Link" />
 					</Control>
-					<Description>Your X artist profile link.</Description>
-					<FieldErrors />
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your X artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
 				</Field>
 			</div>
 		</div>
@@ -152,8 +158,10 @@
 							placeholder="TikTok Profile Link"
 						/>
 					</Control>
-					<Description>Your TikTok artist profile link.</Description>
-					<FieldErrors />
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your TikTok artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
 				</Field>
 			</div>
 		</div>
@@ -168,8 +176,10 @@
 							placeholder="SoundCloud Profile Link"
 						/>
 					</Control>
-					<Description>Your SoundCloud artist profile link.</Description>
-					<FieldErrors />
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your SoundCloud artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
 				</Field>
 			</div>
 		</div>
@@ -184,8 +194,10 @@
 							placeholder="Songkick Profile Link"
 						/>
 					</Control>
-					<Description>Your Songkick artist profile link.</Description>
-					<FieldErrors />
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your Songkick artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
 				</Field>
 			</div>
 		</div>
@@ -200,8 +212,10 @@
 							placeholder="Bandsintown Profile Link"
 						/>
 					</Control>
-					<Description>Your Bandsintown artist profile link.</Description>
-					<FieldErrors />
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your Bandsintown artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
 				</Field>
 			</div>
 		</div>
