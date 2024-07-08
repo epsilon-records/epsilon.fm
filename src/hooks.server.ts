@@ -13,7 +13,7 @@ Sentry.init({
 export const handle: Handle = sequence(
 	Sentry.sentryHandle(),
 	handleClerk(CLERK_SECRET_KEY, {
-		debug: true,
+		debug: false,
 		protectedPaths: [
 			'/admin',
 			'/profile',
