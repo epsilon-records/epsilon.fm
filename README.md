@@ -27,5 +27,5 @@ You can preview the production build with `bun run preview`.
 
 [ ] Implement file uploads
 [ ] Implement track form
-[ ] Implement wildcard domain
+[ ] Implement wildcard domains
 [ ] Implement artist websites

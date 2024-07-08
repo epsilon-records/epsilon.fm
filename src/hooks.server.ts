@@ -2,7 +2,7 @@ import * as Sentry from '@sentry/sveltekit';
 import type { Handle } from '@sveltejs/kit';
 import { sequence } from '@sveltejs/kit/hooks';
 import { handleClerk } from 'clerk-sveltekit/server';
-import env from '$env/static/private';
+import { env } from '$env/static/private';
 import { redirect } from '@sveltejs/kit';
 
 Sentry.init({

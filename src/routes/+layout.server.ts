@@ -1,8 +1,8 @@
 import type { LayoutServerLoad } from './$types';
-import { NODE_ENV } from '$env/static/private';
+import { env } from '$env/static/private';
 
 export const load: LayoutServerLoad = async (cookies) => {
 	return {
-		nodeEnv: NODE_ENV
+		nodeEnv: env.NODE_ENV
 	};
 };
