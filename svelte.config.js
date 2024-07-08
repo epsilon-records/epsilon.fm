@@ -12,7 +12,7 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: adapter(),
 		csrf: {
-			checkOrigin: false // TODO: set to true when deploying to production
+			checkOrigin: true
 		},
 		alias: {
 			'@/*': './src/lib/*'
