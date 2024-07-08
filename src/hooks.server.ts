@@ -2,11 +2,11 @@ import * as Sentry from '@sentry/sveltekit';
 import type { Handle } from '@sveltejs/kit';
 import { sequence } from '@sveltejs/kit/hooks';
 import { handleClerk } from 'clerk-sveltekit/server';
-import { env } from '$env/static/private';
+import { SENTRY_DSN } from '$env/static/private';
 import { redirect } from '@sveltejs/kit';
 
 Sentry.init({
-	dsn: env.SENTRY_DSN,
+	dsn: SENTRY_DSN,
 	tracesSampleRate: 1
 });
 
