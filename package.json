@@ -67,6 +67,7 @@
     "lucide-svelte": "^0.399.0",
     "mode-watcher": "^0.3.1",
     "postgres": "^3.4.4",
+    "posthog-js": "^1.144.2",
     "stream-chat": "^8.37.0",
     "svelte-french-toast": "^1.2.0",
     "svelte-sonner": "^0.3.24",
