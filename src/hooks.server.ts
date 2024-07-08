@@ -25,7 +25,7 @@ export const handle: Handle = sequence(
 		],
 		signInUrl: '/sign-in'
 	}),
-	handleSubdomain(event, resolve)
+	handleSubdomain
 );
 export const handleError = Sentry.handleErrorWithSentry();
 
