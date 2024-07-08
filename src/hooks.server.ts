@@ -2,7 +2,7 @@ import * as Sentry from '@sentry/sveltekit';
 import type { Handle } from '@sveltejs/kit';
 import { sequence } from '@sveltejs/kit/hooks';
 import { handleClerk } from 'clerk-sveltekit/server';
-import { SENTRY_DSN } from '$env/static/private';
+import { SENTRY_DSN, CLERK_SECRET_KEY } from '$env/static/private';
 import { redirect } from '@sveltejs/kit';
 
 Sentry.init({
@@ -12,7 +12,7 @@ Sentry.init({
 
 export const handle: Handle = sequence(
 	Sentry.sentryHandle(),
-	handleClerk(env.CLERK_SECRET_KEY, {
+	handleClerk(CLERK_SECRET_KEY, {
 		debug: true,
 		protectedPaths: [
 			'/admin',
