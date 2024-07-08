@@ -2,17 +2,17 @@ import * as Sentry from '@sentry/sveltekit';
 import type { Handle } from '@sveltejs/kit';
 import { sequence } from '@sveltejs/kit/hooks';
 import { handleClerk } from 'clerk-sveltekit/server';
-import { CLERK_SECRET_KEY } from '$env/static/private';
+import env from '$env/static/private';
 import { redirect } from '@sveltejs/kit';
 
 Sentry.init({
-	dsn: 'https://d677a865e0302d7c39f61a919db18993@o337159.ingest.us.sentry.io/4507546312572928',
+	dsn: env.SENTRY_DSN,
 	tracesSampleRate: 1
 });
 
 export const handle: Handle = sequence(
 	Sentry.sentryHandle(),
-	handleClerk(CLERK_SECRET_KEY, {
+	handleClerk(env.CLERK_SECRET_KEY, {
 		debug: true,
 		protectedPaths: [
 			'/admin',
@@ -25,7 +25,7 @@ export const handle: Handle = sequence(
 		],
 		signInUrl: '/sign-in'
 	}),
-	handleSubdomain
+	handleSubdomain(event, resolve)
 );
 export const handleError = Sentry.handleErrorWithSentry();
 
@@ -44,7 +44,7 @@ export async function handleSubdomain({ event, resolve }) {
 	if (subdomain in subdomainRoutes) {
 		const newUrl = new URL(parsedUrl);
 		newUrl.pathname = subdomainRoutes[subdomain];
-		confing.log(newUrl.toString());
+		config.log(newUrl.toString());
 		return redirect(302, newUrl.toString());
 	}
 
