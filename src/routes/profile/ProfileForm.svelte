@@ -23,10 +23,10 @@
 				audio.src = success;
 				audio.load();
 				audio.play();
+				toast.success('Successfully saved!');
 				isVisible = false;
 				await tick();
 				isVisible = true;
-				toast.success('Successfully saved!');
 			}
 		}
 	});
