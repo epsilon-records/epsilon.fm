@@ -6,6 +6,7 @@
 	import { ModeWatcher } from 'mode-watcher';
 	import { Separator } from '$lib/components/ui/separator';
 	import { Toaster } from 'svelte-french-toast';
+	import PageTransition from '$lib/components/PageTransition.svelte';
 	export let data: LayoutServerData;
 </script>
 
@@ -14,7 +15,9 @@
 
 	<main>
 		<ModeWatcher />
-		<slot />
+		<PageTransition pathname={data.pathname}>
+			<slot />
+		</PageTransition>
 		<Toaster />
 	</main>
 
