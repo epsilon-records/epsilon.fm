@@ -35,7 +35,7 @@
 
 <SignedIn>
 	{#if isVisible}
-		<div use:confetti={{ duration: 1000 }} />
+		<div use:confetti />
 	{/if}
 	<form method="POST" use:enhance>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
