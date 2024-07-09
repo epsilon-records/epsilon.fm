@@ -1,21 +1,9 @@
 import { z } from 'zod';
 
-const userSchema = z.object({
-	id: z.number().optional(),
-	authId: z.string().max(255),
-	birthdate: z.string(), // Using string to represent date
-	phone: z.string().max(15).optional(),
-	address: z.string().optional(),
-	referralSource: z.string().max(255).optional(), // Better column name for how_did_you_hear_about_us
-	anrReferral: z.string().max(255).optional()
-});
-
 const artistSchema = z.object({
 	id: z.number().optional(),
 	orgId: z.string().max(255),
-	orgSlug: z.string().max(255),
-	stageName: z.string().max(50),
-	biography: z.string().max(2048),
+	biography: z.string().max(1000),
 	spotifyArtistLink: z.string().max(255).optional(),
 	youtubeChannelLink: z.string().max(255).optional(),
 	instagramProfileLink: z.string().max(255).optional(),
