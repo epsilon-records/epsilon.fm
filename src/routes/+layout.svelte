@@ -18,12 +18,7 @@
 	<main>
 		<ModeWatcher />
 		<PageTransition pathname={data.pathname}>
-			<ClerkLoading>
-				<div class="m-4">Loading...</div>
-			</ClerkLoading>
-			<ClerkLoaded let:clerk>
-				<slot clerk="test" />
-			</ClerkLoaded>
+			<slot />
 		</PageTransition>
 		<Toaster />
 	</main>
