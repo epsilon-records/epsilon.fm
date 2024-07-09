@@ -28,7 +28,6 @@
 				isVisible = true;
 				toast.success('Successfully saved!');
 			}
-			}
 		}
 	});
 	const { form: formData, enhance } = form;
