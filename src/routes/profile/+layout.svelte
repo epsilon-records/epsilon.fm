@@ -1,11 +1,11 @@
 <script lang="ts">
-	import ClerkLoaded from 'clerk-sveltekit/client/ClerkLoaded.svelte';
-	import ClerkLoading from 'clerk-sveltekit/client/ClerkLoading.svelte';
+	//import ClerkLoaded from 'clerk-sveltekit/client/ClerkLoaded.svelte';
+	//import ClerkLoading from 'clerk-sveltekit/client/ClerkLoading.svelte';
 </script>
 
-<ClerkLoading>
+<!-- <ClerkLoading>
 	<div class="m-4">Loading...</div>
-</ClerkLoading>
-<ClerkLoaded let:clerk>
-	<slot {clerk} />
-</ClerkLoaded>
+</ClerkLoading> -->
+<!-- <ClerkLoaded let:clerk> -->
+<slot {clerk} />
+<!-- </ClerkLoaded> -->
