@@ -20,7 +20,7 @@
 		async onUpdated({ form }) {
 			if (form.message == 'success') {
 				const audio = new Audio();
-				audio.src = horn;
+				audio.src = success;
 				audio.load();
 				audio.play();
 				isVisible = false;
