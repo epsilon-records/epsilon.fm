@@ -58,7 +58,7 @@
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="orgSlug">
+				<Field {form} name="slug">
 					<Control let:attrs>
 						<Label>Artist Website</Label>
 						<Input {...attrs} class="bg-muted" bind:value={$formData.slug} readonly />
