@@ -17,13 +17,16 @@ export const load: PageServerLoad = async ({ locals }) => {
 		error(500, 'Organization not selected');
 	}
 	let form = await superValidate(zod(artistSchema));
-	const data = await db.select().from(artist).where(eq(artist.orgId, organizationId));
+	const data = await db
+		.select()
+		.from(artist)
+		.where(eq(artist.orgId, locals.session.claims.org_id ?? null));
 	if (data.length != 0) {
 		form = await superValidate(data[0], zod(artistSchema), { strict: true });
 	}
 	form.data.orgId = organizationId;
 	form.data.stageName = organizationName;
-	form.data.orgSlug = organizationSlug;
+	form.data.slug = organizationSlug;
 	return {
 		form: form
 	};
