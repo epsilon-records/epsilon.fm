@@ -7,5 +7,6 @@
 	<div class="m-4">Loading...</div>
 </ClerkLoading>
 <ClerkLoaded let:clerk>
+	{clerk}
 	<slot {clerk} />
 </ClerkLoaded>
