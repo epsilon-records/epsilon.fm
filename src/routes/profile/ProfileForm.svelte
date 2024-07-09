@@ -9,7 +9,7 @@
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	import toast from 'svelte-french-toast';
 	import horn from '$lib/audio/success.mp3';
-	import { tick } from 'svelte'
+	import { tick } from 'svelte';
 	import { confetti } from '@neoconfetti/svelte';
 	export let data: SuperValidated<Infer<ArtistSchema>>;
 
@@ -17,7 +17,7 @@
 	const form = superForm(data, {
 		validators: zodClient(artistSchema),
 		resetForm: false,
-		onUpdated({ form }) {
+		async onUpdated({ form }) {
 			if (form.message == 'success') {
 				const audio = new Audio();
 				audio.src = horn;
