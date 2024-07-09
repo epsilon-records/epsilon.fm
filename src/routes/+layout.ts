@@ -3,7 +3,7 @@ import { inject } from '@vercel/analytics';
 import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 import posthog from 'posthog-js';
 import { browser } from '$app/environment';
-import { PUBLIC_POSTHOG_KEY } from '$env/dynamic/public';
+import { PUBLIC_POSTHOG_API_KEY } from '$env/dynamic/public';
 
 inject({ mode: dev ? 'development' : 'production' });
 injectSpeedInsights();
