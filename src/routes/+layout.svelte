@@ -7,8 +7,6 @@
 	import { Separator } from '$lib/components/ui/separator';
 	import { Toaster } from 'svelte-french-toast';
 	import PageTransition from '$lib/components/PageTransition.svelte';
-	import ClerkLoaded from 'clerk-sveltekit/client/ClerkLoaded.svelte';
-	import ClerkLoading from 'clerk-sveltekit/client/ClerkLoading.svelte';
 	export let data: LayoutServerData;
 </script>
 
