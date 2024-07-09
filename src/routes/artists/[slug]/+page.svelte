@@ -4,13 +4,16 @@
 	import FaEnvelope from 'svelte-icons/fa/FaEnvelope.svelte';
 	import FaMedium from 'svelte-icons/fa/FaMedium.svelte';
 	import { modalOpened } from '$lib/store';
+
+	/** @type {import('./$types').PageData} */
+	export let data;
 </script>
 
 <svelte:head>
 	<title>Gianmarco Cavallo - Main page</title>
 </svelte:head>
 <main>
-	<h1>Hi!✋ <br /> I'm Gianmarco a Front-End Developer 💻 based in Italy</h1>
+	<h1>Hi!✋ <br /> I'm {data.stageName} a Front-End Developer 💻 based in Italy</h1>
 	<div class="icons">
 		<div
 			role="button"
