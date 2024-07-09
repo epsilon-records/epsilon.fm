@@ -7,6 +7,8 @@
 	import SuperDebug, { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import SignedIn, ClerkLoaded, ClerkLoading from 'clerk-sveltekit/client/SignedIn.svelte';
+	import ClerkLoaded from 'clerk-sveltekit/client/ClerkLoaded.svelte';
+	import ClerkLoading from 'clerk-sveltekit/client/ClerkLoading.svelte';
 	import toast from 'svelte-french-toast';
 	import horn from '$lib/audio/success.mp3';
 	export let data: SuperValidated<Infer<ArtistSchema>>;
