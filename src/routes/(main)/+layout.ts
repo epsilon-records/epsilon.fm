@@ -8,6 +8,7 @@ import { PUBLIC_POSTHOG_API_KEY } from '$env/static/public';
 inject({ mode: dev ? 'development' : 'production' });
 injectSpeedInsights();
 
+/** @type {import('./$types').PageLoad} */
 export const load = async () => {
 	if (browser) {
 		posthog.init(PUBLIC_POSTHOG_API_KEY, {
