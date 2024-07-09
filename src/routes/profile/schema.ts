@@ -3,6 +3,8 @@ import { z } from 'zod';
 const artistSchema = z.object({
 	id: z.number().optional(),
 	orgId: z.string().max(255),
+	orgSlug: z.string().max(255),
+	stageName: z.string().max(50),
 	biography: z.string().max(1000),
 	spotifyArtistLink: z.string().max(255).optional(),
 	youtubeChannelLink: z.string().max(255).optional(),
