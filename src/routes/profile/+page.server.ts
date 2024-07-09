@@ -14,7 +14,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 	const organizationName = response.name ?? null;
 	const organizationSlug = response.slug ?? null;
 	if (!organizationId || !organizationName || !organizationSlug) {
-		redirect(500, '/');
+		throw redirect(500, '/');
 	}
 	let form = await superValidate(zod(artistSchema));
 	const data = await db
