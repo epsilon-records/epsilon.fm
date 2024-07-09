@@ -9,8 +9,11 @@
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	import toast from 'svelte-french-toast';
 	import horn from '$lib/audio/success.mp3';
+	import { tick } from 'svelte'
+	import { confetti } from '@neoconfetti/svelte';
 	export let data: SuperValidated<Infer<ArtistSchema>>;
 
+	let isVisible = false;
 	const form = superForm(data, {
 		validators: zodClient(artistSchema),
 		resetForm: false,
@@ -20,6 +23,9 @@
 				audio.src = horn;
 				audio.load();
 				audio.play();
+				isVisible = false;
+				await tick();
+				isVisible = true;
 				toast.success('Successfully saved!');
 			}
 		}
@@ -28,6 +34,9 @@
 </script>
 
 <SignedIn>
+	{#if isVisible}
+		<div use:confetti={{ duration: 1000 }} />
+	{/if}
 	<form method="POST" use:enhance>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
