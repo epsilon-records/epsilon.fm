@@ -6,7 +6,7 @@ import { db } from '$lib/db';
 import { artist } from '$lib/db/schema';
 import { eq } from 'drizzle-orm';
 import { clerkClient } from '@clerk/clerk-sdk-node';
-import { error, fail } from '@sveltejs/kit';
+import { redirect, error, fail } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	const organizationId = locals.session.claims.org_id ?? null;
@@ -14,7 +14,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 	const organizationName = response.name ?? null;
 	const organizationSlug = response.slug ?? null;
 	if (!organizationId || !organizationName || !organizationSlug) {
-		error(500, 'Organization not selected');
+		redirect(500, '/');
 	}
 	let form = await superValidate(zod(artistSchema));
 	const data = await db
