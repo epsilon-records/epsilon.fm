@@ -10,6 +10,7 @@
 	import toast from 'svelte-french-toast';
 	import horn from '$lib/audio/success.mp3';
 	export let data: SuperValidated<Infer<ArtistSchema>>;
+	export let clerk;
 
 	const form = superForm(data, {
 		validators: zodClient(artistSchema),
@@ -28,6 +29,7 @@
 </script>
 
 <SignedIn>
+	{clerk}
 	<form method="POST" use:enhance>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>

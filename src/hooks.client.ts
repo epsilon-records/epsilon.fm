@@ -6,23 +6,25 @@ import { initializeClerkClient } from 'clerk-sveltekit/client';
 // import { initializeClerkClient } from 'clerk-sveltekit/headless'
 import { PUBLIC_CLERK_PUBLISHABLE_KEY } from '$env/static/public';
 
-// If you don't want to use Session Replay, remove the `Replay` integration, 
+// If you don't want to use Session Replay, remove the `Replay` integration,
 // `replaysSessionSampleRate` and `replaysOnErrorSampleRate` options.
 Sentry.init({
-    dsn: "https://d677a865e0302d7c39f61a919db18993@o337159.ingest.us.sentry.io/4507546312572928",
-    tracesSampleRate: 1,
-    replaysSessionSampleRate: 0.1,
-    replaysOnErrorSampleRate: 1,
-    integrations: [Sentry.replayIntegration()]
-})
+	dsn: 'https://d677a865e0302d7c39f61a919db18993@o337159.ingest.us.sentry.io/4507546312572928',
+	tracesSampleRate: 1,
+	replaysSessionSampleRate: 0.1,
+	replaysOnErrorSampleRate: 1,
+	integrations: [Sentry.replayIntegration()]
+});
 
 initializeClerkClient(PUBLIC_CLERK_PUBLISHABLE_KEY, {
-				afterSignInUrl: '/',
-				afterSignUpUrl: '/',
-				signInUrl: '/sign-in',
-				signUpUrl: '/sign-up'
+	afterSignInUrl: '/',
+	afterSignUpUrl: '/',
+	signInUrl: '/sign-in',
+	signUpUrl: '/sign-up'
 });
 
-export const handleError: HandleClientError = Sentry.handleErrorWithSentry(async ({ error, event }) => {
-	console.error(error, event);
-});
+export const handleError: HandleClientError = Sentry.handleErrorWithSentry(
+	async ({ error, event }) => {
+		console.error(error, event);
+	}
+);

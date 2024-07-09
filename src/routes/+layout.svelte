@@ -22,7 +22,7 @@
 				<div class="m-4">Loading...</div>
 			</ClerkLoading>
 			<ClerkLoaded let:clerk>
-				<slot {clerk} />
+				<slot clerk="test" />
 			</ClerkLoaded>
 		</PageTransition>
 		<Toaster />
