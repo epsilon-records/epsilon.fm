@@ -4,6 +4,7 @@
 	import ProfileForm from './ProfileForm.svelte';
 	import UserProfile from 'clerk-sveltekit/client/UserProfile.svelte';
 	export let data: PageData;
+	export let clerk;
 </script>
 
 <Card.Root class="m-4">
@@ -12,6 +13,6 @@
 		<Card.Description>Update your profile 🎨</Card.Description>
 	</Card.Header>
 	<Card.Content>
-		<ProfileForm data={data.form} />
+		<ProfileForm {clerk} data={data.form} />
 	</Card.Content>
 </Card.Root>
