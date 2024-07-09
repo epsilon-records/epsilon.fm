@@ -6,7 +6,7 @@ import { db } from '$lib/db';
 import { artist } from '$lib/db/schema';
 import { eq } from 'drizzle-orm';
 import { clerkClient } from '@clerk/clerk-sdk-node';
-import { redirect, error, fail } from '@sveltejs/kit';
+import { redirect, fail } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	const organizationId = locals.session.claims.org_id ?? null;
