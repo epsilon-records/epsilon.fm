@@ -10,11 +10,10 @@
 	import toast from 'svelte-french-toast';
 	import success from '$lib/audio/success.mp3';
 	import { tick } from 'svelte';
-	// import { confetti } from '@neoconfetti/svelte';
-	import { confettiAction } from 'svelte-legos';
+	import { confetti } from '@neoconfetti/svelte';
 	export let data: SuperValidated<Infer<ArtistSchema>>;
 
-	// let isVisible = false;
+	let isVisible = false;
 	const form = superForm(data, {
 		validators: zodClient(artistSchema),
 		resetForm: false,
@@ -23,9 +22,9 @@
 				const audio = new Audio();
 				audio.src = success;
 				audio.load();
-				// isVisible = false;
-				// await tick();
-				// isVisible = true;
+				isVisible = false;
+				await tick();
+				isVisible = true;
 				audio.play();
 				toast.success('Successfully saved!');
 			}
@@ -253,13 +252,11 @@
 			</div>
 		</div>
 		<div>
-			<button use:confettiAction>
-				<Form.Button>Submit</Form.Button>
-			</button>
+			<Form.Button>Submit</Form.Button>
 		</div>
-		<!-- {#if isVisible}
+		{#if isVisible}
 			<div use:confetti />
-		{/if} -->
+		{/if}
 		<!-- <div class="m-4">
 			<SuperDebug data={$formData} />
 		</div> -->
