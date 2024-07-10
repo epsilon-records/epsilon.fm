@@ -248,7 +248,7 @@
 			</div>
 		</div>
 		<div>
-			<Form.Button><div use:confetti />Submit</div></Form.Button>
+			<Form.Button><div use:confetti>Submit</div></Form.Button>
 		</div>
 		<!-- <div class="m-4">
 			<SuperDebug data={$formData} />
