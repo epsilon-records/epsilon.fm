@@ -16,6 +16,7 @@ export async function load({ params }) {
 	if (data.length != 0) {
 		return {
 			stageName: response.name ?? null,
+			slug: params.slug,
 			instagramProfileLink: data[0].instagramProfileLink ?? null,
 			facebookProfileLink: data[0].facebookProfileLink ?? null,
 			tiktokProfileLink: data[0].tiktokProfileLink ?? null,

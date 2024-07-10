@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import Burger from './Hamburger.svelte';
 	import Logo from '$lib/assets/logo.svg';
 	import routes from '$lib/NavRoutes';
@@ -16,8 +17,9 @@
 		</div>
 		<div class="buttons">
 			{#each routes as route}
-				<a class={`button ${segment === route.href ? 'selected' : ''}`} href={route.href}
-					>{route.label}</a
+				<a
+					class={`button ${segment === route.href ? 'selected' : ''}`}
+					href="{page.data.slug}{route.href}">{route.label}</a
 				>
 			{/each}
 		</div>
