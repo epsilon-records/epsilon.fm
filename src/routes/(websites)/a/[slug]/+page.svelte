@@ -31,10 +31,9 @@
 			}}
 		>
 			<div class="icon">
-				<FaEnvelope />
+				<SocialIcons network="email" fgColor="#000000" bgColor="#FFFFFF" />
 			</div>
 		</div>
-
 		{#if data.instagramProfileLink}
 			<a
 				href={data.instagramProfileLink}
@@ -43,7 +42,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<SocialIcons network="instagram" fgColor="#FFFFFF" bgColor="transparent" />
+					<SocialIcons network="instagram" fgColor="#000000" bgColor="#FFFFFF" />
 				</div>
 			</a>
 		{/if}
@@ -55,7 +54,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<SocialIcons network="facebook" />
+					<SocialIcons network="facebook" fgColor="#000000" bgColor="#FFFFFF" />
 				</div>
 			</a>
 		{/if}
@@ -67,7 +66,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<SocialIcons network="soundcloud" />
+					<SocialIcons network="soundcloud" fgColor="#000000" bgColor="#FFFFFF" />
 				</div>
 			</a>
 		{/if}
@@ -79,7 +78,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<SocialIcons network="bandsintown" />
+					<SocialIcons network="bandsintown" fgColor="#000000" bgColor="#FFFFFF" />
 				</div>
 			</a>
 		{/if}
@@ -91,7 +90,19 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<SocialIcons network="tiktok" bgColor="#FF0050" />
+					<SocialIcons network="tiktok" fgColor="#000000" bgColor="#FFFFFF" />
+				</div>
+			</a>
+		{/if}
+		{#if data.youtubeChannelLink}
+			<a
+				href={data.youtubeChannelLink}
+				aria-label="YouTube"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<div class="icon">
+					<SocialIcons network="youtube" fgColor="#000000" bgColor="#FFFFFF" />
 				</div>
 			</a>
 		{/if}

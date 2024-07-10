@@ -19,6 +19,7 @@ export const load = (async ({ params }) => {
 			imageUrl: response.imageUrl ?? null,
 			slug: params.slug,
 			biography: data[0].biography ?? null,
+			youtubeChannelLink: data[0].youtubeChannelLink ?? null,
 			instagramProfileLink: data[0].instagramProfileLink ?? null,
 			facebookProfileLink: data[0].facebookProfileLink ?? null,
 			tiktokProfileLink: data[0].tiktokProfileLink ?? null,
