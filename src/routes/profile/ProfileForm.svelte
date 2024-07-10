@@ -21,6 +21,9 @@
 				const audio = new Audio();
 				audio.src = success;
 				audio.load();
+				isVisible = false;
+				await tick();
+				isVisible = true;
 				audio.play();
 				toast.success('Successfully saved!');
 			}
@@ -248,10 +251,13 @@
 			</div>
 		</div>
 		<div>
-			<Form.Button use:confettiAction>Submit</Form.Button>
+			<Form.Button>Submit</Form.Button>
 		</div>
 		<!-- <div class="m-4">
 			<SuperDebug data={$formData} />
 		</div> -->
 	</form>
+	{#if isVisible}
+		<div use:confettiAction />
+	{/if}
 </SignedIn>
