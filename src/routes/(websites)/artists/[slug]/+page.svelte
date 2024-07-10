@@ -31,13 +31,13 @@
 		</div>
 
 		<a
-			href="https://github.com/Ladvace"
-			aria-label="GitHub"
+			href={data.instagramProfileLink}
+			aria-label="Instagram"
 			target="_blank"
 			rel="noopener noreferrer"
 		>
 			<div class="icon">
-				<FaGithub />
+				<FaInstagram />
 			</div>
 		</a>
 		<a
