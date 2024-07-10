@@ -253,10 +253,10 @@
 		</div>
 		<div>
 			<Form.Button>Submit</Form.Button>
-			{#if isVisible}
-				<div use:confetti />
-			{/if}
 		</div>
+		{#if isVisible}
+			<div use:confetti />
+		{/if}
 		<!-- <div class="m-4">
 			<SuperDebug data={$formData} />
 		</div> -->
