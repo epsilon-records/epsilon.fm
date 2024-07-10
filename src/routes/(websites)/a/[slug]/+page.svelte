@@ -43,7 +43,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<SocialIcons network="instagram" />
+					<SocialIcons network="instagram" fgColor="#FFFFFF" bgColor="transparent" />
 				</div>
 			</a>
 		{/if}
