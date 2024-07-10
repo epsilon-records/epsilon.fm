@@ -10,10 +10,10 @@
 </script>
 
 <svelte:head>
-	<title>Gianmarco Cavallo - Main page</title>
+	<title>{data.stageName}</title>
 </svelte:head>
 <main>
-	<h1>Hi!✋ <br /> I'm {data.stageName} a Front-End Developer 💻 based in Italy</h1>
+	<h1>Hi!✋<br />I'm {data.stageName} an artist 💿 based in {data.currentLocation}</h1>
 	<div class="icons">
 		<div
 			role="button"
