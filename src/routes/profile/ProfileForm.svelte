@@ -10,7 +10,7 @@
 	import toast from 'svelte-french-toast';
 	import success from '$lib/audio/success.mp3';
 	import { tick } from 'svelte';
-	import { confettiAction } from 'svelte-legos';
+	import { confetti } from 'svelte-legos';
 	export let data: SuperValidated<Infer<ArtistSchema>>;
 
 	const form = superForm(data, {
