@@ -22,7 +22,7 @@
 			{#each routes as route}
 				<a
 					class={`button ${segment === '/a/' + data.slug + route.href ? 'selected' : ''}`}
-					href="/artists/{data.slug}{route.href}">{route.label}</a
+					href="/a/{data.slug}{route.href}">{route.label}</a
 				>
 			{/each}
 		</div>
@@ -31,7 +31,7 @@
 		{#each routes as route}
 			<a
 				class={`button ${segment === '/a/' + data.slug + route.href ? 'selected' : ''}`}
-				href="/artists/{data.slug}{route.href}">{route.label}</a
+				href="/a/{data.slug}{route.href}">{route.label}</a
 			>
 		{/each}
 	</div>

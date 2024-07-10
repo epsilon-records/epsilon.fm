@@ -4,7 +4,6 @@ import { sequence } from '@sveltejs/kit/hooks';
 import { handleClerk } from 'clerk-sveltekit/server';
 import { SENTRY_DSN, CLERK_SECRET_KEY } from '$env/static/private';
 import { redirect } from '@sveltejs/kit';
-import { page } from '$app/stores';
 
 Sentry.init({
 	dsn: SENTRY_DSN,
