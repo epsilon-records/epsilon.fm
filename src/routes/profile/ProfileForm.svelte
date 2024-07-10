@@ -10,7 +10,7 @@
 	import toast from 'svelte-french-toast';
 	import success from '$lib/audio/success.mp3';
 	import { tick } from 'svelte';
-	import { confetti } from 'svelte-legos';
+	import { confettiAction } from 'svelte-legos';
 	export let data: SuperValidated<Infer<ArtistSchema>>;
 
 	const form = superForm(data, {
@@ -248,7 +248,7 @@
 			</div>
 		</div>
 		<div>
-			<Form.Button><div use:confetti>Submit</div></Form.Button>
+			<Form.Button><div use:confettiAction>Submit</div></Form.Button>
 		</div>
 		<!-- <div class="m-4">
 			<SuperDebug data={$formData} />
