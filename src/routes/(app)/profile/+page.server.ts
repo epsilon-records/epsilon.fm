@@ -8,13 +8,6 @@ import { eq } from 'drizzle-orm';
 import { clerkClient } from '@clerk/clerk-sdk-node';
 import { redirect, fail } from '@sveltejs/kit';
 
-import { redirect } from '@sveltejs/kit';
-import { clerkClient } from '@clerk/clerk-sdk-node';
-import { db } from '$lib/db';
-import { zod } from 'zod'; // Assume import based on context
-import { superValidate } from './superValidate'; // Assuming these functions are defined elsewhere
-import { artistSchema } from '$lib/schemas'; // Assuming the schema definition is available
-
 export const load: PageServerLoad = async ({ locals }) => {
 	const orgId = locals.session.claims.org_id;
 	if (!orgId) {
@@ -37,17 +30,29 @@ export const load: PageServerLoad = async ({ locals }) => {
 export const actions: Actions = {
 	default: async (request) => {
 		const form = await superValidate(request, zod(artistSchema), { strict: true });
+
 		if (!form.valid) {
-			return fail(400, {
-				form
-			});
+			return fail(400, { form });
 		}
+
 		try {
-			await db.insert(artist).values(form.data).onConflictDoUpdate({
-				target: artist.orgId,
-				set: form.data
-			});
-		} catch {
+			const updateExpression = {
+				...form.data,
+				updatedAt: new Date(), // Assuming you also want to update the 'updatedAt' timestamp
+			};
+
+			await db.insert(artist)
+				.values(form.data)
+				.onConflict(artist.orgId)
+				.doUpdate(updateExpression);
+
+			return message(form, 'success');
+		} catch (error) {
+			console.error('Database operation failed', error);
+			return fail(500, { form, error: 'Database operation failed' });
+		}
+	}
+};
 			return fail(500, {
 				form
 			});
