@@ -16,12 +16,12 @@ export async function load({ params }) {
 	if (data.length != 0) {
 		return {
 			stageName: response.name ?? null,
-			instagramProfileLink: response.instagramProfileLink ?? null,
-			facebookProfileLink: response.facebookProfileLink ?? null,
-			tiktokProfileLink: response.tiktokProfileLink ?? null,
-			soundcloudProfileLink: response.soundcloudProfileLink ?? null,
-			songkickProfileLink: response.songkickProfileLink ?? null,
-			bandsintownProfileLink: response.bandsintownProfileLink ?? null
+			instagramProfileLink: data[0].instagramProfileLink ?? null,
+			facebookProfileLink: data[0].facebookProfileLink ?? null,
+			tiktokProfileLink: data[0].tiktokProfileLink ?? null,
+			soundcloudProfileLink: data[0].soundcloudProfileLink ?? null,
+			songkickProfileLink: data[0].songkickProfileLink ?? null,
+			bandsintownProfileLink: data[0].bandsintownProfileLink ?? null
 		};
 	} else {
 		redirect(404, '/');
