@@ -1,5 +1,6 @@
 import { clerkClient } from '@clerk/clerk-sdk-node';
 import { db } from '$lib/db';
+import { artist } from '$lib/db/schema';
 import { redirect } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageLoad} */
