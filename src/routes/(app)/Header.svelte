@@ -76,8 +76,6 @@
 				<NavLi href="/">Releases</NavLi>
 				<NavLi href="/">Merch</NavLi>
 				<NavLi href="/">Website</NavLi>
-				<NavLi href="/">Social</NavLi>
-				<NavLi href="/">Royalties</NavLi>
 				<NavLi href="/">Admin</NavLi></SignedIn
 			>
 		</NavUl>
