@@ -8,7 +8,6 @@ import {
 	date,
 	decimal
 } from 'drizzle-orm/pg-core';
-import { z } from 'zod';
 
 export const user = pgTable('user', {
 	id: serial('id').primaryKey(),
@@ -33,7 +32,8 @@ export const artist = pgTable('artist', {
 	tiktokProfileLink: varchar('tiktok_profile_link', { length: 255 }),
 	soundcloudProfileLink: varchar('soundcloud_profile_link', { length: 255 }),
 	songkickProfileLink: varchar('songkick_profile_link', { length: 255 }),
-	bandsintownProfileLink: varchar('bandsintown_profile_link', { length: 255 })
+	bandsintownProfileLink: varchar('bandsintown_profile_link', { length: 255 }),
+	updatedAt: timestamp('updated_at').defaultNow().notNull()
 });
 
 export const genre = pgTable('genre', {
@@ -57,7 +57,8 @@ export const release = pgTable('release', {
 	label: varchar('label', { length: 100 }),
 	releaseType: varchar('release_type', { length: 50 }), // Single, Album, EP, etc.
 	format: varchar('format', { length: 50 }), // Digital, Vinyl, CD, etc.
-	upcCode: varchar('upc_code', { length: 20 }) // Universal Product Code
+	upcCode: varchar('upc_code', { length: 20 }), // Universal Product Code
+	updatedAt: timestamp('updated_at').defaultNow().notNull()
 });
 
 export const track = pgTable('track', {
@@ -83,7 +84,8 @@ export const track = pgTable('track', {
 	mixingEngineers: text('mixing_engineers'), // List of mixing engineers
 	masteringEngineers: text('mastering_engineers'), // List of mastering engineers
 	recordingLocation: varchar('recording_location', { length: 255 }), // Studio or location of recording
-	credits: text('credits') // Additional credits
+	credits: text('credits'), // Additional credits
+	updatedAt: timestamp('updated_at').defaultNow().notNull()
 });
 
 export const trackSubgenre = pgTable(
