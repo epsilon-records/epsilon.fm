@@ -1,10 +1,12 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import Burger from './Hamburger.svelte';
 	import Logo from '$lib/assets/logo.svg';
 	import routes from '$lib/NavRoutes';
-	let opened = false;
+
+	export let data;
 	export let segment: string;
+
+	let opened = false;
 </script>
 
 <div class={opened ? 'NavBar open' : 'NavBar'}>
@@ -19,15 +21,15 @@
 			{#each routes as route}
 				<a
 					class={`button ${segment === route.href ? 'selected' : ''}`}
-					href="{page.data.slug}{route.href}">{route.label}</a
+					href="{data.slug}{route.href}">{route.label}</a
 				>
 			{/each}
 		</div>
 	</div>
 	<div class="responsiveButtons buttons">
 		{#each routes as route}
-			<a class={`button ${segment === route.href ? 'selected' : ''}`} href={route.href}
-				>{route.label}</a
+			<a class={`button ${segment === route.href ? 'selected' : ''}`} href="{data.slug}{route.href}"
+				>{data.slug}{route.label}</a
 			>
 		{/each}
 	</div>
