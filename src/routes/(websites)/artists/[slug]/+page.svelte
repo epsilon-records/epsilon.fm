@@ -1,9 +1,11 @@
 <script>
 	import FaLinkedin from 'svelte-icons/fa/FaLinkedin.svelte';
-	import FaGithub from 'svelte-icons/fa/FaGithub.svelte';
+	import FaSoundcloud from 'svelte-icons/fa/FaSoundcloud.svelte';
+	import FaFacebook from 'svelte-icons/fa/FaFacebook.svelte';
+	import FaInstagram from 'svelte-icons/fa/FaInstagram.svelte';
 	import FaEnvelope from 'svelte-icons/fa/FaEnvelope.svelte';
 	import FaMedium from 'svelte-icons/fa/FaMedium.svelte';
-	import { modalOpened } from '$lib/store';
+	import { modalOpened } from '$lib/stores/website';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -13,7 +15,8 @@
 	<title>{data.stageName}</title>
 </svelte:head>
 <main>
-	<h1>Hi!✋<br />I'm {data.stageName} an artist 💿 based in {data.currentLocation}</h1>
+	<h1>{data.stageName}</h1>
+	<h3>{data.currentLocation}</h3>
 	<div class="icons">
 		<div
 			role="button"
@@ -30,36 +33,42 @@
 			</div>
 		</div>
 
-		<a
-			href={data.instagramProfileLink}
-			aria-label="Instagram"
-			target="_blank"
-			rel="noopener noreferrer"
-		>
-			<div class="icon">
-				<FaInstagram />
-			</div>
-		</a>
-		<a
-			href="https://www.linkedin.com/in/ladvace/"
-			aria-label="Linkedin"
-			target="_blank"
-			rel="noopener noreferrer"
-		>
-			<div class="icon">
-				<FaLinkedin />
-			</div>
-		</a>
-		<a
-			href="https://medium.com/@ladvace"
-			aria-label="Medium"
-			target="_blank"
-			rel="noopener noreferrer"
-		>
-			<div class="icon">
-				<FaMedium />
-			</div>
-		</a>
+		{#if data.instagramProfileLink}
+			<a
+				href={data.instagramProfileLink}
+				aria-label="Instagram"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<div class="icon">
+					<FaInstagram />
+				</div>
+			</a>
+		{/if}
+		{#if data.facebookProfileLink}
+			<a
+				href={data.facebookProfileLink}
+				aria-label="Facebook"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<div class="icon">
+					<FaFacebook />
+				</div>
+			</a>
+		{/if}
+		{#if data.soundcloudProfileLink}
+			<a
+				href={data.soundcloudProfileLink}
+				aria-label="SoundCloud"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<div class="icon">
+					<FaSoundcloud />
+				</div>
+			</a>
+		{/if}
 	</div>
 </main>
 

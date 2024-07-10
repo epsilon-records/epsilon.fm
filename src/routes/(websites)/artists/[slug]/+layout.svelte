@@ -7,7 +7,7 @@
 	import { page } from '$app/stores';
 	import Modal from '$lib/components/Modal.svelte';
 	import { onMount } from 'svelte';
-	import { customBackground } from '$lib/store';
+	import { customBackground } from '$lib/stores/website';
 	import { Email } from '$lib/Constants';
 	// import routes from '$lib/NavRoutes';
 
@@ -121,8 +121,7 @@
 <slot />
 
 <footer>
-	Created by <a class="me" href="/about">Ladvace</a> ❤️ with
-	<span class="svelte">Svelte</span>
+	Made with ❤️ by <a class="me" href="https://epsilon.fm">EpsilonFM</a>
 </footer>
 
 <style>

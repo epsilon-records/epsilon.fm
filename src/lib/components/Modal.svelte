@@ -1,5 +1,5 @@
 <script>
-	import { modalOpened } from '$lib/store';
+	import { modalOpened } from '$lib/stores/website';
 	let isOpen = false;
 	let closing = false;
 
@@ -82,7 +82,9 @@
 		background: linear-gradient(155deg, rgba(255, 255, 255, 0.15), transparent);
 		-webkit-backdrop-filter: blur(20px);
 		backdrop-filter: blur(20px);
-		box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1), inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+		box-shadow:
+			2px 4px 6px rgba(0, 0, 0, 0.1),
+			inset 0 0 0 2px rgba(255, 255, 255, 0.1);
 		animation: openModalAnimation 0.3s ease-in-out;
 	}
 
