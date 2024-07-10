@@ -12,6 +12,9 @@
     "prettier.requireConfig": false,
     "prettier.useEditorConfig": true,
     "stylelint.autoFixOnSave": true,
+    "search.exclude": {
+        "": true
+    }
     "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true
@@ -24,7 +27,8 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true
     },
-    "search.exclude": {
-        "": true
-    }
+    "[markdown]": {
+        "editor.quickSuggestions": true,
+        "editor.wordBasedSuggestions": false
+    },
 }
