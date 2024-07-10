@@ -7,12 +7,13 @@ export async function load({ params }) {
 	const response = await clerkClient.organizations.getOrganization({
 		slug: params.slug
 	});
-	const organizationId = response.id ?? null;
-	const stageName = response.name ?? null;
-	const data = await db.select().from(artist).where(eq(artist.orgId, organizationId));
+	const data = await db
+		.select()
+		.from(artist)
+		.where(eq(artist.orgId, response.id ?? null));
 	if (data.length != 0) {
 		return {
-			stageName: stageName,
+			stageName: response.name ?? null,
 			instagramProfileLink: response.instagramProfileLink ?? null,
 			facebookProfileLink: response.facebookProfileLink ?? null,
 			tiktokProfileLink: response.tiktokProfileLink ?? null,
