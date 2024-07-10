@@ -10,13 +10,13 @@
 	import toast from 'svelte-french-toast';
 	import success from '$lib/audio/success.mp3';
 	import { tick } from 'svelte';
-	import { confetti } from 'svelte-legos';
+	import { confettiAction } from 'svelte-legos';
 	export let data: SuperValidated<Infer<ArtistSchema>>;
 
 	const form = superForm(data, {
 		validators: zodClient(artistSchema),
 		resetForm: false,
-		onUpdated({ form }) {
+		async onUpdated({ form }) {
 			if (form.message == 'success') {
 				const audio = new Audio();
 				audio.src = success;
@@ -248,7 +248,7 @@
 			</div>
 		</div>
 		<div>
-			<Form.Button use:confetti>Submit</Form.Button>
+			<Form.Button use:confettiAction>Submit</Form.Button>
 		</div>
 		<!-- <div class="m-4">
 			<SuperDebug data={$formData} />
