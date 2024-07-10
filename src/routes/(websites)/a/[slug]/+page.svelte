@@ -6,6 +6,7 @@
 	import FaEnvelope from 'svelte-icons/fa/FaEnvelope.svelte';
 	import FaMedium from 'svelte-icons/fa/FaMedium.svelte';
 	import { modalOpened } from '$lib/stores/website';
+	import SocialIcons from '@rodneylab/svelte-social-icons';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -14,8 +15,9 @@
 <svelte:head>
 	<title>{data.stageName}</title>
 </svelte:head>
+
 <main>
-	<h1>{data.stageName}</h1>
+	<h1>{data.stageName.toUpperCase()}</h1>
 	<h3>{data.currentLocation}</h3>
 	<div class="icons">
 		<div
@@ -41,7 +43,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<FaInstagram />
+					<SocialIcons network="instagram" />
 				</div>
 			</a>
 		{/if}
@@ -53,7 +55,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<FaFacebook />
+					<SocialIcons network="facebook" />
 				</div>
 			</a>
 		{/if}
@@ -65,7 +67,31 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<FaSoundcloud />
+					<SocialIcons network="soundcloud" />
+				</div>
+			</a>
+		{/if}
+		{#if data.bandsintownProfileLink}
+			<a
+				href={data.bandsintownProfileLink}
+				aria-label="Bandsintown"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<div class="icon">
+					<SocialIcons network="bandsintown" />
+				</div>
+			</a>
+		{/if}
+		{#if data.tiktokProfileLink}
+			<a
+				href={data.tiktokProfileLink}
+				aria-label="TikTok"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<div class="icon">
+					<SocialIcons network="tiktok" bgColor="#FF0050" />
 				</div>
 			</a>
 		{/if}

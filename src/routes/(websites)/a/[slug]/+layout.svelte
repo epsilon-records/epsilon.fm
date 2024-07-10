@@ -3,13 +3,13 @@
 	import Button from '$lib/components/Button.svelte';
 	import FaCopy from 'svelte-icons/fa/FaCopy.svelte';
 	import Tooltip from '$lib/components/Tooltip.svelte';
-	// import { beforeNavigate } from '$app/navigation';
+	import { beforeNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import Modal from '$lib/components/Modal.svelte';
 	import { onMount } from 'svelte';
 	import { customBackground } from '$lib/stores/website';
 	import { Email } from '$lib/Constants';
-	// import routes from '$lib/NavRoutes';
+	import routes from '$lib/NavRoutes';
 
 	export let data;
 	let copied = false;
@@ -49,13 +49,15 @@
 		else showCookieModal = true;
 	});
 
-	// beforeNavigate(({ to }) => {
-	// 	const pathName = to.pathname;
-	// 	const route = routes.find((route) => pathName === route.href);
-	// 	if (!route.customColor) {
-	// 		customBackground.set('#0a0908');
-	// 	} else customBackground.set(route.customColor);
-	// });
+	beforeNavigate(({ to }) => {
+		const pathName = to.pathname;
+		const route = routes.find((route) => pathName === route.href);
+		if (!route.customColor) {
+			customBackground.set(
+				'https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg'
+			);
+		} else customBackground.set(route.customColor);
+	});
 </script>
 
 <svelte:body use:cssVariables={{ background: $customBackground }} />

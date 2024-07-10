@@ -16,6 +16,7 @@ export const load = (async ({ params }) => {
 	if (data.length != 0) {
 		return {
 			stageName: response.name ?? null,
+			imageUrl: response.imageUrl ?? null,
 			slug: params.slug,
 			biography: data[0].biography ?? null,
 			instagramProfileLink: data[0].instagramProfileLink ?? null,
