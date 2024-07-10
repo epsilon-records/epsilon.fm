@@ -38,25 +38,15 @@ export const actions: Actions = {
 		try {
 			const updateExpression = {
 				...form.data,
-				updatedAt: new Date(), // Assuming you also want to update the 'updatedAt' timestamp
+				updatedAt: new Date() // Assuming you also want to update the 'updatedAt' timestamp
 			};
 
-			await db.insert(artist)
-				.values(form.data)
-				.onConflict(artist.orgId)
-				.doUpdate(updateExpression);
+			await db.insert(artist).values(form.data).onConflict(artist.orgId).doUpdate(updateExpression);
 
 			return message(form, 'success');
 		} catch (error) {
 			console.error('Database operation failed', error);
 			return fail(500, { form, error: 'Database operation failed' });
 		}
-	}
-};
-			return fail(500, {
-				form
-			});
-		}
-		return message(form, 'success');
 	}
 };
