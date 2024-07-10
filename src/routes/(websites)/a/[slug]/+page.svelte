@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import FaLinkedin from 'svelte-icons/fa/FaLinkedin.svelte';
 	import FaSoundcloud from 'svelte-icons/fa/FaSoundcloud.svelte';
 	import FaFacebook from 'svelte-icons/fa/FaFacebook.svelte';
@@ -7,6 +7,8 @@
 	import FaMedium from 'svelte-icons/fa/FaMedium.svelte';
 	import { modalOpened } from '$lib/stores/website';
 	import SocialIcons from '@rodneylab/svelte-social-icons';
+	import type { Network } from '@rodneylab/svelte-social-icons';
+	import RiTiktokFill from 'svelte-remixicon/RiTiktokFill.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -31,7 +33,7 @@
 			}}
 		>
 			<div class="icon">
-				<SocialIcons network="email" fgColor="#000000" bgColor="#FFFFFF" />
+				<SocialIcons network="email" fgColor="#FFFFFF" bgColor="transparent" />
 			</div>
 		</div>
 		{#if data.instagramProfileLink}
@@ -42,7 +44,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<SocialIcons network="instagram" fgColor="#000000" bgColor="#FFFFFF" />
+					<SocialIcons network="instagram" fgColor="#FFFFFF" bgColor="transparent" />
 				</div>
 			</a>
 		{/if}
@@ -54,7 +56,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<SocialIcons network="facebook" fgColor="#000000" bgColor="#FFFFFF" />
+					<SocialIcons network="facebook" fgColor="#FFFFFF" bgColor="transparent" />
 				</div>
 			</a>
 		{/if}
@@ -66,7 +68,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<SocialIcons network="soundcloud" fgColor="#000000" bgColor="#FFFFFF" />
+					<SocialIcons network="soundcloud" fgColor="#FFFFFF" bgColor="transparent" />
 				</div>
 			</a>
 		{/if}
@@ -78,7 +80,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<SocialIcons network="bandsintown" fgColor="#000000" bgColor="#FFFFFF" />
+					<SocialIcons network="bandsintown" fgColor="#FFFFFF" bgColor="transparent" />
 				</div>
 			</a>
 		{/if}
@@ -90,7 +92,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<SocialIcons network="tiktok" fgColor="#000000" bgColor="#FFFFFF" />
+					<RiTiktokFill />
 				</div>
 			</a>
 		{/if}
@@ -102,7 +104,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<SocialIcons network="youtube" fgColor="#000000" bgColor="#FFFFFF" />
+					<SocialIcons network="youtube" fgColor="#FFFFFF" bgColor="transparent" />
 				</div>
 			</a>
 		{/if}

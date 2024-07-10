@@ -5,23 +5,28 @@ const routes = [
 	},
 	{
 		href: '/about',
-		label: 'About'
+		label: 'About',
+		customColor: '#FF007F'
 	},
 	{
 		href: '/music',
-		label: 'Music'
+		label: 'Music',
+		customColor: '#FF007F'
 	},
 	{
 		href: '/merch',
-		label: 'Merch'
+		label: 'Merch',
+		customColor: '#FF007F'
 	},
 	{
 		href: '/events',
-		label: 'Events'
+		label: 'Events',
+		customColor: '#FF007F'
 	},
 	{
 		href: '/contact',
-		label: 'Contact'
+		label: 'Contact',
+		customColor: '#FF007F'
 	}
 ];
 
