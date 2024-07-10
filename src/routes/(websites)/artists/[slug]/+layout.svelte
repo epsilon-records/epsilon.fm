@@ -11,6 +11,7 @@
 	import { Email } from '$lib/Constants';
 	// import routes from '$lib/NavRoutes';
 
+	export let data;
 	let copied = false;
 	const cookieEnabled = false;
 	$: showCookieModal = false;

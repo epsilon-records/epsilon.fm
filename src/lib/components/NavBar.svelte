@@ -21,16 +21,17 @@
 		<div class="buttons">
 			{#each routes as route}
 				<a
-					class={`button ${segment === route.href ? 'selected' : ''}`}
-					href="{data.slug}{route.href}">{route.label}</a
+					class={`button ${segment === 'artists/' + data.slug + route.href ? 'selected' : ''}`}
+					href="artists/{data.slug}{route.href}">{route.label}</a
 				>
 			{/each}
 		</div>
 	</div>
 	<div class="responsiveButtons buttons">
 		{#each routes as route}
-			<a class={`button ${segment === route.href ? 'selected' : ''}`} href="{data.slug}{route.href}"
-				>{data.slug}{route.label}</a
+			<a
+				class={`button ${segment === route.href ? 'selected' : ''}`}
+				href="artists/{data.slug}{route.href}">{route.label}</a
 			>
 		{/each}
 	</div>
