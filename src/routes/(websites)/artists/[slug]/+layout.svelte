@@ -116,7 +116,7 @@
 		<Button>Send Email</Button>
 	</div>
 </Modal>
-<Navbar segment={$page.url.pathname} />
+<Navbar {data} segment={$page.url.pathname} />
 
 <slot />
 

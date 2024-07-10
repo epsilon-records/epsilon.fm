@@ -3,6 +3,7 @@
 	import Logo from '$lib/assets/logo.svg';
 	import routes from '$lib/NavRoutes';
 
+	/** @type {import('./$types').PageData} */
 	export let data;
 	export let segment: string;
 
