@@ -9,44 +9,44 @@ import { clerkClient } from '@clerk/clerk-sdk-node';
 import { redirect, fail } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async ({ locals }) => {
-	const orgId = locals.session.claims.org_id ?? null;
-	if (!orgId) {
-		throw redirect(500, '/error');
+	const organizationId = locals.session.claims.org_id ?? null;
+	const response = await clerkClient.organizations.getOrganization({ organizationId });
+	const stageName = response.name ?? null;
+	const slug = response.slug ?? null;
+	if (!organizationId || !stageName || !slug) {
+		throw redirect(500, '/');
 	}
-	const organization = await clerkClient.organizations.getOrganization({ organizationId: orgId });
-	const { name: stageName, slug } = organization;
-	if (!stageName || !slug) {
-		throw redirect(500, '/error');
-	}
-	const artistData = await db.select().from('artist').where(eq(artist.orgId, orgId));
 	let form = await superValidate(zod(artistSchema));
-	if (artistData.length > 0) {
-		form = await superValidate(artistData[0], zod(artistSchema), { strict: true });
+	const data = await db.select().from(artist).where(eq(artist.orgId, organizationId));
+	if (data.length != 0) {
+		form = await superValidate(data[0], zod(artistSchema), { strict: true });
 	}
-	form.data = { orgId, stageName, slug, ...form.data };
-	return { form };
+	form.data.orgId = organizationId;
+	form.data.stageName = stageName;
+	form.data.slug = slug;
+	return {
+		form: form
+	};
 };
 
 export const actions: Actions = {
 	default: async (request) => {
 		const form = await superValidate(request, zod(artistSchema), { strict: true });
-
 		if (!form.valid) {
-			return fail(400, { form });
+			return fail(400, {
+				form
+			});
 		}
-
 		try {
-			const updateExpression = {
-				...form.data,
-				updatedAt: new Date()
-			};
-
-			await db.insert(artist).values(form.data).onConflict(artist.orgId).doUpdate(updateExpression);
-
-			return message(form, 'success');
-		} catch (error) {
-			console.error('Database operation failed', error);
-			return fail(500, { form, error: 'Database operation failed' });
+			await db.insert(artist).values(form.data).onConflictDoUpdate({
+				target: artist.orgId,
+				set: form.data
+			});
+		} catch {
+			return fail(500, {
+				form
+			});
 		}
+		return message(form, 'success');
 	}
 };
