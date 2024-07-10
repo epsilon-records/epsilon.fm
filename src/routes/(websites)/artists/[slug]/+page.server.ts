@@ -1,6 +1,7 @@
 import { clerkClient } from '@clerk/clerk-sdk-node';
 import { db } from '$lib/db';
 import { redirect } from '@sveltejs/kit';
+import { eq } from 'drizzle-orm';
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ params }) {
@@ -13,7 +14,7 @@ export async function load({ params }) {
 			throw new Error('Organization ID not found.');
 		}
 
-		const data = await db.select().from('artist').where('orgId', organizationId);
+		const data = await db.select().from('artist').where(eq(artist.orgId, organizationId));
 
 		if (!data.length) {
 			redirect(404, '/');
