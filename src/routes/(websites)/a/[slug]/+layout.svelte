@@ -3,84 +3,28 @@
 	import Button from '$lib/components/Button.svelte';
 	import FaCopy from 'svelte-icons/fa/FaCopy.svelte';
 	import Tooltip from '$lib/components/Tooltip.svelte';
-	import { beforeNavigate } from '$app/navigation';
+	// import { beforeNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import Modal from '$lib/components/Modal.svelte';
 	import { onMount } from 'svelte';
 	import { customBackground } from '$lib/stores/website';
 	import { Email } from '$lib/Constants';
-	import routes from '$lib/NavRoutes';
+	// import routes from '$lib/NavRoutes';
 
 	export let data;
 	let copied = false;
-	const cookieEnabled = false;
-	$: showCookieModal = false;
-
-	interface CssVariables {
-		[name: string]: string;
-	}
-
-	const cssVariables = (
-		node: HTMLElement,
-		variables: CssVariables
-	): { update: (variables: CssVariables) => void } => {
-		setCssVariables(node, variables);
-
-		return {
-			update(variables: CssVariables) {
-				setCssVariables(node, variables);
-			}
-		};
-	};
-
-	const setCssVariables = (node: HTMLElement, variables: CssVariables): void => {
-		for (const name in variables) {
-			node.style.setProperty(`--${name}`, variables[name]);
-		}
-	};
 
 	const copy = () => {
 		navigator.clipboard.writeText(Email);
 	};
 
 	onMount(() => {
-		const showCookie = localStorage.getItem('showCookieModal');
-		if (showCookie !== null) showCookieModal = JSON.parse(showCookie);
-		else showCookieModal = true;
-	});
-
-	beforeNavigate(({ to }) => {
-		const pathName = to.pathname;
-		const route = routes.find((route) => pathName === route.href);
-		if (!route.customColor) {
-			customBackground.set(
-				'https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg'
-			);
-		} else customBackground.set(route.customColor);
+		document.body.style.backgroundImage = `url(${data.imageUrl})`;
+		document.body.style.backgroundSize = 'cover';
+		document.body.style.backgroundPosition = 'center';
+		document.body.style.backgroundRepeat = 'no-repeat';
 	});
 </script>
-
-<svelte:body use:cssVariables={{ background: $customBackground }} />
-
-{#if showCookieModal && cookieEnabled}
-	<div class="cookieContainer">
-		<p>🍪 This website use <a href="privacy-policy">Cookies.</a></p>
-		<div
-			role="button"
-			tabindex="0"
-			on:keypress={() => {
-				showCookieModal = false;
-				localStorage.setItem('showCookieModal', 'false');
-			}}
-			on:click={() => {
-				showCookieModal = false;
-				localStorage.setItem('showCookieModal', 'false');
-			}}
-		>
-			&#10005;
-		</div>
-	</div>
-{/if}
 
 <Modal>
 	<div slot="content" class="modalContainer">

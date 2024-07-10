@@ -6,8 +6,15 @@
 	import { ModeWatcher } from 'mode-watcher';
 	import { Separator } from '$lib/components/ui/separator';
 	import { Toaster } from 'svelte-french-toast';
-	import PageTransition from '$lib/components/PageTransition.svelte';
+	import { onMount } from 'svelte';
 	export let data: LayoutServerData;
+
+	onMount(() => {
+		document.body.style.backgroundImage = ``;
+		document.body.style.backgroundSize = '';
+		document.body.style.backgroundPosition = '';
+		document.body.style.backgroundRepeat = '';
+	});
 </script>
 
 <div class="app">
@@ -15,9 +22,7 @@
 
 	<main>
 		<ModeWatcher />
-		<PageTransition pathname={data.pathname}>
-			<slot />
-		</PageTransition>
+		<slot />
 		<Toaster />
 	</main>
 
