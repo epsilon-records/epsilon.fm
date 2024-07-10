@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import { Field, Control, Label, FieldErrors, Description } from 'formsnap';
 	import { Input } from '$lib/components/ui/input';
 	import { Textarea } from '$lib/components/ui/textarea';
@@ -13,6 +14,7 @@
 	import { confettiAction } from 'svelte-legos';
 	export let data: SuperValidated<Infer<ArtistSchema>>;
 
+	let isVisible = false;
 	const form = superForm(data, {
 		validators: zodClient(artistSchema),
 		resetForm: false,
