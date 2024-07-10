@@ -11,7 +11,7 @@
 	import toast from 'svelte-french-toast';
 	import success from '$lib/audio/success.mp3';
 	import { tick } from 'svelte';
-	import { confettiAction } from 'svelte-legos';
+	import { confetti } from '@neoconfetti/svelte';
 	export let data: SuperValidated<Infer<ArtistSchema>>;
 
 	let isVisible = false;
@@ -260,6 +260,6 @@
 		</div> -->
 	</form>
 	{#if isVisible}
-		<div use:confettiAction />
+		<div use:confetti />
 	{/if}
 </SignedIn>

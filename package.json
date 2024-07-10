@@ -50,6 +50,7 @@
     "@clerk/clerk-js": "^5.7.2",
     "@clerk/clerk-sdk-node": "^5.0.14",
     "@internationalized/date": "^3.5.4",
+    "@neoconfetti/svelte": "^2.2.1",
     "@sentry/sveltekit": "^8.15.0",
     "@silintl/svelte-google-places-autocomplete": "^1.2.5",
     "@sveltejs/enhanced-img": "^0.3.0",
