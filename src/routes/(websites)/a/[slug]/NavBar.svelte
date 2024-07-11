@@ -17,10 +17,14 @@
 		</div>
 		<div class="buttons">
 			{#each routes as route}
-				<a
-					class={`button ${segment === '/a/' + data.slug + route.href ? 'selected' : ''}`}
-					href="/a/{data.slug}{route.href}">{route.label}</a
-				>
+				{#if route.href === '/merch'}
+					<a href="https://epsilonrecords.nl/{route.href}/{data.slug}">{route.label}</a>
+				{:else}
+					<a
+						class={`button ${segment === '/a/' + data.slug + route.href ? 'selected' : ''}`}
+						href="/a/{data.slug}{route.href}">{route.label}</a
+					>
+				{/if}
 			{/each}
 		</div>
 	</div>
