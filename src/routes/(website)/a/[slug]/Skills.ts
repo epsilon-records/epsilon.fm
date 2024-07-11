@@ -1,8 +1,7 @@
 const skills = {
 	genres: ['House', 'Classic House', 'Latin House', 'Svelte.js', 'Go', 'Electron'],
-	// devops: [],
 	instruments: ['Piano', 'Synthesizer', 'Guitar'],
-	// tools: [],
+	tools: ['Ableton Live'],
 	languages: ['English', 'Spanish'],
 	locations: ['Dallas, TX', 'San Diego, CA']
 };
