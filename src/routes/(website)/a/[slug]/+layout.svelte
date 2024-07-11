@@ -128,7 +128,9 @@
 <slot />
 
 <footer>
-	Made with ❤️ by <a class="me" href="https://epsilon.fm">EpsilonFM</a>
+	<div class="text-white">
+		Made with ❤️ by <a class="me" href="https://epsilon.fm">EpsilonFM</a>
+	</div>
 </footer>
 
 <style>

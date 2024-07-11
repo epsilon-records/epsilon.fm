@@ -46,6 +46,9 @@
 		--input: 215 27.9% 16.9%;
 		--ring: 263.4 70% 50.4%;
 	}
+	a:hover {
+		color: var(--primary); /* Use primary color for hover effect */
+	}
 }
 
 @layer base {

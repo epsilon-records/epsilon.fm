@@ -11,8 +11,8 @@
 	<title>{data.stageName}</title>
 </svelte:head>
 <main>
-	<div class="text-8xl">{data.stageName.toUpperCase()}</div>
-	<div class="pt-12 text-3xl">DJ & Producer</div>
+	<div class="text-8xl text-white">{data.stageName.toUpperCase()}</div>
+	<div class="pt-12 text-3xl text-white">DJ & Producer</div>
 	<div class="icons">
 		<div
 			role="button"
