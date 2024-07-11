@@ -1,5 +1,6 @@
 <script>
 	import skills from '../Skills';
+	import { Badge } from '$lib/components/ui/badge';
 	export let data;
 </script>
 
@@ -10,23 +11,16 @@
 <div class="container">
 	<main>
 		<h1>About</h1>
-		<p>{data.biography}</p>
-		<h2>Skills</h2>
+		<p class="bg-slate-900 p-4">{data.biography}</p>
+		<br />
 		{#each Object.entries(skills) as [section, technologies]}
-			<ul>
-				<li>
-					<h4>
-						{section}:
-					</h4>
-					<div class="list">
-						{#each technologies as technology}
-							<div>
-								{technology}
-							</div>
-						{/each}
-					</div>
-				</li>
-			</ul>
+			<h4 class="w-min bg-slate-900 p-2">
+				{section}:
+			</h4>
+
+			{#each technologies as technology}
+				<Badge class="m-2">{technology}</Badge>
+			{/each}
 		{/each}
 	</main>
 </div>

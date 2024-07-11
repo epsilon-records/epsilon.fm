@@ -18,7 +18,10 @@
 		<div class="buttons">
 			{#each routes as route}
 				{#if route.href === '/merch'}
-					<a href="https://epsilonrecords.nl/{route.href}/{data.slug}">{route.label}</a>
+					<a
+						class={`button ${segment === '/a/' + data.slug + route.href ? 'selected' : ''}`}
+						href="https://epsilonrecords.nl{route.href}/{data.slug}">{route.label}</a
+					>
 				{:else}
 					<a
 						class={`button ${segment === '/a/' + data.slug + route.href ? 'selected' : ''}`}
