@@ -65,7 +65,7 @@
     "bits-ui": "^0.21.11",
     "clerk-sveltekit": "^0.4.2",
     "clsx": "^2.1.1",
-    "drizzle-orm": "^0.31.2",
+    "drizzle-orm": "^0.32.0",
     "drizzle-zod": "^0.5.1",
     "formsnap": "^1.0.1",
     "lucide-svelte": "^0.407.0",
