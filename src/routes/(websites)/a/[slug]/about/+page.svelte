@@ -12,29 +12,31 @@
 	<title>{stageName} — About</title>
 </svelte:head>
 
-<main>
-	<h1>About</h1>
-	<p>
-		{biography}
-	</p>
-	<h2>Skills</h2>
-	{#each Object.entries(skills) as [section, technologies]}
-		<ul>
-			<li>
-				<h4>
-					{section}:
-				</h4>
-				<div class="list">
-					{#each technologies as technology}
-						<div>
-							{technology}
-						</div>
-					{/each}
-				</div>
-			</li>
-		</ul>
-	{/each}
-</main>
+<div class="container">
+	<main>
+		<h1>About</h1>
+		<p>
+			{biography}
+		</p>
+		<h2>Skills</h2>
+		{#each Object.entries(skills) as [section, technologies]}
+			<ul>
+				<li>
+					<h4>
+						{section}:
+					</h4>
+					<div class="list">
+						{#each technologies as technology}
+							<div>
+								{technology}
+							</div>
+						{/each}
+					</div>
+				</li>
+			</ul>
+		{/each}
+	</main>
+</div>
 
 <style>
 	.container {
