@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '../../../../app.css';
+	import './app.css';
 	import Navbar from './NavBar.svelte';
 	import Button from './Button.svelte';
 	import FaCopy from 'svelte-icons/fa/FaCopy.svelte';

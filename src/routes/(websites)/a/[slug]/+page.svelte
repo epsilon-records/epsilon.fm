@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<title>Gianmarco Cavallo - Main page</title>
+	<title>{data.stageName}</title>
 </svelte:head>
 <main>
 	<h1>{data.stageName.toUpperCase()}</h1>
