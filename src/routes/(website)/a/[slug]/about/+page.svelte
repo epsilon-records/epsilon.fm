@@ -11,12 +11,12 @@
 <div class="container">
 	<main>
 		<h1>About</h1>
-		<p class="bg-slate-900 p-4">{data.biography}</p>
+		<p class="bg-slate-900 p-4 text-white">{data.biography}</p>
 		<br />
 		{#each Object.entries(skills) as [section, technologies]}
-			<h4 class="w-min bg-slate-900 p-2">
+			<div class="w-min bg-slate-900 p-2 text-white">
 				{section}:
-			</h4>
+			</div>
 
 			{#each technologies as technology}
 				<Badge class="m-2">{technology}</Badge>
