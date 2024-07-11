@@ -15,7 +15,7 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@fontsource/fira-mono": "^4.5.10",
+    "@fontsource/fira-mono": "^5.0.13",
     "@playwright/test": "^1.45.1",
     "@sveltejs/adapter-auto": "^3.2.2",
     "@sveltejs/adapter-vercel": "^5.4.0",
