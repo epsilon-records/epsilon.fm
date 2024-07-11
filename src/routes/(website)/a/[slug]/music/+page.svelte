@@ -9,7 +9,7 @@
 
 <div class="container">
 	<main>
-		<h1>Music</h1>
+		<h1 class="text-white">Music</h1>
 		<Spotify height="740px" width="400px" spotifyLink="artist/27sSKrytmUXukDnMGPXNHQ" />
 	</main>
 </div>
