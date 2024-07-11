@@ -1,10 +1,10 @@
 const skills = {
-	programming: ['Node.js', 'TypeScript', 'React.js', 'Svelte.js', 'Go', 'Electron'],
+	genres: ['House', 'Classic House', 'Latin House', 'Svelte.js', 'Go', 'Electron'],
 	// devops: [],
-	databases: ['MongoDB', 'PostgreSQL'],
+	instruments: ['Piano', 'Synthesizer', 'Guitar'],
 	// tools: [],
-	languages: ['Italian', 'English'],
-	other: ['Design principles', 'User interface design']
+	languages: ['English', 'Spanish'],
+	locations: ['Dallas, TX', 'San Diego, CA']
 };
 
 export default skills;
