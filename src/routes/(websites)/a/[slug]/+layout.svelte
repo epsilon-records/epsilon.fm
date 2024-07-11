@@ -8,8 +8,8 @@
 	import Modal from './Modal.svelte';
 	import { onMount } from 'svelte';
 	import { customBackground } from '$lib/stores/website';
-	import { Email } from '$lib/Constants';
-	import routes from '$lib/NavRoutes';
+	import { Email } from './Constants';
+	import routes from './NavRoutes';
 
 	export let data;
 	let copied = false;

@@ -1,6 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
-	import { Email } from '$lib/Constants';
+	import { Email } from './Constants';
 </script>
 
 <div
