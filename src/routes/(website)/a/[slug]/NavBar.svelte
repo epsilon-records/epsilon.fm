@@ -9,7 +9,7 @@
 
 <div class={opened ? 'NavBar open' : 'NavBar'}>
 	<div class="innerContainer">
-		<a href="/">
+		<a href="https://epsilon.fm">
 			<img src={Logo} alt="logo" class="logo" />
 		</a>
 		<div class="burger">
@@ -21,6 +21,11 @@
 					<a
 						class={`button ${segment === '/a/' + data.slug + route.href ? 'selected' : ''}`}
 						href="https://epsilonrecords.nl{route.href}/{data.slug}">{route.label}</a
+					>
+				{:else if route.href === '/contact'}
+					<a
+						class={`button ${segment === '/a/' + data.slug + route.href ? 'selected' : ''}`}
+						href="https://epsilonrecords.nl{route.href}">{route.label}</a
 					>
 				{:else}
 					<a
