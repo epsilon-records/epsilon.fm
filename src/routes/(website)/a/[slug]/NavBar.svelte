@@ -18,15 +18,11 @@
 		<div class="buttons">
 			{#each routes as route}
 				{#if route.href === '/merch'}
-					<a
-						class={`button ${segment === '/a/' + data.slug + route.href ? 'selected' : ''}`}
-						href="https://epsilonrecords.nl{route.href}/{data.slug}">{route.label}</a
+					<a class={`button`} href="https://epsilonrecords.nl{route.href}/{data.slug}"
+						>{route.label}</a
 					>
 				{:else if route.href === '/contact'}
-					<a
-						class={`button ${segment === '/a/' + data.slug + route.href ? 'selected' : ''}`}
-						href="https://epsilonrecords.nl{route.href}">{route.label}</a
-					>
+					<a class={`button`} href="https://epsilonrecords.nl{route.href}">{route.label}</a>
 				{:else}
 					<a
 						class={`button ${segment === '/a/' + data.slug + route.href ? 'selected' : ''}`}
