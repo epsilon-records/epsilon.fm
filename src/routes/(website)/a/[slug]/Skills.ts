@@ -1,5 +1,5 @@
 const skills = {
-	genres: ['House', 'Classic House', 'Latin House', 'Svelte.js', 'Go', 'Electron'],
+	genres: ['House', 'Classic House', 'Latin House'],
 	instruments: ['Piano', 'Synthesizer', 'Guitar'],
 	tools: ['Ableton Live'],
 	languages: ['English', 'Spanish'],
