@@ -1,13 +1,10 @@
 <script lang="ts">
 	import Burger from './Hamburger.svelte';
 	import Logo from '$lib/images/logo.png';
-	import routes from '$lib/NavRoutes';
-
-	/** @type {import('./$types').PageData} */
-	export let data;
-	export let segment: string;
-
+	import routes from './NavRoutes';
 	let opened = false;
+	export let segment: string;
+	export let data;
 </script>
 
 <div class={opened ? 'NavBar open' : 'NavBar'}>
@@ -131,7 +128,7 @@
 		text-decoration: none;
 		position: relative;
 		margin: 10px;
-		color: hsla(0, 0%, 100%, 0.4);
+		color: white;
 	}
 
 	.button.selected {

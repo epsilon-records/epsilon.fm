@@ -1,17 +1,19 @@
 <script lang="ts">
+	import '../../../../app.css';
 	import Navbar from './NavBar.svelte';
 	import Button from './Button.svelte';
 	import FaCopy from 'svelte-icons/fa/FaCopy.svelte';
 	import Tooltip from './Tooltip.svelte';
-	import { beforeNavigate } from '$app/navigation';
+	// import { beforeNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import Modal from './Modal.svelte';
 	import { onMount } from 'svelte';
 	import { customBackground } from '$lib/stores/website';
 	import { Email } from './Constants';
-	import routes from './NavRoutes';
+	// import routes from '$lib/NavRoutes';
 
 	export let data;
+
 	let copied = false;
 	const cookieEnabled = false;
 	$: showCookieModal = false;
@@ -53,29 +55,20 @@
 		document.body.style.backgroundRepeat = 'no-repeat';
 	});
 
-	function extractAfterLastSlash(input: string): string {
-		const lastSlashIndex = input.lastIndexOf('/');
-		if (lastSlashIndex !== -1) {
-			return input.substring(lastSlashIndex);
-		}
-		return input;
-	}
-
-	beforeNavigate(({ to }) => {
-		const pathName = extractAfterLastSlash(to.url.pathname);
-		console.log(pathName);
-		const route = routes.find((route) => pathName === route.href);
-		if (!route.customColor) {
-			customBackground.set('#0a0908');
-		} else customBackground.set(route.customColor);
-	});
+	// beforeNavigate(({ to }) => {
+	// 	const pathName = to.pathname;
+	// 	const route = routes.find((route) => pathName === route.href);
+	// 	if (!route.customColor) {
+	// 		customBackground.set('#0a0908');
+	// 	} else customBackground.set(route.customColor);
+	// });
 </script>
 
 <svelte:body use:cssVariables={{ background: $customBackground }} />
 
 {#if showCookieModal && cookieEnabled}
 	<div class="cookieContainer">
-		<p>🍪 This website uses <a href="privacy-policy">Cookies.</a></p>
+		<p>🍪 This website use <a href="privacy-policy">Cookies.</a></p>
 		<div
 			role="button"
 			tabindex="0"

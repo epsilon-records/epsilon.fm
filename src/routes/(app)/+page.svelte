@@ -31,7 +31,9 @@
 </svelte:head>
 
 <section>
-	<SignedIn><UploadDropzone {uploader} /></SignedIn>
+	<SignedIn>
+		<UploadDropzone {uploader} />
+	</SignedIn>
 	<SignedOut>
 		<Card.Root class="m-4">
 			<Card.Header>
@@ -92,9 +94,6 @@
 			</Card.Content>
 			<Card.Content>
 				<img alt="Epsilon Distribution Partners" src={partners} />
-			</Card.Content>
-			<Card.Content>
-				<div class="text-center"></div>
 			</Card.Content>
 		</Card.Root>
 		<Card.Root class="m-4">

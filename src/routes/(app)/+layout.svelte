@@ -19,13 +19,11 @@
 
 <div class="app">
 	<Header></Header>
-
 	<main>
 		<ModeWatcher />
 		<slot />
 		<Toaster />
 	</main>
-
 	<footer>
 		<p class="text-sm text-muted-foreground">Made with ❤️ by Epsilon Records</p>
 		<Badge class="m-2" variant={data.nodeEnv == 'development' ? 'outline' : 'default'}
@@ -68,5 +66,14 @@
 		footer {
 			padding: 12px 0;
 		}
+	}
+	:global(body) {
+		font-family: 'Fira Code', monospace;
+	}
+
+	@font-face {
+		font-family: 'Fira Code', monospace;
+		font-display: optional;
+		src: url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
 	}
 </style>

@@ -1,23 +1,16 @@
 <script>
-	import skills from '$lib/Skills';
-	import { page } from '$app/stores';
-	/** @type {import('./$types').PageData} */
+	import skills from '../Skills';
 	export let data;
-
-	$: stageName = data.stageName;
-	$: biography = data.biography;
 </script>
 
 <svelte:head>
-	<title>{stageName} — About</title>
+	<title>{data.stageName} — About</title>
 </svelte:head>
 
 <div class="container">
 	<main>
 		<h1>About</h1>
-		<p>
-			{biography}
-		</p>
+		<p>{data.biography}</p>
 		<h2>Skills</h2>
 		{#each Object.entries(skills) as [section, technologies]}
 			<ul>
@@ -39,17 +32,19 @@
 </div>
 
 <style>
-	main {
-		text-align: center;
+	.container {
+		max-width: 900px;
 		padding: 0;
-		margin: 0 auto;
-		text-align: center;
-
 		display: flex;
-		flex-direction: column;
-		height: calc(100vh - 80px - 88px);
 		justify-content: center;
-		align-items: center;
+	}
+
+	main {
+		max-width: 100%;
+		min-height: 500px;
+		text-align: left;
+		margin: 0 auto;
+		box-sizing: border-box;
 	}
 
 	h1 {

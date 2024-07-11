@@ -33,7 +33,7 @@
 			</NavBrand>
 		</div>
 		<div class="flex md:order-2">
-			<div class="corner pt-2">
+			<div class="corner pt-1">
 				<DropdownMenu.Root>
 					<DropdownMenu.Trigger asChild let:builder>
 						<Button builders={[builder]} variant="ghost" size="icon">

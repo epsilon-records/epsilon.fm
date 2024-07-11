@@ -1,26 +1,17 @@
-<script lang="ts">
-	import FaLinkedin from 'svelte-icons/fa/FaLinkedin.svelte';
-	import FaSoundcloud from 'svelte-icons/fa/FaSoundcloud.svelte';
-	import FaFacebook from 'svelte-icons/fa/FaFacebook.svelte';
-	import FaInstagram from 'svelte-icons/fa/FaInstagram.svelte';
+<script>
 	import FaEnvelope from 'svelte-icons/fa/FaEnvelope.svelte';
-	import FaMedium from 'svelte-icons/fa/FaMedium.svelte';
-	import { modalOpened } from '$lib/stores/website';
 	import SocialIcons from '@rodneylab/svelte-social-icons';
-	import type { Network } from '@rodneylab/svelte-social-icons';
 	import RiTiktokFill from 'svelte-remixicon/RiTiktokFill.svelte';
+	import { modalOpened } from '$lib/stores/website';
 
-	/** @type {import('./$types').PageData} */
 	export let data;
 </script>
 
 <svelte:head>
-	<title>{data.stageName}</title>
+	<title>Gianmarco Cavallo - Main page</title>
 </svelte:head>
-
 <main>
 	<h1>{data.stageName.toUpperCase()}</h1>
-	<h3>{data.currentLocation}</h3>
 	<div class="icons">
 		<div
 			role="button"
@@ -91,7 +82,7 @@
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				<div class="icon">
+				<div class="icon pb-4 pl-2">
 					<RiTiktokFill />
 				</div>
 			</a>
@@ -155,9 +146,6 @@
 		cursor: pointer;
 		transition: color 0.2s ease-in-out;
 		width: 40px;
-	}
-	.icon:hover {
-		color: #ca3c25;
 	}
 
 	@media (min-width: 900px) {
