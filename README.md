@@ -25,7 +25,9 @@ You can preview the production build with `bun run preview`.
 
 ## TODO
 
+```
 [ ] Implement file uploads
 [ ] Implement track form
 [ ] Implement wildcard domains
-[ ] Implement artist websites
+[x] Implement artist websites
+```
