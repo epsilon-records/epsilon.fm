@@ -40,11 +40,16 @@
 
 <style>
 	main {
-		max-width: 100%;
-		min-height: 500px;
-		text-align: left;
+		text-align: center;
+		padding: 0;
 		margin: 0 auto;
-		box-sizing: border-box;
+		text-align: center;
+
+		display: flex;
+		flex-direction: column;
+		height: calc(100vh - 80px - 88px);
+		justify-content: center;
+		align-items: center;
 	}
 
 	h1 {
