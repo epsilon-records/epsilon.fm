@@ -123,15 +123,18 @@
 		<Button>Send Email</Button>
 	</div>
 </Modal>
-<Navbar {data} segment={$page.url.pathname} />
 
-<slot />
-
-<footer>
-	<div class="text-white">
-		Made with ❤️ by <a class="me" href="https://epsilon.fm">EpsilonFM</a>
-	</div>
-</footer>
+<div class="app">
+	<Navbar {data} segment={$page.url.pathname} />
+	<main>
+		<slot />
+	</main>
+	<footer>
+		<div class="text-sm text-muted-foreground">
+			Made with ❤️ by <a class="me" href="https://epsilon.fm">EpsilonFM</a>
+		</div>
+	</footer>
+</div>
 
 <style>
 	* {
