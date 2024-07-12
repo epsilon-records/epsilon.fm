@@ -9,7 +9,7 @@
 </svelte:head>
 
 <div class="container">
-	<div class="content">
+	<div class="main-content">
 		<h1 class="text-white">About</h1>
 		<p class="bg-slate-900 p-4 text-white">{data.biography}</p>
 		<br />
@@ -33,7 +33,7 @@
 		justify-content: center;
 	}
 
-	.content {
+	.main-content {
 		max-width: 100%;
 		min-height: 500px;
 		text-align: left;
