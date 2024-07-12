@@ -54,7 +54,14 @@
 				</DropdownMenu.Root>
 			</div>
 			<div class="corner pt-2">
-				<UserButton afterSignOutUrl="/" />
+				<SignedIn>
+					<UserButton afterSignOutUrl="/" />
+				</SignedIn>
+				<SignedOut>
+					<a href="https://github.com/natehouk/epsilon.fm">
+						<img class="pb-2" src={github} alt="GitHub" />
+					</a>
+				</SignedOut>
 			</div>
 			<NavHamburger />
 		</div>
