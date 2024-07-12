@@ -9,18 +9,20 @@
 </svelte:head>
 
 <div class="container">
-	<h1 class="text-white">About</h1>
-	<p class="bg-slate-900 p-4 text-white">{data.biography}</p>
-	<br />
-	{#each Object.entries(skills) as [section, technologies]}
-		<div class="w-min bg-slate-900 p-2 text-white">
-			{section}:
-		</div>
+	<div class="content">
+		<h1 class="text-white">About</h1>
+		<p class="bg-slate-900 p-4 text-white">{data.biography}</p>
+		<br />
+		{#each Object.entries(skills) as [section, technologies]}
+			<div class="w-min bg-slate-900 p-2 text-white">
+				{section}:
+			</div>
 
-		{#each technologies as technology}
-			<Badge class="m-2">{technology}</Badge>
+			{#each technologies as technology}
+				<Badge class="m-2">{technology}</Badge>
+			{/each}
 		{/each}
-	{/each}
+	</div>
 </div>
 
 <style>
@@ -29,6 +31,10 @@
 		padding: 0;
 		display: flex;
 		justify-content: center;
+	}
+
+	.content {
+		max-width: 100%;
 		min-height: 500px;
 		text-align: left;
 		margin: 0 auto;
