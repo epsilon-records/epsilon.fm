@@ -17,7 +17,6 @@
 	.container {
 		max-width: 900px;
 		padding: 0;
-		display: flex;
 		justify-content: center;
 	}
 
