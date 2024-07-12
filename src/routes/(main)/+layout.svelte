@@ -1,13 +1,15 @@
 <script lang="ts">
 	import './main.css';
 	import Header from './Header.svelte';
-	import type { LayoutServerData } from './$types';
+	import type { LayoutServerData, PageData } from './$types';
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import { ModeWatcher } from 'mode-watcher';
 	import { Separator } from '$lib/components/ui/separator';
 	import { Toaster } from 'svelte-french-toast';
 	import { onMount } from 'svelte';
-	export let data: LayoutServerData;
+	export let data: LayoutServerData & PageData;
+
+	console.log(data);
 
 	onMount(() => {
 		document.body.style.backgroundImage = ``;
@@ -18,7 +20,7 @@
 </script>
 
 <div class="app">
-	<Header></Header>
+	<Header slug={data.slug} />
 	<main>
 		<ModeWatcher />
 		<slot />

@@ -12,6 +12,8 @@
 	import { resetMode, setMode } from 'mode-watcher';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import { Button } from '$lib/components/ui/button';
+
+	export let slug;
 </script>
 
 <header>
@@ -74,7 +76,7 @@
 			>
 			<SignedIn
 				><NavLi href="/profile">Profile</NavLi>
-				<NavLi href="/">Website</NavLi></SignedIn
+				<NavLi href="/a/{slug}">Website</NavLi></SignedIn
 			>
 		</NavUl>
 	</Navbar>
