@@ -81,6 +81,20 @@
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
+				<Field {form} name="email">
+					<Control let:attrs>
+						<Label>Artist Contact Email</Label>
+						<Input {...attrs} bind:value={$formData.email} placeholder="Artist Contact Email" />
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your artist contact email.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
 				<Field {form} name="biography">
 					<Control let:attrs>
 						<Label>Artist Biography</Label>
