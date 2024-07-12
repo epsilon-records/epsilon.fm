@@ -10,6 +10,7 @@
 
 <div class="container">
 	<h1 class="text-white">Music</h1>
+	<br />
 	<Spotify height="600px" width="900px" spotifyLink="artist/27sSKrytmUXukDnMGPXNHQ" />
 </div>
 
