@@ -1,9 +1,9 @@
 const skills = {
-	genres: ['House', 'Classic House', 'Latin House'],
-	instruments: ['Piano', 'Synthesizer', 'Guitar'],
-	tools: ['Ableton Live'],
-	languages: ['English', 'Spanish'],
-	locations: ['Dallas, TX', 'San Diego, CA']
+	Genres: ['House', 'Classic House', 'Latin House'],
+	Instruments: ['Piano', 'Synthesizer', 'Guitar'],
+	Tools: ['Ableton Live'],
+	Languages: ['English', 'Spanish'],
+	Locations: ['Dallas, TX', 'San Diego, CA']
 };
 
 export default skills;
