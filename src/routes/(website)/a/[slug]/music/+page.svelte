@@ -1,6 +1,6 @@
 <script>
 	import { Spotify } from 'sveltekit-embed';
-	import skills from '../Skills';
+	import { Badge } from '$lib/components/ui/badge';
 	export let data;
 </script>
 
@@ -10,8 +10,11 @@
 
 <div class="container">
 	<h1 class="text-white">Music</h1>
+	<p class="bg-slate-900 p-4 text-white">
+		Listen on <Badge class="m-2">Spotify</Badge> or purchase on <Badge class="m-2">Beatport</Badge>.
+	</p>
 	<br />
-	<Spotify height="600px" width="740px" spotifyLink="artist/27sSKrytmUXukDnMGPXNHQ" />
+	<Spotify height="600px" width="900px" spotifyLink="artist/27sSKrytmUXukDnMGPXNHQ" />
 	<br />
 </div>
 
