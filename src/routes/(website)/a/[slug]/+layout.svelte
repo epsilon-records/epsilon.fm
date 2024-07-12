@@ -129,9 +129,9 @@
 	<main>
 		<slot />
 	</main>
-	<footer>
-		<div class="text-sm text-muted-foreground">
-			Made with ❤️ by <a class="me" href="https://epsilon.fm">EpsilonFM</a>
+	<footer class="text-center">
+		<div class="text-sm text-white">
+			Made with ❤️ by <a style="color: #ff3e00;" href="https://epsilon.fm">EpsilonFM</a>
 		</div>
 	</footer>
 </div>
@@ -254,59 +254,5 @@
 		right: 0;
 		margin-left: auto;
 		margin-right: auto;
-	}
-	.cookieContainer > p > a {
-		text-decoration: underline;
-	}
-
-	.cookieContainer > div {
-		cursor: pointer;
-	}
-
-	footer {
-		font-size: 16px;
-		font-weight: 400;
-		padding: 30px 0;
-		max-width: 900px;
-		text-align: center;
-		width: 100%;
-	}
-
-	footer a {
-		text-decoration: none;
-		color: #4158d0;
-	}
-	footer .svelte {
-		color: #ff3e00;
-	}
-
-	footer .me {
-		color: #ff3e00;
-	}
-
-	@media (min-width: 900px) {
-		:global(.tooltip) {
-			visibility: visible;
-		}
-	}
-	@media (min-width: 600px) {
-		.cookieContainer {
-			background: white;
-			border-radius: 50px;
-			text-align: center;
-			width: 350px;
-			height: 30px;
-			color: black;
-			padding: 0 10px;
-			display: flex;
-			justify-content: space-evenly;
-			align-items: center;
-			position: fixed;
-			bottom: 50px;
-			left: 0;
-			right: 0;
-			margin-left: auto;
-			margin-right: auto;
-		}
 	}
 </style>
