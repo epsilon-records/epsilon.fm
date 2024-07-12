@@ -69,4 +69,4 @@ const trackSubgenreSchema = z.object({
 
 export type ArtistSchema = typeof artistSchema;
 
-export { userSchema, artistSchema, genreSchema, releaseSchema, trackSchema, trackSubgenreSchema };
+export { artistSchema, genreSchema, releaseSchema, trackSchema, trackSubgenreSchema };
