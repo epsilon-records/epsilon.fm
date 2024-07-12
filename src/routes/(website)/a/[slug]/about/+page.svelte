@@ -29,10 +29,6 @@
 		padding: 0;
 		display: flex;
 		justify-content: center;
-	}
-
-	main {
-		max-width: 100%;
 		min-height: 500px;
 		text-align: left;
 		margin: 0 auto;
