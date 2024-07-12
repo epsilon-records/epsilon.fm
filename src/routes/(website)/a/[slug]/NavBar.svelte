@@ -2,6 +2,7 @@
 	import Burger from './Hamburger.svelte';
 	import Logo from '$lib/images/logo.png';
 	import routes from './NavRoutes';
+	import { modalOpened } from '$lib/stores/website';
 	let opened = false;
 	export let segment: string;
 	export let data;
@@ -32,7 +33,7 @@
 							modalOpened.set(true);
 						}}
 					>
-						{route.label}
+						<a>{route.label}</a>
 					</div>
 				{:else}
 					<a
