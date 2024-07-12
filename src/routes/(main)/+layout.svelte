@@ -29,7 +29,7 @@
 	<footer>
 		<p class="text-sm text-muted-foreground">Made with ❤️ by Epsilon Records</p>
 		<Badge class="m-2" variant={data.nodeEnv == 'development' ? 'outline' : 'default'}
-			>{data.nodeEnv}</Badge
+			>{data.nodeEnv}: {data.gitCommitSha}</Badge
 		>
 	</footer>
 </div>
