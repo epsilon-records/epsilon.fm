@@ -10,7 +10,9 @@
 	on:keypress={() => {
 		window.location = `mailto:${email}`;
 	}}
-	on:click={() => (window.location = `mailto:${email}`)}
+	on:click={() => {
+		window.location = `mailto:${email}`;
+	}}
 >
 	<slot />
 </div>
