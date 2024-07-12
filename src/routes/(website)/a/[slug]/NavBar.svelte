@@ -24,6 +24,7 @@
 					>
 				{:else if route.href === '/contact'}
 					<div
+						class="button"
 						role="button"
 						tabindex="0"
 						on:keypress={() => {
@@ -33,7 +34,7 @@
 							modalOpened.set(true);
 						}}
 					>
-						<a>{route.label}</a>
+						{route.label}
 					</div>
 				{:else}
 					<a
