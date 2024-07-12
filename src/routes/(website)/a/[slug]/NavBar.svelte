@@ -22,7 +22,18 @@
 						>{route.label}</a
 					>
 				{:else if route.href === '/contact'}
-					<a class={`button`} href="https://epsilonrecords.nl{route.href}">{route.label}</a>
+					<div
+						role="button"
+						tabindex="0"
+						on:keypress={() => {
+							modalOpened.set(true);
+						}}
+						on:click={() => {
+							modalOpened.set(true);
+						}}
+					>
+						{route.label}
+					</div>
 				{:else}
 					<a
 						class={`button ${segment === '/a/' + data.slug + route.href ? 'selected' : ''}`}
