@@ -114,3 +114,17 @@
 		</Card.Root>
 	</SignedOut>
 </section>
+
+<style>
+	@media (min-width: 900px) {
+		main > h1 {
+			font-size: 48px;
+		}
+	}
+
+	@media (min-width: 600px) {
+		main {
+			max-width: none;
+		}
+	}
+</style>
