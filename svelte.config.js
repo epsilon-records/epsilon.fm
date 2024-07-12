@@ -1,4 +1,5 @@
 import adapter from '@sveltejs/adapter-vercel';
+import { MODE } from '$env/static/private';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -16,6 +17,10 @@ const config = {
 		},
 		alias: {
 			'@/*': './src/lib/*'
+		},
+		vite: {
+			// default to development as a guard
+			mode: MODE || 'development'
 		}
 	}
 };
