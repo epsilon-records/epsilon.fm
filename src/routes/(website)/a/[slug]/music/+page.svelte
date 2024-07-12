@@ -9,7 +9,7 @@
 </svelte:head>
 
 <div class="container">
-	<div class="main-content">
+	<div class="content">
 		<h1 class="text-white">Music</h1>
 		<p class="bg-slate-900 p-4 text-white">
 			Listen on <Badge class="m-2">Spotify</Badge> or purchase on <Badge class="m-2">Beatport</Badge
@@ -28,7 +28,7 @@
 		justify-content: center;
 	}
 
-	.main-content {
+	.content {
 		max-width: 100%;
 		min-height: 500px;
 		text-align: left;
