@@ -25,7 +25,7 @@ bun run build
 
 You can preview the production build with `bun run preview`.
 
-## TODO
+## Todo
 
 ```
 [ ] Implement file uploads
