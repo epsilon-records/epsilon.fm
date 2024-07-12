@@ -23,6 +23,7 @@ export const user = pgTable('user', {
 export const artist = pgTable('artist', {
 	id: serial('id').primaryKey(),
 	orgId: varchar('org_id', { length: 255 }).unique().notNull(),
+	email: varchar('email', { length: 255 }),
 	biography: text('biography'),
 	spotifyArtistLink: varchar('spotify_artist_link', { length: 255 }),
 	youtubeChannelLink: varchar('youtube_channel_link', { length: 255 }),

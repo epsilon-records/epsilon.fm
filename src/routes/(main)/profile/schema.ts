@@ -5,6 +5,7 @@ const artistSchema = z.object({
 	orgId: z.string().max(255),
 	slug: z.string().max(255),
 	stageName: z.string().max(50),
+	email: z.string().max(255),
 	biography: z.string().max(1000),
 	spotifyArtistLink: z.string().max(255).optional(),
 	youtubeChannelLink: z.string().max(255).optional(),

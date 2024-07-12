@@ -9,7 +9,6 @@
 	import Modal from './Modal.svelte';
 	import { onMount } from 'svelte';
 	import { customBackground } from '$lib/stores/website';
-	import { Email } from './Constants';
 	// import routes from '$lib/NavRoutes';
 
 	export let data;
@@ -42,7 +41,7 @@
 	};
 
 	const copy = () => {
-		navigator.clipboard.writeText(Email);
+		navigator.clipboard.writeText(data.email);
 	};
 
 	onMount(() => {
@@ -90,7 +89,7 @@
 	<div slot="content" class="modalContainer">
 		<h1>Email:</h1>
 		<div>
-			<p>{Email}</p>
+			<p>{data.email}</p>
 			&nbsp;
 			<div class="tooltip">
 				<Tooltip tooltip={copied ? 'Copied' : 'Copy'}>
