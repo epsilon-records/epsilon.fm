@@ -10,6 +10,7 @@
 	import Header from './Header.svelte';
 	import { createUploader } from '$lib/utils/uploadthing';
 	import { UploadDropzone } from '@uploadthing/svelte';
+	import { slug } from '$lib/stores/main';
 	import type { PageData } from './$types.js';
 	export let data: PageData;
 	const uploader = createUploader('imageUploader', {
@@ -21,6 +22,8 @@
 			alert(`ERROR! ${error.message}`);
 		}
 	});
+
+	slug.set(data.slug);
 </script>
 
 <svelte:head>

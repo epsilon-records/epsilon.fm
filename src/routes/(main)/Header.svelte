@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import logo from '$lib/images/logo.png';
 	import github from '$lib/images/github.svg';
 	import UserButton from 'clerk-sveltekit/client/UserButton.svelte';
@@ -8,12 +8,15 @@
 	import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
 	import Sun from 'lucide-svelte/icons/sun';
 	import Moon from 'lucide-svelte/icons/moon';
-
+	import { slug } from '$lib/stores/main';
 	import { resetMode, setMode } from 'mode-watcher';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import { Button } from '$lib/components/ui/button';
 
-	export let slug;
+	let website = '';
+	slug.subscribe((value) => {
+		website = value;
+	});
 </script>
 
 <header>
@@ -69,14 +72,14 @@
 		</div>
 		<NavUl class="order-1 m-2">
 			<SignedOut
-				><NavLi href="/" active={true}>Home</NavLi>
+				><NavLi href="/">Home</NavLi>
 				<NavLi href="/faq">FAQ</NavLi>
 				<NavLi href="/artists">Artists</NavLi>
 				<NavLi href="/">Pricing</NavLi></SignedOut
 			>
 			<SignedIn
 				><NavLi href="/profile">Profile</NavLi>
-				<NavLi href="/a/{slug}">Website</NavLi></SignedIn
+				<NavLi href="/a/{website}">Website</NavLi></SignedIn
 			>
 		</NavUl>
 	</Navbar>
