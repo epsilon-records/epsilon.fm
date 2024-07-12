@@ -8,9 +8,9 @@
 	role="button"
 	tabindex="0"
 	on:keypress={() => {
-		goto(`mailto:${email}`);
+		window.location = `mailto:${email}`;
 	}}
-	on:click={() => goto(`mailto:${email}`)}
+	on:click={() => (window.location = `mailto:${email}`)}
 >
 	<slot />
 </div>
