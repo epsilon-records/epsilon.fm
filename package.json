@@ -15,7 +15,7 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@fontsource/fira-mono": "^4.5.10",
+    "@fontsource/fira-mono": "^5.0.13",
     "@playwright/test": "^1.45.1",
     "@sveltejs/adapter-auto": "^3.2.2",
     "@sveltejs/adapter-vercel": "^5.4.0",
@@ -46,7 +46,7 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.0-alpha.39",
     "vite": "^5.3.3",
-    "vitest": "^1.6.0"
+    "vitest": "^2.0.2"
   },
   "type": "module",
   "dependencies": {
