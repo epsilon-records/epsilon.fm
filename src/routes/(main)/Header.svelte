@@ -74,10 +74,7 @@
 			>
 			<SignedIn
 				><NavLi href="/profile">Profile</NavLi>
-				<NavLi href="/">Releases</NavLi>
-				<NavLi href="/">Merch</NavLi>
-				<NavLi href="/">Website</NavLi>
-				<NavLi href="/">Admin</NavLi></SignedIn
+				<NavLi href="/">Website</NavLi></SignedIn
 			>
 		</NavUl>
 	</Navbar>
