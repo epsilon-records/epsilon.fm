@@ -8,10 +8,10 @@
 	role="button"
 	tabindex="0"
 	on:keypress={() => {
-		window.location = `mailto:${email}`;
+		window.location.href = `mailto:${email}`;
 	}}
 	on:click={() => {
-		window.location = `mailto:${email}`;
+		window.location.href = `mailto:${email}`;
 	}}
 >
 	<slot />
