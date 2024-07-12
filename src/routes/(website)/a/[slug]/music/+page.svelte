@@ -1,16 +1,17 @@
 <script>
 	import { Spotify } from 'sveltekit-embed';
 	import skills from '../Skills';
+	export let data;
 </script>
 
 <svelte:head>
-	<title>Gianmarco Cavallo — About</title>
+	<title>{data.stageName} — About</title>
 </svelte:head>
 
 <div class="container">
 	<main>
 		<h1 class="text-white">Music</h1>
-		<Spotify height="740px" width="400px" spotifyLink="artist/27sSKrytmUXukDnMGPXNHQ" />
+		<Spotify height="740px" width="900px" spotifyLink="artist/27sSKrytmUXukDnMGPXNHQ" />
 	</main>
 </div>
 
