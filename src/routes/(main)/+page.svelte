@@ -37,7 +37,7 @@
 	<SignedOut>
 		<Card.Root class="m-4">
 			<Card.Header>
-				<Card.Title class="text-xl">EpsilonFM</Card.Title>
+				<Card.Title>EpsilonFM</Card.Title>
 				<Card.Description>A modern open-source music business platform.</Card.Description>
 			</Card.Header>
 			<Card.Content>
