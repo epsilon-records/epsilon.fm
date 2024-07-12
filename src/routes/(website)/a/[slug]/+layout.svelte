@@ -162,16 +162,13 @@
 		height: 100%;
 		overflow: auto;
 		font-family: 'Fira Code', monospace;
-		background-color: #0a0908;
 	}
 
 	:global(body) {
-		background-color: var(--background);
 		background-size: 200% 200%;
 		color: white;
 		margin: 0;
 		box-sizing: border-box;
-		display: grid;
 		line-height: 1.75;
 		place-items: center;
 		height: 100%;
@@ -201,12 +198,6 @@
 	:global(::-webkit-scrollbar-track) {
 		background-color: transparent;
 		border-radius: 1px;
-	}
-
-	@media (min-width: 900px) {
-		:global(body) {
-			padding: 0 100px;
-		}
 	}
 
 	:global(a) {

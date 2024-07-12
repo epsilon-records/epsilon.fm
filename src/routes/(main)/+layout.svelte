@@ -67,6 +67,13 @@
 			padding: 12px 0;
 		}
 	}
+
+	@media (min-width: 900px) {
+		:global(body) {
+			padding: 0 100px;
+		}
+	}
+
 	:global(body) {
 		font-family: 'Fira Code', monospace;
 	}

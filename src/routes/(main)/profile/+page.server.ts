@@ -1,4 +1,4 @@
-import type { PageServerLoad, Actions } from '../$types.js';
+import type { PageServerLoad, Actions } from './$types.js';
 import { message, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { artistSchema } from './schema';
