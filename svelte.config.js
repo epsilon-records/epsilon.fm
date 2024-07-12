@@ -16,10 +16,6 @@ const config = {
 		},
 		alias: {
 			'@/*': './src/lib/*'
-		},
-		vite: {
-			// default to development as a guard
-			mode: process.env.MODE || 'development'
 		}
 	}
 };
