@@ -65,26 +65,6 @@
 
 <svelte:body use:cssVariables={{ background: $customBackground }} />
 
-{#if showCookieModal && cookieEnabled}
-	<div class="cookieContainer">
-		<p>🍪 This website use <a href="privacy-policy">Cookies.</a></p>
-		<div
-			role="button"
-			tabindex="0"
-			on:keypress={() => {
-				showCookieModal = false;
-				localStorage.setItem('showCookieModal', 'false');
-			}}
-			on:click={() => {
-				showCookieModal = false;
-				localStorage.setItem('showCookieModal', 'false');
-			}}
-		>
-			&#10005;
-		</div>
-	</div>
-{/if}
-
 <Modal>
 	<div slot="content" class="modalContainer">
 		<h1>Email:</h1>
@@ -119,7 +99,7 @@
 				</Tooltip>
 			</div>
 		</div>
-		<Button>Send Email</Button>
+		<Button email={data.email}>Send Email</Button>
 	</div>
 </Modal>
 
