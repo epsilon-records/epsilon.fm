@@ -59,7 +59,7 @@
 				</SignedIn>
 				<SignedOut>
 					<a href="https://github.com/natehouk/epsilon.fm">
-						<img src={github} alt="GitHub" />
+						<img class="pb-2" src={github} alt="GitHub" />
 					</a>
 				</SignedOut>
 			</div>
