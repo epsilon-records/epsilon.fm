@@ -69,6 +69,7 @@
 			<SignedOut
 				><NavLi href="/" active={true}>Home</NavLi>
 				<NavLi href="/faq">FAQ</NavLi>
+				<NavLi href="/artists">Artists</NavLi>
 				<NavLi href="/">Pricing</NavLi></SignedOut
 			>
 			<SignedIn
