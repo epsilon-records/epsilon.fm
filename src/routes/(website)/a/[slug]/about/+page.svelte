@@ -14,7 +14,7 @@
 		<p class="bg-slate-900 p-4 text-white">{data.biography}</p>
 		<br />
 		{#each Object.entries(skills) as [section, technologies]}
-			<div class="w-min bg-slate-900 p-2 text-white">
+			<div class="w-min bg-slate-900 p-2 text-xs text-white">
 				{section}:
 			</div>
 
