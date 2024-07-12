@@ -1,23 +1,27 @@
 import * as Sentry from '@sentry/sveltekit';
-import type { Handle } from '@sveltejs/kit';
 import { sequence } from '@sveltejs/kit/hooks';
 import { handleClerk } from 'clerk-sveltekit/server';
 import { SENTRY_DSN, CLERK_SECRET_KEY } from '$env/static/private';
 import { redirect } from '@sveltejs/kit';
+import type { Handle } from '@sveltejs/kit';
+
+type SubdomainRoutes = {
+	[key: string]: string;
+};
 
 Sentry.init({
 	dsn: SENTRY_DSN,
 	tracesSampleRate: 1
 });
 
-export async function handleSubdomain({ event, resolve }) {
+export const handleSubdomain: Handle = async ({ event, resolve }) => {
 	const { url } = event.request;
 	const parsedUrl = new URL(url);
 	const subdomain = parsedUrl.hostname.split('.')[0]; // Get the subdomain
 	console.log(parsedUrl);
 	console.log(subdomain);
 	// Define your subdomain to route mappings
-	const subdomainRoutes = {
+	const subdomainRoutes: SubdomainRoutes = {
 		sub1: '/route1',
 		sub2: '/route2'
 		// Add more mappings as needed
@@ -25,14 +29,14 @@ export async function handleSubdomain({ event, resolve }) {
 
 	if (subdomain in subdomainRoutes) {
 		const newUrl = new URL(parsedUrl);
-		newUrl.pathname = subdomainRoutes[subdomain];
+		newUrl.pathname = subdomainRoutes[subdomain as keyof SubdomainRoutes];
 		console.log(newUrl.toString());
 		return redirect(302, newUrl.toString());
 	}
 
 	// If no matching subdomain, continue to the requested route
 	return await resolve(event);
-}
+};
 
 export const handle: Handle = sequence(
 	Sentry.sentryHandle(),

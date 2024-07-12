@@ -9,21 +9,29 @@ import { clerkClient } from '@clerk/clerk-sdk-node';
 import { redirect, fail } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async ({ locals }) => {
-	const organizationId = locals.session.claims.org_id ?? null;
-	const response = await clerkClient.organizations.getOrganization({ organizationId });
-	const stageName = response.name ?? null;
-	const slug = response.slug ?? null;
-	if (!organizationId || !stageName || !slug) {
-		throw redirect(500, '/');
-	}
+	// Use type assertion to access 'session'
+	const session = (locals as { session?: { claims?: { org_id?: string } } }).session;
 	let form = await superValidate(zod(artistSchema));
-	const data = await db.select().from(artist).where(eq(artist.orgId, organizationId));
-	if (data.length != 0) {
-		form = await superValidate(data[0], zod(artistSchema), { strict: true });
+	if (session && session.claims && session.claims.org_id) {
+		const organizationId = session.claims.org_id ?? null;
+		const response = await clerkClient.organizations.getOrganization({ organizationId });
+		const stageName = response.name ?? null;
+		const slug = response.slug ?? null;
+		if (!organizationId || !stageName || !slug) {
+			throw redirect(500, '/');
+		}
+		const data = await db.select().from(artist).where(eq(artist.orgId, organizationId));
+		if (data.length != 0) {
+			// Convert null values to undefined
+			const formattedData = Object.fromEntries(
+				Object.entries(data[0]).map(([key, value]) => [key, value === null ? undefined : value])
+			);
+			form = await superValidate(formattedData, zod(artistSchema), { strict: true });
+		}
+		form.data.orgId = organizationId;
+		form.data.stageName = stageName;
+		form.data.slug = slug;
 	}
-	form.data.orgId = organizationId;
-	form.data.stageName = stageName;
-	form.data.slug = slug;
 	return {
 		form: form
 	};

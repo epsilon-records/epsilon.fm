@@ -4,7 +4,6 @@
 	import type { LayoutServerData, PageData } from './$types';
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import { ModeWatcher } from 'mode-watcher';
-	import { Separator } from '$lib/components/ui/separator';
 	import { Toaster } from 'svelte-french-toast';
 	import { onMount } from 'svelte';
 	export let data: LayoutServerData & PageData;
