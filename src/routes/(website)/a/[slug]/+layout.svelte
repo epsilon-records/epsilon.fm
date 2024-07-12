@@ -109,7 +109,7 @@
 		<slot />
 	</main>
 	<footer class="text-center">
-		<div class="pb-4 text-sm text-white">
+		<div class="pb-8 text-sm text-white">
 			Made with ❤️ by <a style="color: #ff3e00;" href="https://epsilon.fm">EpsilonFM</a>
 		</div>
 	</footer>
