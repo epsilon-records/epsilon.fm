@@ -87,6 +87,7 @@
 	header {
 		display: flex;
 		justify-content: space-between;
+		max-width: 64rem;
 	}
 
 	.corner {

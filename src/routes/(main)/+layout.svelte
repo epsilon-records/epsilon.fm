@@ -39,10 +39,6 @@
 		min-height: 100vh;
 	}
 
-	header {
-		max-width: 900px;
-	}
-
 	main {
 		flex: 1;
 		display: flex;
@@ -51,7 +47,7 @@
 		width: 100%;
 		margin: 0 auto;
 		box-sizing: border-box;
-		max-width: 900px;
+		max-width: 64rem;
 	}
 
 	footer {
