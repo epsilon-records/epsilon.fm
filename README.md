@@ -1,42 +1,25 @@
 <p align="center">
   <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/t3-oss/create-t3-app/99286f37324330ecdf75132fae1f246440a88035/www/public/images/t3-light.svg">
-  <img src="https://raw.githubusercontent.com/t3-oss/create-t3-app/99286f37324330ecdf75132fae1f246440a88035/www/public/images/t3-dark.svg" width="130" alt="Logo for T3">
-</picture>
+    <img src="https://github.com/epsilon-records/epsilon.fm/blob/0f0c8ecae0a27765dfece6c417c88b6068821e6e/src/lib/images/logo.png" width="130" alt="Logo for Epsilon">    
+  </picture>
 </p>
 
 <h1 align="center">
-  create-t3-app
+  epsilon.FM
 </h1>
 
 <p align="center">
-  Interactive CLI to start a full-stack, typesafe Next.js app.
-</p>
-
-<p align="center">
-  Get started with the <a rel="noopener noreferrer" target="_blank" href="https://init.tips">T3 Stack</a> by running <code>npm create t3-app@latest</code>
+  A modern open-source music distribution platform.
 </p>
 
 <div align="center">
-
-[![PRs-Welcome][contribute-image]][contribute-url] [![Discord](https://img.shields.io/discord/966627436387266600?color=%235865F2&label=Discord&logo=discord&logoColor=%23fff)](https://t3.gg/discord) [![NPM version][npm-image]][npm-url]
-[![Downloads][downloads-image]][npm-url]
-
+[![PRs-Welcome][contribute-image]][contribute-url]
+[![Discord](https://img.shields.io/discord/966627436387266600?color=%235865F2&label=Discord&logo=discord&logoColor=%23fff)](https://t3.gg/discord)
+[![NPM version][npm-image]][npm-url]
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnatehouk%2Fepsilon.fm.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnatehouk%2Fepsilon.fm?ref=badge_shield)
 </div>
 
-<a href="http://www.youtube.com/watch?v=PbjHxIuHduU" target="_blank">
-  <p align="center">
-    <img src="https://t3.gg/random/T3%20Stack%20V4.png" alt="Video thumbnail of Theo with an indecipherable expression on his face" width="320" />
-  </p>
-</a>
-
-<a href="http://www.youtube.com/watch?v=PbjHxIuHduU" target="_blank">
-  <p align="center">Watch Theo's overview on Youtube here</p>
-</a>
-
-# epsilon.fm
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnatehouk%2Fepsilon.fm.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnatehouk%2Fepsilon.fm?ref=badge_shield)
+# Features
 
 Our modern open-source platform includes features like an artist website, social media management, and merch, empowering you with global reach and full control over your creative work.
 
@@ -85,8 +68,5 @@ You can preview the production build with `bun run preview`.
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnatehouk%2Fepsilon.fm.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnatehouk%2Fepsilon.fm?ref=badge_large)
 
-[downloads-image]: https://img.shields.io/npm/dm/create-t3-app?color=364fc7&logoColor=364fc7
-[npm-url]: https://www.npmjs.com/package/create-t3-app
-[npm-image]: https://img.shields.io/npm/v/create-t3-app?color=0b7285&logoColor=0b7285
-[contribute-url]: https://github.com/t3-oss/create-t3-app/blob/main/CONTRIBUTING.md
+[contribute-url]: https://github.com/epsilon-records/epsilon.fm/blob/main/CONTRIBUTING.md
 [contribute-image]: https://img.shields.io/badge/PRs-welcome-blue.svg
