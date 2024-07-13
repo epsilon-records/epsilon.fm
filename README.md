@@ -1,7 +1,21 @@
-# epsilon.fm
+<p align="center">
+  <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/t3-oss/create-t3-app/99286f37324330ecdf75132fae1f246440a88035/www/public/images/t3-light.svg">
+  <img src="https://raw.githubusercontent.com/t3-oss/create-t3-app/99286f37324330ecdf75132fae1f246440a88035/www/public/images/t3-dark.svg" width="130" alt="Logo for T3">
+</picture>
+</p>
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnatehouk%2Fepsilon.fm.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnatehouk%2Fepsilon.fm?ref=badge_shield)
-![NPM (prod) Dependency Version](https://img.shields.io/npm/dependency-version/:packageName/:dependency)
+<h1 align="center">
+  create-t3-app
+</h1>
+
+<p align="center">
+  Interactive CLI to start a full-stack, typesafe Next.js app.
+</p>
+
+<p align="center">
+  Get started with the <a rel="noopener noreferrer" target="_blank" href="https://init.tips">T3 Stack</a> by running <code>npm create t3-app@latest</code>
+</p>
 
 <div align="center">
 
@@ -9,6 +23,20 @@
 [![Downloads][downloads-image]][npm-url]
 
 </div>
+
+<a href="http://www.youtube.com/watch?v=PbjHxIuHduU" target="_blank">
+  <p align="center">
+    <img src="https://t3.gg/random/T3%20Stack%20V4.png" alt="Video thumbnail of Theo with an indecipherable expression on his face" width="320" />
+  </p>
+</a>
+
+<a href="http://www.youtube.com/watch?v=PbjHxIuHduU" target="_blank">
+  <p align="center">Watch Theo's overview on Youtube here</p>
+</a>
+
+# epsilon.fm
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnatehouk%2Fepsilon.fm.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnatehouk%2Fepsilon.fm?ref=badge_shield)
 
 Our modern open-source platform includes features like an artist website, social media management, and merch, empowering you with global reach and full control over your creative work.
 
