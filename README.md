@@ -48,20 +48,21 @@ You can preview the production build with `bun run preview`.
 ## Todo
 
 ```
-[x] Bootstrap frontend (sveltekit)
-[x] Deploy frontend via cicd (vercel)
-[x] Implement authentication (clerk)
-[x] Implement error handling (sentry)
-[x] Implement analytics (posthog, vercel, meticulous.ai)
-[x] Implement file uploads (uploadthing)
+[x] Bootstrap frontend (SvelteKit)
+[x] Deploy frontend via CICD (Vercel)
+[x] Implement authentication (Clerk)
+[x] Implement error handling (Sentry)
+[x] Implement analytics (Posthog, Vercel)
+[x] Implement testing (Checkly, Meticulous)
+[x] Implement file uploads (UploadThing)
 [ ] Implement release form
 [ ] Implement track form
 [x] Implement artist websites
 [ ] Implement wildcard domains
-[x] Implement mobile and desktop applications (tauri)
-[x] Bootstrap backend api (fastapi, sqlmodel)
-[x] Deploy backend via cicd (digitalocean)
-[ ] Implement backend api
+[x] Implement mobile and desktop applications (Tauri)
+[x] Bootstrap backend API (FastAPI, SQLModel)
+[x] Deploy backend via CICD (DigitalOcean)
+[ ] Implement backend API
 [ ] Remove server side rendering by switching to backend api (required for tauri)
 ```
 
