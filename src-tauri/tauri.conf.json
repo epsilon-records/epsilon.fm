@@ -1,65 +1,37 @@
 {
+	"productName": "epsilon",
+	"version": "0.1.0",
+	"identifier": "com.tauri.dev",
 	"build": {
-		"beforeBuildCommand": "npm run build",
+		"frontendDist": "build/",
+		"devUrl": "http://localhost:5173",
 		"beforeDevCommand": "npm run dev",
-		"devPath": "http://localhost:5173",
-		"distDir": "../public"
+		"beforeBuildCommand": "npm run build"
 	},
-	"package": {
-		"productName": "Epsilon",
-		"version": "0.1.0"
-	},
-	"tauri": {
-		"allowlist": {
-			"all": false
-		},
-		"bundle": {
-			"active": true,
-			"category": "DeveloperTool",
-			"copyright": "",
-			"deb": {
-				"depends": []
-			},
-			"externalBin": [],
-			"icon": [
-				"icons/32x32.png",
-				"icons/128x128.png",
-				"icons/128x128@2x.png",
-				"icons/icon.icns",
-				"icons/icon.ico"
-			],
-			"identifier": "com.tauri.dev",
-			"longDescription": "",
-			"macOS": {
-				"entitlements": null,
-				"exceptionDomain": "",
-				"frameworks": [],
-				"providerShortName": null,
-				"signingIdentity": null
-			},
-			"resources": [],
-			"shortDescription": "",
-			"targets": "all",
-			"windows": {
-				"certificateThumbprint": null,
-				"digestAlgorithm": "sha256",
-				"timestampUrl": ""
-			}
-		},
-		"security": {
-			"csp": null
-		},
-		"updater": {
-			"active": false
-		},
+	"app": {
 		"windows": [
 			{
-				"fullscreen": false,
+				"title": "Epsilon",
+				"width": 800,
 				"height": 600,
 				"resizable": true,
-				"title": "Epsilon Distribution",
-				"width": 1200
+				"fullscreen": false
 			}
+		],
+		"security": {
+			"csp": null
+		}
+	},
+	"bundle": {
+		"active": true,
+		"targets": "all",
+		"icon": [
+			"icons/32x32.png",
+			"icons/128x128.png",
+			"icons/128x128@2x.png",
+			"icons/icon.icns",
+			"icons/icon.ico"
 		]
-	}
+	},
+	"$schema": "../node_modules/@tauri-apps/cli/schema.json"
 }
