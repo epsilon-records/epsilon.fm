@@ -1,6 +1,7 @@
 # epsilon.fm
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnatehouk%2Fepsilon.fm.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnatehouk%2Fepsilon.fm?ref=badge_shield)
+![NPM (prod) Dependency Version](https://img.shields.io/npm/dependency-version/:packageName/:dependency)
 
 Our modern open-source platform includes features like an artist website, social media management, and merch, empowering you with global reach and full control over your creative work.
 
