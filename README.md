@@ -15,8 +15,7 @@
 <div align="center">
 
 [![PRs-Welcome][contribute-image]][contribute-url]
-[![Discord](https://img.shields.io/discord/966627436387266600?color=%235865F2&label=Discord&logo=discord&logoColor=%23fff)](https://t3.gg/discord)
-[![NPM version][npm-image]][npm-url]
+[![Discord](https://img.shields.io/discord/412551291244380160?color=%235865F2&label=Discord&logo=discord&logoColor=%23fff)](https://discord.gg/NMKRYuzm)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnatehouk%2Fepsilon.fm.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnatehouk%2Fepsilon.fm?ref=badge_shield)
 
 </div>
