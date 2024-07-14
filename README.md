@@ -227,18 +227,3 @@ Now that the requirements are met, you can begin working on your project. For mo
 
 [contribute-url]: https://github.com/epsilon-records/epsilon.fm/blob/main/CONTRIBUTING.md
 [contribute-image]: https://img.shields.io/badge/PRs-welcome-blue.svg
-
-## 🎯 Project Goals
-
-- [x] Leverage the power of FastAPI for building high-performance APIs.
-- [x] Implement asynchronous programming wherever applicable for optimal performance.
-- [x] Integrate Redis for caching, rate limiting, and improving data access speed.
-- [x] Utilize ARQ for handling background tasks asynchronously.
-- [x] Implement a robust logging system to track and manage application events efficiently.
-- [x] Manage database migrations seamlessly using Alembic.
-- [x] Develop comprehensive unit tests for API endpoints using pytest.
-- [x] Implement using SQLModel to streamline the interaction between the database and the API.
-- [ ] Provide a CLI tool for easy project execution and management.
-- [ ] Provide diverse deployment options to ensure flexibility and accessibility.
-
-
