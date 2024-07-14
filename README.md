@@ -1,5 +1,5 @@
 <h1 align="center">
-  epsilon.FM
+  Epsilon
 </h1>
 
 <p align="center" markdown=1>
