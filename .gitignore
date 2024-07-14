@@ -23,3 +23,6 @@ vite.config.ts.timestamp-*
 # Sentry Config File
 .sentryclirc
 *storybook.log
+
+# Storybook
+storybook-static
