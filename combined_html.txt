@@ -1,0 +1,26 @@
+
+// File: /opt/src/epsilon.fm/src/app.html
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script
+			data-project-id="YlK6PCQzlht5rZutE1qns77yPUiS5FNPT6QBMXM0"
+			data-is-production-environment="{import.meta.env.PROD}"
+			src="https://snippet.meticulous.ai/v1/meticulous.js"
+		></script>
+		<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+		<script>
+			Weglot.initialize({
+				api_key: 'wg_0a000660678e1bd22f8ae33745094d231'
+			});
+		</script>
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>
+
