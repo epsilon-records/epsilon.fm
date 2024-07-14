@@ -1,0 +1,30 @@
+#!/bin/bash
+
+NAME=backend-api
+DIR=/home/ubuntu/fastapi-async-sqlmodel-boilerplate/backend
+USER=ubuntu
+GROUP=ubuntu
+WORKERS=1
+WORKER_CLASS=uvicorn.workers.UvicornWorker
+TIME_OUT=300
+VENV=$DIR/.venv/bin/activate
+BIND=unix:$DIR/gunicorn.sock
+LOG_LEVEL=error
+
+cd $DIR
+
+source $VENV
+
+# Check this issue comment for more info about forwarded-allow-ips '*': 
+# https://github.com/tiangolo/full-stack-fastapi-postgresql/issues/224#issuecomment-1429593840
+exec gunicorn src.main:app \
+  --forwarded-allow-ips '*' \
+  --name $NAME \
+  --workers $WORKERS \
+  --worker-class $WORKER_CLASS \
+  --timeout $TIME_OUT \
+  --user=$USER \
+  --group=$GROUP \
+  --bind=$BIND \
+  --log-level=$LOG_LEVEL \
+  --log-file=-
