@@ -218,7 +218,7 @@ Now that the requirements are met, you can begin working on your project. For mo
 [x] Bootstrap backend API (FastAPI, SQLModel)
 [x] Deploy backend via CICD (DigitalOcean)
 [ ] Implement backend API
-[ ] Remove server side rendering by switching to backend api (required for tauri)
+[ ] Remove server side rendering by switching to backend api (required for Tauri)
 ```
 
 ## License
