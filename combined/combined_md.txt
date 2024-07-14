@@ -1,0 +1,311 @@
+
+// File: /opt/src/epsilon.fm/backend/README.md
+# Backend - Manual Instructions
+
+After completing the requirements outlined in the **📋 Prerequisites** section of the section on main [README.md](../README.md) project file, proceed with the following steps:
+
+## 🛠️ Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/joaoflaviosantos/fastapi-async-sqlmodel-boilerplate.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd fastapi-async-sqlmodel-boilerplate/backend
+   ```
+
+3. Install dependencies using Poetry:
+
+   ```bash
+   poetry install
+   ```
+
+4. Define environment variables in ".env":
+
+   - Copy the ".env.example" file as ".env":
+
+     ```bash
+     cp .env.example .env
+     ```
+
+   - Open the ".env" file and modify the environment variables accordingly.
+
+     **Note:** Make sure to set a secure and unique value for the `SECRET_KEY`.
+
+     You can generate a secure secret key using the following command:
+
+     ```bash
+     poetry run python -c "from fastapi import FastAPI; import secrets; print(secrets.token_urlsafe(32))"
+     ```
+
+## 🔀 Database Migration
+
+To create tables in the database, run Alembic migrations:
+
+```bash
+poetry run alembic revision --autogenerate
+```
+
+And to apply the migration:
+
+```bash
+poetry run alembic upgrade head
+```
+
+For detailed instructions on database migration using Alembic, refer to the [Database Migrations Guide](../docs/database-migration-guide.md) in the project's documentation.
+
+## 🚀 Running the Backend
+
+Start the FastAPI application:
+
+```bash
+poetry run uvicorn src.main:app --reload
+```
+
+For more details on running the backend with Uvicorn, consult the [Uvicorn Guide](../docs/uvicorn-guide.md) in the project's documentation.
+
+Start the ARQ worker:
+
+```bash
+poetry run arq src.worker.WorkerSettings
+```
+
+For more details on running the ARQ worker, refer to the [ARQ Guide](../docs/arq-guide.md) in the project's documentation.
+
+## 🧪 Running Tests
+
+Run tests using pytest:
+
+```bash
+poetry run python -m pytest -vv ./tests
+```
+
+For detailed guidance on running tests and confirming the application's behavior, refer to the [Testing Guide](../docs/testing-guide.md) in the project's documentation.
+
+## 🚧 Pre-Commit Instructions
+
+Before committing changes, ensure that you've activated the virtual environment in 'backend/.venv' at the root of the project. This step is crucial for the successful execution of pre-commit hooks. Activate the virtual environment using the following command in the root folder of your project:
+
+```bash
+source backend/.venv/bin/activate
+```
+
+After activating the virtual environment, pre-commit hooks will check your commits before they are committed.
+
+Explore comprehensive instructions for setting up pre-commit steps and understanding their benefits in the [Pre-Commit Guide](../docs/pre-commit-instructions.md) located within the project's documentation.
+
+
+// File: /opt/src/epsilon.fm/docs/database-migration-guide.md
+# Database Migration with Alembic
+
+## What is Alembic?
+
+[Alembic](https://alembic.sqlalchemy.org/) is a database migration tool for SQLAlchemy, a popular Python library for interacting with relational databases. In simple terms, database migrations are scripts that describe changes to the database structure over time.
+
+## Why are Migrations Necessary?
+
+- **Schema Evolution:** As your application evolves, it's common for the database structure to evolve as well. New tables may be added, columns modified or removed, etc.
+
+- **Consistency Across Environments:** Migrations ensure that all environments (development, testing, production) have the same database structure, avoiding inconsistencies and errors related to schema differences.
+
+- **Database Versioning:** Alembic provides a versioning system for the database, allowing you to track applied changes and revert or advance to specific versions as needed.
+
+## How to Execute Migrations with Alembic
+
+1. **Auto-generating Revisions:**
+
+   - When starting a new feature or making changes to the data model, you can use the command `poetry run alembic revision --autogenerate` to auto-generate a new revision. This creates a new migration script based on changes detected in the data model.
+
+2. **Applying Migrations:**
+
+   - After auto-generating a revision, you can apply it to the database using the command `poetry run alembic upgrade head`. This effectively applies all pending migrations.
+
+3. **Reverting Migrations (Optional):**
+   - If necessary, you can revert to a previous version of the database using `poetry run alembic downgrade -1` to revert a specific migration or `poetry run alembic downgrade base` to revert all migrations.
+
+## Why Users Should Execute Migrations
+
+- **Maintain Consistency:** Running migrations ensures that the database is up-to-date with the latest version of the data model, maintaining consistency across different environments and avoiding compatibility issues.
+
+- **Tracking Changes:** Using migrations allows you to track and manage changes to the database over time. This is crucial for maintaining a clear history of modifications.
+
+- **Ensure Proper Operation:** Some changes to the data model may be essential for the proper operation of the application. Running migrations ensures that the database is configured as expected.
+
+**Note:** Ensure these commands are executed within the 'backend' folder of your project.
+
+Encourage users to run migrations whenever there are significant changes to the data model to ensure a cohesive and functional database environment.
+
+---
+
+[Back to backend README](../backend/README.md)
+
+
+// File: /opt/src/epsilon.fm/docs/pre-commit-instructions.md
+# Pre-Commit: Instructions and Benefits
+
+## Why Pre-Commit?
+
+Pre-commit steps are a crucial part of the development process, designed to ensure consistency, quality, and integrity of the source code before being committed to the repository. They bring significant benefits to developers and the project as a whole.
+
+## Benefits
+
+### 1. Code Consistency
+
+Pre-commit hooks help maintain a consistent code style throughout the project. This makes the code more readable for other developers and aids in long-term maintenance.
+
+### 2. Early Issue Identification
+
+Running automated tests, linting, and other checks before committing allows for early identification of issues, reducing the likelihood of errors in the code and improving overall software quality.
+
+### 3. Commit Message Standardization
+
+Enforcing standards for commit messages ensures clear and consistent documentation of the change history, making code review and collaboration among developers more straightforward.
+
+## Usage Instructions
+
+Before committing your changes to the repository, follow the steps below:
+
+1. Activate the virtual environment in the 'backend' directory (when in the root directory):
+
+   ```bash
+   source backend/.venv/bin/activate
+   ```
+
+2. Ensure you are in the root directory of the project.
+
+3. Execute the following command to ensure that pre-commit hooks are applied:
+
+   ```bash
+   pre-commit run --all-files
+   ```
+
+   This will automatically check and fix identified issues in modified files.
+
+4. After successful execution, you can proceed to commit your changes as usual.
+
+By following these instructions, you ensure a smoother workflow and contribute to the overall code quality in the project.
+
+---
+
+[Back to backend README](../backend/README.md)
+
+
+// File: /opt/src/epsilon.fm/docs/uvicorn-guide.md
+# Uvicorn Guide
+
+## Overview
+
+Running the FastAPI application asynchronously is made possible with Uvicorn. Uvicorn is an ASGI (Asynchronous Server Gateway Interface) server that provides a fast and efficient way to serve FastAPI applications.
+
+## Introduction to Uvicorn
+
+[Uvicorn](https://www.uvicorn.org/) is a lightweight ASGI server that allows FastAPI applications to take full advantage of asynchronous programming. It is designed to deliver high performance and is particularly well-suited for applications with high concurrency.
+
+### Key Features
+
+- **Asynchronous Support:** Uvicorn fully supports asynchronous programming, allowing FastAPI to handle many requests concurrently without blocking.
+
+- **Automatic Reloading:** The `--reload` option, as used in the command below, enables automatic reloading of the server during development, making the development process smoother.
+
+## Running the Backend with Uvicorn
+
+To start the FastAPI application asynchronously using Uvicorn, follow these steps:
+
+```bash
+poetry run uvicorn src.main:app --reload
+```
+
+This command launches the FastAPI application, enabling asynchronous functionality with automatic reloading during development.
+
+For more details and advanced configuration options when running the backend with Uvicorn, refer to the [Uvicorn Documentation](https://www.uvicorn.org/).
+
+---
+
+[Back to backend README](../backend/README.md)
+
+
+// File: /opt/src/epsilon.fm/docs/arq-guide.md
+# ARQ Guide
+
+## Overview
+
+ARQ is a high-performance Python library for handling background tasks, designed to be compatible with ASGI frameworks like FastAPI. This guide provides instructions on how to start the ARQ worker and leverage its features within the project.
+
+## Introduction to ARQ
+
+[ARQ](https://arq-docs.helpmanual.io/) is a background task library for Python that integrates seamlessly with FastAPI and other ASGI frameworks. It is built with performance in mind, allowing you to handle background tasks efficiently and asynchronously.
+
+### Key Features
+
+- **Efficient Task Queue Management:** ARQ simplifies the handling of background tasks, making it easy to manage and execute tasks asynchronously.
+
+- **ASGI Compatibility:** ARQ is designed to work seamlessly with ASGI frameworks like FastAPI, providing a smooth integration for background task processing.
+
+## Running the ARQ Worker
+
+To start the ARQ worker, follow these steps:
+
+```bash
+poetry run arq src.worker.WorkerSettings
+```
+
+This command launches the ARQ worker, allowing for efficient background task queue management.
+
+For more details and advanced configuration options when running the ARQ worker, refer to the [ARQ Documentation](https://arq-docs.helpmanual.io/).
+
+---
+
+[Back to backend README](../backend/README.md)
+
+
+// File: /opt/src/epsilon.fm/docs/testing-guide.md
+# Testing Guide
+
+## Overview
+
+Testing is a crucial aspect of software development, ensuring that the application functions as intended and that new changes do not introduce regressions. This guide provides instructions on how users can run tests to verify the correct functionality of the application.
+
+## Running Tests
+
+To run tests for the project, follow these steps:
+
+1. Navigate to the 'backend' directory:
+
+   ```bash
+   cd backend
+   ```
+
+2. Execute the following command to run tests:
+
+   ```bash
+   poetry run python -m pytest -vv ../tests -s
+   ```
+
+   This command runs the tests located in the 'tests' directory with detailed output.
+
+3. Review the test results in the terminal. Any failures or errors will be highlighted.
+
+## Writing Tests
+
+If you want to contribute or extend the test coverage, consider the following:
+
+- Tests are located in the 'tests' directory, organized by the structure of the 'src' directory.
+
+- Use the [pytest](https://docs.pytest.org/en/stable/) testing framework for writing tests.
+
+- Aim to cover different aspects of your application, including unit tests, integration tests, and any other relevant scenarios.
+
+## Continuous Integration
+
+The project may be set up with continuous integration (CI) tools that automatically run tests upon each commit. Be sure to check the CI status for the latest test results.
+
+By following these testing practices, you contribute to the reliability and stability of the project.
+
+---
+
+[Back to backend README](../backend/README.md)
+

@@ -1,0 +1,460 @@
+
+// File: /opt/src/epsilon.fm/tests/test.ts
+import { expect, test } from '@playwright/test';
+
+test('home page has expected h1', async ({ page }) => {
+	await page.goto('/');
+	await expect(page.locator('h1')).toBeVisible();
+});
+
+
+// File: /opt/src/epsilon.fm/src/app.d.ts
+// See https://kit.svelte.dev/docs/types#app
+// for information about these interfaces
+declare global {
+	namespace App {
+		// interface Error {}
+		// interface Locals {}
+		// interface PageData {}
+		// interface PageState {}
+		// interface Platform {}
+	}
+}
+
+export {};
+
+
+// File: /opt/src/epsilon.fm/src/hooks.client.ts
+import * as Sentry from '@sentry/sveltekit';
+import type { HandleClientError } from '@sveltejs/kit';
+// To use Clerk components:
+import { initializeClerkClient } from 'clerk-sveltekit/client';
+// Or for headless mode:
+// import { initializeClerkClient } from 'clerk-sveltekit/headless'
+import { PUBLIC_CLERK_PUBLISHABLE_KEY } from '$env/static/public';
+
+// If you don't want to use Session Replay, remove the `Replay` integration,
+// `replaysSessionSampleRate` and `replaysOnErrorSampleRate` options.
+Sentry.init({
+	dsn: 'https://d677a865e0302d7c39f61a919db18993@o337159.ingest.us.sentry.io/4507546312572928',
+	tracesSampleRate: 1,
+	replaysSessionSampleRate: 0.1,
+	replaysOnErrorSampleRate: 1,
+	integrations: [Sentry.replayIntegration()]
+});
+
+initializeClerkClient(PUBLIC_CLERK_PUBLISHABLE_KEY, {
+	afterSignInUrl: '/',
+	afterSignUpUrl: '/',
+	signInUrl: '/sign-in',
+	signUpUrl: '/sign-up'
+});
+
+export const handleError: HandleClientError = Sentry.handleErrorWithSentry(
+	async ({ error, event }) => {
+		console.error(error, event);
+	}
+);
+
+
+// File: /opt/src/epsilon.fm/src/hooks.server.ts
+import * as Sentry from '@sentry/sveltekit';
+import { sequence } from '@sveltejs/kit/hooks';
+import { handleClerk } from 'clerk-sveltekit/server';
+import { SENTRY_DSN, CLERK_SECRET_KEY } from '$env/static/private';
+import { redirect } from '@sveltejs/kit';
+import type { Handle } from '@sveltejs/kit';
+
+type SubdomainRoutes = {
+	[key: string]: string;
+};
+
+Sentry.init({
+	dsn: SENTRY_DSN,
+	tracesSampleRate: 1
+});
+
+export const handleSubdomain: Handle = async ({ event, resolve }) => {
+	const { url } = event.request;
+	const parsedUrl = new URL(url);
+	const subdomain = parsedUrl.hostname.split('.')[0]; // Get the subdomain
+	console.log(parsedUrl);
+	console.log(subdomain);
+	// Define your subdomain to route mappings
+	const subdomainRoutes: SubdomainRoutes = {
+		sub1: '/route1',
+		sub2: '/route2'
+		// Add more mappings as needed
+	};
+
+	if (subdomain in subdomainRoutes) {
+		const newUrl = new URL(parsedUrl);
+		newUrl.pathname = subdomainRoutes[subdomain as keyof SubdomainRoutes];
+		console.log(newUrl.toString());
+		return redirect(302, newUrl.toString());
+	}
+
+	// If no matching subdomain, continue to the requested route
+	return await resolve(event);
+};
+
+export const handle: Handle = sequence(
+	Sentry.sentryHandle(),
+	handleClerk(CLERK_SECRET_KEY, {
+		debug: false,
+		protectedPaths: [
+			'/admin',
+			'/profile',
+			'/releases',
+			'/merch',
+			'/website',
+			'/social',
+			'/royalties'
+		],
+		signInUrl: '/sign-in'
+	}),
+	handleSubdomain
+);
+export const handleError = Sentry.handleErrorWithSentry();
+
+
+// File: /opt/src/epsilon.fm/src/routes/(website)/a/[slug]/Projects.ts
+const projects = [
+	{
+		title: 'GDLauncher',
+		technologies: ['Node', 'React', 'Redux', 'Electron'],
+		description:
+			'GDLauncher is a simple, yet powerful Minecraft custom launcher with a strong focus on the user experience',
+		url: 'https://github.com/gorilla-devs/GDLauncher'
+	},
+	{
+		title: 'WiseMan Discord Bot',
+		technologies: ['NodeJs', 'FireBase', 'MongoDb', 'golang'],
+		description:
+			'The wiseMan bot allows you to level up based on the time you spend in a vocal channel',
+		url: 'https://github.com/Ladvace/WiseMan-DiscordBot'
+	},
+	{
+		title: 'Easy-react-carousel',
+		technologies: ['React', 'NodeJs'],
+		description: 'A simple carousel made in reactjs',
+		url: 'https://github.com/Ladvace/easy-react-carousel'
+	}
+];
+
+export default projects;
+
+
+// File: /opt/src/epsilon.fm/src/routes/(website)/a/[slug]/+layout.server.ts
+import type { LayoutServerLoad } from './$types';
+import { clerkClient } from '@clerk/clerk-sdk-node';
+import { db } from '$lib/db';
+import { artist } from '$lib/db/schema';
+import { eq } from 'drizzle-orm';
+import { redirect } from '@sveltejs/kit';
+
+export const load = (async ({ params }) => {
+	const response = await clerkClient.organizations.getOrganization({
+		slug: params.slug
+	});
+	const data = await db
+		.select()
+		.from(artist)
+		.where(eq(artist.orgId, response.id ?? null));
+	if (data.length != 0) {
+		return {
+			stageName: response.name ?? null,
+			imageUrl: response.imageUrl ?? null,
+			slug: params.slug,
+			email: data[0].email ?? 'hello@epsilonrecords.com',
+			biography: data[0].biography ?? null,
+			youtubeChannelLink: data[0].youtubeChannelLink ?? null,
+			instagramProfileLink: data[0].instagramProfileLink ?? null,
+			facebookProfileLink: data[0].facebookProfileLink ?? null,
+			tiktokProfileLink: data[0].tiktokProfileLink ?? null,
+			soundcloudProfileLink: data[0].soundcloudProfileLink ?? null,
+			songkickProfileLink: data[0].songkickProfileLink ?? null,
+			bandsintownProfileLink: data[0].bandsintownProfileLink ?? null
+		};
+	} else {
+		redirect(404, '/');
+	}
+}) satisfies LayoutServerLoad;
+
+
+// File: /opt/src/epsilon.fm/src/routes/(website)/a/[slug]/Skills.ts
+const skills = {
+	Genres: ['House', 'Classic House', 'Latin House'],
+	Instruments: ['Piano', 'Synthesizer', 'Guitar'],
+	Tools: ['Ableton Live'],
+	Languages: ['English', 'Spanish'],
+	Locations: ['Dallas, TX', 'San Diego, CA']
+};
+
+export default skills;
+
+
+// File: /opt/src/epsilon.fm/src/routes/(website)/a/[slug]/NavRoutes.ts
+const routes = [
+	{
+		href: '/',
+		label: 'Home'
+	},
+	{
+		href: '/about',
+		label: 'About'
+	},
+	{
+		href: '/music',
+		label: 'Music'
+	},
+	{
+		href: '/merch',
+		label: 'Merch'
+	},
+	{
+		href: '/contact',
+		label: 'Contact'
+	}
+];
+
+export default routes;
+
+
+// File: /opt/src/epsilon.fm/src/routes/(website)/a/[slug]/store.ts
+import { writable } from 'svelte/store';
+
+export const modalOpened = writable(false);
+
+export const customBackground = writable('#0a0908');
+
+
+// File: /opt/src/epsilon.fm/src/routes/api/uploadthing/+server.ts
+import { UPLOADTHING_SECRET } from '$env/static/private';
+import { ourFileRouter } from '$lib/server/uploadthing';
+
+import { createRouteHandler } from 'uploadthing/server';
+
+// The Svelte extension complains if you export the handlers directly
+const { GET, POST } = createRouteHandler({
+	router: ourFileRouter,
+	config: {
+		uploadthingSecret: UPLOADTHING_SECRET
+	}
+});
+
+export { GET, POST };
+
+
+// File: /opt/src/epsilon.fm/src/routes/(main)/+layout.ts
+import { dev } from '$app/environment';
+import { inject } from '@vercel/analytics';
+import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+import posthog from 'posthog-js';
+import { browser } from '$app/environment';
+import { PUBLIC_POSTHOG_API_KEY } from '$env/static/public';
+
+inject({ mode: dev ? 'development' : 'production' });
+injectSpeedInsights();
+
+/** @type {import('./$types').PageLoad} */
+export const load = async () => {
+	if (browser) {
+		posthog.init(PUBLIC_POSTHOG_API_KEY, {
+			api_host: 'https://eu.i.posthog.com',
+			person_profiles: 'identified_only' // or 'always' to create profiles for anonymous users as well
+		});
+	}
+	return;
+};
+
+
+// File: /opt/src/epsilon.fm/src/routes/(main)/+page.server.ts
+import type { PageServerLoad } from './$types.js';
+import { clerkClient } from '@clerk/clerk-sdk-node';
+
+export const load: PageServerLoad = async ({ locals }) => {
+	let slug = '';
+	console.log(locals);
+
+	// Use type assertion to access 'session'
+	const session = (locals as { session?: { claims?: { org_id?: string } } }).session;
+
+	if (session && session.claims && session.claims.org_id) {
+		const organizationId = session.claims.org_id;
+		const response = await clerkClient.organizations.getOrganization({ organizationId });
+		slug = response.slug ?? '';
+	}
+
+	return {
+		slug: slug
+	};
+};
+
+
+// File: /opt/src/epsilon.fm/src/routes/(main)/+layout.server.ts
+import type { LayoutServerLoad } from './$types';
+import { NODE_ENV, VERCEL_GIT_COMMIT_SHA } from '$env/static/private';
+
+export const load: LayoutServerLoad = async () => {
+	return {
+		nodeEnv: NODE_ENV,
+		gitCommitSha: VERCEL_GIT_COMMIT_SHA
+	};
+};
+
+
+// File: /opt/src/epsilon.fm/src/routes/(main)/profile/schema.ts
+import { z } from 'zod';
+
+const artistSchema = z.object({
+	id: z.number().optional(),
+	orgId: z.string().max(255),
+	slug: z.string().max(255),
+	stageName: z.string().max(50),
+	email: z.string().max(255),
+	biography: z.string().max(1000),
+	spotifyArtistLink: z.string().max(255).optional(),
+	youtubeChannelLink: z.string().max(255).optional(),
+	instagramProfileLink: z.string().max(255).optional(),
+	facebookProfileLink: z.string().max(255).optional(),
+	xProfileLink: z.string().max(255).optional(), // X refers to Twitter
+	tiktokProfileLink: z.string().max(255).optional(),
+	soundcloudProfileLink: z.string().max(255).optional(),
+	songkickProfileLink: z.string().max(255).optional(),
+	bandsintownProfileLink: z.string().max(255).optional()
+});
+
+const genreSchema = z.object({
+	id: z.number().optional(),
+	name: z.string().max(50)
+});
+
+const releaseSchema = z.object({
+	id: z.number().optional(),
+	artistId: z.number(),
+	title: z.string().max(100),
+	releaseDate: z.string(), // Using string to represent date
+	description: z.string().optional(),
+	spotifyLink: z.string().max(255).optional(),
+	youtubeLink: z.string().max(255).optional(),
+	soundcloudLink: z.string().max(255).optional(),
+	appleMusicLink: z.string().max(255).optional(),
+	coverArt: z.string().max(255).optional(),
+	label: z.string().max(100).optional(),
+	releaseType: z.string().max(50).optional(), // Single, Album, EP, etc.
+	format: z.string().max(50).optional(), // Digital, Vinyl, CD, etc.
+	upcCode: z.string().max(20).optional() // Universal Product Code
+});
+
+const trackSchema = z.object({
+	id: z.number().optional(),
+	releaseId: z.number(),
+	title: z.string().max(100),
+	preview: z.number(),
+	position: z.number(),
+	genreId: z.number(),
+	spotifyLink: z.string().max(255).optional(),
+	youtubeLink: z.string().max(255).optional(),
+	soundcloudLink: z.string().max(255).optional(),
+	appleMusicLink: z.string().max(255).optional(),
+	isrcCode: z.string().max(20).optional(), // International Standard Recording Code
+	lyrics: z.string().optional(), // Lyrics of the track
+	composers: z.string().optional(), // List of composers
+	producers: z.string().optional(), // List of producers
+	engineers: z.string().optional(), // List of engineers
+	mixingEngineers: z.string().optional(), // List of mixing engineers
+	masteringEngineers: z.string().optional(), // List of mastering engineers
+	recordingLocation: z.string().max(255).optional(), // Studio or location of recording
+	credits: z.string().optional() // Additional credits
+});
+
+const trackSubgenreSchema = z.object({
+	trackId: z.number(),
+	subgenreId: z.number()
+});
+
+export type ArtistSchema = typeof artistSchema;
+
+export { artistSchema, genreSchema, releaseSchema, trackSchema, trackSubgenreSchema };
+
+
+// File: /opt/src/epsilon.fm/src/routes/(main)/profile/+page.server.ts
+import type { PageServerLoad, Actions } from './$types.js';
+import { message, superValidate } from 'sveltekit-superforms';
+import { zod } from 'sveltekit-superforms/adapters';
+import { artistSchema } from './schema';
+import { db } from '$lib/db';
+import { artist } from '$lib/db/schema';
+import { eq } from 'drizzle-orm';
+import { clerkClient } from '@clerk/clerk-sdk-node';
+import { redirect, fail } from '@sveltejs/kit';
+
+export const load: PageServerLoad = async ({ locals }) => {
+	// Use type assertion to access 'session'
+	const session = (locals as { session?: { claims?: { org_id?: string } } }).session;
+	let form = await superValidate(zod(artistSchema));
+	if (session && session.claims && session.claims.org_id) {
+		const organizationId = session.claims.org_id ?? null;
+		const response = await clerkClient.organizations.getOrganization({ organizationId });
+		const stageName = response.name ?? null;
+		const slug = response.slug ?? null;
+		if (!organizationId || !stageName || !slug) {
+			throw redirect(500, '/');
+		}
+		const data = await db.select().from(artist).where(eq(artist.orgId, organizationId));
+		if (data.length != 0) {
+			// Convert null values to undefined
+			const formattedData = Object.fromEntries(
+				Object.entries(data[0]).map(([key, value]) => [key, value === null ? undefined : value])
+			);
+			form = await superValidate(formattedData, zod(artistSchema), { strict: true });
+		}
+		form.data.orgId = organizationId;
+		form.data.stageName = stageName;
+		form.data.slug = slug;
+	}
+	return {
+		form: form
+	};
+};
+
+export const actions: Actions = {
+	default: async (request) => {
+		const form = await superValidate(request, zod(artistSchema), { strict: true });
+		if (!form.valid) {
+			return fail(400, {
+				form
+			});
+		}
+		try {
+			await db.insert(artist).values(form.data).onConflictDoUpdate({
+				target: artist.orgId,
+				set: form.data
+			});
+		} catch {
+			return fail(500, {
+				form
+			});
+		}
+		return message(form, 'success');
+	}
+};
+
+
+// File: /opt/src/epsilon.fm/src/routes/(main)/artists/+page.server.ts
+import type { PageServerLoad } from './$types.js';
+import { clerkClient } from '@clerk/clerk-sdk-node';
+
+export const load: PageServerLoad = async () => {
+	const response = await clerkClient.organizations.getOrganizationList({
+		limit: 10,
+		offset: 0,
+		includeMembersCount: true
+	});
+	console.log(response);
+	return {
+		artists: JSON.parse(JSON.stringify(response.data))
+	};
+};
+

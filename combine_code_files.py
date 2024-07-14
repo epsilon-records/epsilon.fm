@@ -14,9 +14,11 @@ def should_ignore(path, spec):
 
 def combine_files_by_extension(directory, extensions, ignored_dirs):
     gitignore_spec = load_gitignore(directory)
+    combined_dir = os.path.join(directory, 'combined')
+    os.makedirs(combined_dir, exist_ok=True)
     
     for ext in extensions:
-        output_file = f"combined_{ext.lstrip('.')}.txt"
+        output_file = os.path.join(combined_dir, f"combined_{ext.lstrip('.')}.txt")
         with open(output_file, 'w', encoding='utf-8') as outfile:
             for root, dirs, files in os.walk(directory):
                 # Skip base directory files and ignored directories
@@ -43,10 +45,9 @@ if __name__ == "__main__":
     directory = "/opt/src/epsilon.fm"
 
     # Specify the file extensions to include
-    extensions = ['.ts', '.js', '.jsx', '.tsx', '.svelte', '.html', '.css']
+    extensions = ['.ts', '.js', '.jsx', '.tsx', '.svelte', '.html', '.css', '.md', '.json', '.gitignore', '.npmrc', '.prettierignore', '.prettierrc']
 
     # Specify the directories to ignore
     ignored_dirs = ['node_modules', 'src-tauri', '.git']
 
     combine_files_by_extension(directory, extensions, ignored_dirs)
-
