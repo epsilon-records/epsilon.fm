@@ -1,0 +1,10 @@
+#!/bin/bash
+
+DIR=/home/ubuntu/fastapi-async-sqlmodel-boilerplate/backend
+VENV=$DIR/.venv/bin/activate
+
+cd $DIR
+
+source $VENV
+
+exec arq src.worker.WorkerSettings

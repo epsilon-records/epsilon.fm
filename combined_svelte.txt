@@ -1,0 +1,3453 @@
+
+// File: /opt/src/epsilon.fm/src/lib/components/PageTransition.svelte
+<script lang="ts">
+	import { fly } from 'svelte/transition';
+	export let pathname: string = '';
+</script>
+
+{#key pathname}
+	<div in:fly={{ x: -10, duration: 500, delay: 500 }} out:fly={{ x: 5, duration: 500 }}>
+		<slot />
+	</div>
+{/key}
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/form/form-label.svelte
+<script lang="ts">
+	import type { Label as LabelPrimitive } from "bits-ui";
+	import { getFormControl } from "formsnap";
+	import { cn } from "$lib/utils.js";
+	import { Label } from "$lib/components/ui/label/index.js";
+
+	type $$Props = LabelPrimitive.Props;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+
+	const { labelAttrs } = getFormControl();
+</script>
+
+<Label {...$labelAttrs} class={cn("data-[fs-error]:text-destructive", className)} {...$$restProps}>
+	<slot {labelAttrs} />
+</Label>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/form/form-fieldset.svelte
+<script lang="ts" context="module">
+	import type { FormPath, SuperForm } from "sveltekit-superforms";
+	type T = Record<string, unknown>;
+	type U = FormPath<T>;
+</script>
+
+<script lang="ts" generics="T extends Record<string, unknown>, U extends FormPath<T>">
+	import * as FormPrimitive from "formsnap";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = FormPrimitive.FieldsetProps<T, U>;
+
+	export let form: SuperForm<T>;
+	export let name: U;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<FormPrimitive.Fieldset
+	{form}
+	{name}
+	let:constraints
+	let:errors
+	let:tainted
+	let:value
+	class={cn("space-y-2", className)}
+>
+	<slot {constraints} {errors} {tainted} {value} />
+</FormPrimitive.Fieldset>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/form/form-button.svelte
+<script lang="ts">
+	import * as Button from "$lib/components/ui/button/index.js";
+
+	type $$Props = Button.Props;
+	type $$Events = Button.Events;
+</script>
+
+<Button.Root type="submit" on:click on:keydown {...$$restProps}>
+	<slot />
+</Button.Root>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/form/form-field-errors.svelte
+<script lang="ts">
+	import * as FormPrimitive from "formsnap";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = FormPrimitive.FieldErrorsProps & {
+		errorClasses?: string | undefined | null;
+	};
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+	export let errorClasses: $$Props["class"] = undefined;
+</script>
+
+<FormPrimitive.FieldErrors
+	class={cn("text-sm font-medium text-destructive", className)}
+	{...$$restProps}
+	let:errors
+	let:fieldErrorsAttrs
+	let:errorAttrs
+>
+	<slot {errors} {fieldErrorsAttrs} {errorAttrs}>
+		{#each errors as error}
+			<div {...errorAttrs} class={cn(errorClasses)}>{error}</div>
+		{/each}
+	</slot>
+</FormPrimitive.FieldErrors>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/form/form-description.svelte
+<script lang="ts">
+	import * as FormPrimitive from "formsnap";
+	import type { HTMLAttributes } from "svelte/elements";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = HTMLAttributes<HTMLSpanElement>;
+	let className: string | undefined | null = undefined;
+	export { className as class };
+</script>
+
+<FormPrimitive.Description
+	class={cn("text-sm text-muted-foreground", className)}
+	{...$$restProps}
+	let:descriptionAttrs
+>
+	<slot {descriptionAttrs} />
+</FormPrimitive.Description>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/form/form-field.svelte
+<script lang="ts" context="module">
+	import type { FormPath, SuperForm } from "sveltekit-superforms";
+	type T = Record<string, unknown>;
+	type U = FormPath<T>;
+</script>
+
+<script lang="ts" generics="T extends Record<string, unknown>, U extends FormPath<T>">
+	import type { HTMLAttributes } from "svelte/elements";
+	import * as FormPrimitive from "formsnap";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = FormPrimitive.FieldProps<T, U> & HTMLAttributes<HTMLElement>;
+
+	export let form: SuperForm<T>;
+	export let name: U;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<FormPrimitive.Field {form} {name} let:constraints let:errors let:tainted let:value>
+	<div class={cn("space-y-2", className)}>
+		<slot {constraints} {errors} {tainted} {value} />
+	</div>
+</FormPrimitive.Field>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/form/form-element-field.svelte
+<script lang="ts" context="module">
+	import type { FormPathLeaves, SuperForm } from "sveltekit-superforms";
+	type T = Record<string, unknown>;
+	type U = FormPathLeaves<T>;
+</script>
+
+<script lang="ts" generics="T extends Record<string, unknown>, U extends FormPathLeaves<T>">
+	import type { HTMLAttributes } from "svelte/elements";
+	import * as FormPrimitive from "formsnap";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = FormPrimitive.ElementFieldProps<T, U> & HTMLAttributes<HTMLElement>;
+
+	export let form: SuperForm<T>;
+	export let name: U;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<FormPrimitive.ElementField {form} {name} let:constraints let:errors let:tainted let:value>
+	<div class={cn("space-y-2", className)}>
+		<slot {constraints} {errors} {tainted} {value} />
+	</div>
+</FormPrimitive.ElementField>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/form/form-legend.svelte
+<script lang="ts">
+	import * as FormPrimitive from "formsnap";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = FormPrimitive.LegendProps;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<FormPrimitive.Legend
+	{...$$restProps}
+	class={cn("text-sm font-medium leading-none data-[fs-error]:text-destructive", className)}
+	let:legendAttrs
+>
+	<slot {legendAttrs} />
+</FormPrimitive.Legend>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/calendar/calendar-header.svelte
+<script lang="ts">
+	import { Calendar as CalendarPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = CalendarPrimitive.HeaderProps;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<CalendarPrimitive.Header
+	class={cn("relative flex w-full items-center justify-between pt-1", className)}
+	{...$$restProps}
+>
+	<slot />
+</CalendarPrimitive.Header>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/calendar/calendar-heading.svelte
+<script lang="ts">
+	import { Calendar as CalendarPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = CalendarPrimitive.HeadingProps;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<CalendarPrimitive.Heading
+	let:headingValue
+	class={cn("text-sm font-medium", className)}
+	{...$$restProps}
+>
+	<slot {headingValue}>
+		{headingValue}
+	</slot>
+</CalendarPrimitive.Heading>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/calendar/calendar-grid-body.svelte
+<script lang="ts">
+	import { Calendar as CalendarPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = CalendarPrimitive.GridBodyProps;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<CalendarPrimitive.GridBody class={cn(className)} {...$$restProps}>
+	<slot />
+</CalendarPrimitive.GridBody>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/calendar/calendar-cell.svelte
+<script lang="ts">
+	import { Calendar as CalendarPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = CalendarPrimitive.CellProps;
+
+	export let date: $$Props["date"];
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<CalendarPrimitive.Cell
+	{date}
+	class={cn(
+		"relative h-9 w-9 p-0 text-center text-sm focus-within:relative focus-within:z-20 [&:has([data-selected])]:rounded-md [&:has([data-selected])]:bg-accent [&:has([data-selected][data-outside-month])]:bg-accent/50",
+		className
+	)}
+	{...$$restProps}
+>
+	<slot />
+</CalendarPrimitive.Cell>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/calendar/calendar-day.svelte
+<script lang="ts">
+	import { Calendar as CalendarPrimitive } from "bits-ui";
+	import { buttonVariants } from "$lib/components/ui/button/index.js";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = CalendarPrimitive.DayProps;
+	type $$Events = CalendarPrimitive.DayEvents;
+
+	export let date: $$Props["date"];
+	export let month: $$Props["month"];
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<CalendarPrimitive.Day
+	on:click
+	{date}
+	{month}
+	class={cn(
+		buttonVariants({ variant: "ghost" }),
+		"h-9 w-9 p-0 font-normal ",
+		"[&[data-today]:not([data-selected])]:bg-accent [&[data-today]:not([data-selected])]:text-accent-foreground",
+		// Selected
+		"data-[selected]:bg-primary data-[selected]:text-primary-foreground data-[selected]:opacity-100 data-[selected]:hover:bg-primary data-[selected]:hover:text-primary-foreground data-[selected]:focus:bg-primary data-[selected]:focus:text-primary-foreground",
+		// Disabled
+		"data-[disabled]:text-muted-foreground data-[disabled]:opacity-50",
+		// Unavailable
+		"data-[unavailable]:text-destructive-foreground data-[unavailable]:line-through",
+		// Outside months
+		"data-[outside-month]:pointer-events-none data-[outside-month]:text-muted-foreground data-[outside-month]:opacity-50 [&[data-outside-month][data-selected]]:bg-accent/50 [&[data-outside-month][data-selected]]:text-muted-foreground [&[data-outside-month][data-selected]]:opacity-30",
+		className
+	)}
+	{...$$restProps}
+	let:selected
+	let:disabled
+	let:unavailable
+	let:builder
+>
+	<slot {selected} {disabled} {unavailable} {builder}>
+		{date.day}
+	</slot>
+</CalendarPrimitive.Day>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/calendar/calendar-grid-head.svelte
+<script lang="ts">
+	import { Calendar as CalendarPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = CalendarPrimitive.GridHeadProps;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<CalendarPrimitive.GridHead class={cn(className)} {...$$restProps}>
+	<slot />
+</CalendarPrimitive.GridHead>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/calendar/calendar-grid-row.svelte
+<script lang="ts">
+	import { Calendar as CalendarPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = CalendarPrimitive.GridRowProps;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<CalendarPrimitive.GridRow class={cn("flex", className)} {...$$restProps}>
+	<slot />
+</CalendarPrimitive.GridRow>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/calendar/calendar-next-button.svelte
+<script lang="ts">
+	import { Calendar as CalendarPrimitive } from "bits-ui";
+	import ChevronRight from "lucide-svelte/icons/chevron-right";
+	import { buttonVariants } from "$lib/components/ui/button/index.js";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = CalendarPrimitive.NextButtonProps;
+	type $$Events = CalendarPrimitive.NextButtonEvents;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<CalendarPrimitive.NextButton
+	on:click
+	class={cn(
+		buttonVariants({ variant: "outline" }),
+		"h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100",
+		className
+	)}
+	{...$$restProps}
+	let:builder
+>
+	<slot {builder}>
+		<ChevronRight class="h-4 w-4" />
+	</slot>
+</CalendarPrimitive.NextButton>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/calendar/calendar-months.svelte
+<script lang="ts">
+	import type { HTMLAttributes } from "svelte/elements";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = HTMLAttributes<HTMLDivElement>;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<div
+	class={cn("mt-4 flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0", className)}
+	{...$$restProps}
+>
+	<slot />
+</div>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/calendar/calendar-grid.svelte
+<script lang="ts">
+	import { Calendar as CalendarPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = CalendarPrimitive.GridProps;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<CalendarPrimitive.Grid class={cn("w-full border-collapse space-y-1", className)} {...$$restProps}>
+	<slot />
+</CalendarPrimitive.Grid>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/calendar/calendar-head-cell.svelte
+<script lang="ts">
+	import { Calendar as CalendarPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = CalendarPrimitive.HeadCellProps;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<CalendarPrimitive.HeadCell
+	class={cn("w-9 rounded-md text-[0.8rem] font-normal text-muted-foreground", className)}
+	{...$$restProps}
+>
+	<slot />
+</CalendarPrimitive.HeadCell>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/calendar/calendar.svelte
+<script lang="ts">
+	import { Calendar as CalendarPrimitive } from "bits-ui";
+	import * as Calendar from "./index.js";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = CalendarPrimitive.Props;
+
+	type $$Events = CalendarPrimitive.Events;
+
+	export let value: $$Props["value"] = undefined;
+	export let placeholder: $$Props["placeholder"] = undefined;
+	export let weekdayFormat: $$Props["weekdayFormat"] = "short";
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<CalendarPrimitive.Root
+	bind:value
+	bind:placeholder
+	{weekdayFormat}
+	class={cn("p-3", className)}
+	{...$$restProps}
+	on:keydown
+	let:months
+	let:weekdays
+>
+	<Calendar.Header>
+		<Calendar.PrevButton />
+		<Calendar.Heading />
+		<Calendar.NextButton />
+	</Calendar.Header>
+	<Calendar.Months>
+		{#each months as month}
+			<Calendar.Grid>
+				<Calendar.GridHead>
+					<Calendar.GridRow class="flex">
+						{#each weekdays as weekday}
+							<Calendar.HeadCell>
+								{weekday.slice(0, 2)}
+							</Calendar.HeadCell>
+						{/each}
+					</Calendar.GridRow>
+				</Calendar.GridHead>
+				<Calendar.GridBody>
+					{#each month.weeks as weekDates}
+						<Calendar.GridRow class="mt-2 w-full">
+							{#each weekDates as date}
+								<Calendar.Cell {date}>
+									<Calendar.Day {date} month={month.value} />
+								</Calendar.Cell>
+							{/each}
+						</Calendar.GridRow>
+					{/each}
+				</Calendar.GridBody>
+			</Calendar.Grid>
+		{/each}
+	</Calendar.Months>
+</CalendarPrimitive.Root>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/calendar/calendar-prev-button.svelte
+<script lang="ts">
+	import { Calendar as CalendarPrimitive } from "bits-ui";
+	import ChevronLeft from "lucide-svelte/icons/chevron-left";
+	import { buttonVariants } from "$lib/components/ui/button/index.js";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = CalendarPrimitive.PrevButtonProps;
+	type $$Events = CalendarPrimitive.PrevButtonEvents;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<CalendarPrimitive.PrevButton
+	on:click
+	class={cn(
+		buttonVariants({ variant: "outline" }),
+		"h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100",
+		className
+	)}
+	{...$$restProps}
+	let:builder
+>
+	<slot {builder}>
+		<ChevronLeft class="h-4 w-4" />
+	</slot>
+</CalendarPrimitive.PrevButton>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/card/card-title.svelte
+<script lang="ts">
+	import type { HTMLAttributes } from "svelte/elements";
+	import type { HeadingLevel } from "./index.js";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = HTMLAttributes<HTMLHeadingElement> & {
+		tag?: HeadingLevel;
+	};
+
+	let className: $$Props["class"] = undefined;
+	export let tag: $$Props["tag"] = "h3";
+	export { className as class };
+</script>
+
+<svelte:element
+	this={tag}
+	class={cn("text-lg font-semibold leading-none tracking-tight", className)}
+	{...$$restProps}
+>
+	<slot />
+</svelte:element>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/card/card-header.svelte
+<script lang="ts">
+	import type { HTMLAttributes } from "svelte/elements";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = HTMLAttributes<HTMLDivElement>;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<div class={cn("flex flex-col space-y-1.5 p-6", className)} {...$$restProps}>
+	<slot />
+</div>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/card/card-description.svelte
+<script lang="ts">
+	import type { HTMLAttributes } from "svelte/elements";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = HTMLAttributes<HTMLParagraphElement>;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<p class={cn("text-sm text-muted-foreground", className)} {...$$restProps}>
+	<slot />
+</p>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/card/card.svelte
+<script lang="ts">
+	import type { HTMLAttributes } from "svelte/elements";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = HTMLAttributes<HTMLDivElement>;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<div
+	class={cn("rounded-lg border bg-card text-card-foreground shadow-sm", className)}
+	{...$$restProps}
+>
+	<slot />
+</div>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/card/card-content.svelte
+<script lang="ts">
+	import type { HTMLAttributes } from "svelte/elements";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = HTMLAttributes<HTMLDivElement>;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<div class={cn("p-6 pt-0", className)} {...$$restProps}>
+	<slot />
+</div>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/card/card-footer.svelte
+<script lang="ts">
+	import type { HTMLAttributes } from "svelte/elements";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = HTMLAttributes<HTMLDivElement>;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<div class={cn("flex items-center p-6 pt-0", className)} {...$$restProps}>
+	<slot />
+</div>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/menubar/menubar-label.svelte
+<script lang="ts">
+	import { Menubar as MenubarPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = MenubarPrimitive.LabelProps & {
+		inset?: boolean;
+	};
+
+	let className: $$Props["class"] = undefined;
+	export let inset: $$Props["inset"] = undefined;
+	export { className as class };
+</script>
+
+<MenubarPrimitive.Label
+	class={cn("px-2 py-1.5 text-sm font-semibold", inset && "pl-8", className)}
+	{...$$restProps}
+>
+	<slot />
+</MenubarPrimitive.Label>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/menubar/menubar-trigger.svelte
+<script lang="ts">
+	import { Menubar as MenubarPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = MenubarPrimitive.TriggerProps;
+	type $$Events = MenubarPrimitive.TriggerEvents;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<MenubarPrimitive.Trigger
+	class={cn(
+		"flex cursor-default select-none items-center rounded-sm px-3 py-1.5 text-sm font-medium outline-none data-[highlighted]:bg-accent data-[state=open]:bg-accent data-[highlighted]:text-accent-foreground data-[state=open]:text-accent-foreground",
+		className
+	)}
+	on:click
+	on:keydown
+	on:pointerenter
+	{...$$restProps}
+>
+	<slot />
+</MenubarPrimitive.Trigger>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/menubar/menubar-separator.svelte
+<script lang="ts">
+	import { Menubar as MenubarPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = MenubarPrimitive.SeparatorProps;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<MenubarPrimitive.Separator class={cn("-mx-1 my-1 h-px bg-muted", className)} {...$$restProps} />
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/menubar/menubar-sub-content.svelte
+<script lang="ts">
+	import { Menubar as MenubarPrimitive } from "bits-ui";
+	import { cn, flyAndScale } from "$lib/utils.js";
+
+	type $$Props = MenubarPrimitive.SubContentProps;
+	type $$Events = MenubarPrimitive.SubContentEvents;
+
+	let className: $$Props["class"] = undefined;
+	export let transition: $$Props["transition"] = flyAndScale;
+	export let transitionConfig: $$Props["transitionConfig"] = { x: -10, y: 0 };
+	export { className as class };
+</script>
+
+<MenubarPrimitive.SubContent
+	{transition}
+	{transitionConfig}
+	class={cn(
+		"z-50 min-w-max rounded-md border bg-popover p-1 text-popover-foreground focus:outline-none",
+		className
+	)}
+	{...$$restProps}
+	on:focusout
+	on:pointermove
+	on:keydown
+>
+	<slot />
+</MenubarPrimitive.SubContent>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/menubar/menubar.svelte
+<script lang="ts">
+	import { Menubar as MenubarPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = MenubarPrimitive.Props;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<MenubarPrimitive.Root
+	class={cn("flex h-10 items-center space-x-1 rounded-md border bg-background p-1", className)}
+	{...$$restProps}
+>
+	<slot />
+</MenubarPrimitive.Root>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/menubar/menubar-item.svelte
+<script lang="ts">
+	import { Menubar as MenubarPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = MenubarPrimitive.ItemProps & {
+		inset?: boolean;
+	};
+	type $$Events = MenubarPrimitive.ItemEvents;
+
+	let className: $$Props["class"] = undefined;
+	export let inset: $$Props["inset"] = undefined;
+	export { className as class };
+</script>
+
+<MenubarPrimitive.Item
+	class={cn(
+		"relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",
+		inset && "pl-8",
+		className
+	)}
+	{...$$restProps}
+	on:click
+	on:keydown
+	on:focusin
+	on:focusout
+	on:pointerleave
+	on:pointermove
+	on:pointerdown
+>
+	<slot />
+</MenubarPrimitive.Item>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/menubar/menubar-radio-item.svelte
+<script lang="ts">
+	import { Menubar as MenubarPrimitive } from "bits-ui";
+	import Circle from "lucide-svelte/icons/circle";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = MenubarPrimitive.RadioItemProps;
+	type $$Events = MenubarPrimitive.RadioItemEvents;
+
+	let className: $$Props["class"] = undefined;
+	export let value: $$Props["value"];
+	export { className as class };
+</script>
+
+<MenubarPrimitive.RadioItem
+	{value}
+	class={cn(
+		"relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",
+		className
+	)}
+	{...$$restProps}
+	on:click
+	on:keydown
+	on:focusin
+	on:focusout
+	on:pointerleave
+	on:pointermove
+	on:pointerdown
+>
+	<span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+		<MenubarPrimitive.RadioIndicator>
+			<Circle class="h-2 w-2 fill-current" />
+		</MenubarPrimitive.RadioIndicator>
+	</span>
+	<slot />
+</MenubarPrimitive.RadioItem>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/menubar/menubar-checkbox-item.svelte
+<script lang="ts">
+	import { Menubar as MenubarPrimitive } from "bits-ui";
+	import Check from "lucide-svelte/icons/check";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = MenubarPrimitive.CheckboxItemProps;
+	type $$Events = MenubarPrimitive.CheckboxItemEvents;
+
+	let className: $$Props["class"] = undefined;
+	export let checked: $$Props["checked"] = false;
+	export { className as class };
+</script>
+
+<MenubarPrimitive.CheckboxItem
+	bind:checked
+	class={cn(
+		"relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",
+		className
+	)}
+	on:click
+	on:keydown
+	on:focusin
+	on:focusout
+	on:pointerleave
+	on:pointermove
+	on:pointerdown
+	{...$$restProps}
+>
+	<span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+		<MenubarPrimitive.CheckboxIndicator>
+			<Check class="h-4 w-4" />
+		</MenubarPrimitive.CheckboxIndicator>
+	</span>
+	<slot />
+</MenubarPrimitive.CheckboxItem>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/menubar/menubar-content.svelte
+<script lang="ts">
+	import { Menubar as MenubarPrimitive } from "bits-ui";
+	import { cn, flyAndScale } from "$lib/utils.js";
+
+	type $$Props = MenubarPrimitive.ContentProps;
+	type $$Events = MenubarPrimitive.ContentEvents;
+
+	let className: $$Props["class"] = undefined;
+	export let sideOffset: $$Props["sideOffset"] = 8;
+	export let alignOffset: $$Props["alignOffset"] = -4;
+	export let align: $$Props["align"] = "start";
+	export let side: $$Props["side"] = "bottom";
+	export let transition: $$Props["transition"] = flyAndScale;
+	export let transitionConfig: $$Props["transitionConfig"] = undefined;
+	export { className as class };
+</script>
+
+<MenubarPrimitive.Content
+	{transition}
+	{transitionConfig}
+	{sideOffset}
+	{align}
+	{alignOffset}
+	{side}
+	class={cn(
+		"z-50 min-w-[12rem] rounded-md border bg-popover p-1 text-popover-foreground shadow-md focus:outline-none",
+		className
+	)}
+	{...$$restProps}
+	on:keydown
+>
+	<slot />
+</MenubarPrimitive.Content>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/menubar/menubar-sub-trigger.svelte
+<script lang="ts">
+	import { Menubar as MenubarPrimitive } from "bits-ui";
+	import ChevronRight from "lucide-svelte/icons/chevron-right";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = MenubarPrimitive.SubTriggerProps & {
+		inset?: boolean;
+	};
+	type $$Events = MenubarPrimitive.SubTriggerEvents;
+
+	let className: $$Props["class"] = undefined;
+	export let inset: $$Props["inset"] = undefined;
+	export { className as class };
+</script>
+
+<MenubarPrimitive.SubTrigger
+	class={cn(
+		"flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[state=open]:bg-accent data-[highlighted]:text-accent-foreground data-[state=open]:text-accent-foreground data-[disabled]:opacity-50",
+		inset && "pl-8",
+		className
+	)}
+	on:click
+	{...$$restProps}
+	on:keydown
+	on:focusin
+	on:focusout
+	on:pointerleave
+	on:pointermove
+>
+	<slot />
+	<ChevronRight class="ml-auto h-4 w-4" />
+</MenubarPrimitive.SubTrigger>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/menubar/menubar-shortcut.svelte
+<script lang="ts">
+	import type { HTMLAttributes } from "svelte/elements";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = HTMLAttributes<HTMLSpanElement>;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<span
+	class={cn("ml-auto text-xs tracking-widest text-muted-foreground", className)}
+	{...$$restProps}
+>
+	<slot />
+</span>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/input/input.svelte
+<script lang="ts">
+	import type { HTMLInputAttributes } from "svelte/elements";
+	import type { InputEvents } from "./index.js";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = HTMLInputAttributes;
+	type $$Events = InputEvents;
+
+	let className: $$Props["class"] = undefined;
+	export let value: $$Props["value"] = undefined;
+	export { className as class };
+
+	// Workaround for https://github.com/sveltejs/svelte/issues/9305
+	// Fixed in Svelte 5, but not backported to 4.x.
+	export let readonly: $$Props["readonly"] = undefined;
+</script>
+
+<input
+	class={cn(
+		"flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+		className
+	)}
+	bind:value
+	{readonly}
+	on:blur
+	on:change
+	on:click
+	on:focus
+	on:focusin
+	on:focusout
+	on:keydown
+	on:keypress
+	on:keyup
+	on:mouseover
+	on:mouseenter
+	on:mouseleave
+	on:mousemove
+	on:paste
+	on:input
+	on:wheel|passive
+	{...$$restProps}
+/>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/accordion/accordion-trigger.svelte
+<script lang="ts">
+	import { Accordion as AccordionPrimitive } from "bits-ui";
+	import ChevronDown from "lucide-svelte/icons/chevron-down";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = AccordionPrimitive.TriggerProps;
+	type $$Events = AccordionPrimitive.TriggerEvents;
+
+	let className: $$Props["class"] = undefined;
+	export let level: AccordionPrimitive.HeaderProps["level"] = 3;
+	export { className as class };
+</script>
+
+<AccordionPrimitive.Header {level} class="flex">
+	<AccordionPrimitive.Trigger
+		class={cn(
+			"flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180",
+			className
+		)}
+		{...$$restProps}
+		on:click
+	>
+		<slot />
+		<ChevronDown class="h-4 w-4 transition-transform duration-200" />
+	</AccordionPrimitive.Trigger>
+</AccordionPrimitive.Header>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/accordion/accordion-item.svelte
+<script lang="ts">
+	import { Accordion as AccordionPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = AccordionPrimitive.ItemProps;
+
+	let className: $$Props["class"] = undefined;
+	export let value: $$Props["value"];
+	export { className as class };
+</script>
+
+<AccordionPrimitive.Item {value} class={cn("border-b", className)} {...$$restProps}>
+	<slot />
+</AccordionPrimitive.Item>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/accordion/accordion-content.svelte
+<script lang="ts">
+	import { Accordion as AccordionPrimitive } from "bits-ui";
+	import { slide } from "svelte/transition";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = AccordionPrimitive.ContentProps;
+
+	let className: $$Props["class"] = undefined;
+	export let transition: $$Props["transition"] = slide;
+	export let transitionConfig: $$Props["transitionConfig"] = {
+		duration: 200,
+	};
+	export { className as class };
+</script>
+
+<AccordionPrimitive.Content
+	class={cn("overflow-hidden text-sm transition-all", className)}
+	{transition}
+	{transitionConfig}
+	{...$$restProps}
+>
+	<div class="pb-4 pt-0">
+		<slot />
+	</div>
+</AccordionPrimitive.Content>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/separator/separator.svelte
+<script lang="ts">
+	import { Separator as SeparatorPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = SeparatorPrimitive.Props;
+
+	let className: $$Props["class"] = undefined;
+	export let orientation: $$Props["orientation"] = "horizontal";
+	export let decorative: $$Props["decorative"] = undefined;
+	export { className as class };
+</script>
+
+<SeparatorPrimitive.Root
+	class={cn(
+		"shrink-0 bg-border",
+		orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]",
+		className
+	)}
+	{orientation}
+	{decorative}
+	{...$$restProps}
+/>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/label/label.svelte
+<script lang="ts">
+	import { Label as LabelPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = LabelPrimitive.Props;
+	type $$Events = LabelPrimitive.Events;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<LabelPrimitive.Root
+	class={cn(
+		"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+		className
+	)}
+	{...$$restProps}
+	on:mousedown
+>
+	<slot />
+</LabelPrimitive.Root>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/dropdown-menu/dropdown-menu-checkbox-item.svelte
+<script lang="ts">
+	import { DropdownMenu as DropdownMenuPrimitive } from "bits-ui";
+	import Check from "lucide-svelte/icons/check";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = DropdownMenuPrimitive.CheckboxItemProps;
+	type $$Events = DropdownMenuPrimitive.CheckboxItemEvents;
+
+	let className: $$Props["class"] = undefined;
+	export let checked: $$Props["checked"] = undefined;
+	export { className as class };
+</script>
+
+<DropdownMenuPrimitive.CheckboxItem
+	bind:checked
+	class={cn(
+		"relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",
+		className
+	)}
+	{...$$restProps}
+	on:click
+	on:keydown
+	on:focusin
+	on:focusout
+	on:pointerdown
+	on:pointerleave
+	on:pointermove
+>
+	<span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+		<DropdownMenuPrimitive.CheckboxIndicator>
+			<Check class="h-4 w-4" />
+		</DropdownMenuPrimitive.CheckboxIndicator>
+	</span>
+	<slot />
+</DropdownMenuPrimitive.CheckboxItem>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/dropdown-menu/dropdown-menu-sub-trigger.svelte
+<script lang="ts">
+	import { DropdownMenu as DropdownMenuPrimitive } from "bits-ui";
+	import ChevronRight from "lucide-svelte/icons/chevron-right";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = DropdownMenuPrimitive.SubTriggerProps & {
+		inset?: boolean;
+	};
+	type $$Events = DropdownMenuPrimitive.SubTriggerEvents;
+
+	let className: $$Props["class"] = undefined;
+	export let inset: $$Props["inset"] = undefined;
+	export { className as class };
+</script>
+
+<DropdownMenuPrimitive.SubTrigger
+	class={cn(
+		"flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[highlighted]:bg-accent data-[state=open]:bg-accent data-[highlighted]:text-accent-foreground data-[state=open]:text-accent-foreground",
+		inset && "pl-8",
+		className
+	)}
+	{...$$restProps}
+	on:click
+	on:keydown
+	on:focusin
+	on:focusout
+	on:pointerleave
+	on:pointermove
+>
+	<slot />
+	<ChevronRight class="ml-auto h-4 w-4" />
+</DropdownMenuPrimitive.SubTrigger>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/dropdown-menu/dropdown-menu-label.svelte
+<script lang="ts">
+	import { DropdownMenu as DropdownMenuPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = DropdownMenuPrimitive.LabelProps & {
+		inset?: boolean;
+	};
+
+	let className: $$Props["class"] = undefined;
+	export let inset: $$Props["inset"] = undefined;
+	export { className as class };
+</script>
+
+<DropdownMenuPrimitive.Label
+	class={cn("px-2 py-1.5 text-sm font-semibold", inset && "pl-8", className)}
+	{...$$restProps}
+>
+	<slot />
+</DropdownMenuPrimitive.Label>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/dropdown-menu/dropdown-menu-content.svelte
+<script lang="ts">
+	import { DropdownMenu as DropdownMenuPrimitive } from "bits-ui";
+	import { cn, flyAndScale } from "$lib/utils.js";
+
+	type $$Props = DropdownMenuPrimitive.ContentProps;
+	type $$Events = DropdownMenuPrimitive.ContentEvents;
+
+	let className: $$Props["class"] = undefined;
+	export let sideOffset: $$Props["sideOffset"] = 4;
+	export let transition: $$Props["transition"] = flyAndScale;
+	export let transitionConfig: $$Props["transitionConfig"] = undefined;
+	export { className as class };
+</script>
+
+<DropdownMenuPrimitive.Content
+	{transition}
+	{transitionConfig}
+	{sideOffset}
+	class={cn(
+		"z-50 min-w-[8rem] rounded-md border bg-popover p-1 text-popover-foreground shadow-md focus:outline-none",
+		className
+	)}
+	{...$$restProps}
+	on:keydown
+>
+	<slot />
+</DropdownMenuPrimitive.Content>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/dropdown-menu/dropdown-menu-radio-item.svelte
+<script lang="ts">
+	import { DropdownMenu as DropdownMenuPrimitive } from "bits-ui";
+	import Circle from "lucide-svelte/icons/circle";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = DropdownMenuPrimitive.RadioItemProps;
+	type $$Events = DropdownMenuPrimitive.RadioItemEvents;
+
+	let className: $$Props["class"] = undefined;
+	export let value: $$Props["value"];
+	export { className as class };
+</script>
+
+<DropdownMenuPrimitive.RadioItem
+	class={cn(
+		"relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",
+		className
+	)}
+	{value}
+	{...$$restProps}
+	on:click
+	on:keydown
+	on:focusin
+	on:focusout
+	on:pointerdown
+	on:pointerleave
+	on:pointermove
+>
+	<span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+		<DropdownMenuPrimitive.RadioIndicator>
+			<Circle class="h-2 w-2 fill-current" />
+		</DropdownMenuPrimitive.RadioIndicator>
+	</span>
+	<slot />
+</DropdownMenuPrimitive.RadioItem>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/dropdown-menu/dropdown-menu-item.svelte
+<script lang="ts">
+	import { DropdownMenu as DropdownMenuPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = DropdownMenuPrimitive.ItemProps & {
+		inset?: boolean;
+	};
+	type $$Events = DropdownMenuPrimitive.ItemEvents;
+
+	let className: $$Props["class"] = undefined;
+	export let inset: $$Props["inset"] = undefined;
+	export { className as class };
+</script>
+
+<DropdownMenuPrimitive.Item
+	class={cn(
+		"relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",
+		inset && "pl-8",
+		className
+	)}
+	{...$$restProps}
+	on:click
+	on:keydown
+	on:focusin
+	on:focusout
+	on:pointerdown
+	on:pointerleave
+	on:pointermove
+>
+	<slot />
+</DropdownMenuPrimitive.Item>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/dropdown-menu/dropdown-menu-shortcut.svelte
+<script lang="ts">
+	import type { HTMLAttributes } from "svelte/elements";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = HTMLAttributes<HTMLSpanElement>;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<span class={cn("ml-auto text-xs tracking-widest opacity-60", className)} {...$$restProps}>
+	<slot />
+</span>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/dropdown-menu/dropdown-menu-sub-content.svelte
+<script lang="ts">
+	import { DropdownMenu as DropdownMenuPrimitive } from "bits-ui";
+	import { cn, flyAndScale } from "$lib/utils.js";
+
+	type $$Props = DropdownMenuPrimitive.SubContentProps;
+	type $$Events = DropdownMenuPrimitive.SubContentEvents;
+
+	let className: $$Props["class"] = undefined;
+	export let transition: $$Props["transition"] = flyAndScale;
+	export let transitionConfig: $$Props["transitionConfig"] = {
+		x: -10,
+		y: 0,
+	};
+	export { className as class };
+</script>
+
+<DropdownMenuPrimitive.SubContent
+	{transition}
+	{transitionConfig}
+	class={cn(
+		"z-50 min-w-[8rem] rounded-md border bg-popover p-1 text-popover-foreground shadow-lg focus:outline-none",
+		className
+	)}
+	{...$$restProps}
+	on:keydown
+	on:focusout
+	on:pointermove
+>
+	<slot />
+</DropdownMenuPrimitive.SubContent>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/dropdown-menu/dropdown-menu-radio-group.svelte
+<script lang="ts">
+	import { DropdownMenu as DropdownMenuPrimitive } from "bits-ui";
+
+	type $$Props = DropdownMenuPrimitive.RadioGroupProps;
+
+	export let value: $$Props["value"] = undefined;
+</script>
+
+<DropdownMenuPrimitive.RadioGroup {...$$restProps} bind:value>
+	<slot />
+</DropdownMenuPrimitive.RadioGroup>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/dropdown-menu/dropdown-menu-separator.svelte
+<script lang="ts">
+	import { DropdownMenu as DropdownMenuPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = DropdownMenuPrimitive.SeparatorProps;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<DropdownMenuPrimitive.Separator
+	class={cn("-mx-1 my-1 h-px bg-muted", className)}
+	{...$$restProps}
+/>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/popover/popover-content.svelte
+<script lang="ts">
+	import { Popover as PopoverPrimitive } from "bits-ui";
+	import { cn, flyAndScale } from "$lib/utils.js";
+
+	type $$Props = PopoverPrimitive.ContentProps;
+	let className: $$Props["class"] = undefined;
+	export let transition: $$Props["transition"] = flyAndScale;
+	export let transitionConfig: $$Props["transitionConfig"] = undefined;
+	export { className as class };
+</script>
+
+<PopoverPrimitive.Content
+	{transition}
+	{transitionConfig}
+	class={cn(
+		"z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none",
+		className
+	)}
+	{...$$restProps}
+>
+	<slot />
+</PopoverPrimitive.Content>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/textarea/textarea.svelte
+<script lang="ts">
+	import type { HTMLTextareaAttributes } from "svelte/elements";
+	import type { TextareaEvents } from "./index.js";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = HTMLTextareaAttributes;
+	type $$Events = TextareaEvents;
+
+	let className: $$Props["class"] = undefined;
+	export let value: $$Props["value"] = undefined;
+	export { className as class };
+
+	// Workaround for https://github.com/sveltejs/svelte/issues/9305
+	// Fixed in Svelte 5, but not backported to 4.x.
+	export let readonly: $$Props["readonly"] = undefined;
+</script>
+
+<textarea
+	class={cn(
+		"flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+		className
+	)}
+	bind:value
+	{readonly}
+	on:blur
+	on:change
+	on:click
+	on:focus
+	on:keydown
+	on:keypress
+	on:keyup
+	on:mouseover
+	on:mouseenter
+	on:mouseleave
+	on:paste
+	on:input
+	{...$$restProps}
+></textarea>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/button/button.svelte
+<script lang="ts">
+	import { Button as ButtonPrimitive } from "bits-ui";
+	import { type Events, type Props, buttonVariants } from "./index.js";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = Props;
+	type $$Events = Events;
+
+	let className: $$Props["class"] = undefined;
+	export let variant: $$Props["variant"] = "default";
+	export let size: $$Props["size"] = "default";
+	export let builders: $$Props["builders"] = [];
+	export { className as class };
+</script>
+
+<ButtonPrimitive.Root
+	{builders}
+	class={cn(buttonVariants({ variant, size, className }))}
+	type="button"
+	{...$$restProps}
+	on:click
+	on:keydown
+>
+	<slot />
+</ButtonPrimitive.Root>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/avatar/avatar.svelte
+<script lang="ts">
+	import { Avatar as AvatarPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = AvatarPrimitive.Props;
+
+	let className: $$Props["class"] = undefined;
+	export let delayMs: $$Props["delayMs"] = undefined;
+	export { className as class };
+</script>
+
+<AvatarPrimitive.Root
+	{delayMs}
+	class={cn("relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full", className)}
+	{...$$restProps}
+>
+	<slot />
+</AvatarPrimitive.Root>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/avatar/avatar-fallback.svelte
+<script lang="ts">
+	import { Avatar as AvatarPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = AvatarPrimitive.FallbackProps;
+
+	let className: $$Props["class"] = undefined;
+	export { className as class };
+</script>
+
+<AvatarPrimitive.Fallback
+	class={cn("flex h-full w-full items-center justify-center rounded-full bg-muted", className)}
+	{...$$restProps}
+>
+	<slot />
+</AvatarPrimitive.Fallback>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/avatar/avatar-image.svelte
+<script lang="ts">
+	import { Avatar as AvatarPrimitive } from "bits-ui";
+	import { cn } from "$lib/utils.js";
+
+	type $$Props = AvatarPrimitive.ImageProps;
+
+	let className: $$Props["class"] = undefined;
+	export let src: $$Props["src"] = undefined;
+	export let alt: $$Props["alt"] = undefined;
+	export { className as class };
+</script>
+
+<AvatarPrimitive.Image
+	{src}
+	{alt}
+	class={cn("aspect-square h-full w-full", className)}
+	{...$$restProps}
+/>
+
+
+// File: /opt/src/epsilon.fm/src/lib/components/ui/badge/badge.svelte
+<script lang="ts">
+	import { type Variant, badgeVariants } from "./index.js";
+	import { cn } from "$lib/utils.js";
+
+	let className: string | undefined | null = undefined;
+	export let href: string | undefined = undefined;
+	export let variant: Variant = "default";
+	export { className as class };
+</script>
+
+<svelte:element
+	this={href ? "a" : "span"}
+	{href}
+	class={cn(badgeVariants({ variant, className }))}
+	{...$$restProps}
+>
+	<slot />
+</svelte:element>
+
+
+// File: /opt/src/epsilon.fm/src/routes/sign-up/+page.svelte
+<script lang="ts">
+	import SignUp from 'clerk-sveltekit/client/SignUp.svelte';
+</script>
+
+<div class="m-4 self-center">
+	<SignUp redirectUrl="/" />
+</div>
+
+
+// File: /opt/src/epsilon.fm/src/routes/(website)/a/[slug]/Modal.svelte
+<script>
+	import { modalOpened } from '$lib/stores/website';
+	let isOpen = false;
+	let closing = false;
+
+	modalOpened.subscribe((value) => {
+		closing = false;
+		isOpen = value;
+	});
+
+	const close = () => {
+		closing = true;
+		setTimeout(() => {
+			modalOpened.set(false);
+		}, 300);
+	};
+</script>
+
+{#if isOpen}
+	<div class={`modal ${closing && 'closing'}`}>
+		<div class="backdrop" on:click={close} role="button" tabindex="0" on:keypress={close} />
+		<div class="content-wrapper">
+			<div class="content">
+				<slot name="content" />
+			</div>
+		</div>
+	</div>
+{/if}
+
+<style>
+	.modal {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100vh;
+		z-index: 2000;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	@keyframes slidein {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	.backdrop {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		-webkit-backdrop-filter: blur(5px);
+		backdrop-filter: blur(5px);
+		animation: slidein 0.3s ease-in-out;
+	}
+
+	@keyframes openModalAnimation {
+		from {
+			opacity: 0;
+			transform: scale(0);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	.content-wrapper {
+		z-index: 10;
+		max-width: 70vw;
+		border-radius: 0.3rem;
+		overflow: hidden;
+		padding: 30px;
+		border-radius: 25px;
+		background: linear-gradient(155deg, rgba(255, 255, 255, 0.15), transparent);
+		-webkit-backdrop-filter: blur(20px);
+		backdrop-filter: blur(20px);
+		box-shadow:
+			2px 4px 6px rgba(0, 0, 0, 0.1),
+			inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+		animation: openModalAnimation 0.3s ease-in-out;
+	}
+
+	@keyframes slideOut {
+		from {
+			opacity: 1;
+		}
+		to {
+			opacity: 0;
+		}
+	}
+
+	@keyframes closeModalAnimation {
+		from {
+			opacity: 1;
+			transform: scale(1);
+		}
+		to {
+			opacity: 0;
+			transform: scale(0);
+		}
+	}
+
+	.closing .backdrop {
+		animation: slideOut 0.3s ease-in-out;
+	}
+	.closing .content-wrapper {
+		animation: closeModalAnimation 0.3s ease-in-out;
+	}
+
+	.content {
+		max-height: 50vh;
+		overflow: hidden;
+	}
+
+	@media (min-width: 900px) {
+		.content-wrapper {
+			padding: 50px;
+			min-width: 400px;
+		}
+	}
+</style>
+
+
+// File: /opt/src/epsilon.fm/src/routes/(website)/a/[slug]/Tooltip.svelte
+<script lang="ts">
+	export let tooltip: string;
+</script>
+
+<div data-tooltip={tooltip} class="container">
+	<slot />
+</div>
+
+<style>
+	.container {
+		width: 14px;
+		height: 20px;
+		z-index: 200;
+	}
+
+	[data-tooltip] {
+		position: relative;
+		z-index: 2;
+		display: block;
+	}
+
+	[data-tooltip]:before,
+	[data-tooltip]:after {
+		visibility: hidden;
+		opacity: 0;
+		pointer-events: none;
+		transition: 0.2s ease-out;
+		transform: translate(-50%, 5px);
+	}
+
+	[data-tooltip]:before {
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		margin-bottom: 5px;
+		padding: 7px;
+		width: 100%;
+		min-width: 70px;
+		max-width: 250px;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		background-color: #000;
+		background-color: hsla(0, 0%, 20%, 0.9);
+		color: #fff;
+		content: attr(data-tooltip);
+		text-align: center;
+		font-size: 14px;
+		line-height: 1.2;
+		transition: 0.2s ease-out;
+	}
+
+	[data-tooltip]:after {
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		width: 0;
+		border-top: 5px solid #000;
+		border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+		border-right: 5px solid transparent;
+		border-left: 5px solid transparent;
+		content: ' ';
+		font-size: 0;
+		line-height: 0;
+	}
+
+	[data-tooltip]:hover:before,
+	[data-tooltip]:hover:after {
+		visibility: visible;
+		opacity: 1;
+		transform: translate(-50%, 0);
+	}
+	[data-tooltip='false']:hover:before,
+	[data-tooltip='false']:hover:after {
+		visibility: hidden;
+		opacity: 0;
+	}
+</style>
+
+
+// File: /opt/src/epsilon.fm/src/routes/(website)/a/[slug]/+page.svelte
+<script>
+	import FaEnvelope from 'svelte-icons/fa/FaEnvelope.svelte';
+	import SocialIcons from '@rodneylab/svelte-social-icons';
+	import RiTiktokFill from 'svelte-remixicon/RiTiktokFill.svelte';
+	import { modalOpened } from '$lib/stores/website';
+
+	export let data;
+</script>
+
+<svelte:head>
+	<title>{data.stageName}</title>
+</svelte:head>
+<main>
+	<div class="text-8xl text-white">{data.stageName.toUpperCase()}</div>
+	<div class="pt-12 text-3xl text-white">DJ & Producer</div>
+	<div class="icons">
+		<div
+			role="button"
+			tabindex="0"
+			on:keypress={() => {
+				modalOpened.set(true);
+			}}
+			on:click={() => {
+				modalOpened.set(true);
+			}}
+		>
+			<div class="icon">
+				<SocialIcons network="email" fgColor="#FFFFFF" bgColor="transparent" />
+			</div>
+		</div>
+		{#if data.instagramProfileLink}
+			<a
+				href={data.instagramProfileLink}
+				aria-label="Instagram"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<div class="icon">
+					<SocialIcons network="instagram" fgColor="#FFFFFF" bgColor="transparent" />
+				</div>
+			</a>
+		{/if}
+		{#if data.facebookProfileLink}
+			<a
+				href={data.facebookProfileLink}
+				aria-label="Facebook"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<div class="icon">
+					<SocialIcons network="facebook" fgColor="#FFFFFF" bgColor="transparent" />
+				</div>
+			</a>
+		{/if}
+		{#if data.soundcloudProfileLink}
+			<a
+				href={data.soundcloudProfileLink}
+				aria-label="SoundCloud"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<div class="icon">
+					<SocialIcons network="soundcloud" fgColor="#FFFFFF" bgColor="transparent" />
+				</div>
+			</a>
+		{/if}
+		{#if data.bandsintownProfileLink}
+			<a
+				href={data.bandsintownProfileLink}
+				aria-label="Bandsintown"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<div class="icon">
+					<SocialIcons network="bandsintown" fgColor="#FFFFFF" bgColor="transparent" />
+				</div>
+			</a>
+		{/if}
+		{#if data.tiktokProfileLink}
+			<a
+				href={data.tiktokProfileLink}
+				aria-label="TikTok"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<div class="icon pb-4 pl-2">
+					<RiTiktokFill />
+				</div>
+			</a>
+		{/if}
+		{#if data.youtubeChannelLink}
+			<a
+				href={data.youtubeChannelLink}
+				aria-label="YouTube"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<div class="icon">
+					<SocialIcons network="youtube" fgColor="#FFFFFF" bgColor="transparent" />
+				</div>
+			</a>
+		{/if}
+	</div>
+</main>
+
+<style>
+	a {
+		color: white;
+		text-decoration: none;
+	}
+	main {
+		text-align: center;
+		padding: 0;
+		margin: 0 auto;
+		text-align: center;
+
+		display: flex;
+		flex-direction: column;
+		height: calc(100vh - 80px - 88px);
+		justify-content: center;
+		align-items: center;
+	}
+
+	h1 {
+		font-weight: 700;
+	}
+
+	main > h1 {
+		margin: 50px 10px 0;
+		font-size: 36px;
+	}
+
+	.icons {
+		display: flex !important;
+		justify-content: center !important;
+		align-items: center;
+		gap: 20px;
+		cursor: pointer;
+		font-size: 30px;
+		display: flex;
+		justify-content: space-between;
+		max-width: 200px;
+		margin: 50px auto 0;
+	}
+
+	.icon {
+		cursor: pointer;
+		transition: color 0.2s ease-in-out;
+		width: 40px;
+	}
+
+	@media (min-width: 900px) {
+		main > h1 {
+			font-size: 48px;
+		}
+	}
+
+	@media (min-width: 600px) {
+		main {
+			max-width: none;
+		}
+	}
+</style>
+
+
+// File: /opt/src/epsilon.fm/src/routes/(website)/a/[slug]/+error.svelte
+<div class="container">
+	<h1>404</h1>
+</div>
+
+<style>
+	.container {
+		max-width: 900px;
+		padding: 1em;
+		display: flex;
+		justify-content: center;
+	}
+
+	h1 {
+		font-weight: 700;
+		margin: 0 0 50px 0;
+		font-size: 36px;
+		text-align: start;
+	}
+
+	@media (min-width: 900px) {
+		h1 {
+			font-size: 48px;
+		}
+	}
+</style>
+
+
+// File: /opt/src/epsilon.fm/src/routes/(website)/a/[slug]/PageTransition.svelte
+<script>
+	import { fly } from 'svelte/transition';
+	export let refresh = '';
+</script>
+
+{#key refresh}
+	<div in:fly={{ y: -50, duration: 250, delay: 300 }} out:fly={{ y: -50, duration: 250 }}>
+		<slot />
+	</div>
+{/key}
+
+
+// File: /opt/src/epsilon.fm/src/routes/(website)/a/[slug]/Button.svelte
+<script>
+	import { goto } from '$app/navigation';
+	export let email;
+</script>
+
+<div
+	class="button"
+	role="button"
+	tabindex="0"
+	on:keypress={() => {
+		window.location.href = `mailto:${email}`;
+	}}
+	on:click={() => {
+		window.location.href = `mailto:${email}`;
+	}}
+>
+	<slot />
+</div>
+
+<style>
+	.button {
+		cursor: pointer;
+		height: 40px;
+		max-width: 200px;
+		border-radius: 10px;
+		background: #ca3c25;
+
+		background-size: 150% 150%;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-weight: 500;
+	}
+
+	.button:hover {
+		animation: gradient 2s ease infinite;
+	}
+</style>
+
+
+// File: /opt/src/epsilon.fm/src/routes/(website)/a/[slug]/Hamburger.svelte
+<script>
+	export let open = false;
+</script>
+
+<button
+	aria-label="menu-burger-button"
+	class="text-gray-500 hover:text-gray-700 cursor-pointer mr-4 border-none focus:outline-none"
+	class:open
+	on:click={() => (open = !open)}
+>
+	<svg width="32" height="24">
+		<line id="top" x1="0" y1="2" x2="32" y2="2" />
+		<line id="middle" x1="0" y1="12" x2="32" y2="12" />
+		<line id="bottom" x1="0" y1="22" x2="32" y2="22" />
+	</svg>
+</button>
+
+<style>
+	svg {
+		min-height: 24px;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	svg line {
+		stroke: currentColor;
+		stroke-width: 3;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	button {
+		color: white;
+		background: transparent;
+		border: transparent;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 20;
+	}
+
+	.open svg {
+		transform: scale(0.7);
+	}
+
+	.open #top {
+		transform: translate(6px, 0px) rotate(45deg);
+	}
+
+	.open #middle {
+		stroke-dasharray: 0;
+		stroke-dashoffset: 0;
+		animation: fade 1s ease-in alternate forwards;
+	}
+
+	@keyframes fade {
+		to {
+			stroke-dashoffset: 1000;
+			stroke-dasharray: 1000;
+		}
+	}
+
+	.open #bottom {
+		transform: translate(-12px, 9px) rotate(-45deg);
+	}
+</style>
+
+
+// File: /opt/src/epsilon.fm/src/routes/(website)/a/[slug]/NavBar.svelte
+<script lang="ts">
+	import Burger from './Hamburger.svelte';
+	import Logo from '$lib/images/logo.png';
+	import routes from './NavRoutes';
+	import { modalOpened } from '$lib/stores/website';
+	let opened = false;
+	export let segment: string;
+	export let data;
+</script>
+
+<div class={opened ? 'NavBar open' : 'NavBar'}>
+	<div class="innerContainer">
+		<a href="https://epsilon.fm">
+			<img src={Logo} alt="logo" class="logo" />
+		</a>
+		<div class="burger">
+			<Burger bind:open={opened} />
+		</div>
+		<div class="buttons">
+			{#each routes as route}
+				{#if route.href === '/merch'}
+					<a class={`button`} href="https://epsilonrecords.nl{route.href}/{data.slug}"
+						>{route.label}</a
+					>
+				{:else if route.href === '/contact'}
+					<div
+						class="button"
+						role="button"
+						tabindex="0"
+						on:keypress={() => {
+							modalOpened.set(true);
+						}}
+						on:click={() => {
+							modalOpened.set(true);
+						}}
+					>
+						{route.label}
+					</div>
+				{:else}
+					<a
+						class={`button ${segment === '/a/' + data.slug + route.href ? 'selected' : ''}`}
+						href="/a/{data.slug}{route.href}">{route.label}</a
+					>
+				{/if}
+			{/each}
+		</div>
+	</div>
+	<div class="responsiveButtons buttons">
+		{#each routes as route}
+			{#if route.href === '/merch'}
+				<a class={`button`} href="https://epsilonrecords.nl{route.href}/{data.slug}"
+					>{route.label}</a
+				>
+			{:else if route.href === '/contact'}
+				<a class={`button`} href="https://epsilonrecords.nl{route.href}">{route.label}</a>
+			{:else}
+				<a
+					class={`button ${segment === '/a/' + data.slug + route.href ? 'selected' : ''}`}
+					href="/a/{data.slug}{route.href}">{route.label}</a
+				>
+			{/if}
+		{/each}
+	</div>
+</div>
+
+<style>
+	:global(.logo) {
+		cursor: pointer;
+		height: 30px;
+		width: 30px;
+	}
+
+	.open {
+		flex-direction: column !important;
+		align-items: center !important;
+		height: 330px !important;
+		transition: height 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	}
+
+	.selected {
+		position: relative;
+		color: white;
+	}
+
+	.button:hover::after {
+		content: '';
+		background: #ca3c25;
+		display: block;
+		height: 3px;
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+	}
+
+	.button.selected:after {
+		content: '';
+		background: #ca3c25;
+		display: block;
+		height: 3px;
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+	}
+
+	.innerContainer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		max-width: 900px;
+		box-sizing: border-box;
+	}
+
+	.innerContainer :global(a) {
+		height: 30px;
+		color: white;
+	}
+
+	.NavBar {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		max-width: 900px;
+		box-sizing: border-box;
+		padding: 20px;
+		height: 80px;
+		overflow: hidden;
+		transition: height 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	}
+
+	.buttons {
+		display: none;
+		justify-content: space-between;
+		align-items: center;
+		font-weight: 500;
+	}
+
+	.responsiveButtons {
+		margin-top: 20px;
+		width: 100%;
+		display: flex !important;
+		flex-direction: column;
+	}
+
+	.responsiveButtons .button {
+		max-width: 100px;
+		width: 100%;
+		text-align: center;
+	}
+
+	.buttons .button {
+		padding: 0;
+		cursor: pointer;
+		transition: color 0.2s ease-in-out;
+		text-decoration: none;
+		position: relative;
+		margin: 10px;
+		color: white;
+	}
+
+	.button.selected {
+		color: white;
+	}
+
+	.burger :global(button) {
+		margin: 0;
+	}
+
+	@media (min-width: 900px) {
+		.NavBar {
+			padding: 20px 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			max-width: 900px;
+			margin: 0 auto;
+		}
+
+		.buttons {
+			display: flex;
+		}
+
+		.NavBar .burger {
+			display: none !important;
+		}
+		.responsiveButtons {
+			display: none !important;
+		}
+	}
+</style>
+
+
+// File: /opt/src/epsilon.fm/src/routes/(website)/a/[slug]/+layout.svelte
+<script lang="ts">
+	import './website.css';
+	import Navbar from './NavBar.svelte';
+	import Button from './Button.svelte';
+	import FaCopy from 'svelte-icons/fa/FaCopy.svelte';
+	import Tooltip from './Tooltip.svelte';
+	// import { beforeNavigate } from '$app/navigation';
+	import { page } from '$app/stores';
+	import Modal from './Modal.svelte';
+	import { onMount } from 'svelte';
+	import { customBackground } from '$lib/stores/website';
+	// import routes from '$lib/NavRoutes';
+
+	export let data;
+
+	let copied = false;
+	const cookieEnabled = false;
+	$: showCookieModal = false;
+
+	interface CssVariables {
+		[name: string]: string;
+	}
+
+	const cssVariables = (
+		node: HTMLElement,
+		variables: CssVariables
+	): { update: (variables: CssVariables) => void } => {
+		setCssVariables(node, variables);
+
+		return {
+			update(variables: CssVariables) {
+				setCssVariables(node, variables);
+			}
+		};
+	};
+
+	const setCssVariables = (node: HTMLElement, variables: CssVariables): void => {
+		for (const name in variables) {
+			node.style.setProperty(`--${name}`, variables[name]);
+		}
+	};
+
+	const copy = () => {
+		navigator.clipboard.writeText(data.email);
+	};
+
+	onMount(() => {
+		const showCookie = localStorage.getItem('showCookieModal');
+		if (showCookie !== null) showCookieModal = JSON.parse(showCookie);
+		else showCookieModal = true;
+		document.body.style.backgroundImage = `url(${data.imageUrl})`;
+		document.body.style.backgroundSize = 'cover';
+		document.body.style.backgroundPosition = 'center';
+		document.body.style.backgroundRepeat = 'no-repeat';
+	});
+
+	// beforeNavigate(({ to }) => {
+	// 	const pathName = to.pathname;
+	// 	const route = routes.find((route) => pathName === route.href);
+	// 	if (!route.customColor) {
+	// 		customBackground.set('#0a0908');
+	// 	} else customBackground.set(route.customColor);
+	// });
+</script>
+
+<svelte:body use:cssVariables={{ background: $customBackground }} />
+
+<Modal>
+	<div slot="content" class="modalContainer">
+		<h1>Email:</h1>
+		<div>
+			<p>{data.email}</p>
+			&nbsp;
+			<div class="tooltip">
+				<Tooltip tooltip={copied ? 'Copied' : 'Copy'}>
+					<div
+						id="clipboard"
+						role="button"
+						tabindex="0"
+						on:keypress={() => {
+							copied = true;
+							copy();
+							setTimeout(() => {
+								copied = false;
+							}, 500);
+						}}
+						on:click={() => {
+							copied = true;
+							copy();
+							setTimeout(() => {
+								copied = false;
+							}, 500);
+						}}
+					>
+						<div>
+							<FaCopy />
+						</div>
+					</div>
+				</Tooltip>
+			</div>
+		</div>
+		<Button email={data.email}>Send Email</Button>
+	</div>
+</Modal>
+
+<div class="app">
+	<Navbar {data} segment={$page.url.pathname} />
+	<main>
+		<slot />
+	</main>
+	<footer class="text-center">
+		<div class="pb-8 text-sm text-white">
+			Made with ❤️ by <a style="color: #ff3e00;" href="https://epsilon.fm">EpsilonFM</a>
+		</div>
+	</footer>
+</div>
+
+<style>
+	* {
+		box-sizing: border-box;
+	}
+
+	@font-face {
+		font-family: 'Fira Code', monospace;
+		font-display: optional;
+		src: url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+	}
+
+	:global(#svelte) {
+		width: 100vw;
+		height: 100%;
+		max-width: 900px;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	:global(html),
+	:global(body) {
+		transition: background-color 0.2s ease 0s;
+		position: relative;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		font-family: 'Fira Code', monospace;
+	}
+
+	:global(body) {
+		background-size: 200% 200%;
+		color: white;
+		margin: 0;
+		box-sizing: border-box;
+		line-height: 1.75;
+		place-items: center;
+		height: 100%;
+		overflow-x: hidden;
+	}
+
+	:global(h1) {
+		border: 0;
+	}
+
+	:global(::selection) {
+		color: white;
+		background: #ca3c25;
+	}
+
+	:global(::-webkit-scrollbar) {
+		width: 8px;
+		height: 8px;
+		border-radius: 1px;
+	}
+
+	:global(::-webkit-scrollbar-thumb) {
+		background-color: #fafffd;
+		border-radius: 3px;
+	}
+
+	:global(::-webkit-scrollbar-track) {
+		background-color: transparent;
+		border-radius: 1px;
+	}
+
+	:global(a) {
+		text-decoration: none;
+	}
+
+	:global(a) {
+		text-decoration: none;
+	}
+
+	a {
+		color: rgb(0, 100, 200);
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	a:visited {
+		color: rgb(0, 80, 160);
+	}
+
+	.modalContainer div {
+		display: flex;
+		margin-bottom: 20px;
+	}
+
+	.modalContainer p {
+		margin: 0;
+	}
+
+	:global(.tooltip) {
+		visibility: hidden;
+	}
+
+	.cookieContainer {
+		background: white;
+		border-radius: 0px;
+		text-align: center;
+		width: 100%;
+		height: 30px;
+		color: black;
+		padding: 30px;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		position: fixed;
+		bottom: 0px;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+</style>
+
+
+// File: /opt/src/epsilon.fm/src/routes/(website)/a/[slug]/music/+page.svelte
+<script>
+	import { Spotify } from 'sveltekit-embed';
+	import { Badge } from '$lib/components/ui/badge';
+	export let data;
+</script>
+
+<svelte:head>
+	<title>{data.stageName} — About</title>
+</svelte:head>
+
+<div class="container">
+	<div class="content">
+		<h1 class="text-white">Music</h1>
+		<p class="bg-slate-900 p-4 text-white">
+			Listen on <Badge class="m-2">Spotify</Badge> or purchase on <Badge class="m-2">Beatport</Badge
+			>
+		</p>
+		<br />
+		<Spotify height="600px" width="900px" spotifyLink="artist/27sSKrytmUXukDnMGPXNHQ" />
+		<br />
+	</div>
+</div>
+
+<style>
+	.container {
+		max-width: 900px;
+		padding: 0;
+		justify-content: center;
+	}
+
+	.content {
+		max-width: 100%;
+		min-height: 500px;
+		text-align: left;
+		margin: 0 auto;
+		box-sizing: border-box;
+	}
+
+	h1 {
+		font-weight: 700;
+		margin: 0 0 50px 0;
+		font-size: 36px;
+		text-align: start;
+	}
+
+	h2 {
+		margin-top: 50px;
+	}
+
+	.list {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+	}
+
+	@media (min-width: 900px) {
+		.list {
+			flex-direction: row;
+		}
+		main > h1 {
+			font-size: 48px;
+		}
+	}
+</style>
+
+
+// File: /opt/src/epsilon.fm/src/routes/(website)/a/[slug]/about/+page.svelte
+<script>
+	import skills from '../Skills';
+	import { Badge } from '$lib/components/ui/badge';
+	export let data;
+</script>
+
+<svelte:head>
+	<title>{data.stageName} — About</title>
+</svelte:head>
+
+<div class="container">
+	<div class="content">
+		<h1 class="text-white">About</h1>
+		<p class="bg-slate-900 p-4 text-white">{data.biography}</p>
+		<br />
+		{#each Object.entries(skills) as [section, technologies]}
+			<div class="w-min bg-slate-900 p-2 text-xs text-white">
+				{section}:
+			</div>
+
+			{#each technologies as technology}
+				<Badge class="m-2">{technology}</Badge>
+			{/each}
+		{/each}
+	</div>
+</div>
+
+<style>
+	.container {
+		max-width: 900px;
+		padding: 0;
+		display: flex;
+		justify-content: center;
+	}
+
+	.content {
+		max-width: 100%;
+		min-height: 500px;
+		text-align: left;
+		margin: 0 auto;
+		box-sizing: border-box;
+	}
+
+	h1 {
+		font-weight: 700;
+		margin: 0 0 50px 0;
+		font-size: 36px;
+		text-align: start;
+	}
+
+	h2 {
+		margin-top: 50px;
+	}
+
+	.list {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+	}
+
+	@media (min-width: 900px) {
+		.list {
+			flex-direction: row;
+		}
+		main > h1 {
+			font-size: 48px;
+		}
+	}
+</style>
+
+
+// File: /opt/src/epsilon.fm/src/routes/sign-in/+page.svelte
+<script lang="ts">
+	import SignIn from 'clerk-sveltekit/client/SignIn.svelte';
+</script>
+
+<div class="m-4 self-center">
+	<SignIn redirectUrl="/" />
+</div>
+
+
+// File: /opt/src/epsilon.fm/src/routes/(main)/+page.svelte
+<script lang="ts">
+	import * as Card from '$lib/components/ui/card';
+	import { Button } from '$lib/components/ui/button/index';
+	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
+	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
+	import SignInButton from 'clerk-sveltekit/client/SignInButton.svelte';
+	import SignUpButton from 'clerk-sveltekit/client/SignUpButton.svelte';
+	import partners from '$lib/images/partners.png';
+	import Typewriter from 'svelte-typewriter';
+	import Header from './Header.svelte';
+	import { createUploader } from '$lib/utils/uploadthing';
+	import { UploadDropzone } from '@uploadthing/svelte';
+	import { slug } from '$lib/stores/main';
+	import type { PageData } from './$types.js';
+	export let data: PageData;
+	const uploader = createUploader('imageUploader', {
+		onClientUploadComplete: (res) => {
+			console.log(`onClientUploadComplete`, res);
+			alert('Upload Completed');
+		},
+		onUploadError: (error: Error) => {
+			alert(`ERROR! ${error.message}`);
+		}
+	});
+
+	slug.set(data.slug);
+</script>
+
+<svelte:head>
+	<title>Epsilon Distribution</title>
+	<meta
+		name="description"
+		content="Our modern open-source music distribution platform includes features like an artist website, social media management, and merch, empowering you with global reach and full control over your creative work."
+	/>
+</svelte:head>
+
+<section>
+	<SignedIn>
+		<UploadDropzone {uploader} />
+	</SignedIn>
+	<SignedOut>
+		<Card.Root class="m-4">
+			<Card.Header>
+				<Card.Title>EpsilonFM</Card.Title>
+				<Card.Description>A modern open-source music business platform.</Card.Description>
+			</Card.Header>
+			<Card.Content>
+				<Typewriter>
+					<h4 class="scroll-m-20 text-center text-4xl font-semibold tracking-tight">
+						Unlimited music distribution for just $29/month
+					</h4>
+				</Typewriter>
+			</Card.Content>
+			<Card.Content>
+				<SignedOut>
+					<Button class="m-2">
+						<SignInButton mode="modal">Login</SignInButton>
+					</Button>
+					<Button class="m-2">
+						<SignUpButton mode="modal">Sign up</SignUpButton>
+					</Button>
+				</SignedOut>
+			</Card.Content>
+		</Card.Root>
+		<Card.Root class="m-4">
+			<Card.Header>
+				<div class="flex items-center justify-center">
+					<p class="font-mono text-2xl">Goodbye DistroKid. Hello Epsilon.</p>
+				</div></Card.Header
+			>
+			<Card.Content>
+				<p class="font-mono">
+					🎉 Discover our modern open-source platform, meticulously designed with your needs in
+					mind. We offer a comprehensive suite of features that empower you to take control of your
+					creative journey. 🎨 Whether you're an emerging artist or an established performer, our
+					tools are tailored to help you thrive in the digital age. 🌟 With capabilities such as
+					creating a professional artist website 🌐, managing social media 📱, and offering
+					merchandise options 🛍️, you can expand your global reach and fully manage your artistic
+					presence. 🌍✨
+				</p>
+			</Card.Content>
+		</Card.Root>
+		<Card.Root class="m-4">
+			<Card.Header>
+				<div class="flex items-center justify-center">
+					<p class="font-mono text-2xl">Industry Partners</p>
+				</div></Card.Header
+			>
+			<Card.Content>
+				<p class="font-mono">
+					We believe in the power of collaboration. That’s why we partner with leading companies in
+					the music industry to bring you unparalleled opportunities and experiences. Our extensive
+					network ensures you have access to the best resources and support available. From
+					distribution to promotion, we provide everything you need to succeed. Our platform makes
+					it easy to get your music on all major streaming platforms and digital stores, ensuring
+					your tracks are available to listeners everywhere.
+				</p>
+			</Card.Content>
+			<Card.Content>
+				<img alt="Epsilon Distribution Partners" src={partners} />
+			</Card.Content>
+		</Card.Root>
+		<Card.Root class="m-4">
+			<Card.Header>
+				<div class="flex items-center justify-center">
+					<p class="font-mono text-2xl">Join our Newsletter</p>
+				</div>
+			</Card.Header>
+			<Card.Content>
+				<div class="flex items-center justify-center">
+					<script
+						async
+						data-uid="47e61bac90"
+						src="https://epsilon.ck.page/47e61bac90/index.js"
+					></script>
+				</div>
+			</Card.Content>
+		</Card.Root>
+	</SignedOut>
+</section>
+
+
+// File: /opt/src/epsilon.fm/src/routes/(main)/Header.svelte
+<script lang="ts">
+	import logo from '$lib/images/logo.png';
+	import github from '$lib/images/github.svg';
+	import UserButton from 'clerk-sveltekit/client/UserButton.svelte';
+	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
+	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
+	import OrganizationSwitcher from 'clerk-sveltekit/client/OrganizationSwitcher.svelte';
+	import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
+	import Sun from 'lucide-svelte/icons/sun';
+	import Moon from 'lucide-svelte/icons/moon';
+	import { slug } from '$lib/stores/main';
+	import { resetMode, setMode } from 'mode-watcher';
+	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
+	import { Button } from '$lib/components/ui/button';
+
+	let website = '';
+	slug.subscribe((value) => {
+		website = value;
+	});
+</script>
+
+<header>
+	<Navbar>
+		<div class="corner pt-2">
+			<NavBrand href="/">
+				<SignedIn>
+					<div class="flex items-center">
+						<OrganizationSwitcher
+							hidePersonal={true}
+							afterCreateOrganizationUrl="/profile"
+							afterSelectOrganizationUrl="/profile"
+						/>
+					</div>
+				</SignedIn>
+				<SignedOut>
+					<img src={logo} class="me-3 h-9 sm:h-9" alt="Epsilon Distribution" />
+				</SignedOut>
+			</NavBrand>
+		</div>
+		<div class="flex md:order-2">
+			<div class="corner pt-1">
+				<DropdownMenu.Root>
+					<DropdownMenu.Trigger asChild let:builder>
+						<Button builders={[builder]} variant="ghost" size="icon">
+							<Sun
+								class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+							/>
+							<Moon
+								class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+							/>
+							<span class="sr-only">Toggle theme</span>
+						</Button>
+					</DropdownMenu.Trigger>
+					<DropdownMenu.Content align="end">
+						<DropdownMenu.Item on:click={() => setMode('light')}>Light</DropdownMenu.Item>
+						<DropdownMenu.Item on:click={() => setMode('dark')}>Dark</DropdownMenu.Item>
+						<DropdownMenu.Item on:click={() => resetMode()}>System</DropdownMenu.Item>
+					</DropdownMenu.Content>
+				</DropdownMenu.Root>
+			</div>
+			<div class="corner pt-2">
+				<SignedIn>
+					<UserButton afterSignOutUrl="/" />
+				</SignedIn>
+				<SignedOut>
+					<a href="https://github.com/natehouk/epsilon.fm">
+						<img class="pb-2" src={github} alt="GitHub" />
+					</a>
+				</SignedOut>
+			</div>
+			<NavHamburger />
+		</div>
+		<NavUl class="order-1 m-2">
+			<SignedOut
+				><NavLi href="/">Home</NavLi>
+				<NavLi href="/faq">FAQ</NavLi>
+				<NavLi href="/artists">Artists</NavLi>
+				<NavLi href="/">Pricing</NavLi></SignedOut
+			>
+			<SignedIn
+				><NavLi href="/profile">Profile</NavLi>
+				<NavLi href="/a/{website}">Website</NavLi></SignedIn
+			>
+		</NavUl>
+	</Navbar>
+</header>
+
+<style>
+	header {
+		justify-content: space-between;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		padding: 1rem;
+		width: 100%;
+		margin: 0 auto;
+		box-sizing: border-box;
+		max-width: 64rem;
+	}
+
+	.corner {
+		width: 3em;
+		height: 3em;
+	}
+
+	.corner a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+	}
+
+	.corner img {
+		width: 2em;
+		height: 2em;
+		object-fit: contain;
+	}
+
+	nav {
+		display: flex;
+		justify-content: center;
+		--background: rgba(255, 255, 255, 0.7);
+	}
+
+	svg {
+		width: 2em;
+		height: 3em;
+		display: block;
+	}
+
+	path {
+		fill: var(--background);
+	}
+
+	ul {
+		position: relative;
+		padding: 0;
+		margin: 0;
+		height: 3em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		list-style: none;
+		background: var(--background);
+		background-size: contain;
+	}
+
+	li {
+		position: relative;
+		height: 100%;
+	}
+
+	li[aria-current='page']::before {
+		--size: 6px;
+		content: '';
+		width: 0;
+		height: 0;
+		position: absolute;
+		top: 0;
+		left: calc(50% - var(--size));
+		border: var(--size) solid transparent;
+		border-top: var(--size) solid var(--color-theme-1);
+	}
+
+	nav a {
+		display: flex;
+		height: 100%;
+		align-items: center;
+		padding: 0 0.5rem;
+		color: var(--color-text);
+		font-weight: 700;
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		text-decoration: none;
+		transition: color 0.2s linear;
+	}
+</style>
+
+
+// File: /opt/src/epsilon.fm/src/routes/(main)/+layout.svelte
+<script lang="ts">
+	import './main.css';
+	import Header from './Header.svelte';
+	import type { LayoutServerData, PageData } from './$types';
+	import { Badge } from '$lib/components/ui/badge/index.js';
+	import { ModeWatcher } from 'mode-watcher';
+	import { Toaster } from 'svelte-french-toast';
+	import { onMount } from 'svelte';
+	export let data: LayoutServerData & PageData;
+
+	console.log(data);
+
+	onMount(() => {
+		document.body.style.backgroundImage = ``;
+		document.body.style.backgroundSize = '';
+		document.body.style.backgroundPosition = '';
+		document.body.style.backgroundRepeat = '';
+	});
+</script>
+
+<div class="app">
+	<Header slug={data.slug} />
+	<main>
+		<ModeWatcher />
+		<slot />
+		<Toaster />
+	</main>
+	<footer>
+		<p class="text-sm text-muted-foreground">Made with ❤️ by Epsilon Records</p>
+		<Badge class="m-2" variant={data.nodeEnv == 'development' ? 'outline' : 'default'}
+			>{data.nodeEnv}: {data.gitCommitSha ? data.gitCommitSha : 'latest'}</Badge
+		>
+	</footer>
+</div>
+
+<style>
+	.app {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+
+	main {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		padding: 1rem;
+		width: 100%;
+		margin: 0 auto;
+		box-sizing: border-box;
+		max-width: 64rem;
+	}
+
+	footer {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 12px;
+	}
+
+	footer a {
+		font-weight: bold;
+	}
+
+	@media (min-width: 480px) {
+		footer {
+			padding: 12px 0;
+		}
+	}
+
+	@media (min-width: 900px) {
+		:global(body) {
+			padding: 0 100px;
+		}
+	}
+
+	:global(body) {
+		font-family: 'Fira Code', monospace;
+	}
+
+	@font-face {
+		font-family: 'Fira Code', monospace;
+		font-display: optional;
+		src: url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+	}
+</style>
+
+
+// File: /opt/src/epsilon.fm/src/routes/(main)/faq/+page.svelte
+<script lang="ts">
+	import * as Card from '$lib/components/ui/card';
+	import * as Accordion from '$lib/components/ui/accordion';
+</script>
+
+<Card.Root class="m-4">
+	<Card.Header>
+		<Card.Title>FAQ</Card.Title>
+		<Card.Description>Frequently Asked Questions ❓</Card.Description>
+	</Card.Header>
+	<Card.Content>
+		<Accordion.Root class="w-full self-center sm:max-w-[100%]">
+			<Accordion.Item value="item-1">
+				<Accordion.Trigger>Is it free?</Accordion.Trigger>
+				<Accordion.Content>No.</Accordion.Content>
+			</Accordion.Item>
+			<Accordion.Item value="item-2">
+				<Accordion.Trigger>Do you deliver to Spotify?</Accordion.Trigger>
+				<Accordion.Content>Yes.</Accordion.Content>
+			</Accordion.Item>
+		</Accordion.Root>
+	</Card.Content>
+</Card.Root>
+
+
+// File: /opt/src/epsilon.fm/src/routes/(main)/profile/+page.svelte
+<script lang="ts">
+	import * as Card from '$lib/components/ui/card';
+	import type { PageData } from './$types.js';
+	import ProfileForm from './ProfileForm.svelte';
+	import UserProfile from 'clerk-sveltekit/client/UserProfile.svelte';
+	export let data: PageData;
+</script>
+
+<Card.Root class="m-4">
+	<Card.Header>
+		<Card.Title>Artist Profile</Card.Title>
+		<Card.Description>Update your profile 🎨</Card.Description>
+	</Card.Header>
+	<Card.Content>
+		<ProfileForm data={data.form} />
+	</Card.Content>
+</Card.Root>
+
+
+// File: /opt/src/epsilon.fm/src/routes/(main)/profile/ProfileForm.svelte
+<script lang="ts">
+	import { Field, Control, Label, FieldErrors, Description } from 'formsnap';
+	import { Input } from '$lib/components/ui/input';
+	import { Textarea } from '$lib/components/ui/textarea';
+	import * as Form from '$lib/components/ui/form';
+	import { artistSchema, type ArtistSchema } from './schema';
+	import SuperDebug, { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
+	import { zodClient } from 'sveltekit-superforms/adapters';
+	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
+	import toast from 'svelte-french-toast';
+	import success from '$lib/audio/success.mp3';
+	import { tick } from 'svelte';
+	import { confetti } from '@neoconfetti/svelte';
+	export let data: SuperValidated<Infer<ArtistSchema>>;
+
+	let isVisible = false;
+	const form = superForm(data, {
+		validators: zodClient(artistSchema),
+		resetForm: false,
+		async onUpdated({ form }) {
+			if (form.message == 'success') {
+				const audio = new Audio();
+				audio.src = success;
+				audio.load();
+				isVisible = false;
+				await tick();
+				isVisible = true;
+				audio.play();
+				toast.success('Successfully saved!');
+			}
+		}
+	});
+	const { form: formData, enhance } = form;
+</script>
+
+<SignedIn>
+	<form method="POST" use:enhance>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="stageName">
+					<Control let:attrs>
+						<Label>Artist Stage Name</Label>
+						<Input {...attrs} class="bg-muted text-xl" bind:value={$formData.stageName} readonly />
+					</Control>
+					<div class="grid gap-4 text-xs">
+						<Description>
+							Your artist stage name may be updated by changing your organization name, noting that
+							correct spelling and capitalization are required to ensure proper music delivery.
+						</Description>
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="orgId">
+					<Control let:attrs>
+						<Label>ID</Label>
+						<Input {...attrs} class="bg-muted" bind:value={$formData.orgId} readonly />
+					</Control>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="slug">
+					<Control let:attrs>
+						<Label>Artist Website</Label>
+						<Input {...attrs} class="bg-muted" bind:value={$formData.slug} readonly />
+					</Control>
+					<div class="grid gap-4 text-xs">
+						<Description>
+							Your artist website may me accessed at <a
+								class="text-blue-500"
+								href="https://{$formData.slug}.epsilon.fm">{$formData.slug}.epsilon.fm</a
+							> and may be updated by changing your organization slug.
+						</Description>
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="email">
+					<Control let:attrs>
+						<Label>Artist Contact Email</Label>
+						<Input {...attrs} bind:value={$formData.email} placeholder="Artist Contact Email" />
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your artist contact email.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="biography">
+					<Control let:attrs>
+						<Label>Artist Biography</Label>
+						<Textarea {...attrs} bind:value={$formData.biography} placeholder="Biography" />
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your artist biography.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="spotifyArtistLink">
+					<Control let:attrs>
+						<Label>Spotify Artist Link</Label>
+						<Input
+							{...attrs}
+							bind:value={$formData.spotifyArtistLink}
+							placeholder="Spotify Artist Link"
+						/>
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your Spotify artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="youtubeChannelLink">
+					<Control let:attrs>
+						<Label>YouTube Channel Link</Label>
+						<Input
+							{...attrs}
+							bind:value={$formData.youtubeChannelLink}
+							placeholder="YouTube Channel Link"
+						/>
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your YouTube artist channel link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="instagramProfileLink">
+					<Control let:attrs>
+						<Label>Instagram Profile Link</Label>
+						<Input
+							{...attrs}
+							bind:value={$formData.instagramProfileLink}
+							placeholder="Instagram Profile Link"
+						/>
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your Instagram artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="facebookProfileLink">
+					<Control let:attrs>
+						<Label>Facebook Profile Link</Label>
+						<Input
+							{...attrs}
+							bind:value={$formData.facebookProfileLink}
+							placeholder="Facebook Profile Link"
+						/>
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your Facebook artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="xProfileLink">
+					<Control let:attrs>
+						<Label>X Profile Link</Label>
+						<Input {...attrs} bind:value={$formData.xProfileLink} placeholder="X Profile Link" />
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your X artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="tiktokProfileLink">
+					<Control let:attrs>
+						<Label>TikTok Profile Link</Label>
+						<Input
+							{...attrs}
+							bind:value={$formData.tiktokProfileLink}
+							placeholder="TikTok Profile Link"
+						/>
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your TikTok artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="soundcloudProfileLink">
+					<Control let:attrs>
+						<Label>SoundCloud Profile Link</Label>
+						<Input
+							{...attrs}
+							bind:value={$formData.soundcloudProfileLink}
+							placeholder="SoundCloud Profile Link"
+						/>
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your SoundCloud artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="songkickProfileLink">
+					<Control let:attrs>
+						<Label>Songkick Profile Link</Label>
+						<Input
+							{...attrs}
+							bind:value={$formData.songkickProfileLink}
+							placeholder="Songkick Profile Link"
+						/>
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your Songkick artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="bandsintownProfileLink">
+					<Control let:attrs>
+						<Label>Bandsintown Profile Link</Label>
+						<Input
+							{...attrs}
+							bind:value={$formData.bandsintownProfileLink}
+							placeholder="Bandsintown Profile Link"
+						/>
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your Bandsintown artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div>
+			<Form.Button>Submit</Form.Button>
+		</div>
+		{#if isVisible}
+			<div use:confetti />
+		{/if}
+		<!-- <div class="m-4">
+			<SuperDebug data={$formData} />
+		</div> -->
+	</form>
+</SignedIn>
+
+
+// File: /opt/src/epsilon.fm/src/routes/(main)/artists/+page.svelte
+<script lang="ts">
+	import * as Card from '$lib/components/ui/card';
+	import * as Avatar from '$lib/components/ui/avatar';
+	import { Button } from '$lib/components/ui/button';
+
+	import type { PageData } from './$types.js';
+	export let data: PageData;
+	console.log(data);
+</script>
+
+<Card.Root class="m-4">
+	<Card.Header>
+		<Card.Title>Artists</Card.Title>
+		<Card.Description>Member roster 🕺</Card.Description>
+	</Card.Header>
+	{#each data.artists as artist}
+		<Card.Content>
+			<div class="flex">
+				<a href="/a/{artist.slug}">
+					<Avatar.Root>
+						<Avatar.Image src={artist.imageUrl} alt={artist.name} />
+					</Avatar.Root></a
+				><a href="/a/{artist.slug}"> <h1 class="pl-4 pt-2">{artist.name}</h1></a>
+			</div>
+		</Card.Content>
+	{/each}
+</Card.Root>
+

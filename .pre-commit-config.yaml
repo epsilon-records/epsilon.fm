@@ -1,0 +1,17 @@
+default_language_version:
+  python: python3.11
+
+repos:
+  - repo: local
+    hooks:
+      - id: black-local
+        name: black
+        entry: bash -c 'cd ./backend && poetry run black .'
+        language: system
+        types: [python]
+      - id: unit_test
+        name: pytest
+        entry: bash -c 'cd ./backend && poetry run python -m pytest -vv ./tests'
+        language: system
+        pass_filenames: false
+        always_run: true

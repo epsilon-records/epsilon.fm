@@ -1,0 +1,4 @@
+2024-07-13 11:51:03,439 - src.core.setup - INFO - API started on machine: system=Darwin, user=natehouk, IP=127.0.0.1, RAM_available=1.24 GB, Model name: arm, Physical cores: 8, Total cores: 8, CPU_cores=8, CPU_speed=3204.00 MHz
+2024-07-13 11:52:24,680 - src.core.setup - INFO - API shutdown
+2024-07-13 11:52:33,105 - src.core.setup - INFO - API started on machine: system=Darwin, user=natehouk, IP=127.0.0.1, RAM_available=1.20 GB, Model name: arm, Physical cores: 8, Total cores: 8, CPU_cores=8, CPU_speed=3204.00 MHz
+2024-07-13 11:52:36,099 - src.core.setup - INFO - API shutdown
