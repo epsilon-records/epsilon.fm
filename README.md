@@ -1,14 +1,14 @@
 <h1 align="center">
-  epsilon.FM
+  <a href="https://epsilon.fm">Epsilon</a>
 </h1>
 
 <p align="center" markdown=1>
-  A modern open-source music distribution platform.
+  A modern open-source music distribution platform. Visit us at <a href="https://epsilon.fm">epsilon.fm</a>
 </p>
 
 <p align="center">
   <picture>
-    <img src="https://github.com/epsilon-records/epsilon.fm/blob/0f0c8ecae0a27765dfece6c417c88b6068821e6e/src/lib/images/logo.png" width="130" alt="Logo for Epsilon">    
+    <img src="https://github.com/epsilon-records/epsilon.fm/blob/7c15660bc1c2d4f3f709218ec1a085b40990d41d/src/lib/images/spinning-logo.gif" width="130" alt="Logo for Epsilon">    
   </picture>
 </p>
 
@@ -21,6 +21,9 @@
 </div>
 
 <p align="center">
+  <a href="https://kit.svelte.dev">
+    <img src="https://img.shields.io/badge/SvelteKit-FF3E00?style=for-the-badge&logo=Svelte&logoColor=white" alt="SvelteKit">
+  </a>
   <a href="https://svelte.dev/">
     <img src="https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00" alt="Svelte">
   </a>
@@ -75,6 +78,9 @@
   <a href="https://drizzle.team/">
     <img src="https://img.shields.io/badge/drizzle-C5F74F?style=for-the-badge&logo=drizzle&logoColor=black" alt="Drizzle">
   </a>
+  <a href="https://zod.dev/">
+    <img src="https://img.shields.io/badge/Zod-000000?style=for-the-badge&logo=zod&logoColor=3068B7" alt="Zod">
+  </a>
   <a href="https://archlinux.org/">
     <img src="https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white" alt="Arch Linux">
   </a>
@@ -91,7 +97,7 @@
 
 # 🔍 Project Overview
 
-This **SvelteKit** powered open-source music distribution platform aims to revolutionize how independent artists share and monetize their music. Built with modern web technologies and a focus on user experience, our platform provides a comprehensive suite of tools for artists to manage their releases, engage with fans, and track their success.
+This **SvelteKit** and **FastAPI** powered open-source music distribution platform aims to revolutionize how independent artists share and monetize their music. Built with modern web technologies and a focus on user experience, our platform provides a comprehensive suite of tools for artists to manage their releases, engage with fans, and track their success.
 
 Key features include:
 
@@ -215,7 +221,7 @@ Now that the requirements are met, you can begin working on your project. For mo
 [x] Bootstrap backend API (FastAPI, SQLModel)
 [x] Deploy backend via CICD (DigitalOcean)
 [ ] Implement backend API
-[ ] Remove server side rendering by switching to backend api (required for tauri)
+[ ] Remove server side rendering by switching to backend api (required for Tauri)
 ```
 
 ## License
@@ -224,18 +230,3 @@ Now that the requirements are met, you can begin working on your project. For mo
 
 [contribute-url]: https://github.com/epsilon-records/epsilon.fm/blob/main/CONTRIBUTING.md
 [contribute-image]: https://img.shields.io/badge/PRs-welcome-blue.svg
-
-## 🎯 Project Goals
-
-- [x] Leverage the power of FastAPI for building high-performance APIs.
-- [x] Implement asynchronous programming wherever applicable for optimal performance.
-- [x] Integrate Redis for caching, rate limiting, and improving data access speed.
-- [x] Utilize ARQ for handling background tasks asynchronously.
-- [x] Implement a robust logging system to track and manage application events efficiently.
-- [x] Manage database migrations seamlessly using Alembic.
-- [x] Develop comprehensive unit tests for API endpoints using pytest.
-- [x] Implement using SQLModel to streamline the interaction between the database and the API.
-- [ ] Provide a CLI tool for easy project execution and management.
-- [ ] Provide diverse deployment options to ensure flexibility and accessibility.
-
-
