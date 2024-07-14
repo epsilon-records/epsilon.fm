@@ -81,18 +81,6 @@
   </a>
 </p>
 
-<p align="center">
-  <a href="https://www.patreon.com/">
-    <img src="https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white" alt="Patreon">
-  </a>
-  <a href="https://github.com/sponsors">
-    <img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=white" alt="Sponsor">
-  </a>
-  <a href="https://discord.com/">
-    <img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord">
-  </a>
-</p>
-
 <div align="center">
 
 [![PRs-Welcome][contribute-image]][contribute-url]
