@@ -8,7 +8,7 @@
 
 <p align="center">
   <picture>
-    <img src="https://github.com/epsilon-records/epsilon.fm/blob/0f0c8ecae0a27765dfece6c417c88b6068821e6e/src/lib/images/logo.png" width="130" alt="Logo for Epsilon">    
+    <img src="https://github.com/epsilon-records/epsilon.fm/blob/0f0c8ecae0a27765dfece6c417c88b6068821e6e/src/lib/images/spinning-logo.png" width="130" alt="Logo for Epsilon">    
   </picture>
 </p>
 
