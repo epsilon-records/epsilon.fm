@@ -12,6 +12,14 @@
   </picture>
 </p>
 
+<div align="center">
+
+[![PRs-Welcome][contribute-image]][contribute-url]
+[![Discord](https://img.shields.io/discord/412551291244380160?color=%235865F2&label=Discord&logo=discord&logoColor=%23fff)](https://discord.gg/NMKRYuzm)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnatehouk%2Fepsilon.fm.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnatehouk%2Fepsilon.fm?ref=badge_shield)
+
+</div>
+
 <p align="center">
   <a href="https://svelte.dev/">
     <img src="https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00" alt="Svelte">
@@ -80,14 +88,6 @@
     <img src="https://img.shields.io/badge/Digital_Ocean-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" alt="Digital Ocean">
   </a>
 </p>
-
-<div align="center">
-
-[![PRs-Welcome][contribute-image]][contribute-url]
-[![Discord](https://img.shields.io/discord/412551291244380160?color=%235865F2&label=Discord&logo=discord&logoColor=%23fff)](https://discord.gg/NMKRYuzm)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnatehouk%2Fepsilon.fm.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnatehouk%2Fepsilon.fm?ref=badge_shield)
-
-</div>
 
 # 🔍 Project Overview
 
