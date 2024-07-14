@@ -94,7 +94,7 @@
 
 # 🔍 Project Overview
 
-This **SvelteKit** powered open-source music distribution platform aims to revolutionize how independent artists share and monetize their music. Built with modern web technologies and a focus on user experience, our platform provides a comprehensive suite of tools for artists to manage their releases, engage with fans, and track their success.
+This **SvelteKit** and **FastAPI** powered open-source music distribution platform aims to revolutionize how independent artists share and monetize their music. Built with modern web technologies and a focus on user experience, our platform provides a comprehensive suite of tools for artists to manage their releases, engage with fans, and track their success.
 
 Key features include:
 
