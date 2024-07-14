@@ -78,6 +78,9 @@
   <a href="https://drizzle.team/">
     <img src="https://img.shields.io/badge/drizzle-C5F74F?style=for-the-badge&logo=drizzle&logoColor=black" alt="Drizzle">
   </a>
+  <a href="https://zod.dev/">
+    <img src="https://img.shields.io/badge/Zod-000000?style=for-the-badge&logo=zod&logoColor=3068B7" alt="Zod">
+  </a>
   <a href="https://archlinux.org/">
     <img src="https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white" alt="Arch Linux">
   </a>
