@@ -1,9 +1,9 @@
 <h1 align="center">
-  <a href="https://epsilon.fm" style="text-decoration: none; color: inherit;">Epsilon</a>
+  <a href="https://epsilon.fm">Epsilon</a>
 </h1>
 
 <p align="center" markdown=1>
-  A modern open-source music distribution platform. Visit us at <a href="https://epsilon.fm">epsilon.fm</a>.
+  A modern open-source music distribution platform. Visit us at <a href="https://epsilon.fm">epsilon.fm</a>
 </p>
 
 <p align="center">
