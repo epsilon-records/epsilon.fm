@@ -1,4 +1,4 @@
 {
-	"*": "bun run format & bun run lint & bun run check",
-	"/backend/*": "poetry run black . & poetry run python -m pytest -vv ./tests"
+	"*": ["bun run format", "bun run lint", "bun run check"],
+	"/backend/*": ["poetry run black .", "poetry run python -m pytest -vv ./tests"]
 }
