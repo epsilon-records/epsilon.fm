@@ -1,4 +1,4 @@
 {
 	"*": ["bun run format", "bun run lint", "bun run check"],
-	"backend/*": ["cd ./backend && poetry run black "]
+	"backend/*": ["cd ./backend && poetry run black"]
 }
