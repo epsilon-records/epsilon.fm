@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://epsilon.fm">Epsilon</a>
+  <a href="https://epsilon.fm">Epsilon Management System</a>
 </h1>
 
 <p align="center" markdown=1>
@@ -39,9 +39,6 @@
   <a href="https://storybook.js.org/">
     <img src="https://img.shields.io/badge/storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white" alt="Storybook">
   </a>
-  <a href="https://shopify.com/">
-    <img src="https://img.shields.io/badge/shopify-8DB543?style=for-the-badge&logo=Shopify&logoColor=white" alt="Shopify">
-  </a>
   <a href="https://shadcn-svelte.com">
     <img src="https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white" alt="shadcn/ui">
   </a>
@@ -60,9 +57,6 @@
   <a href="https://html.spec.whatwg.org/">
     <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
   </a>
-  <a href="https://json.org/">
-    <img src="https://img.shields.io/badge/json-5E5C5C?style=for-the-badge&logo=json&logoColor=white" alt="JSON">
-  </a>
   <a href="https://python.org/">
     <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue" alt="Python">
   </a>
@@ -80,18 +74,6 @@
   </a>
   <a href="https://zod.dev/">
     <img src="https://img.shields.io/badge/Zod-000000?style=for-the-badge&logo=zod&logoColor=3068B7" alt="Zod">
-  </a>
-  <a href="https://archlinux.org/">
-    <img src="https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white" alt="Arch Linux">
-  </a>
-  <a href="https://snyk.io/">
-    <img src="https://img.shields.io/badge/Snyk-4C4A73?style=for-the-badge&logo=snyk&logoColor=white" alt="Snyk">
-  </a>
-  <a href="https://vercel.com/">
-    <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel">
-  </a>
-  <a href="https://digitalocean.com/">
-    <img src="https://img.shields.io/badge/Digital_Ocean-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" alt="Digital Ocean">
   </a>
 </p>
 
@@ -151,7 +133,7 @@ Before you begin, ensure you have the following prerequisites installed and conf
 
 - [PostgreSQL](https://www.postgresql.org): Set up a PostgreSQL database.
 - [Redis](https://redis.io): Install and configure a Redis server.
-- [Python](https://www.python.org): Make sure to have Python 3.11 or a newer version installed on your system.
+- [Python](https://www.python.org): Make sure to have Python 3.12 or a newer version installed on your system.
 - [Poetry](https://python-poetry.org): Install Poetry for managing dependencies.
 
 **Note:** Soon, there will be an additional option for development using Docker containers.
