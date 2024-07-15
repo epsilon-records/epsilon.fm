@@ -121,15 +121,6 @@
 		align-items: center;
 	}
 
-	h1 {
-		font-weight: 700;
-	}
-
-	main > h1 {
-		margin: 50px 10px 0;
-		font-size: 36px;
-	}
-
 	.icons {
 		display: flex !important;
 		justify-content: center !important;
@@ -147,12 +138,6 @@
 		cursor: pointer;
 		transition: color 0.2s ease-in-out;
 		width: 40px;
-	}
-
-	@media (min-width: 900px) {
-		main > h1 {
-			font-size: 48px;
-		}
 	}
 
 	@media (min-width: 600px) {

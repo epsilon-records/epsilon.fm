@@ -5,7 +5,7 @@ from datetime import datetime
 from pydantic import ConfigDict
 
 # Local Dependencies
-from src.apps.epsilon.artists.models import ArtistContentBase, ArtistMediaBase, ArtistUserBase
+from src.apps.e.artists.models import ArtistContentBase, ArtistMediaBase, ArtistUserBase
 from src.core.common.models import UUIDMixin, TimestampMixin, SoftDeleteMixin
 from src.core.utils.partial import optional
 

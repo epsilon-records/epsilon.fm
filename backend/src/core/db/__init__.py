@@ -4,4 +4,4 @@ from src.apps.admin.users.models import User
 from src.apps.system.tiers.models import Tier
 from src.apps.system.rate_limits.models import RateLimit
 from src.apps.blog.posts.models import Post
-from src.apps.epsilon.artists.models import Artist
+from src.apps.e.artists.models import Artist

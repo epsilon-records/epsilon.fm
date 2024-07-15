@@ -42,23 +42,4 @@
 		font-size: 36px;
 		text-align: start;
 	}
-
-	h2 {
-		margin-top: 50px;
-	}
-
-	.list {
-		display: flex;
-		flex-direction: column;
-		gap: 30px;
-	}
-
-	@media (min-width: 900px) {
-		.list {
-			flex-direction: row;
-		}
-		main > h1 {
-			font-size: 48px;
-		}
-	}
 </style>

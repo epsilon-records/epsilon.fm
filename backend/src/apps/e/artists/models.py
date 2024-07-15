@@ -18,61 +18,61 @@ class ArtistContentBase(Base):
     biography: str = Field(
         max_length=1000,
         description="Artist Biography",
-        schema_extra={"examples": ["This is the biography of an example artist."]}
+        schema_extra={"examples": ["This is the biography of an example artist."]},
     )
     spotify_artist_link: Optional[str] = Field(
-        default=None, 
+        default=None,
         max_length=255,
         description="Artist Spotify URI",
-        schema_extra={"examples": ["https://open.spotify.com/artist/123456789"]}
+        schema_extra={"examples": ["https://open.spotify.com/artist/123456789"]},
     )
     youtube_channel_link: Optional[str] = Field(
-        default=None, 
+        default=None,
         max_length=255,
         description="Artist YouTube URL",
-        schema_extra={"examples": ["https://www.youtube.com/channel/exampleartist"]}
+        schema_extra={"examples": ["https://www.youtube.com/channel/exampleartist"]},
     )
     instagram_profile_link: Optional[str] = Field(
-        default=None, 
+        default=None,
         max_length=255,
         description="Artist Instagram URL",
-        schema_extra={"examples": ["https://www.instagram.com/exampleartist/"]}
+        schema_extra={"examples": ["https://www.instagram.com/exampleartist/"]},
     )
     facebook_profile_link: Optional[str] = Field(
-        default=None, 
+        default=None,
         max_length=255,
         description="Artist Facebook URL",
-        schema_extra={"examples": ["https://www.facebook.com/exampleartist/"]}
+        schema_extra={"examples": ["https://www.facebook.com/exampleartist/"]},
     )
     x_profile_link: Optional[str] = Field(
-        default=None, 
+        default=None,
         max_length=255,
         description="Artist X URL",
-        schema_extra={"examples": ["https://www.x.com/exampleartist"]}
+        schema_extra={"examples": ["https://www.x.com/exampleartist"]},
     )
     tiktok_profile_link: Optional[str] = Field(
-        default=None, 
+        default=None,
         max_length=255,
         description="Artist TikTok URL",
-        schema_extra={"examples": ["https://www.tiktok.com/@exampleartist"]}
+        schema_extra={"examples": ["https://www.tiktok.com/@exampleartist"]},
     )
     soundcloud_profile_link: Optional[str] = Field(
-        default=None, 
+        default=None,
         max_length=255,
         description="Artist SoundCloud URL",
-        schema_extra={"examples": ["https://soundcloud.com/exampleartist"]}
+        schema_extra={"examples": ["https://soundcloud.com/exampleartist"]},
     )
     songkick_profile_link: Optional[str] = Field(
-        default=None, 
+        default=None,
         max_length=255,
         description="Artist SongKick URL",
-        schema_extra={"examples": ["https://www.songkick.com/artists/exampleartist"]}
+        schema_extra={"examples": ["https://www.songkick.com/artists/exampleartist"]},
     )
     bandsintown_profile_link: Optional[str] = Field(
-        default=None, 
+        default=None,
         max_length=255,
         description="Artist BandsInTown URL",
-        schema_extra={"examples": ["https://www.bandsintown.com/artists/exampleartist"]}
+        schema_extra={"examples": ["https://www.bandsintown.com/artists/exampleartist"]},
     )
 
 

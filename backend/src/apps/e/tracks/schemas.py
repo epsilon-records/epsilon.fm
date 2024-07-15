@@ -5,7 +5,7 @@ from datetime import datetime
 from pydantic import ConfigDict
 
 # Local Dependencies
-from src.apps.epsilon.tracks.models import TrackContentBase, TrackMediaBase, TrackUserBase
+from src.apps.e.tracks.models import TrackContentBase, TrackMediaBase, TrackUserBase
 from src.core.common.models import UUIDMixin, TimestampMixin, SoftDeleteMixin
 from src.core.utils.partial import optional
 

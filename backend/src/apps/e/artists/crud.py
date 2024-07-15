@@ -1,7 +1,7 @@
 # Local Dependencies
 from src.core.common.crud import CRUDBase
-from src.apps.epsilon.artists.models import Artist
-from src.apps.epsilon.artists.schemas import (
+from src.apps.e.artists.models import Artist
+from src.apps.e.artists.schemas import (
     ArtistCreateInternal,
     ArtistUpdate,
     ArtistUpdateInternal,

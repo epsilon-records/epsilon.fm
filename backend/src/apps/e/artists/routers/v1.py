@@ -11,14 +11,14 @@ import fastapi
 from src.core.api.dependencies import get_current_user, get_current_superuser
 from src.apps.admin.users.schemas import UserRead
 from src.apps.admin.users.crud import crud_users
-from src.apps.epsilon.artists.crud import crud_artists
+from src.apps.e.artists.crud import crud_artists
 from src.core.db.session import async_get_db
 from src.core.utils.cache import cache
 from src.core.exceptions.http_exceptions import (
     NotFoundException,
     ForbiddenException,
 )
-from src.apps.epsilon.artists.schemas import (
+from src.apps.e.artists.schemas import (
     Artist,
     ArtistCreate,
     ArtistUpdate,
@@ -76,6 +76,7 @@ async def read_artists(
     )
 
     return paginated_response(crud_data=artists_data, page=page, items_per_page=items_per_page)
+
 
 @router.get("/epsilon/artists/user/{user_id}", response_model=PaginatedListResponse[ArtistRead])
 @cache(
