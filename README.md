@@ -81,18 +81,6 @@
   <a href="https://zod.dev/">
     <img src="https://img.shields.io/badge/Zod-000000?style=for-the-badge&logo=zod&logoColor=3068B7" alt="Zod">
   </a>
-  <a href="https://archlinux.org/">
-    <img src="https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white" alt="Arch Linux">
-  </a>
-  <a href="https://snyk.io/">
-    <img src="https://img.shields.io/badge/Snyk-4C4A73?style=for-the-badge&logo=snyk&logoColor=white" alt="Snyk">
-  </a>
-  <a href="https://vercel.com/">
-    <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel">
-  </a>
-  <a href="https://digitalocean.com/">
-    <img src="https://img.shields.io/badge/Digital_Ocean-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" alt="Digital Ocean">
-  </a>
 </p>
 
 # 🔍 Project Overview
