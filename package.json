@@ -11,8 +11,7 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write --log-level silent .",
 		"test:integration": "playwright test",
-		"test:unit": "vitest",
-		"prepare": "husky"
+		"test:unit": "vitest"
 	},
 	"lint-staged": {
 		"*": "prettier --write"
