@@ -59,6 +59,24 @@ async def write_artist(
     return await crud_artists.create(db=db, object=artist_internal)
 
 
+@router.get("/artists", response_model=PaginatedListResponse[UserRead])
+async def read_artists(
+    request: Request,
+    current_user: Annotated[ArtistRead],
+    db: Annotated[AsyncSession, Depends(async_get_db)],
+    page: int = 1,
+    items_per_page: int = 10,
+) -> dict:
+    artists_data = await crud_artists.get_multi(
+        db=db,
+        offset=compute_offset(page, items_per_page),
+        limit=items_per_page,
+        schema_to_select=ArtistRead,
+        is_deleted=False,
+    )
+
+    return paginated_response(crud_data=artists_data, page=page, items_per_page=items_per_page)
+
 @router.get("/epsilon/artists/user/{user_id}", response_model=PaginatedListResponse[ArtistRead])
 @cache(
     key_prefix="epsilon:artists:user:{user_id}:page_{page}:items_per_page:{items_per_page}",
