@@ -1,6 +1,7 @@
 # Built-in Dependencies
 from uuid import UUID
 from datetime import date
+from typing import Optional
 
 # Third-Party Dependencies
 from sqlmodel import Field
@@ -10,7 +11,7 @@ from src.core.common.models import SoftDeleteMixin, TimestampMixin, UUIDMixin, B
 
 
 class ArtistContentBase(Base):
-    id: int | None = Field(default=None, primary_key=True)
+    id: Optional[int] = Field(default=None, primary_key=True)
     org_id: str = Field(max_length=255, unique=True)
     slug: str = Field(max_length=255)
     email: str = Field(max_length=255)
@@ -19,55 +20,55 @@ class ArtistContentBase(Base):
         description="Artist Biography",
         schema_extra={"examples": ["This is the biography of an example artist."]}
     )
-    spotify_artist_link: str | None = Field(
+    spotify_artist_link: Optional[str] = Field(
         default=None, 
         max_length=255,
         description="Artist Spotify URI",
         schema_extra={"examples": ["https://open.spotify.com/artist/123456789"]}
     )
-    youtube_channel_link: str | None = Field(
+    youtube_channel_link: Optional[str] = Field(
         default=None, 
         max_length=255,
         description="Artist YouTube URL",
         schema_extra={"examples": ["https://www.youtube.com/channel/exampleartist"]}
     )
-    instagram_profile_link: str | None = Field(
+    instagram_profile_link: Optional[str] = Field(
         default=None, 
         max_length=255,
         description="Artist Instagram URL",
         schema_extra={"examples": ["https://www.instagram.com/exampleartist/"]}
     )
-    facebook_profile_link: str | None = Field(
+    facebook_profile_link: Optional[str] = Field(
         default=None, 
         max_length=255,
         description="Artist Facebook URL",
         schema_extra={"examples": ["https://www.facebook.com/exampleartist/"]}
     )
-    x_profile_link: str | None = Field(
+    x_profile_link: Optional[str] = Field(
         default=None, 
         max_length=255,
         description="Artist X URL",
         schema_extra={"examples": ["https://www.x.com/exampleartist"]}
     )
-    tiktok_profile_link: str | None = Field(
+    tiktok_profile_link: Optional[str] = Field(
         default=None, 
         max_length=255,
         description="Artist TikTok URL",
         schema_extra={"examples": ["https://www.tiktok.com/@exampleartist"]}
     )
-    soundcloud_profile_link: str | None = Field(
+    soundcloud_profile_link: Optional[str] = Field(
         default=None, 
         max_length=255,
         description="Artist SoundCloud URL",
         schema_extra={"examples": ["https://soundcloud.com/exampleartist"]}
     )
-    songkick_profile_link: str | None = Field(
+    songkick_profile_link: Optional[str] = Field(
         default=None, 
         max_length=255,
         description="Artist SongKick URL",
         schema_extra={"examples": ["https://www.songkick.com/artists/exampleartist"]}
     )
-    bandsintown_profile_link: str | None = Field(
+    bandsintown_profile_link: Optional[str] = Field(
         default=None, 
         max_length=255,
         description="Artist BandsInTown URL",
