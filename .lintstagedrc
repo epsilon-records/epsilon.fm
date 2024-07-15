@@ -1,5 +1,5 @@
 {
-	"**/*(x)": [
+	"*(x)": [
 		"bun install --noEmit",
 		"prettier --write --list-different",
 		"prettier --check",
@@ -7,5 +7,5 @@
 		"svelte-kit sync --noEmit",
 		"svelte-check --tsconfig ./tsconfig.json --noEmit"
 	],
-	"backend/**/*(x)": ["cd ./backend && poetry install --noEmit", "cd ./backend && poetry run black"]
+	"backend/*(x)": ["cd ./backend && poetry install --noEmit", "cd ./backend && poetry run black"]
 }
