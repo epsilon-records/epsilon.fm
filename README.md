@@ -39,9 +39,6 @@
   <a href="https://storybook.js.org/">
     <img src="https://img.shields.io/badge/storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white" alt="Storybook">
   </a>
-  <a href="https://shopify.com/">
-    <img src="https://img.shields.io/badge/shopify-8DB543?style=for-the-badge&logo=Shopify&logoColor=white" alt="Shopify">
-  </a>
   <a href="https://shadcn-svelte.com">
     <img src="https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white" alt="shadcn/ui">
   </a>
