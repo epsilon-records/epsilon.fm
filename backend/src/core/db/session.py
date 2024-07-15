@@ -11,7 +11,7 @@ DATABASE_URI = f"{settings.POSTGRES_ASYNC_URI}"
 DATABASE_URL = DATABASE_URI
 
 # Create an async database engine
-async_engine = create_async_engine(DATABASE_URL, echo=False, future=True)
+async_engine = create_async_engine(DATABASE_URL, echo=False, poolclass=NullPool, future=True)
 
 # Create a local session class using the async engine
 local_session = sessionmaker(bind=async_engine, class_=AsyncSession, expire_on_commit=False)  # type: ignore
