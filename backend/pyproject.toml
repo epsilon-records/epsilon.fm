@@ -12,7 +12,7 @@ alembic = "^1.13.1"
 arq = "^0.25.0"
 asyncpg = "^0.29.0"
 bcrypt = "^4.1.2"
-fastapi = {extras = ["all"], version = "^0.109.1"}
+fastapi = {extras = ["all"], version = "^0.111.1"}
 fastapi-async-sqlalchemy = "^0.6.1"
 gunicorn = "^22.0.0"
 pytest = "^7.4.4"
