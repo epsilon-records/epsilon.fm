@@ -1,11 +1,10 @@
 {
 	"*(x)": [
 		"bun install --noEmit",
-		"prettier --write --list-different",
-		"prettier --check",
-		"eslint",
 		"svelte-kit sync --noEmit",
 		"svelte-check --tsconfig ./tsconfig.json --noEmit"
 	],
-	"backend/*(x)": ["cd ./backend && poetry install --noEmit", "cd ./backend && poetry run black"]
+	"*": ["prettier --write --list-different", "prettier --check", "eslint"],
+	"backend/**/*(x)": ["cd ./backend && poetry install"],
+	"backend/**/*": ["cd ./backend && poetry run black"]
 }
