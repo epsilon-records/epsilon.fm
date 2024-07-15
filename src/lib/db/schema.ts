@@ -7,7 +7,8 @@ import {
 	varchar,
 	date,
 	decimal,
-	timestamp
+	timestamp,
+	uuid
 } from 'drizzle-orm/pg-core';
 
 export const user = pgTable('user', {
@@ -21,10 +22,10 @@ export const user = pgTable('user', {
 });
 
 export const artist = pgTable('artist', {
-	id: serial('id').primaryKey(),
+	id: uuid('id').primaryKey().defaultRandom().notNull(),
 	orgId: varchar('org_id', { length: 255 }).unique().notNull(),
-	email: varchar('email', { length: 255 }),
-	biography: text('biography'),
+	email: varchar('email', { length: 255 }).notNull(),
+	biography: text('biography').notNull(),
 	spotifyArtistLink: varchar('spotify_artist_link', { length: 255 }),
 	youtubeChannelLink: varchar('youtube_channel_link', { length: 255 }),
 	instagramProfileLink: varchar('instagram_profile_link', { length: 255 }),
