@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+bunx --no changeset status
