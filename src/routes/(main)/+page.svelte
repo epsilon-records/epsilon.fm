@@ -7,7 +7,6 @@
 	import SignUpButton from 'clerk-sveltekit/client/SignUpButton.svelte';
 	import partners from '$lib/images/partners.png';
 	import Typewriter from 'svelte-typewriter';
-	import Header from './Header.svelte';
 	import { createUploader } from '$lib/utils/uploadthing';
 	import { UploadDropzone } from '@uploadthing/svelte';
 	import { slug } from '$lib/stores/main';

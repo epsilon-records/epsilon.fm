@@ -4,7 +4,8 @@
 	import { Textarea } from '$lib/components/ui/textarea';
 	import * as Form from '$lib/components/ui/form';
 	import { artistSchema, type ArtistSchema } from './schema';
-	import SuperDebug, { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
+	// import SuperDebug from 'sveltekit-superforms';
+	import { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	import toast from 'svelte-french-toast';

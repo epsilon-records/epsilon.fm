@@ -15,7 +15,6 @@ export default defineConfig({
 		enhancedImages()
 	],
 	test: {
-		include: ['src/**/*.{test,spec}.{js,ts}'],
-		watch: false
+		include: ['src/**/*.{test,spec}.{js,ts}']
 	}
 });

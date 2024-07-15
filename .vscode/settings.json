@@ -1,34 +1,39 @@
 {
-    "editor.codeActionsOnSave": {
-        "source.fixAll": "explicit"
-    },
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "eslint.enable": true,
-    "html.format.enable": true,
-    "htmlhint.enable": true,
-    "prettier.requireConfig": false,
-    "prettier.useEditorConfig": true,
-    "stylelint.autoFixOnSave": true,
-    "search.exclude": {
-        "": true
-    }
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true
-    },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true
-    },
-    "[markdown]": {
-        "editor.quickSuggestions": true,
-        "editor.wordBasedSuggestions": false
-    },
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "explicit"
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnPaste": true,
+	"editor.formatOnSave": true,
+	"editor.formatOnType": true,
+	"eslint.enable": true,
+	"html.format.enable": true,
+	"htmlhint.enable": true,
+	"prettier.requireConfig": false,
+	"prettier.useEditorConfig": true,
+	"stylelint.autoFixOnSave": true,
+	"search.exclude": {
+		"": true
+	},
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
+	},
+	"[markdown]": {
+		"editor.quickSuggestions": {
+			"comments": "on",
+			"strings": "on",
+			"other": "on"
+		},
+		"editor.wordBasedSuggestions": "off"
+	},
+	"codium.codeCompletion.enable": true
 }

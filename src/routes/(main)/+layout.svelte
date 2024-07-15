@@ -19,7 +19,7 @@
 </script>
 
 <div class="app">
-	<Header slug={data.slug} />
+	<Header />
 	<main>
 		<ModeWatcher />
 		<slot />

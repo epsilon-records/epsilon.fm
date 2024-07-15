@@ -46,9 +46,10 @@ export const actions: Actions = {
 			});
 		}
 		try {
-			await db.insert(artist).values(form.data).onConflictDoUpdate({
+			const updatedData = { ...form.data, id: form.data.id?.toString() };
+			await db.insert(artist).values(updatedData).onConflictDoUpdate({
 				target: artist.orgId,
-				set: form.data
+				set: updatedData
 			});
 		} catch {
 			return fail(500, {

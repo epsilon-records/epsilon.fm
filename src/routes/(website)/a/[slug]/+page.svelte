@@ -1,7 +1,13 @@
-<script>
-	import FaEnvelope from 'svelte-icons/fa/FaEnvelope.svelte';
-	import SocialIcons from '@rodneylab/svelte-social-icons';
-	import RiTiktokFill from 'svelte-remixicon/RiTiktokFill.svelte';
+<script type="ts">
+	import {
+		Gmail,
+		Instagram,
+		Facebook,
+		Soundcloud,
+		Youtube,
+		Tiktok,
+		Bandsintown
+	} from 'svelte-simples';
 	import { modalOpened } from '$lib/stores/website';
 
 	export let data;
@@ -25,7 +31,7 @@
 			}}
 		>
 			<div class="icon">
-				<SocialIcons network="email" fgColor="#FFFFFF" bgColor="transparent" />
+				<Gmail />
 			</div>
 		</div>
 		{#if data.instagramProfileLink}
@@ -36,7 +42,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<SocialIcons network="instagram" fgColor="#FFFFFF" bgColor="transparent" />
+					<Instagram />
 				</div>
 			</a>
 		{/if}
@@ -48,7 +54,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<SocialIcons network="facebook" fgColor="#FFFFFF" bgColor="transparent" />
+					<Facebook />
 				</div>
 			</a>
 		{/if}
@@ -60,7 +66,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<SocialIcons network="soundcloud" fgColor="#FFFFFF" bgColor="transparent" />
+					<Soundcloud />
 				</div>
 			</a>
 		{/if}
@@ -72,7 +78,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<SocialIcons network="bandsintown" fgColor="#FFFFFF" bgColor="transparent" />
+					<Bandsintown />
 				</div>
 			</a>
 		{/if}
@@ -84,7 +90,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon pb-4 pl-2">
-					<RiTiktokFill />
+					<Tiktok />
 				</div>
 			</a>
 		{/if}
@@ -96,7 +102,7 @@
 				rel="noopener noreferrer"
 			>
 				<div class="icon">
-					<SocialIcons network="youtube" fgColor="#FFFFFF" bgColor="transparent" />
+					<Youtube />
 				</div>
 			</a>
 		{/if}

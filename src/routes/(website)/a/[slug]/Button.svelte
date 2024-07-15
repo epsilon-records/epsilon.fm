@@ -1,5 +1,4 @@
 <script>
-	import { goto } from '$app/navigation';
 	export let email;
 </script>
 

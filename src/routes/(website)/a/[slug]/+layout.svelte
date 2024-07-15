@@ -2,7 +2,7 @@
 	import './website.css';
 	import Navbar from './NavBar.svelte';
 	import Button from './Button.svelte';
-	import FaCopy from 'svelte-icons/fa/FaCopy.svelte';
+	import { Gmail } from 'svelte-simples';
 	import Tooltip from './Tooltip.svelte';
 	// import { beforeNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
@@ -14,8 +14,6 @@
 	export let data;
 
 	let copied = false;
-	const cookieEnabled = false;
-	$: showCookieModal = false;
 
 	interface CssVariables {
 		[name: string]: string;
@@ -45,9 +43,6 @@
 	};
 
 	onMount(() => {
-		const showCookie = localStorage.getItem('showCookieModal');
-		if (showCookie !== null) showCookieModal = JSON.parse(showCookie);
-		else showCookieModal = true;
 		document.body.style.backgroundImage = `url(${data.imageUrl})`;
 		document.body.style.backgroundSize = 'cover';
 		document.body.style.backgroundPosition = 'center';
@@ -93,7 +88,7 @@
 						}}
 					>
 						<div>
-							<FaCopy />
+							<Gmail />
 						</div>
 					</div>
 				</Tooltip>
