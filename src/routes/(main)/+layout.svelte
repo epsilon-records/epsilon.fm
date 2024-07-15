@@ -11,7 +11,7 @@
 	console.log(data);
 
 	onMount(() => {
-		document.body.style.backgroundImage = ``;
+		document.body.style.backgroundImage = '';
 		document.body.style.backgroundSize = '';
 		document.body.style.backgroundPosition = '';
 		document.body.style.backgroundRepeat = '';
