@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "fastapi-async-sqlmodel-boilerplate"
+name = "Epsilon Managmement System"
 version = "0.1.0"
 description = "An opinionated yet highly extensible and fully asynchronous FastAPI boilerplate, embracing the Django-like folder structure. 🚀 Built with FastAPI, SQLModel (Pydantic v2 + SQLAlchemy 2.0), Alembic, PostgreSQL, Redis and ARQ. 📈"
-authors = ["joaoflaviosantos <joaoflavio.s@hotmail.com>"]
+authors = ["Nathaniel Houk <nate@epsilonrecords.com>"]
 license = "MIT"
 readme = "README.md"
 packages = [{ include = "src" }]
