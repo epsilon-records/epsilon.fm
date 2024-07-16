@@ -4,7 +4,7 @@
 	import { Textarea } from '$lib/components/ui/textarea';
 	import * as Form from '$lib/components/ui/form';
 	import { artistSchema, type ArtistSchema } from './schema';
-	// import SuperDebug from 'sveltekit-superforms';
+	import SuperDebug from 'sveltekit-superforms';
 	import { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
@@ -272,8 +272,8 @@
 		{#if isVisible}
 			<div use:confetti />
 		{/if}
-		<!-- <div class="m-4">
+		<div class="m-4">
 			<SuperDebug data={$formData} />
-		</div> -->
+		</div>
 	</form>
 </SignedIn>
