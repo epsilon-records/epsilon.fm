@@ -11,8 +11,7 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write --list-different .",
 		"test:integration": "playwright test",
-		"test:unit": "vitest",
-		"prepare": "svelte-kit sync && husky"
+		"test:unit": "vitest"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.27.7",
