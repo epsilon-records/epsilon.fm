@@ -1,6 +1,3 @@
 #!/usr/bin/env sh
 
-COMMIT_MSG_FILE=$1
-COMMIT_MSG=$(cat $COMMIT_MSG_FILE)
-
-echo "${COMMIT_MSG}" | bun x devmoji > $1
+bun x devmoji -e --lint
