@@ -134,7 +134,8 @@ Before you begin, ensure you have the following prerequisites installed and conf
 - [PostgreSQL](https://www.postgresql.org): Set up a PostgreSQL database.
 - [Redis](https://redis.io): Install and configure a Redis server.
 - [Python](https://www.python.org): Make sure to have Python 3.12 or a newer version installed on your system.
-- [Poetry](https://python-poetry.org): Install Poetry for managing dependencies.
+- [Poetry](https://python-poetry.org): Install Poetry for managing Python dependencies.
+- [Bun](https://bun.sh): Install Bun for managing Typescript dependencies.
 
 **Note:** Soon, there will be an additional option for development using Docker containers.
 
