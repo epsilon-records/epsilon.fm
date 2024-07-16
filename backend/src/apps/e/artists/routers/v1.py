@@ -31,12 +31,12 @@ from src.core.utils.paginated import (
     compute_offset,
 )
 
-# TODO: Improvment the cache strategy on composite routes. Eg: '/epsilon/artists/{artist_id}/user/{user_id}' is not good.
+# TODO: Improvment the cache strategy on composite routes. Eg: '/e/artists/{artist_id}/user/{user_id}' is not good.
 
-router = fastapi.APIRouter(tags=["Epsilon - Artists"])
+router = fastapi.APIRouter(tags=["Artists"])
 
 
-@router.post("/epsilon/artists/user/{user_id}", response_model=ArtistRead, status_code=201)
+@router.post("/e/artists/user/{user_id}", response_model=ArtistRead, status_code=201)
 async def write_artist(
     request: Request,
     user_id: UUID,
@@ -78,9 +78,9 @@ async def read_artists(
     return paginated_response(crud_data=artists_data, page=page, items_per_page=items_per_page)
 
 
-@router.get("/epsilon/artists/user/{user_id}", response_model=PaginatedListResponse[ArtistRead])
+@router.get("/e/artists/user/{user_id}", response_model=PaginatedListResponse[ArtistRead])
 @cache(
-    key_prefix="epsilon:artists:user:{user_id}:page_{page}:items_per_page:{items_per_page}",
+    key_prefix="e:artists:user:{user_id}:page_{page}:items_per_page:{items_per_page}",
     resource_id_name="user_id",
     expiration=60,
 )
@@ -108,8 +108,8 @@ async def read_artists(
     return paginated_response(crud_data=artists_data, page=page, items_per_page=items_per_page)
 
 
-@router.get("/epsilon/artists/{artist_id}/user/{user_id}", response_model=ArtistRead)
-@cache(key_prefix="epsilon:artists:user:{user_id}:artist_cache", resource_id_name="artist_id")
+@router.get("/e/artists/{artist_id}/user/{user_id}", response_model=ArtistRead)
+@cache(key_prefix="e:artists:user:{user_id}:artist_cache", resource_id_name="artist_id")
 async def read_artist(
     request: Request,
     user_id: UUID,
@@ -134,11 +134,11 @@ async def read_artist(
     return db_artist
 
 
-@router.patch("/epsilon/artists/{artist_id}/user/{user_id}")
+@router.patch("/e/artists/{artist_id}/user/{user_id}")
 @cache(
-    "epsilon:artists:user:{user_id}:artist_cache",
+    "e:artists:user:{user_id}:artist_cache",
     resource_id_name="artist_id",
-    pattern_to_invalidate_extra=["epsilon:artists:user:{user_id}:*"],
+    pattern_to_invalidate_extra=["e:artists:user:{user_id}:*"],
 )
 async def patch_artist(
     request: Request,
@@ -165,11 +165,11 @@ async def patch_artist(
     return {"message": "Artist updated"}
 
 
-@router.delete("/epsilon/artists/{artist_id}/user/{user_id}")
+@router.delete("/e/artists/{artist_id}/user/{user_id}")
 @cache(
-    "epsilon:artists:user:{user_id}:artist_cache",
+    "e:artists:user:{user_id}:artist_cache",
     resource_id_name="artist_id",
-    pattern_to_invalidate_extra=["epsilon:artists:user:{user_id}:*"],
+    pattern_to_invalidate_extra=["e:artists:user:{user_id}:*"],
 )
 async def erase_artist(
     request: Request,
@@ -199,13 +199,13 @@ async def erase_artist(
 
 
 @router.delete(
-    "/epsilon/artists/{artist_id}/user/{user_id}/db",
+    "/e/artists/{artist_id}/user/{user_id}/db",
     dependencies=[Depends(get_current_superuser)],
 )
 @cache(
-    "epsilon:artists:user:{user_id}:artist_cache",
+    "e:artists:user:{user_id}:artist_cache",
     resource_id_name="artist_id",
-    pattern_to_invalidate_extra=["epsilon:artists:user:{user_id}:*"],
+    pattern_to_invalidate_extra=["e:artists:user:{user_id}:*"],
 )
 async def erase_db_artist(
     request: Request,
