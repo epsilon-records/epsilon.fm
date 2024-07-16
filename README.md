@@ -210,7 +210,6 @@ Now that the requirements are met, you can begin working on your project. For mo
 [ ] Implement rate limiting (Redis)
 [ ] Implement caching (Redis)
 [ ] Remove server side rendering by switching to backend API (required for Tauri)
-
 ```
 
 ## License
