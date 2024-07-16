@@ -1,13 +1,11 @@
 <script type="ts">
-	import {
-		Gmail,
-		Instagram,
-		Facebook,
-		Soundcloud,
-		Youtube,
-		Tiktok,
-		Bandsintown
-	} from 'svelte-simples';
+	import Gmail from 'svelte-simples/Gmail.svelte';
+	import Instagram from 'svelte-simples/Gmail.svelte';
+	import Facebook from 'svelte-simples/Gmail.svelte';
+	import Soundcloud from 'svelte-simples/Gmail.svelte';
+	import Youtube from 'svelte-simples/Gmail.svelte';
+	import Tiktok from 'svelte-simples/Gmail.svelte';
+	import Bandsintown from 'svelte-simples/Gmail.svelte';
 	import { modalOpened } from '$lib/stores/website';
 
 	export let data;

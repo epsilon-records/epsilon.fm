@@ -2,7 +2,7 @@
 	import './website.css';
 	import Navbar from './NavBar.svelte';
 	import Button from './Button.svelte';
-	import { Gmail } from 'svelte-simples';
+	import Gmail from 'svelte-simples/Gmail.svelte';
 	import Tooltip from './Tooltip.svelte';
 	// import { beforeNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
