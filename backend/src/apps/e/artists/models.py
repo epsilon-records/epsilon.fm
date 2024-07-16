@@ -13,7 +13,6 @@ from src.core.common.models import SoftDeleteMixin, TimestampMixin, UUIDMixin, B
 class ArtistContentBase(Base):
     id: Optional[int] = Field(default=None, primary_key=True)
     org_id: str = Field(max_length=255, unique=True)
-    slug: str = Field(max_length=255)
     email: str = Field(max_length=255)
     biography: str = Field(
         max_length=1000,

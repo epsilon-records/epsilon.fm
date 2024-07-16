@@ -3,7 +3,7 @@ from typing import Annotated, Dict
 from datetime import timedelta
 
 # Third-party Dependencies
-from fastapi.security import OAuth2PasswordRequestForm
+from fastapi.security import OAuth2PasswordRequestFormStrict
 from sqlmodel.ext.asyncio.session import AsyncSession
 from fastapi import Response, Request, Depends
 from jose import JWTError
@@ -30,7 +30,7 @@ router = fastapi.APIRouter(tags=["Authentication"])
 @router.post("/system/auth/login", response_model=Token)
 async def login_for_access_token(
     response: Response,
-    form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
+    form_data: Annotated[OAuth2PasswordRequestFormStrict, Depends()],
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> Dict[str, str]:
     user = await authenticate_user(
