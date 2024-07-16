@@ -60,6 +60,7 @@
 		"@capacitor/ios": "^6.1.0",
 		"@clerk/clerk-js": "^5.8.1",
 		"@clerk/clerk-sdk-node": "^5.0.15",
+		"@commitlint/cli": "^19.3.0",
 		"@commitlint/config-conventional": "^19.2.2",
 		"@internationalized/date": "^3.5.4",
 		"@neoconfetti/svelte": "^2.2.1",
