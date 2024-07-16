@@ -202,9 +202,15 @@ Now that the requirements are met, you can begin working on your project. For mo
 [ ] Implement wildcard domains
 [x] Implement mobile and desktop applications (Tauri)
 [x] Bootstrap backend API (FastAPI, SQLModel)
+[x] Bootstrap documentation
 [x] Deploy backend via CICD (DigitalOcean)
 [ ] Implement backend API
-[ ] Remove server side rendering by switching to backend api (required for Tauri)
+[ ] Implement backend API authentication
+[ ] Implement database migrations (Alembic)
+[ ] Implement rate limiting (Redis)
+[ ] Implement caching (Redis)
+[ ] Remove server side rendering by switching to backend API (required for Tauri)
+
 ```
 
 ## License
@@ -215,3 +221,7 @@ Epsilon is released under the [MIT license](LICENSE).
 
 [contribute-url]: https://github.com/epsilon-records/epsilon.fm/blob/main/CONTRIBUTING.md
 [contribute-image]: https://img.shields.io/badge/PRs-welcome-blue.svg
+
+```
+
+```
