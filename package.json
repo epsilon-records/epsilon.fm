@@ -12,7 +12,7 @@
 		"format": "prettier --write --list-different .",
 		"test:integration": "playwright test",
 		"test:unit": "vitest",
-		"prepare": "svelte-kit sync && husky"
+		"prepare": "svelte-kit sync"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.27.7",
