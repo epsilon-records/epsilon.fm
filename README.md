@@ -209,6 +209,7 @@ Now that the requirements are met, you can begin working on your project. For mo
 [ ] Implement database migrations (Alembic)
 [ ] Implement rate limiting (Redis)
 [ ] Implement caching (Redis)
+[ ] Implement log drain (Logflare)
 [ ] Remove server side rendering by switching to backend API (required for Tauri)
 ```
 
