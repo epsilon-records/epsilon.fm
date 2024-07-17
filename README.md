@@ -90,7 +90,7 @@ Key features include:
 - **Social Media Integration**: Easy sharing of releases and updates across various social platforms.
 - **Royalty Tracking**: Transparent royalty calculations and payout management.
 
-The project leverages the power of **SvelteKit** for a blazing-fast frontend, **Drizzle ORM** for efficient database operations, and integrates with services like **Clerk** for authentication and **UploadThing** for file handling. The modular structure allows for easy expansion and customization.
+The project leverages the power of **SvelteKit** for a blazing-fast frontend, **SQLModel** and **Drizzle ORM** for efficient database operations, and integrates with services like **Clerk** for authentication and **UploadThing** for file handling. The modular structure allows for easy expansion and customization.
 
 Key areas of the platform include:
 
