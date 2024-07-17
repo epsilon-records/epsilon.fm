@@ -247,15 +247,3 @@ Epsilon is released under the [MIT license](LICENSE).
 
 [contribute-url]: https://github.com/epsilon-records/epsilon.fm/blob/main/CONTRIBUTING.md
 [contribute-image]: https://img.shields.io/badge/PRs-welcome-blue.svg
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
