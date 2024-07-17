@@ -14,7 +14,8 @@
 		"test:unit": "vitest",
 		"prepare": "svelte-kit sync && husky",
 		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build"
+		"build-storybook": "storybook build",
+		"chromatic": "npx chromatic --project-token=chpt_410252c1108ccff"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.27.7",
