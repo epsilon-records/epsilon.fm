@@ -190,7 +190,9 @@ Now that the requirements are met, you can begin working on your project. For mo
 
 ```
 [x] Setup project directory structure
-[x] Setup datebase (PostgreSQL)
+[x] Setup project tooling (Biome, Ruff)
+[x] Setup PostgreSQL datebase (Vercel)
+[x] Setup Redis database (Upstash)
 [x] Bootstrap frontend application (SvelteKit)
 [x] Bootstrap backend API (FastAPI)
 [x] Bootstrap API documentation (FastAPI)
@@ -202,9 +204,9 @@ Now that the requirements are met, you can begin working on your project. For mo
 [x] Implement log drain (Logflare)
 [x] Implement error handling (Sentry)
 [x] Implement analytics (Posthog, Vercel)
-[x] Implement testing (Checkly, Meticulous)
 [x] Implement component workshop (Storybook)
 [x] Implement visual testing (Chromatic)
+[x] Implement end-to-end testing (Checkly, Meticulous)
 [ ] Implement database backups (SimpleBackups)
 [x] Implement design system (TailwindCSS)
 [x] Implement frontend authentication (Clerk)
