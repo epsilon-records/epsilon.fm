@@ -90,14 +90,13 @@ Key features include:
 - **Social Media Integration**: Easy sharing of releases and updates across various social platforms.
 - **Royalty Tracking**: Transparent royalty calculations and payout management.
 
-The project leverages the power of **SvelteKit** for a blazing-fast frontend, **SQLModel** and **Drizzle ORM** for efficient database operations, and integrates with services like **Clerk** for authentication and **UploadThing** for file handling. The modular structure allows for easy expansion and customization.
+The project leverages the power of **SvelteKit** for a blazing-fast frontend, **FastAPI** with **SQLModel** for efficient backend operations, and integrates with services like **Clerk** for authentication and **UploadThing** for file handling. The modular structure allows for easy expansion and customization.
 
 Key areas of the platform include:
 
 - `routes/(main)`: Core pages like homepage, artist dashboard, and release management.
 - `routes/(website)`: Artist-specific public-facing pages.
 - `lib/components`: Reusable UI components for consistent design.
-- `lib/db`: Database schema and operations using Drizzle ORM.
 - `lib/server`: Server-side utilities and integrations.
 
 This project aims to provide a **robust and scalable solution** for music distribution while remaining open-source and community-driven. It serves as an excellent foundation for music tech enthusiasts, independent labels, and developers looking to contribute to the music industry's digital transformation.
@@ -115,7 +114,7 @@ This project aims to provide a **robust open-source platform for music distribut
 - 🌐 **Social Media Integration:** Easy sharing of releases and updates across various platforms.
 - 💰 **Royalty Tracking:** Transparent calculations and management of royalty payouts.
 - ⚡ **SvelteKit Powered:** Utilize SvelteKit for a blazing-fast, reactive user interface.
-- 🗃️ **Drizzle ORM:** Efficient database operations with type-safe queries.
+- 🗃️ **SQLModel:** Efficient database operations with type-safe queries.
 - 🔐 **Clerk Authentication:** Secure and customizable user authentication and management.
 - 🗂️ **UploadThing Integration:** Robust file handling for music and image uploads.
 - 🎨 **Customizable UI Components:** Reusable components for consistent design across the platform.
