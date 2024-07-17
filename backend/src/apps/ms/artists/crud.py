@@ -10,7 +10,8 @@ from src.apps.ms.artists.schemas import (
 
 # Define CRUD operations for the 'Artist' model
 CRUDArtist = CRUDBase[
-    Artist, ArtistCreateInternal, ArtistUpdate, ArtistUpdateInternal, ArtistDelete]
+    Artist, ArtistCreateInternal, ArtistUpdate, ArtistUpdateInternal, ArtistDelete
+]
 
 # Create an instance of CRUDArtist for the 'Artist' model
 crud_artists = CRUDArtist(Artist)
