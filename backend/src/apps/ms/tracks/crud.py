@@ -1,7 +1,7 @@
 # Local Dependencies
 from src.core.common.crud import CRUDBase
-from src.apps.e.tracks.models import Track
-from src.apps.e.tracks.schemas import (
+from src.apps.ms.tracks.models import Track
+from src.apps.ms.tracks.schemas import (
     TrackCreateInternal,
     TrackUpdate,
     TrackUpdateInternal,

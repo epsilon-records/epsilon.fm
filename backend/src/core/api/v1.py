@@ -8,7 +8,7 @@ from src.apps.system.rate_limits.routers.v1 import router as rate_limits_router
 from src.apps.admin.users.routers.v1 import router as users_router
 from src.apps.admin.tasks.routers.v1 import router as tasks_router
 from src.apps.blog.posts.routers.v1 import router as posts_router
-from src.apps.e.artists.routers.v1 import router as artists_router
+from src.apps.ms.artists.routers.v1 import router as artists_router
 from src.apps.system.utils.routers.v1 import router as utils_router
 
 # Create an APIRouter instance for versioning and prefixing routes

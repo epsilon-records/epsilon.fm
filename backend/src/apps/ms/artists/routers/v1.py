@@ -11,14 +11,14 @@ import fastapi
 from src.core.api.dependencies import get_current_user, get_current_superuser
 from src.apps.admin.users.schemas import UserRead
 from src.apps.admin.users.crud import crud_users
-from src.apps.e.artists.crud import crud_artists
+from src.apps.ms.artists.crud import crud_artists
 from src.core.db.session import async_get_db
 from src.core.utils.cache import cache
 from src.core.exceptions.http_exceptions import (
     NotFoundException,
     ForbiddenException,
 )
-from src.apps.e.artists.schemas import (
+from src.apps.ms.artists.schemas import (
     Artist,
     ArtistCreate,
     ArtistUpdate,
