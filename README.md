@@ -153,8 +153,6 @@ Before you begin, ensure you have the following prerequisites installed and conf
 
 **Note:** Soon, there will be an additional option for development using Docker containers.
 
-# Frontend
-
 ## Developing
 
 Once you've cloned the code and installed dependencies with `bun install`, you can start the development server as follows:
@@ -175,30 +173,6 @@ bun run build
 ```
 
 You can preview the production build with `bun run preview`.
-
-# Backend
-
-## Installing Poetry
-
-Poetry is a dependency manager for Python. Follow the steps below to install Poetry:
-
-1. Open a terminal.
-
-2. Run the following command to install Poetry using pip:
-
-   ```bash
-   pip install poetry
-   ```
-
-3. Verify the installation by running:
-
-   ```bash
-   poetry --version
-   ```
-
-   This should display the installed Poetry version.
-
-Now that the requirements are met, you can begin working on your project. For more details for a manual setup, please refer to the [Backend README](backend/README.md) section.
 
 ## Todo
 
