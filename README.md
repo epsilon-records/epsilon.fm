@@ -42,12 +42,6 @@
   <a href="https://redis.io/">
       <img src="https://img.shields.io/badge/Redis-DC382D?logo=redis&logoColor=fff&style=for-the-badge" alt="Redis">
   </a>
-  <a href="https://docs.docker.com/compose/">
-      <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff&style=for-the-badge" alt="Docker">
-  </a>
-  <a href="https://nginx.org/en/">
-      <img src="https://img.shields.io/badge/NGINX-009639?logo=nginx&logoColor=fff&style=for-the-badge" alt=NGINX>
-  </a>
   <a href="https://swagger.io/">
     <img src="https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=Swagger&logoColor=white" alt="Swagger">
   </a>
