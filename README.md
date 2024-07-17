@@ -215,6 +215,7 @@ Now that the requirements are met, you can begin working on your project. For mo
 [x] Implement component workshop (Storybook)
 [x] Implement visual testing (Chromatic)
 [x] Implement end-to-end testing (Checkly, Meticulous)
+[x] Implement speed testing (Vercel)
 [ ] Implement database backups (SimpleBackups)
 [x] Implement design system (TailwindCSS)
 [x] Implement frontend authentication (Clerk)
