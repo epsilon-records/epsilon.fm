@@ -1,4 +1,4 @@
 {
 	"**/*.ts": ["prettier --write --list-different", "prettier --check", "eslint"],
-	"backend/**/*.py": ["echo 'test' && cd ./backend && poetry run black"]
+	"backend/**/*.py": ["poetry --directory ./backend run black"]
 }
