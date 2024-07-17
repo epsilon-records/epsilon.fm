@@ -196,16 +196,22 @@ Now that the requirements are met, you can begin working on your project. For mo
 [x] Bootstrap mobile and desktop applications (Tauri)
 [x] Implement CI/CD for frontend application (Vercel)
 [x] Implement CI/CD for backend API (DigitalOcean)
+[x] Implement dependabot CI/CD (GitHub Actions)
 [x] Implement frontend logging (Pino)
 [x] Implement log drain (Logflare)
-[x] Implement frontend authentication (Clerk)
-[x] Implement backend API authentication (OAuth2.0)
 [x] Implement error handling (Sentry)
 [x] Implement analytics (Posthog, Vercel)
 [x] Implement testing (Checkly, Meticulous)
+[x] Implement component workshop (Storybook)
+[x] Implement visual testing (Chromatic)
+[ ] Implement database backups (SimpleBackups)
+[x] Implement design system (TailwindCSS)
+[x] Implement frontend authentication (Clerk)
+[x] Implement backend API authentication (OAuth2.0)
 [x] Implement artist profiles (SQLModel, FastAPI)
 [x] Implement artist websites (SvelteKit)
 [x] Implement file uploads (UploadThing)
+[ ] Implement profile form (Superforms)
 [ ] Implement release form (Superforms)
 [ ] Implement track form (Superforms)
 [ ] Implement custom 404 page (SvelteKit)
@@ -215,17 +221,6 @@ Now that the requirements are met, you can begin working on your project. For mo
 [ ] Implement database migrations (Alembic)
 [ ] Implement rate limiting (Redis)
 [ ] Implement caching (Redis)
-[x] Setup component workshop (Storybook)
-[ ] Setup database backup (SimpleBackups)
-[ ] Implement design system (TailwindCSS)
-
-[ ] Implement code completion (Epsilon)
-[x] Remove server side rendering by switching to backend API (required for Tauri)top application UI components
-
-```
-
-[ ] Remove server side rendering by switching to backend API (required for Tauri)
-
 ```
 
 ## License
@@ -236,6 +231,8 @@ Epsilon is released under the [MIT license](LICENSE).
 
 [contribute-url]: https://github.com/epsilon-records/epsilon.fm/blob/main/CONTRIBUTING.md
 [contribute-image]: https://img.shields.io/badge/PRs-welcome-blue.svg
+
+```
 
 ```
 
