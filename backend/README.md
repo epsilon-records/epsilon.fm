@@ -7,13 +7,13 @@ After completing the requirements outlined in the **📋 Prerequisites** section
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/joaoflaviosantos/fastapi-async-sqlmodel-boilerplate.git
+   git clone https://github.com/epsilon-records/epsilon.fm.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd fastapi-async-sqlmodel-boilerplate/backend
+   cd epsilon.fm/backend
    ```
 
 3. Install dependencies using Poetry:
