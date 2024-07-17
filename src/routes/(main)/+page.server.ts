@@ -3,7 +3,6 @@ import { clerkClient } from '@clerk/clerk-sdk-node';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	let slug = '';
-	console.log(locals);
 
 	// Use type assertion to access 'session'
 	const session = (locals as { session?: { claims?: { org_id?: string } } }).session;

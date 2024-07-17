@@ -18,8 +18,6 @@ export const handleSubdomain: Handle = async ({ event, resolve }) => {
 	const { url } = event.request;
 	const parsedUrl = new URL(url);
 	const subdomain = parsedUrl.hostname.split('.')[0]; // Get the subdomain
-	console.log(parsedUrl);
-	console.log(subdomain);
 	// Define your subdomain to route mappings
 	const subdomainRoutes: SubdomainRoutes = {
 		sub1: '/route1',
@@ -30,7 +28,6 @@ export const handleSubdomain: Handle = async ({ event, resolve }) => {
 	if (subdomain in subdomainRoutes) {
 		const newUrl = new URL(parsedUrl);
 		newUrl.pathname = subdomainRoutes[subdomain as keyof SubdomainRoutes];
-		console.log(newUrl.toString());
 		return redirect(302, newUrl.toString());
 	}
 

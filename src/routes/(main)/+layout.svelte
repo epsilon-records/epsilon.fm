@@ -8,8 +8,6 @@
 	import { onMount } from 'svelte';
 	export let data: LayoutServerData & PageData;
 
-	console.log(data);
-
 	onMount(() => {
 		document.body.style.backgroundImage = '';
 		document.body.style.backgroundSize = '';

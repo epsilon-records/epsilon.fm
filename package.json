@@ -84,6 +84,8 @@
 		"lint-staged": "^15.2.7",
 		"lucide-svelte": "^0.408.0",
 		"mode-watcher": "^0.4.0",
+		"pino": "^9.3.1",
+		"pino-logflare": "^0.4.2",
 		"postgres": "^3.4.4",
 		"posthog-js": "^1.147.0",
 		"stream-chat": "^8.37.0",

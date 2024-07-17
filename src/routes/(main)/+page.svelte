@@ -10,11 +10,15 @@
 	import { createUploader } from '$lib/utils/uploadthing';
 	import { UploadDropzone } from '@uploadthing/svelte';
 	import { slug } from '$lib/stores/main';
+	import pino from 'pino';
 	import type { PageData } from './$types.js';
+
+	const logger = pino();
+
 	export let data: PageData;
 	const uploader = createUploader('imageUploader', {
 		onClientUploadComplete: (res) => {
-			console.log(`onClientUploadComplete`, res);
+			logger.info(`onClientUploadComplete`, res);
 			alert('Upload Completed');
 		},
 		onUploadError: (error: Error) => {

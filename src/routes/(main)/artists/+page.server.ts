@@ -7,7 +7,6 @@ export const load: PageServerLoad = async () => {
 		offset: 0,
 		includeMembersCount: true
 	});
-	console.log(response);
 	return {
 		artists: JSON.parse(JSON.stringify(response.data))
 	};
