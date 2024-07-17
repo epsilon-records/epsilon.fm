@@ -223,7 +223,6 @@ Now that the requirements are met, you can begin working on your project. For mo
 [ ] Implement custom 404 page (SvelteKit)
 [ ] Implement custom 500 page (SvelteKit)
 [ ] Implement custom domains (Vercel)
-[ ] Implement rate limiting (Redis, FastAPI)
 [ ] Implement database migrations (Alembic)
 [ ] Implement rate limiting (Redis)
 [ ] Implement caching (Redis)
