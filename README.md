@@ -202,7 +202,7 @@ Now that the requirements are met, you can begin working on your project. For mo
 [x] Setup remote code repository (GitHub)
 [x] Setup project directory structure
 [x] Setup project package managers (Bun, Poetry)
-[x] Setup project code formating (Biome, Ruff)
+[x] Setup project code formating (Prettier, Ruff)
 [x] Setup project documentation (LICENSE, README.md, CODE_OF_CONDUCT.md)
 [x] Setup PostgreSQL datebase (Vercel)
 [x] Setup Redis database (Upstash)
