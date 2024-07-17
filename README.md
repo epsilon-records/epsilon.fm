@@ -57,9 +57,6 @@
   <a href="https://shadcn-svelte.com/">
     <img src="https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white" alt="shadcn/ui">
   </a>
-  <a href="https://rust-lang.org/">
-    <img src="https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white" alt="Rust">
-  </a>
   <a href="https://playwright.dev/">
     <img src="https://img.shields.io/badge/Playwright-45ba4b?style=for-the-badge&logo=Playwright&logoColor=white" alt="Playwright">
   </a>
