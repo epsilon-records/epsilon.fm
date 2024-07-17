@@ -190,8 +190,9 @@ Now that the requirements are met, you can begin working on your project. For mo
 
 ```
 [x] Setup project directory structure
+[x] Setup datebase (PostgreSQL)
 [x] Bootstrap frontend application (SvelteKit)
-[x] Bootstrap backend API (FastAPI, SQLModel)
+[x] Bootstrap backend API (FastAPI)
 [x] Bootstrap API documentation (FastAPI)
 [x] Bootstrap mobile and desktop applications (Tauri)
 [x] Implement CI/CD for frontend application (Vercel)
@@ -208,9 +209,14 @@ Now that the requirements are met, you can begin working on your project. For mo
 [x] Implement design system (TailwindCSS)
 [x] Implement frontend authentication (Clerk)
 [x] Implement backend API authentication (OAuth2.0)
-[x] Implement artist profiles (SQLModel, FastAPI)
-[x] Implement artist websites (SvelteKit)
 [x] Implement file uploads (UploadThing)
+[x] Implement backend artist model (SQLModel)
+[ ] Implement backend release model (SQLModel)
+[ ] Implement backend track model (SQLModel)
+[x] Implement artist website (SvelteKit)
+[ ] Implement frontend artist model (Zod)
+[ ] Implement frontend release model (Zod)
+[ ] Implement frontend track model (Zod)
 [ ] Implement profile form (Superforms)
 [ ] Implement release form (Superforms)
 [ ] Implement track form (Superforms)
