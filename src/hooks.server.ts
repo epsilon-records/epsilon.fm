@@ -22,7 +22,6 @@ export const handleSubdomain: Handle = async ({ event, resolve }) => {
 	const subdomainRoutes: SubdomainRoutes = {
 		sub1: '/route1',
 		sub2: '/route2'
-		// Add more mappings as needed
 	};
 
 	if (subdomain in subdomainRoutes) {
