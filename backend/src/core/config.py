@@ -27,7 +27,7 @@ class AppSettings(BaseSettings):
     LICENSE_IDENTIFIER: str | None = config("LICENSE_IDENTIFIER", default=None)
     CONTACT_NAME: str | None = config("CONTACT_NAME", default=None)
     CONTACT_EMAIL: str | None = config("CONTACT_EMAIL", default=None)
-    SERVERS = config("BASE_URL", default=None)
+    BASE_URL: str | None = config("BASE_URL", default=None)
 
 
 class CryptSettings(BaseSettings):
