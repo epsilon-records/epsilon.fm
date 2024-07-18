@@ -5,7 +5,7 @@ import { initializeClerkClient } from 'clerk-sveltekit/client';
 import { PUBLIC_CLERK_PUBLISHABLE_KEY } from '$env/static/public';
 
 Sentry.init({
-	dsn: process.env.SENTRY_DSN,
+	dsn: import.meta.env.SENTRY_DSN,
 	tracesSampleRate: 1,
 	replaysSessionSampleRate: 0.1,
 	replaysOnErrorSampleRate: 1,
