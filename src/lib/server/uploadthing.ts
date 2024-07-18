@@ -1,8 +1,6 @@
 import { createUploadthing } from 'uploadthing/server';
 import type { FileRouter } from 'uploadthing/server';
-import pino from 'pino';
-
-const logger = pino();
+import logger from '$lib/logger/logger';
 
 const f = createUploadthing();
 

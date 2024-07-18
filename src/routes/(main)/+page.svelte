@@ -10,10 +10,8 @@
 	import { createUploader } from '$lib/utils/uploadthing';
 	import { UploadDropzone } from '@uploadthing/svelte';
 	import { slug } from '$lib/stores/main';
-	import pino from 'pino';
+	import logger from '$lib/logger/logger';
 	import type { PageData } from './$types.js';
-
-	const logger = pino();
 
 	export let data: PageData;
 	const uploader = createUploader('imageUploader', {
