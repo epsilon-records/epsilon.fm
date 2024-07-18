@@ -26,6 +26,10 @@ initializeClerkClient(PUBLIC_CLERK_PUBLISHABLE_KEY, {
 
 export const handleError: HandleClientError = Sentry.handleErrorWithSentry(
 	async ({ error, event }) => {
-		logger.error(error, event);
+		if (error instanceof Error) {
+			logger.error(error.message, { error, event });
+		} else {
+			logger.error('An unknown error occurred', { error, event });
+		}
 	}
 );
