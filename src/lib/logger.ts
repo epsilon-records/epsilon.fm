@@ -5,8 +5,8 @@ import { logflarePinoVercel } from 'pino-logflare';
 // Server logs are going to: https://logflare.app/sources/32465
 
 const { stream, send } = logflarePinoVercel({
-	apiKey: process.env.LOGFLARE_API_KEY!,
-	sourceToken: process.env.LOGFLARE_SOURCE_TOKEN!
+	apiKey: import.meta.env.LOGFLARE_API_KEY!,
+	sourceToken: import.meta.env.LOGFLARE_SOURCE_TOKEN!
 });
 
 // create pino logger
@@ -20,8 +20,8 @@ const logger = pino(
 		},
 		level: 'debug',
 		base: {
-			env: process.env.NODE_ENV,
-			revision: process.env.VERCEL_GITHUB_COMMIT_SHA
+			env: import.meta.env.NODE_ENV,
+			revision: import.meta.env.VERCEL_GITHUB_COMMIT_SHA
 		}
 	},
 	stream
