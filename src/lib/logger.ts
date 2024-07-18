@@ -3,7 +3,7 @@ import { logflarePinoVercel } from 'pino-logflare';
 import {
 	PUBLIC_LOGFLARE_API_KEY,
 	PUBLIC_LOGFLARE_SOURCE_TOKEN,
-	PUBLIC_NODE_ENV,
+	PUBLIC_VERCEL_ENV,
 	PUBLIC_VERCEL_GIT_COMMIT_SHA
 } from '$env/static/public';
 
@@ -25,7 +25,7 @@ const logger = pino(
 		},
 		level: 'debug',
 		base: {
-			env: PUBLIC_NODE_ENV,
+			env: PUBLIC_VERCEL_ENV,
 			revision: PUBLIC_VERCEL_GIT_COMMIT_SHA
 		}
 	},
