@@ -16,5 +16,11 @@ export default defineConfig({
 	],
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
+	},
+	define: {
+		'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+		'process.env.VERCEL_GITHUB_COMMIT_SHA': JSON.stringify(process.env.VERCEL_GITHUB_COMMIT_SHA),
+		'import.meta.env.MODE': JSON.stringify(process.env.NODE_ENV),
+		'import.meta.env.VERCEL_GITHUB_COMMIT_SHA': JSON.stringify(process.env.VERCEL_GITHUB_COMMIT_SHA)
 	}
 });

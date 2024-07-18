@@ -10,6 +10,8 @@ const { stream, send } = logflarePinoVercel({
 	sourceToken: PUBLIC_LOGFLARE_SOURCE_TOKEN
 });
 
+const isBrowser = typeof window !== 'undefined';
+
 // create pino logger
 const logger = pino(
 	{
@@ -21,8 +23,10 @@ const logger = pino(
 		},
 		level: 'debug',
 		base: {
-			env: process.env.NODE_ENV,
-			revision: process.env.VERCEL_GITHUB_COMMIT_SHA
+			env: isBrowser ? import.meta.env.MODE : process.env.NODE_ENV,
+			revision: isBrowser
+				? import.meta.env.VITE_VERCEL_GITHUB_COMMIT_SHA
+				: process.env.VERCEL_GITHUB_COMMIT_SHA
 		}
 	},
 	stream
