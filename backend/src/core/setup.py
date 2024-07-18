@@ -198,7 +198,10 @@ def create_application(
                 "email": settings.CONTACT_EMAIL,
             },
             "version": settings.APP_VERSION,
-            "license_info": {"name": settings.LICENSE_NAME},
+            "license_info": {
+                "name": settings.LICENSE_NAME,
+                "identifier": settings.LICENSE_IDENTIFIER,
+            },
         }
         kwargs.update(to_update)
 
@@ -230,7 +233,9 @@ def create_application(
     if isinstance(settings, ClientSideCacheSettings):
         # Add middleware for client-side caching with specified max age if environment is not local (development)
         if settings.ENVIRONMENT.value != settings.ENVIRONMENT.LOCAL.value:
-            application.add_middleware(ClientCacheMiddleware, max_age=settings.CLIENT_CACHE_MAX_AGE)
+            application.add_middleware(
+                ClientCacheMiddleware, max_age=settings.CLIENT_CACHE_MAX_AGE
+            )
 
     if isinstance(settings, CORSSettings):
         # Add middleware for CORS (Cross-Origin Resource Sharing)

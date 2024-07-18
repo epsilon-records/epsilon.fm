@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "Epsilon Managmement System"
-version = "0.1.0"
-description = "An opinionated yet highly extensible and fully asynchronous FastAPI boilerplate, embracing the Django-like folder structure. 🚀 Built with FastAPI, SQLModel (Pydantic v2 + SQLAlchemy 2.0), Alembic, PostgreSQL, Redis and ARQ. 📈"
+name = "Epsilon Managmement System API"
+version = "0.0.2"
+description = "A modern open-source music distribution platform."
 authors = ["Nathaniel Houk <nate@epsilonrecords.com>"]
 license = "MIT"
 readme = "README.md"

@@ -1,7 +1,7 @@
 # type: ignore
 
 # Built-in Dependencies
-from typing import Any, List, Union
+from typing import Any, List
 from enum import Enum
 import os
 
@@ -18,10 +18,13 @@ config = Config(env_path)
 
 
 class AppSettings(BaseSettings):
-    PROJECT_NAME: str = config("PROJECT_NAME", default="FastAPI Async SQLModel Boilerplate")
+    PROJECT_NAME: str = config(
+        "PROJECT_NAME", default="FastAPI Async SQLModel Boilerplate"
+    )
     PROJECT_DESCRIPTION: str | None = config("PROJECT_DESCRIPTION", default=None)
     APP_VERSION: str | None = config("APP_VERSION", default="0.0.1")
     LICENSE_NAME: str | None = config("LICENSE_NAME", default=None)
+    LICENSE_IDENTIFIER: str | None = config("LICENSE_IDENTIFIER", default=None)
     CONTACT_NAME: str | None = config("CONTACT_NAME", default=None)
     CONTACT_EMAIL: str | None = config("CONTACT_EMAIL", default=None)
 
@@ -29,7 +32,9 @@ class AppSettings(BaseSettings):
 class CryptSettings(BaseSettings):
     SECRET_KEY: str = config("SECRET_KEY")
     ALGORITHM: str = config("ALGORITHM", default="HS256")
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = config("ACCESS_TOKEN_EXPIRE_MINUTES", default=1440)
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = config(
+        "ACCESS_TOKEN_EXPIRE_MINUTES", default=1440
+    )
     REFRESH_TOKEN_EXPIRE_DAYS: int = config("REFRESH_TOKEN_EXPIRE_DAYS", default=7)
 
 
@@ -83,15 +88,18 @@ class RedisCacheSettings(BaseSettings):
     REDIS_CACHE_PORT: int = config("REDIS_CACHE_PORT", default=6379)
     REDIS_CACHE_USERNAME: str = config("REDIS_CACHE_USERNAME", default="")
     REDIS_CACHE_PASSWORD: str = config("REDIS_CACHE_PASSWORD", default="nosecurity")
-    REDIS_CACHE_URL: str = (
-        f"rediss://{REDIS_CACHE_USERNAME}:{REDIS_CACHE_PASSWORD}@{REDIS_CACHE_HOST}:{REDIS_CACHE_PORT}"
-    )
+    REDIS_CACHE_URL: str = f"rediss://{REDIS_CACHE_USERNAME}:{REDIS_CACHE_PASSWORD}@{REDIS_CACHE_HOST}:{REDIS_CACHE_PORT}"
 
     @field_validator("REDIS_CACHE_URL", mode="after")
-    def assemble_redis_cache_connection(cls, v: str | None, info: ValidationInfo) -> Any:
+    def assemble_redis_cache_connection(
+        cls, v: str | None, info: ValidationInfo
+    ) -> Any:
         if isinstance(v, str):
             # If username and password are not set, use Redis URL connection string without security credentials
-            if info.data["REDIS_CACHE_USERNAME"] == "" and info.data["REDIS_CACHE_PASSWORD"] == "":
+            if (
+                info.data["REDIS_CACHE_USERNAME"] == ""
+                and info.data["REDIS_CACHE_PASSWORD"] == ""
+            ):
                 return f"rediss://{info.data['REDIS_CACHE_HOST']}:{info.data['REDIS_CACHE_PORT']}"
             # If username and password are set, but without security, use Redis URL connection string without password
             if info.data["REDIS_CACHE_PASSWORD"] == "nosecurity":
@@ -104,19 +112,22 @@ class RedisQueueSettings(BaseSettings):
     REDIS_QUEUE_PORT: int = config("REDIS_QUEUE_PORT", default=6379)
     REDIS_QUEUE_USERNAME: str = config("REDIS_QUEUE_USERNAME", default="")
     REDIS_QUEUE_PASSWORD: str = config("REDIS_QUEUE_PASSWORD", default="")
-    REDIS_QUEUE_URL: str = (
-        f"rediss://{REDIS_QUEUE_USERNAME}:{REDIS_QUEUE_PASSWORD}@{REDIS_QUEUE_HOST}:{REDIS_QUEUE_PORT}"
-    )
+    REDIS_QUEUE_URL: str = f"rediss://{REDIS_QUEUE_USERNAME}:{REDIS_QUEUE_PASSWORD}@{REDIS_QUEUE_HOST}:{REDIS_QUEUE_PORT}"
 
     @field_validator("REDIS_QUEUE_URL", mode="after")
-    def assemble_redis_queue_connection(cls, v: str | None, info: ValidationInfo) -> Any:
+    def assemble_redis_queue_connection(
+        cls, v: str | None, info: ValidationInfo
+    ) -> Any:
         if isinstance(v, str):
             # If host is not set, use 'REDIS_CACHE_URL' as Redis Queue URL connection string
             if info.data["REDIS_QUEUE_HOST"] == "":
                 redis_cache_settings = RedisCacheSettings()
                 return redis_cache_settings.REDIS_CACHE_URL
             # If username and password are not set, use Redis URL connection string without security credentials
-            if info.data["REDIS_QUEUE_USERNAME"] == "" and info.data["REDIS_QUEUE_PASSWORD"] == "":
+            if (
+                info.data["REDIS_QUEUE_USERNAME"] == ""
+                and info.data["REDIS_QUEUE_PASSWORD"] == ""
+            ):
                 return f"rediss://{info.data['REDIS_QUEUE_HOST']}:{info.data['REDIS_QUEUE_PORT']}"
             # If username and password are set, but without security, use Redis URL connection string without password
             if info.data["REDIS_QUEUE_PASSWORD"] == "nosecurity":
@@ -129,12 +140,12 @@ class RedisRateLimiterSettings(BaseSettings):
     REDIS_RATE_LIMIT_PORT: int = config("REDIS_RATE_LIMIT_PORT", default=6379)
     REDIS_RATE_LIMIT_USERNAME: str = config("REDIS_RATE_LIMIT_USERNAME", default="")
     REDIS_RATE_LIMIT_PASSWORD: str = config("REDIS_RATE_LIMIT_PASSWORD", default="")
-    REDIS_RATE_LIMIT_URL: str = (
-        f"rediss://{REDIS_RATE_LIMIT_USERNAME}:{REDIS_RATE_LIMIT_PASSWORD}@{REDIS_RATE_LIMIT_HOST}:{REDIS_RATE_LIMIT_PORT}"
-    )
+    REDIS_RATE_LIMIT_URL: str = f"rediss://{REDIS_RATE_LIMIT_USERNAME}:{REDIS_RATE_LIMIT_PASSWORD}@{REDIS_RATE_LIMIT_HOST}:{REDIS_RATE_LIMIT_PORT}"
 
     @field_validator("REDIS_RATE_LIMIT_URL", mode="after")
-    def assemble_redis_rate_limit_connection(cls, v: str | None, info: ValidationInfo) -> Any:
+    def assemble_redis_rate_limit_connection(
+        cls, v: str | None, info: ValidationInfo
+    ) -> Any:
         if isinstance(v, str):
             # If host is not set, use 'REDIS_CACHE_URL' as Redis Queue URL connection string
             if info.data["REDIS_RATE_LIMIT_HOST"] == "":
@@ -166,11 +177,17 @@ class ClientSideCacheSettings(BaseSettings):
 
 
 class CORSSettings(BaseSettings):
-    CORS_ALLOW_ORIGINS: List[str] | str = config("CORS_ALLOW_ORIGINS", default="*").split(",")
+    CORS_ALLOW_ORIGINS: List[str] | str = config(
+        "CORS_ALLOW_ORIGINS", default="*"
+    ).split(",")
     CORS_ALLOW_METHODS: List[str] | str = config("CORS_ALLOW_METHODS", default="*").upper().split(",")  # fmt: skip
-    CORS_ALLOW_HEADERS: List[str] | str = config("CORS_ALLOW_HEADERS", default="*").split(",")
+    CORS_ALLOW_HEADERS: List[str] | str = config(
+        "CORS_ALLOW_HEADERS", default="*"
+    ).split(",")
     CORS_ALLOW_CREDENTIALS: bool = config("CORS_ALLOW_CREDENTIALS", default="False").lower() == "true"  # fmt: skip
-    CORS_EXPOSE_HEADERS: List[str] | str = config("CORS_EXPOSE_HEADERS", default="").split(",")
+    CORS_EXPOSE_HEADERS: List[str] | str = config(
+        "CORS_EXPOSE_HEADERS", default=""
+    ).split(",")
     CORS_MAX_AGE: int = int(config("CORS_MAX_AGE", default="600"))
 
 
