@@ -207,7 +207,7 @@ You can preview the production build with `bun run preview`.
 [ ] Implement database backups (SimpleBackups)
 [x] Implement design system (TailwindCSS)
 [x] Implement frontend authentication (Clerk)
-[x] Implement backend API authentication (OAuth2.0)
+[x] Implement backend API authentication (OAuth2)
 [x] Implement file uploads (UploadThing)
 [x] Implement backend artist model (SQLModel)
 [ ] Implement backend release model (SQLModel)
