@@ -6,7 +6,7 @@ from typing import Union, Dict, Any
 # Third-Party Dependencies
 from fastapi.openapi.docs import get_swagger_ui_html, get_redoc_html
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi import FastAPI, APIRouter, Depends
+from fastapi import FastAPI, APIRouter
 from fastapi.openapi.utils import get_openapi
 from arq.connections import RedisSettings
 from arq import create_pool
@@ -19,7 +19,6 @@ from src.core.middlewares.client_cache_middleware import ClientCacheMiddleware
 from src.apps.admin.users.management.commands import create_first_superuser
 from src.apps.system.tiers.management.commands import create_first_tier
 from src.apps.blog.posts.management.commands import create_first_post
-from src.core.api.dependencies import get_current_superuser
 from src.core.db.session import async_engine as engine
 from src.core.utils.log import log_system_info
 from src.core.utils import cache, rate_limit
@@ -268,9 +267,6 @@ def create_application(
             True or settings.ENVIRONMENT != EnvironmentOption.PRODUCTION
         ):  # TODO: Remove True short circuit
             docs_router = APIRouter()
-            if settings.ENVIRONMENT != EnvironmentOption.LOCAL:
-                # Add dependency for accessing documentation routes only in non-local environments
-                docs_router = APIRouter(dependencies=[Depends(get_current_superuser)])
 
             # Create custom routes for API documentation
             @docs_router.get("/docs", include_in_schema=False)
