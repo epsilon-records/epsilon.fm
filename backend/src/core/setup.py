@@ -202,6 +202,7 @@ def create_application(
                 "name": settings.LICENSE_NAME,
                 "identifier": settings.LICENSE_IDENTIFIER,
             },
+            "servers": [{"url": settings.BASE_URL}],
         }
         kwargs.update(to_update)
 
