@@ -1,6 +1,6 @@
 import { createUploadthing } from 'uploadthing/server';
 import type { FileRouter } from 'uploadthing/server';
-import logger from '$lib/server/logger';
+import logger from '$lib/logger';
 
 const f = createUploadthing();
 

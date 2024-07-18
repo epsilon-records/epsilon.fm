@@ -10,7 +10,7 @@
 	import { createUploader } from '$lib/utils/uploadthing';
 	import { UploadDropzone } from '@uploadthing/svelte';
 	import { slug } from '$lib/stores/main';
-	import logger from '$lib/server/logger';
+	import logger from '$lib/logger';
 	import type { PageData } from './$types.js';
 
 	export let data: PageData;

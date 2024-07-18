@@ -1,4 +1,4 @@
-import logger from '$lib/server/logger';
+import logger from '$lib/logger';
 import * as Sentry from '@sentry/sveltekit';
 import type { HandleClientError } from '@sveltejs/kit';
 import { initializeClerkClient } from 'clerk-sveltekit/client';
