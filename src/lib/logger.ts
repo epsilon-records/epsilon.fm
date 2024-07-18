@@ -12,6 +12,14 @@ const { stream, send } = logflarePinoVercel({
 
 const isBrowser = typeof window !== 'undefined';
 
+// Safe access to environment variables
+const env = isBrowser
+	? import.meta.env.MODE || 'development'
+	: process.env.NODE_ENV || 'development';
+const revision = isBrowser
+	? import.meta.env.VITE_VERCEL_GITHUB_COMMIT_SHA || 'unknown'
+	: process.env.VERCEL_GITHUB_COMMIT_SHA || 'unknown';
+
 const logger = pino(
 	{
 		browser: {
@@ -22,10 +30,8 @@ const logger = pino(
 		},
 		level: 'debug',
 		base: {
-			env: isBrowser ? import.meta.env.MODE : process.env.MODE,
-			revision: isBrowser
-				? import.meta.env.VITE_VERCEL_GITHUB_COMMIT_SHA
-				: process.env.VERCEL_GITHUB_COMMIT_SHA
+			env: env,
+			revision: revision
 		}
 	},
 	stream
