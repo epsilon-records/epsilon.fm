@@ -15,3 +15,4 @@
 		</script>
 	{/if}
 </svelte:head>
+<slot />
