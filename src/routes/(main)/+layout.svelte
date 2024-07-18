@@ -25,8 +25,8 @@
 	</main>
 	<footer>
 		<p class="text-sm text-muted-foreground">Made with ❤️ by Epsilon Records</p>
-		<Badge class="m-2" variant={data.nodeEnv == 'development' ? 'outline' : 'default'}
-			>{data.nodeEnv}: {data.gitCommitSha ? data.gitCommitSha : 'latest'}</Badge
+		<Badge class="m-2" variant={data.env == 'development' ? 'outline' : 'default'}
+			>{data.env}: {data.gitCommitSha ? data.gitCommitSha : 'latest'}</Badge
 		>
 	</footer>
 </div>
