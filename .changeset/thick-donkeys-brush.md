@@ -1,5 +1,5 @@
 ---
-'epsilon-frontend': patch
+'epsilon': patch
 ---
 
 bump dependencies
