@@ -36,7 +36,7 @@ from src.core.utils.paginated import (
 router = fastapi.APIRouter(tags=["Artists"])
 
 
-@router.post("/ms/artists/user/{user_id}", response_model=ArtistRead, status_code=201)
+@router.post("/artists/user/{user_id}", response_model=ArtistRead, status_code=201)
 async def write_artist(
     request: Request,
     user_id: UUID,
@@ -63,11 +63,9 @@ async def write_artist(
     return await crud_artists.create(db=db, object=artist_internal)
 
 
-@router.get(
-    "/ms/artists/user/{user_id}", response_model=PaginatedListResponse[ArtistRead]
-)
+@router.get("/artists/user/{user_id}", response_model=PaginatedListResponse[ArtistRead])
 @cache(
-    key_prefix="ms:artists:user:{user_id}:page_{page}:items_per_page:{items_per_page}",
+    key_prefix="artists:user:{user_id}:page_{page}:items_per_page:{items_per_page}",
     resource_id_name="user_id",
     expiration=60,
 )
@@ -99,10 +97,8 @@ async def read_artists(
     )
 
 
-@router.get("/ms/artists/{artist_id}/user/{user_id}", response_model=ArtistRead)
-@cache(
-    key_prefix="ms:artists:user:{user_id}:artist_cache", resource_id_name="artist_id"
-)
+@router.get("/artists/{artist_id}/user/{user_id}", response_model=ArtistRead)
+@cache(key_prefix="artists:user:{user_id}:artist_cache", resource_id_name="artist_id")
 async def read_artist(
     request: Request,
     user_id: UUID,
@@ -129,9 +125,9 @@ async def read_artist(
     return db_artist
 
 
-@router.patch("/ms/artists/{artist_id}/user/{user_id}")
+@router.patch("/artists/{artist_id}/user/{user_id}")
 @cache(
-    "ms:artists:user:{user_id}:artist_cache",
+    "artists:user:{user_id}:artist_cache",
     resource_id_name="artist_id",
     pattern_to_invalidate_extra=["e:artists:user:{user_id}:*"],
 )
@@ -162,9 +158,9 @@ async def patch_artist(
     return {"message": "Artist updated"}
 
 
-@router.delete("/ms/artists/{artist_id}/user/{user_id}")
+@router.delete("/artists/{artist_id}/user/{user_id}")
 @cache(
-    "ms:artists:user:{user_id}:artist_cache",
+    "artists:user:{user_id}:artist_cache",
     resource_id_name="artist_id",
     pattern_to_invalidate_extra=["e:artists:user:{user_id}:*"],
 )
@@ -200,11 +196,11 @@ async def erase_artist(
 
 
 @router.delete(
-    "/ms/artists/{artist_id}/user/{user_id}/db",
+    "/artists/{artist_id}/user/{user_id}/db",
     dependencies=[Depends(get_current_superuser)],
 )
 @cache(
-    "ms:artists:user:{user_id}:artist_cache",
+    "artists:user:{user_id}:artist_cache",
     resource_id_name="artist_id",
     pattern_to_invalidate_extra=["e:artists:user:{user_id}:*"],
 )

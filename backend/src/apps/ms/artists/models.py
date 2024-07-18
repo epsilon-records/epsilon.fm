@@ -1,6 +1,5 @@
 # Built-in Dependencies
 from uuid import UUID
-from datetime import date
 from typing import Optional
 
 # Third-Party Dependencies
@@ -11,7 +10,6 @@ from src.core.common.models import SoftDeleteMixin, TimestampMixin, UUIDMixin, B
 
 
 class ArtistContentBase(Base):
-    id: Optional[int] = Field(default=None, primary_key=True)
     org_id: str = Field(max_length=255, unique=True)
     email: str = Field(max_length=255)
     biography: str = Field(
@@ -71,7 +69,9 @@ class ArtistContentBase(Base):
         default=None,
         max_length=255,
         description="Artist BandsInTown URL",
-        schema_extra={"examples": ["https://www.bandsintown.com/artists/exampleartist"]},
+        schema_extra={
+            "examples": ["https://www.bandsintown.com/artists/exampleartist"]
+        },
     )
 
 
