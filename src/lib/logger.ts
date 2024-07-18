@@ -2,8 +2,8 @@ import pino from 'pino';
 import { logflarePinoVercel } from 'pino-logflare';
 import { PUBLIC_LOGFLARE_API_KEY, PUBLIC_LOGFLARE_SOURCE_TOKEN } from '$env/static/public';
 
-// Browser logs are going to: https://logflare.app/sources/32475
-// Server logs are going to: https://logflare.app/sources/32465
+// Browser logs are draining to https://logflare.app/sources/32475
+// Server logs are draining to https://logflare.app/sources/32465
 
 const { stream, send } = logflarePinoVercel({
 	apiKey: PUBLIC_LOGFLARE_API_KEY,
@@ -12,7 +12,6 @@ const { stream, send } = logflarePinoVercel({
 
 const isBrowser = typeof window !== 'undefined';
 
-// create pino logger
 const logger = pino(
 	{
 		browser: {
@@ -23,7 +22,7 @@ const logger = pino(
 		},
 		level: 'debug',
 		base: {
-			env: isBrowser ? import.meta.env.MODE : process.env.NODE_ENV,
+			env: isBrowser ? import.meta.env.MODE : process.env.MODE,
 			revision: isBrowser
 				? import.meta.env.VITE_VERCEL_GITHUB_COMMIT_SHA
 				: process.env.VERCEL_GITHUB_COMMIT_SHA
