@@ -7,14 +7,14 @@
 </script>
 
 <svelte:head>
-	{#if PUBLIC_METICULOUS_RECORDING_TOKEN}
+	{#if PUBLIC_METICULOUS_RECORDING_TOKEN !== 'undefined'}
 		<script
 			data-project-id={PUBLIC_METICULOUS_RECORDING_TOKEN}
 			data-is-production-environment={PUBLIC_MODE === 'production'}
 			src="https://snippet.meticulous.ai/v1/meticulous.js"
 		></script>
 	{/if}
-	{#if PUBLIC_WEGLOT_API_KEY}
+	{#if PUBLIC_WEGLOT_API_KEY !== 'undefined'}
 		<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
 		<script>
 			Weglot.initialize({
