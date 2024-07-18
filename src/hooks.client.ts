@@ -1,14 +1,9 @@
 import logger from '$lib/logger/logger';
 import * as Sentry from '@sentry/sveltekit';
 import type { HandleClientError } from '@sveltejs/kit';
-// To use Clerk components:
 import { initializeClerkClient } from 'clerk-sveltekit/client';
-// Or for headless mode:
-// import { initializeClerkClient } from 'clerk-sveltekit/headless'
 import { PUBLIC_CLERK_PUBLISHABLE_KEY } from '$env/static/public';
 
-// If you don't want to use Session Replay, remove the `Replay` integration,
-// `replaysSessionSampleRate` and `replaysOnErrorSampleRate` options.
 Sentry.init({
 	dsn: 'https://d677a865e0302d7c39f61a919db18993@o337159.ingest.us.sentry.io/4507546312572928',
 	tracesSampleRate: 1,
