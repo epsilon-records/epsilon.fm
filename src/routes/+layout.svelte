@@ -18,7 +18,7 @@
 		<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
 		<script>
 			Weglot.initialize({
-				api_key: PUBLIC_WEGLOT_API_KEY
+				api_key: {@html PUBLIC_WEGLOT_API_KEY}
 			});
 		</script>
 	{/if}
