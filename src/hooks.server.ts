@@ -1,7 +1,7 @@
 import * as Sentry from '@sentry/sveltekit';
 import { sequence } from '@sveltejs/kit/hooks';
 import { handleClerk } from 'clerk-sveltekit/server';
-import { CLERK_SECRET_KEY } from '$env/static/private';
+import { SENTRY_DSN, CLERK_SECRET_KEY } from '$env/static/private';
 import { redirect } from '@sveltejs/kit';
 import type { Handle } from '@sveltejs/kit';
 
@@ -10,7 +10,7 @@ type SubdomainRoutes = {
 };
 
 Sentry.init({
-	dsn: process.env.SENTRY_DSN,
+	dsn: SENTRY_DSN,
 	tracesSampleRate: 1
 });
 
