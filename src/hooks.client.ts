@@ -2,10 +2,10 @@ import logger from '$lib/logger';
 import * as Sentry from '@sentry/sveltekit';
 import type { HandleClientError } from '@sveltejs/kit';
 import { initializeClerkClient } from 'clerk-sveltekit/client';
-import { PUBLIC_CLERK_PUBLISHABLE_KEY } from '$env/static/public';
+import { PUBLIC_SENTRY_DSN, PUBLIC_CLERK_PUBLISHABLE_KEY } from '$env/static/public';
 
 Sentry.init({
-	dsn: import.meta.env.SENTRY_DSN,
+	dsn: PUBLIC_SENTRY_DSN,
 	tracesSampleRate: 1,
 	replaysSessionSampleRate: 0.1,
 	replaysOnErrorSampleRate: 1,
