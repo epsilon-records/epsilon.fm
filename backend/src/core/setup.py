@@ -202,7 +202,9 @@ def create_application(
                 "name": settings.LICENSE_NAME,
                 "identifier": settings.LICENSE_IDENTIFIER,
             },
-            "servers": [{"url": settings.BASE_URL}],
+            "servers": [
+                {"url": settings.BASE_URL, "description": settings.ENVIRONMENT.value}
+            ],
         }
         kwargs.update(to_update)
 
@@ -211,6 +213,7 @@ def create_application(
         kwargs.update({"docs_url": None, "redoc_url": None, "openapi_url": None})
 
     # Create and configure FastAPI application
+    print(kwargs)
     application = FastAPI(**kwargs)
 
     # --------------------------------------
@@ -261,9 +264,11 @@ def create_application(
         application.add_event_handler("shutdown", close_redis_rate_limit_pool)
 
     if isinstance(settings, EnvironmentSettings):
-        if True or settings.ENVIRONMENT != EnvironmentOption.PRODUCTION:
+        if (
+            True or settings.ENVIRONMENT != EnvironmentOption.PRODUCTION
+        ):  # TODO: Remove True short circuit
             docs_router = APIRouter()
-            if False and settings.ENVIRONMENT != EnvironmentOption.LOCAL:
+            if settings.ENVIRONMENT != EnvironmentOption.LOCAL:
                 # Add dependency for accessing documentation routes only in non-local environments
                 docs_router = APIRouter(dependencies=[Depends(get_current_superuser)])
 
@@ -284,6 +289,7 @@ def create_application(
                     contact=application.contact,
                     version=application.version,
                     routes=application.routes,
+                    servers=application.servers,
                 )
 
                 # Add license info if it exists
