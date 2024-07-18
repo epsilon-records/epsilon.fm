@@ -1,5 +1,5 @@
 <svelte:head>
-	{#if import.meta.env.PUBLIC_METICULOUS_RECORDING_TOKEN}
+	<!-- {#if import.meta.env.PUBLIC_METICULOUS_RECORDING_TOKEN}
 		<script
 			data-project-id={import.meta.env.PUBLIC_METICULOUS_RECORDING_TOKEN}
 			data-is-production-environment={import.meta.env.MODE === 'production'}
@@ -13,6 +13,6 @@
 				api_key: import.meta.env.PUBLIC_WEGLOT_API_KEY
 			});
 		</script>
-	{/if}
+	{/if} -->
 </svelte:head>
 <slot />
