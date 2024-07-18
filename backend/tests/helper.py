@@ -28,7 +28,7 @@ def _get_token(username: str, password: str, client: TestClient):
     ```
     """
     return client.post(
-        "/api/v1/system/auth/login",
+        "/v1/system/auth/login",
         data={"username": username, "password": password},
         headers={"content-type": "application/x-www-form-urlencoded"},
     )

@@ -1,7 +1,5 @@
 # Third-Party Dependencies
-from sqlalchemy.ext.asyncio import AsyncEngine
 from fastapi.testclient import TestClient
-from sqlalchemy.future import select
 
 # Local Dependencies
 from src.core.config import settings
@@ -20,7 +18,7 @@ def test_auth_login(client: TestClient) -> None:
     global test_refresh_token_cookie
 
     response = client.post(
-        "/api/v1/system/auth/login",
+        "/v1/system/auth/login",
         data={"username": ADMIN_USERNAME, "password": ADMIN_PASSWORD},
         headers={"content-type": "application/x-www-form-urlencoded"},
     )
@@ -38,7 +36,7 @@ def test_auth_login(client: TestClient) -> None:
 def test_auth_refresh(client: TestClient) -> None:
     client.cookies.update({"refresh_token": test_refresh_token_cookie})
 
-    response = client.post("/api/v1/system/auth/refresh")
+    response = client.post("/v1/system/auth/refresh")
 
     response_json = response.json()
     new_access_token = response_json["access_token"]
@@ -51,7 +49,7 @@ def test_auth_refresh(client: TestClient) -> None:
 
 def test_auth_logout(client: TestClient) -> None:
     response_logout = client.post(
-        "/api/v1/system/auth/logout",
+        "/v1/system/auth/logout",
         headers={"Authorization": f"Bearer {test_access_token}"},
     )
 

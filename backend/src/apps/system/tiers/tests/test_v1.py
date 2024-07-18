@@ -22,7 +22,7 @@ def test_get_default_tier(client: TestClient) -> None:
     token = _get_token(username=ADMIN_USERNAME, password=ADMIN_PASSWORD, client=client)
 
     response = client.get(
-        url=f"/api/v1/system/tiers",
+        url="/v1/system/tiers",
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
 
@@ -45,7 +45,7 @@ def test_post_tier(client: TestClient) -> None:
     token = _get_token(username=ADMIN_USERNAME, password=ADMIN_PASSWORD, client=client)
 
     response = client.post(
-        "/api/v1/system/tiers",
+        "/v1/system/tiers",
         json=test_tier,
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
@@ -60,7 +60,7 @@ def test_get_multiple_tiers(client: TestClient) -> None:
     token = _get_token(username=ADMIN_USERNAME, password=ADMIN_PASSWORD, client=client)
 
     response = client.get(
-        url=f"/api/v1/system/tiers",
+        url="/v1/system/tiers",
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
 
@@ -75,7 +75,7 @@ def test_get_tier(client: TestClient) -> None:
     token = _get_token(username=ADMIN_USERNAME, password=ADMIN_PASSWORD, client=client)
 
     response = client.get(
-        url=f"/api/v1/system/tiers/{test_tier_id}",
+        url=f"/v1/system/tiers/{test_tier_id}",
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
 
@@ -92,7 +92,7 @@ def test_update_tier(client: TestClient) -> None:
     updated_tier_name = "Updated Test Tier"
 
     response = client.patch(
-        url=f"/api/v1/system/tiers/{test_tier_id}",
+        url=f"/v1/system/tiers/{test_tier_id}",
         json={"name": updated_tier_name},
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
@@ -108,7 +108,7 @@ def test_update_tier_to_default(client: TestClient) -> None:
     token = _get_token(username=ADMIN_USERNAME, password=ADMIN_PASSWORD, client=client)
 
     response = client.patch(
-        url=f"/api/v1/system/tiers/{test_tier_id}",
+        url=f"/v1/system/tiers/{test_tier_id}",
         json={"default": True},
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
@@ -126,7 +126,7 @@ def test_update_default_tier(client: TestClient) -> None:
     updated_default_tier_name = "Updated Default Tier"
 
     response = client.patch(
-        url=f"/api/v1/system/tiers/{test_default_tier_id}",
+        url=f"/v1/system/tiers/{test_default_tier_id}",
         json={"name": updated_default_tier_name},
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
@@ -143,7 +143,7 @@ def test_delete_tier(client: TestClient) -> None:
     token = _get_token(username=ADMIN_USERNAME, password=ADMIN_PASSWORD, client=client)
 
     response = client.delete(
-        url=f"/api/v1/system/tiers/{test_tier_id}",
+        url=f"/v1/system/tiers/{test_tier_id}",
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
 
@@ -158,7 +158,7 @@ def test_delete_default_tier(client: TestClient) -> None:
     token = _get_token(username=ADMIN_USERNAME, password=ADMIN_PASSWORD, client=client)
 
     response = client.delete(
-        url=f"/api/v1/system/tiers/{test_default_tier_id}",
+        url=f"/v1/system/tiers/{test_default_tier_id}",
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
 

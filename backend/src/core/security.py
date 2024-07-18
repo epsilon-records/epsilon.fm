@@ -22,12 +22,14 @@ ACCESS_TOKEN_EXPIRE_MINUTES = settings.ACCESS_TOKEN_EXPIRE_MINUTES
 REFRESH_TOKEN_EXPIRE_DAYS = settings.REFRESH_TOKEN_EXPIRE_DAYS
 
 # OAuth2PasswordBearer instance for handling token retrieval from requests
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/system/auth/login")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/v1/system/auth/login")
 
 
 # Function to verify plain password against hashed password
 async def verify_password(plain_password: str, hashed_password: str) -> bool:
-    correct_password: bool = bcrypt.checkpw(plain_password.encode(), hashed_password.encode())
+    correct_password: bool = bcrypt.checkpw(
+        plain_password.encode(), hashed_password.encode()
+    )
     return correct_password
 
 
@@ -44,7 +46,9 @@ async def authenticate_user(
     if "@" in username_or_email:
         db_user = await crud_users.get(db=db, email=username_or_email, is_deleted=False)
     else:
-        db_user = await crud_users.get(db=db, username=username_or_email, is_deleted=False)
+        db_user = await crud_users.get(
+            db=db, username=username_or_email, is_deleted=False
+        )
 
     if not db_user:
         return False
@@ -56,7 +60,9 @@ async def authenticate_user(
 
 
 # Function to create an access token with optional expiration time
-async def create_access_token(data: dict[str, Any], expires_delta: timedelta | None = None) -> str:
+async def create_access_token(
+    data: dict[str, Any], expires_delta: timedelta | None = None
+) -> str:
     to_encode = data.copy()
     if expires_delta:
         expire = datetime.now(UTC).replace(tzinfo=None) + expires_delta
@@ -68,12 +74,16 @@ async def create_access_token(data: dict[str, Any], expires_delta: timedelta | N
 
 
 # Function to create a refresh token with optional expiration time
-async def create_refresh_token(data: dict[str, Any], expires_delta: timedelta | None = None) -> str:
+async def create_refresh_token(
+    data: dict[str, Any], expires_delta: timedelta | None = None
+) -> str:
     to_encode = data.copy()
     if expires_delta:
         expire = datetime.now(UTC).replace(tzinfo=None) + expires_delta
     else:
-        expire = datetime.now(UTC).replace(tzinfo=None) + timedelta(days=REFRESH_TOKEN_EXPIRE_DAYS)
+        expire = datetime.now(UTC).replace(tzinfo=None) + timedelta(
+            days=REFRESH_TOKEN_EXPIRE_DAYS
+        )
     to_encode.update({"exp": expire})
     encoded_jwt: str = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt

@@ -29,7 +29,7 @@ def test_post_user(client: TestClient) -> None:
     token = _get_token(username=ADMIN_USERNAME, password=ADMIN_PASSWORD, client=client)
 
     response = client.post(
-        "/api/v1/admin/users",
+        "/v1/admin/users",
         json={
             "name": TEST_NAME,
             "username": TEST_USERNAME,
@@ -52,7 +52,7 @@ def test_get_own_user_data(client: TestClient) -> None:
     token = _get_token(username=TEST_USERNAME, password=TEST_PASSWORD, client=client)
 
     response = client.get(
-        url=f"/api/v1/admin/users/me/",
+        url="/v1/admin/users/me/",
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
 
@@ -68,7 +68,7 @@ def test_get_user(client: TestClient) -> None:
     token = _get_token(username=TEST_USERNAME, password=TEST_PASSWORD, client=client)
 
     response = client.get(
-        url=f"/api/v1/admin/users/{user_id}",
+        url=f"/v1/admin/users/{user_id}",
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
 
@@ -80,7 +80,7 @@ def test_get_multiple_users(client: TestClient) -> None:
     token = _get_token(username=TEST_USERNAME, password=TEST_PASSWORD, client=client)
 
     response = client.get(
-        url=f"/api/v1/admin/users",
+        url="/v1/admin/users",
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
 
@@ -95,7 +95,7 @@ def test_update_your_own_user(client: TestClient) -> None:
     token = _get_token(username=TEST_USERNAME, password=TEST_PASSWORD, client=client)
 
     response = client.patch(
-        url=f"/api/v1/admin/users/{user_id}",
+        url=f"/v1/admin/users/{user_id}",
         json={"name": f"Updated {TEST_NAME}"},
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
@@ -111,7 +111,7 @@ def test_update_user_as_admin(client: TestClient) -> None:
     token = _get_token(username=ADMIN_USERNAME, password=ADMIN_PASSWORD, client=client)
 
     response = client.patch(
-        url=f"/api/v1/admin/users/{user_id}",
+        url=f"/v1/admin/users/{user_id}",
         json={"name": f"Updated {TEST_NAME} (again)"},
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
@@ -127,7 +127,7 @@ def test_get_user_rate_limits(client: TestClient) -> None:
     token = _get_token(username=ADMIN_USERNAME, password=ADMIN_PASSWORD, client=client)
 
     response = client.get(
-        url=f"/api/v1/admin/users/{user_id}/rate-limits",
+        url=f"/v1/admin/users/{user_id}/rate-limits",
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
 
@@ -142,7 +142,7 @@ def test_get_user_tier(client: TestClient) -> None:
     token = _get_token(username=ADMIN_USERNAME, password=ADMIN_PASSWORD, client=client)
 
     response = client.get(
-        url=f"/api/v1/admin/users/{user_id}/tier",
+        url=f"/v1/admin/users/{user_id}/tier",
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
 
@@ -157,7 +157,7 @@ def test_delete_user(client: TestClient) -> None:
     token = _get_token(username=TEST_USERNAME, password=TEST_PASSWORD, client=client)
 
     response = client.delete(
-        url=f"/api/v1/admin/users/{user_id}",
+        url=f"/v1/admin/users/{user_id}",
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
 
@@ -172,7 +172,7 @@ def test_delete_already_deleted_user_as_admin(client: TestClient) -> None:
     token = _get_token(username=ADMIN_USERNAME, password=ADMIN_PASSWORD, client=client)
 
     response = client.delete(
-        url=f"/api/v1/admin/users/{user_id}",
+        url=f"/v1/admin/users/{user_id}",
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
 
@@ -187,7 +187,7 @@ def test_delete_db_user(client: TestClient) -> None:
     token = _get_token(username=ADMIN_USERNAME, password=ADMIN_PASSWORD, client=client)
 
     response = client.delete(
-        url=f"/api/v1/admin/users/{user_id}/db",
+        url=f"/v1/admin/users/{user_id}/db",
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
 
