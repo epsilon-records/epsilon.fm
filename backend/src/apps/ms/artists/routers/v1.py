@@ -36,7 +36,7 @@ from src.core.utils.paginated import (
 router = fastapi.APIRouter(tags=["Artists"])
 
 
-@router.post("/e/artists/user/{user_id}", response_model=ArtistRead, status_code=201)
+@router.post("/ms/artists/user/{user_id}", response_model=ArtistRead, status_code=201)
 async def write_artist(
     request: Request,
     user_id: UUID,
@@ -44,12 +44,16 @@ async def write_artist(
     current_user: Annotated[UserRead, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> ArtistRead:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if db_user is None:
         raise NotFoundException(detail="User not found")
 
     if current_user["id"] != db_user["id"]:
-        raise ForbiddenException(detail="You are not allowed to create an artist for this user")
+        raise ForbiddenException(
+            detail="You are not allowed to create an artist for this user"
+        )
 
     # Prepare the artist data
     artist_internal_dict = artist.model_dump()
@@ -59,28 +63,11 @@ async def write_artist(
     return await crud_artists.create(db=db, object=artist_internal)
 
 
-@router.get("/e/artists", response_model=PaginatedListResponse[ArtistRead])
-async def read_artists(
-    request: Request,
-    current_user: Annotated[ArtistRead, Depends(get_current_user)],
-    db: Annotated[AsyncSession, Depends(async_get_db)],
-    page: int = 1,
-    items_per_page: int = 10,
-) -> dict:
-    artists_data = await crud_artists.get_multi(
-        db=db,
-        offset=compute_offset(page, items_per_page),
-        limit=items_per_page,
-        schema_to_select=ArtistRead,
-        is_deleted=False,
-    )
-
-    return paginated_response(crud_data=artists_data, page=page, items_per_page=items_per_page)
-
-
-@router.get("/e/artists/user/{user_id}", response_model=PaginatedListResponse[ArtistRead])
+@router.get(
+    "/ms/artists/user/{user_id}", response_model=PaginatedListResponse[ArtistRead]
+)
 @cache(
-    key_prefix="e:artists:user:{user_id}:page_{page}:items_per_page:{items_per_page}",
+    key_prefix="ms:artists:user:{user_id}:page_{page}:items_per_page:{items_per_page}",
     resource_id_name="user_id",
     expiration=60,
 )
@@ -92,7 +79,9 @@ async def read_artists(
     page: int = 1,
     items_per_page: int = 10,
 ) -> dict:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if not db_user:
         raise NotFoundException(detail="User not found")
 
@@ -105,11 +94,15 @@ async def read_artists(
         is_deleted=False,
     )
 
-    return paginated_response(crud_data=artists_data, page=page, items_per_page=items_per_page)
+    return paginated_response(
+        crud_data=artists_data, page=page, items_per_page=items_per_page
+    )
 
 
-@router.get("/e/artists/{artist_id}/user/{user_id}", response_model=ArtistRead)
-@cache(key_prefix="e:artists:user:{user_id}:artist_cache", resource_id_name="artist_id")
+@router.get("/ms/artists/{artist_id}/user/{user_id}", response_model=ArtistRead)
+@cache(
+    key_prefix="ms:artists:user:{user_id}:artist_cache", resource_id_name="artist_id"
+)
 async def read_artist(
     request: Request,
     user_id: UUID,
@@ -117,7 +110,9 @@ async def read_artist(
     current_user: Annotated[UserRead, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> dict:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if db_user is None:
         raise NotFoundException(detail="User not found")
 
@@ -134,9 +129,9 @@ async def read_artist(
     return db_artist
 
 
-@router.patch("/e/artists/{artist_id}/user/{user_id}")
+@router.patch("/ms/artists/{artist_id}/user/{user_id}")
 @cache(
-    "e:artists:user:{user_id}:artist_cache",
+    "ms:artists:user:{user_id}:artist_cache",
     resource_id_name="artist_id",
     pattern_to_invalidate_extra=["e:artists:user:{user_id}:*"],
 )
@@ -148,7 +143,9 @@ async def patch_artist(
     current_user: Annotated[UserRead, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> Dict[str, str]:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if db_user is None:
         raise NotFoundException(detail="User not found")
 
@@ -165,9 +162,9 @@ async def patch_artist(
     return {"message": "Artist updated"}
 
 
-@router.delete("/e/artists/{artist_id}/user/{user_id}")
+@router.delete("/ms/artists/{artist_id}/user/{user_id}")
 @cache(
-    "e:artists:user:{user_id}:artist_cache",
+    "ms:artists:user:{user_id}:artist_cache",
     resource_id_name="artist_id",
     pattern_to_invalidate_extra=["e:artists:user:{user_id}:*"],
 )
@@ -178,11 +175,15 @@ async def erase_artist(
     current_user: Annotated[UserRead, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> Dict[str, str]:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if db_user is None:
         raise NotFoundException(detail="User not found")
 
-    if not current_user["is_superuser"] and str(current_user["id"]) != str(db_user["id"]):
+    if not current_user["is_superuser"] and str(current_user["id"]) != str(
+        db_user["id"]
+    ):
         raise ForbiddenException(detail="You are not allowed to delete this artist")
 
     db_artist = await crud_artists.get(
@@ -199,11 +200,11 @@ async def erase_artist(
 
 
 @router.delete(
-    "/e/artists/{artist_id}/user/{user_id}/db",
+    "/ms/artists/{artist_id}/user/{user_id}/db",
     dependencies=[Depends(get_current_superuser)],
 )
 @cache(
-    "e:artists:user:{user_id}:artist_cache",
+    "ms:artists:user:{user_id}:artist_cache",
     resource_id_name="artist_id",
     pattern_to_invalidate_extra=["e:artists:user:{user_id}:*"],
 )
@@ -213,7 +214,9 @@ async def erase_db_artist(
     artist_id: UUID,
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> Dict[str, str]:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if db_user is None:
         raise NotFoundException(detail="User not found")
 
