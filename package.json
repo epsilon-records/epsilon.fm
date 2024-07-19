@@ -118,20 +118,8 @@
 	},
 	"pnpm": {
 		"overrides": {
-			"pino-logflare": {
-				"pumpify": {
-					"pump": "github:natehouk/pump#bugfix/dont-check-process-in-browser"
-				}
-			},
-			"vercel": {
-				"@vercel/fun": {
-					"execa": {
-						"get-stream": {
-							"pump": "github:natehouk/pump#bugfix/dont-check-process-in-browser"
-						}
-					}
-				}
-			}
+			"pino-logflare>pumpify>pump": "github:natehouk/pump#bugfix/dont-check-process-in-browser",
+			"vercel>@vercel/fun>execa>get-stream>pump": "github:natehouk/pump#bugfix/dont-check-process-in-browser"
 		}
 	},
 	"eslintConfig": {
