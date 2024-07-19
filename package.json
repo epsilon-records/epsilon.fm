@@ -113,13 +113,24 @@
 		"talkjs": "^0.22.0",
 		"typescript-eslint": "^7.16.1",
 		"uploadthing": "^6.13.2",
-		"vercel": "^34.4.0",
+		"vercel": "^35.1.0",
 		"zod": "^3.23.8"
 	},
 	"overrides": {
-		"pino": {
+		"pino-logflare": {
 			"pumpify": {
 				"pump": "github:markoorn/pump#bugfix/dont-check-process-in-browser"
+			}
+		},
+
+		
+		"vercel": {
+			"@vercel/fun": {
+				"execa": {
+					"get-stream":{
+						"pump": "github:markoorn/pump#bugfix/dont-check-process-in-browser"
+					}
+				}
 			}
 		}
 	},
