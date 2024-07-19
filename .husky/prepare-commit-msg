@@ -1,2 +1,2 @@
-
+#!/usr/bin/env sh
 bunx devmoji --edit --lint
