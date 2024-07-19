@@ -102,7 +102,7 @@
 		"pino-logflare": "^0.4.2",
 		"postgres": "^3.4.4",
 		"posthog-js": "^1.148.0",
-		"pump": "github:markoorn/pump#bugfix/dont-check-process-in-browser",
+		"pump": "github:natehouk/pump#bugfix/dont-check-process-in-browser",
 		"stream-chat": "^8.37.0",
 		"svelte-french-toast": "^1.2.0",
 		"svelte-legos": "^0.2.3",
@@ -116,24 +116,24 @@
 		"vercel": "^35.1.0",
 		"zod": "^3.23.8"
 	},
-	"overrides": {
-		"pino-logflare": {
-			"pumpify": {
-				"pump": "github:markoorn/pump#bugfix/dont-check-process-in-browser"
-			}
-		},
-
-		
-		"vercel": {
-			"@vercel/fun": {
-				"execa": {
-					"get-stream":{
-						"pump": "github:markoorn/pump#bugfix/dont-check-process-in-browser"
-					}
-				}
-			}
-		}
-	},
+  "pnpm": {
+    "overrides": {
+      "pino-logflare": {
+        "pumpify": {
+          "pump": "github:natehouk/pump#bugfix/dont-check-process-in-browser"
+        }
+      },
+      "vercel": {
+        "@vercel/fun": {
+          "execa": {
+            "get-stream": {
+              "pump": "github:natehouk/pump#bugfix/dont-check-process-in-browser"
+            }
+          }
+        }
+      }
+    }
+  }
 	"eslintConfig": {
 		"extends": [
 			"plugin:storybook/recommended"
