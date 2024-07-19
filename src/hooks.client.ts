@@ -1,4 +1,4 @@
-import logger from '$lib/logger';
+//import logger from '$lib/logger';
 import * as Sentry from '@sentry/sveltekit';
 import type { HandleClientError } from '@sveltejs/kit';
 import { initializeClerkClient } from 'clerk-sveltekit/client';
@@ -20,5 +20,5 @@ initializeClerkClient(PUBLIC_CLERK_PUBLISHABLE_KEY, {
 });
 
 export const handleError: HandleClientError = ({ error, event }) => {
-	logger.error('An error occurred on the client side:', error, event);
+	console.error('An error occurred on the client side:', error, event);
 };
