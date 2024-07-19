@@ -1,7 +1,7 @@
 export default {
-	'**/*.{ts,tsx,js,jsx,svelte,css,html}(x)': [
+	'*.{ts,js,svelte,css,html}(x)': [
 		'prettier --write --list-different',
-		() => 'prettier --check .',
+		() => 'prettier --check',
 		'eslint'
 	],
 	'backend/**/*.py': [
