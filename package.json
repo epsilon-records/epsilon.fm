@@ -20,7 +20,7 @@
 	"devDependencies": {
 		"@changesets/cli": "^2.27.7",
 		"@chromatic-com/storybook": "^1.6.1",
-		"@eslint/js": "^8.56.0",
+		"@eslint/js": "^9.7.0",
 		"@fontsource/fira-mono": "^5.0.13",
 		"@playwright/test": "^1.45.2",
 		"@storybook/addon-essentials": "^8.2.4",
