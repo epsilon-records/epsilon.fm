@@ -19,12 +19,6 @@ initializeClerkClient(PUBLIC_CLERK_PUBLISHABLE_KEY, {
 	signUpUrl: '/sign-up'
 });
 
-export const handleError: HandleClientError = Sentry.handleErrorWithSentry(
-	async ({ error, event }) => {
-		if (error instanceof Error) {
-			logger.error(error.message, { error, event });
-		} else {
-			logger.error('An unknown error occurred', { error, event });
-		}
-	}
-);
+export const handleError: HandleClientError = ({ error, event }) => {
+	logger.error('An error occurred on the client side:', error, event);
+};
