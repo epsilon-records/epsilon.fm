@@ -117,11 +117,7 @@
 		"zod": "^3.23.8"
 	},
 	"overrides": {
-		"pino": {
-			"pumpify": {
-				"pump": "github:markoorn/pump#bugfix/dont-check-process-in-browser"
-			}
-		}
+		"pump": "github:markoorn/pump#bugfix/dont-check-process-in-browser"
 	},
 	"eslintConfig": {
 		"extends": [
