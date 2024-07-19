@@ -12,7 +12,7 @@
 		"format": "prettier --write --list-different .",
 		"test:integration": "playwright test",
 		"test:unit": "vitest",
-		"prepare": "svelte-kit sync && husky && husky install",
+		"prepare": "svelte-kit sync && husky",
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build",
 		"chromatic": "npx chromatic"
@@ -46,7 +46,7 @@
 		"flowbite-svelte": "^0.46.15",
 		"flowbite-svelte-icons": "^1.6.1",
 		"globals": "^15.8.0",
-		"husky": "^8.0.0",
+		"husky": "^9.0.11",
 		"postcss": "^8.4.39",
 		"prettier": "^3.3.3",
 		"prettier-plugin-svelte": "^3.2.5",
@@ -99,10 +99,8 @@
 		"lucide-svelte": "^0.408.0",
 		"mode-watcher": "^0.4.0",
 		"pino": "^9.3.1",
-		"pino-logflare": "^0.4.2",
 		"postgres": "^3.4.4",
 		"posthog-js": "^1.148.0",
-		"pump": "github:natehouk/pump#bugfix/dont-check-process-in-browser",
 		"stream-chat": "^8.37.0",
 		"svelte-french-toast": "^1.2.0",
 		"svelte-legos": "^0.2.3",
@@ -115,12 +113,6 @@
 		"uploadthing": "^6.13.2",
 		"vercel": "^35.1.0",
 		"zod": "^3.23.8"
-	},
-	"pnpm": {
-		"overrides": {
-			"pino-logflare>pumpify>pump": "github:natehouk/pump#bugfix/dont-check-process-in-browser",
-			"vercel>@vercel/fun>execa>get-stream>pump": "github:natehouk/pump#bugfix/dont-check-process-in-browser"
-		}
 	},
 	"eslintConfig": {
 		"extends": [
