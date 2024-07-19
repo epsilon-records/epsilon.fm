@@ -1,5 +1,5 @@
 export default {
-	'**/*.{ts,tsx,js,jsx,svelte,css,html}': [
+	'**/*.{ts,tsx,js,jsx,svelte,css,html}(x)': [
 		'prettier --write --list-different',
 		() => 'prettier --check',
 		'eslint'
