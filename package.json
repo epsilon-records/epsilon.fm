@@ -117,7 +117,7 @@
 		"zod": "^3.23.8"
 	},
 	"overrides": {
-		"pump": "github:markoorn/pump#bugfix/dont-check-process-in-browser"
+		"pump": "https://github.com/markoorn/pump#bugfix/dont-check-process-in-browser"
 	},
 	"eslintConfig": {
 		"extends": [
