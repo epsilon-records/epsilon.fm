@@ -18,6 +18,6 @@ export default defineConfig({
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	},
 	define: {
-		'process.env.NODE_ENV': JSON.stringify(import.meta.env.MODE)
+		'process.env.NODE_ENV': JSON.stringify(process.env.mode)
 	}
 });

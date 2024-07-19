@@ -1,16 +1,12 @@
 <script>
-	import {
-		PUBLIC_MODE,
-		PUBLIC_WEGLOT_API_KEY,
-		PUBLIC_METICULOUS_RECORDING_TOKEN
-	} from '$env/static/public';
+	import { PUBLIC_WEGLOT_API_KEY, PUBLIC_METICULOUS_RECORDING_TOKEN } from '$env/static/public';
 </script>
 
 <svelte:head>
 	{#if PUBLIC_METICULOUS_RECORDING_TOKEN}
 		<script
 			data-project-id={PUBLIC_METICULOUS_RECORDING_TOKEN}
-			data-is-production-environment={PUBLIC_MODE === 'production'}
+			data-is-production-environment={import.meta.env.MODE === 'production'}
 			src="https://snippet.meticulous.ai/v1/meticulous.js"
 		></script>
 	{/if}

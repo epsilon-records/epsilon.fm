@@ -1,7 +1,6 @@
 import * as Sentry from '@sentry/sveltekit';
 import { sequence } from '@sveltejs/kit/hooks';
 import { handleClerk } from 'clerk-sveltekit/server';
-import { PUBLIC_SENTRY_DSN } from '$env/static/public';
 import { CLERK_SECRET_KEY } from '$env/static/private';
 import { redirect } from '@sveltejs/kit';
 import type { Handle } from '@sveltejs/kit';
@@ -11,7 +10,7 @@ type SubdomainRoutes = {
 };
 
 Sentry.init({
-	dsn: PUBLIC_SENTRY_DSN,
+	dsn: import.meta.env.SENTRY_DSN,
 	tracesSampleRate: 1
 });
 
@@ -32,7 +31,6 @@ export const handleSubdomain: Handle = async ({ event, resolve }) => {
 	}
 
 	// If no matching subdomain, continue to the requested route
-	console.log(event);
 	return await resolve(event);
 };
 
