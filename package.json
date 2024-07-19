@@ -102,6 +102,7 @@
     "pino-logflare": "^0.4.2",
     "postgres": "^3.4.4",
     "posthog-js": "^1.148.0",
+    "pump": "github:markoorn/pump#bugfix/dont-check-process-in-browser",
     "stream-chat": "^8.37.0",
     "svelte-french-toast": "^1.2.0",
     "svelte-legos": "^0.2.3",
