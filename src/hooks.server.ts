@@ -32,6 +32,7 @@ export const handleSubdomain: Handle = async ({ event, resolve }) => {
 	}
 
 	// If no matching subdomain, continue to the requested route
+	console.log(event);
 	return await resolve(event);
 };
 
