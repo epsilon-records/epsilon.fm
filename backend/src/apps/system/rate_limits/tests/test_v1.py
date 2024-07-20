@@ -60,6 +60,7 @@ def test_post_rate_limit(client: TestClient) -> None:
         json=test_rate_limit,
         headers={"Authorization": f'Bearer {token.json()["access_token"]}'},
     )
+    print(response.json())
     test_rate_limit_id = response.json()["id"]
 
     assert response.status_code == 201

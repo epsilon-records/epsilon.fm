@@ -19,11 +19,16 @@ def test_auth_login(client: TestClient) -> None:
 
     response = client.post(
         "/v1/system/auth/login",
-        data={"username": ADMIN_USERNAME, "password": ADMIN_PASSWORD},
+        data={
+            "username": ADMIN_USERNAME,
+            "password": ADMIN_PASSWORD,
+            "grant_type": "password",
+        },
         headers={"content-type": "application/x-www-form-urlencoded"},
     )
 
     response_json = response.json()
+    print(response_json)
     test_access_token = response_json["access_token"]
     test_token_type = response_json["token_type"]
     test_refresh_token_cookie = response.cookies.get("refresh_token")
