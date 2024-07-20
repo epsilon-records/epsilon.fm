@@ -1,14 +1,15 @@
-import { type ArtistSchema } from '../routes/(main)/profile/schema';
+import { artistSchema } from '../routes/(main)/profile/schema';
+import { z } from 'zod';
 
 export const api = (customFetch = fetch) => ({
-	getArtists: async () => {
+	getArtists: async (): Promise<z.infer<typeof artistSchema>[]> => {
 		const response = await customFetch('https://jsonplaceholder.typicode.com/posts');
-		const data = (await response.json()) as ArtistSchema[];
-		return data;
+		const data = await response.json();
+		return artistSchema.array().parse(data); // Using Zod schema to parse and validate
 	},
-	getArtistById: async (id: number): Promise<ArtistSchema> => {
+	getArtistById: async (id: number): Promise<z.infer<typeof ArtistSchema>> => {
 		const response = await customFetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-		const data = (await response.json()) as ArtistSchema;
-		return data;
+		const data = await response.json();
+		return artistSchema.parse(data); // Using Zod schema to parse and validate
 	}
 });
