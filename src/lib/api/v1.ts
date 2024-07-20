@@ -61,7 +61,6 @@ export const api = (
 			const data = await response.json();
 			return artistSchema.parse(data);
 		} catch (error) {
-			console.error(`Error fetching artist with slug ${slug}:`, error);
 			throw error instanceof APIError || error instanceof ZodError
 				? error
 				: new APIError(`Failed to fetch artist with slug ${slug}`);
