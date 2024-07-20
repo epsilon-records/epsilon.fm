@@ -7,13 +7,13 @@
 	import Tiktok from 'svelte-simples/Gmail.svelte';
 	import Bandsintown from 'svelte-simples/Gmail.svelte';
 	import { modalOpened } from '$lib/stores/website';
-	import { createQuery } from '@tanstack/svelte-query';
-	import { api } from '$lib/api';
+	// import { createQuery } from '@tanstack/svelte-query';
+	// import { api } from '$lib/api';
 
-	const artists = createQuery({
-		queryKey: ['artists'],
-		queryFn: () => api().getArtists()
-	});
+	// const artists = createQuery({
+	// 	queryKey: ['artists'],
+	// 	queryFn: () => api().getArtists()
+	// });
 	export let data;
 </script>
 
@@ -21,7 +21,7 @@
 	<title>{data.stageName}</title>
 </svelte:head>
 <main>
-	<div class="text-8xl text-white">{$artists.data}</div>
+	<div class="text-8xl text-white">{data.stageName.toUpperCase()}</div>
 	<div class="pt-12 text-3xl text-white">DJ & Producer</div>
 	<div class="icons">
 		<div
