@@ -20,4 +20,4 @@ jobs:
       - name: Run `openapi` command 🚀
         uses: readmeio/rdme@v8
         with:
-          rdme: openapi https://api.epsilon.fm/openapi.json --key=${{ secrets.README_API_KEY }} --id=6699147149f64a0010d543d4
+          rdme: openapi https://api.epsilon.fm/openapi.json --key=${{ secrets.README_API_KEY }} --id=66994c8f15ee25004370d87d
