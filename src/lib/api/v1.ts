@@ -39,7 +39,6 @@ export const api = (
 			const data = await response.json();
 			return artistSchema.array().parse(data);
 		} catch (error) {
-			console.error('Error fetching artists:', error);
 			throw error instanceof APIError || error instanceof ZodError
 				? error
 				: new APIError('Failed to fetch artists');
