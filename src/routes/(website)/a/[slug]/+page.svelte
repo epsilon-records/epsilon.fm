@@ -9,7 +9,7 @@
 	import { modalOpened } from '$lib/stores/website';
 	import { createQuery } from '@tanstack/svelte-query';
 	import { api } from '$lib/api/v1';
-	import { error } from '@sveltejs/kit';
+	import { redirect } from '@sveltejs/kit';
 	export let data;
 
 	const artist = createQuery({
@@ -18,7 +18,7 @@
 	});
 	$: {
 		if ($artist.error) {
-			error(404);
+			redirect(404, '/404');
 		} else if ($artist.data) {
 			console.log($artist.data);
 		}
