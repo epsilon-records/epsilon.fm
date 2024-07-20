@@ -4,13 +4,15 @@
 	import { createQuery } from '@tanstack/svelte-query';
 	import { api } from '$lib/api/v1';
 	import { error } from '@sveltejs/kit';
+
 	export let data;
 
 	const artist = createQuery({
-		queryKey: ['artists'],
-		queryFn: () => api().getArtist(data.orgId)
+		queryKey: ['artists', data.orgId],
+		queryFn: async () => api().getArtist(data.orgId),
+		staleTime: 5 * 60 * 1000 // 5 minutes
 	});
-	if (!artist) {
+	$: if ($artist.error) {
 		error(404);
 	}
 </script>
