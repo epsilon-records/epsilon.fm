@@ -7,21 +7,25 @@
 	import Tiktok from 'svelte-simples/Tiktok.svelte';
 	import Bandsintown from 'svelte-simples/Bandsintown.svelte';
 	import { modalOpened } from '$lib/stores/website';
-	// import { createQuery } from '@tanstack/svelte-query';
-	// import { api } from '$lib/api';
-
-	// const artists = createQuery({
-	// 	queryKey: ['artists'],
-	// 	queryFn: () => api().getArtists()
-	// });
+	import { createQuery } from '@tanstack/svelte-query';
+	import { api } from '$lib/api';
+	import { error } from '@sveltejs/kit';
 	export let data;
+
+	const artist = createQuery({
+		queryKey: ['artists'],
+		queryFn: () => api().getArtist(data.orgId)
+	});
+	if (!artist) {
+		error(404);
+	}
 </script>
 
 <svelte:head>
-	<title>{data.stageName}</title>
+	<title>{$artist.data?.stageName}</title>
 </svelte:head>
 <main>
-	<div class="text-8xl text-white">{data.stageName.toUpperCase()}</div>
+	<div class="text-8xl text-white">{$artist.data?.stageName.toUpperCase()}</div>
 	<div class="pt-12 text-3xl text-white">DJ & Producer</div>
 	<div class="icons">
 		<div
@@ -38,9 +42,9 @@
 				<Gmail />
 			</div>
 		</div>
-		{#if data.instagramProfileLink}
+		{#if $artist.data?.instagramProfileLink}
 			<a
-				href={data.instagramProfileLink}
+				href={$artist.data?.instagramProfileLink}
 				aria-label="Instagram"
 				target="_blank"
 				rel="noopener noreferrer"
@@ -50,9 +54,9 @@
 				</div>
 			</a>
 		{/if}
-		{#if data.facebookProfileLink}
+		{#if $artist.data?.facebookProfileLink}
 			<a
-				href={data.facebookProfileLink}
+				href={$artist.data?.facebookProfileLink}
 				aria-label="Facebook"
 				target="_blank"
 				rel="noopener noreferrer"
@@ -62,9 +66,9 @@
 				</div>
 			</a>
 		{/if}
-		{#if data.soundcloudProfileLink}
+		{#if $artist.data?.soundcloudProfileLink}
 			<a
-				href={data.soundcloudProfileLink}
+				href={$artist.data?.soundcloudProfileLink}
 				aria-label="SoundCloud"
 				target="_blank"
 				rel="noopener noreferrer"
@@ -74,9 +78,9 @@
 				</div>
 			</a>
 		{/if}
-		{#if data.bandsintownProfileLink}
+		{#if $artist.data?.bandsintownProfileLink}
 			<a
-				href={data.bandsintownProfileLink}
+				href={$artist.data?.bandsintownProfileLink}
 				aria-label="Bandsintown"
 				target="_blank"
 				rel="noopener noreferrer"
@@ -86,9 +90,9 @@
 				</div>
 			</a>
 		{/if}
-		{#if data.tiktokProfileLink}
+		{#if $artist.data?.tiktokProfileLink}
 			<a
-				href={data.tiktokProfileLink}
+				href={$artist.data?.tiktokProfileLink}
 				aria-label="TikTok"
 				target="_blank"
 				rel="noopener noreferrer"
@@ -98,9 +102,9 @@
 				</div>
 			</a>
 		{/if}
-		{#if data.youtubeChannelLink}
+		{#if $artist.data?.youtubeChannelLink}
 			<a
-				href={data.youtubeChannelLink}
+				href={$artist.data?.youtubeChannelLink}
 				aria-label="YouTube"
 				target="_blank"
 				rel="noopener noreferrer"

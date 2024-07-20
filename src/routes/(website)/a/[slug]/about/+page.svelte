@@ -1,17 +1,28 @@
 <script>
 	import skills from '../Skills';
 	import { Badge } from '$lib/components/ui/badge';
+	import { createQuery } from '@tanstack/svelte-query';
+	import { api } from '$lib/api';
+	import { error } from '@sveltejs/kit';
 	export let data;
+
+	const artist = createQuery({
+		queryKey: ['artists'],
+		queryFn: () => api().getArtist(data.orgId)
+	});
+	if (!artist) {
+		error(404);
+	}
 </script>
 
 <svelte:head>
-	<title>{data.stageName} — About</title>
+	<title>{$artist.data?.stageName} — About</title>
 </svelte:head>
 
 <div class="container">
 	<div class="content">
 		<h1 class="text-white">About</h1>
-		<p class="bg-slate-900 p-4 text-white">{data.biography}</p>
+		<p class="bg-slate-900 p-4 text-white">{$artist.data?.biography}</p>
 		<br />
 		{#each Object.entries(skills) as [section, technologies]}
 			<div class="w-min bg-slate-900 p-2 text-xs text-white">

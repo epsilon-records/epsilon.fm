@@ -1,11 +1,22 @@
 <script>
 	import { Spotify } from 'sveltekit-embed';
 	import { Badge } from '$lib/components/ui/badge';
+	import { createQuery } from '@tanstack/svelte-query';
+	import { api } from '$lib/api';
+	import { error } from '@sveltejs/kit';
 	export let data;
+
+	const artist = createQuery({
+		queryKey: ['artists'],
+		queryFn: () => api().getArtist(data.orgId)
+	});
+	if (!artist) {
+		error(404);
+	}
 </script>
 
 <svelte:head>
-	<title>{data.stageName} — About</title>
+	<title>{$artist.data?.stageName} — About</title>
 </svelte:head>
 
 <div class="container">
