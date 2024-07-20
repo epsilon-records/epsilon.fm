@@ -1,13 +1,6 @@
 import { artistSchema } from '../routes/(main)/profile/schema';
 import { z } from 'zod';
 
-class ArtistFetchError extends Error {
-	constructor(message: string) {
-		super(message);
-		this.name = 'ArtistFetchError';
-	}
-}
-
 export const api = (customFetch = fetch) => ({
 	getArtists: async (): Promise<z.infer<typeof artistSchema>[]> => {
 		try {
@@ -17,7 +10,7 @@ export const api = (customFetch = fetch) => ({
 			return parsedData;
 		} catch (error) {
 			console.error('Error fetching artists:', error);
-			throw new ArtistFetchError('Failed to fetch artists');
+			throw new Error('Failed to fetch artists');
 		}
 	},
 	getArtistById: async (id: number): Promise<z.infer<typeof artistSchema>> => {
@@ -28,7 +21,7 @@ export const api = (customFetch = fetch) => ({
 			return parsedData;
 		} catch (error) {
 			console.error(`Error fetching artist with id ${id}:`, error);
-			throw new ArtistFetchError(`Failed to fetch artist with id ${id}`);
+			throw new Error(`Failed to fetch artist with id ${id}`);
 		}
 	}
 });
