@@ -8,7 +8,7 @@
 	import Bandsintown from 'svelte-simples/Bandsintown.svelte';
 	import { modalOpened } from '$lib/stores/website';
 	import { createQuery } from '@tanstack/svelte-query';
-	import { api } from '$lib/api';
+	import { api } from '$lib/api/v1';
 	import { error } from '@sveltejs/kit';
 	export let data;
 

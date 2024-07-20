@@ -2,7 +2,7 @@
 	import { Spotify } from 'sveltekit-embed';
 	import { Badge } from '$lib/components/ui/badge';
 	import { createQuery } from '@tanstack/svelte-query';
-	import { api } from '$lib/api';
+	import { api } from '$lib/api/v1';
 	import { error } from '@sveltejs/kit';
 	export let data;
 

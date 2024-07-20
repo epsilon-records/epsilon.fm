@@ -1,5 +1,5 @@
 import type { PageLoad } from './$types';
-import { api } from '$lib/api';
+import { api } from '$lib/api/v1';
 
 export const load = (async ({ parent }) => {
 	const { queryClient, orgId } = await parent();

@@ -1,4 +1,4 @@
-import { artistSchema } from '../routes/(main)/profile/schema';
+import { artistSchema } from '../../routes/(main)/profile/schema';
 import { PUBLIC_API_URL, PUBLIC_API_VERSION } from '$env/static/public';
 import { z, ZodError } from 'zod';
 

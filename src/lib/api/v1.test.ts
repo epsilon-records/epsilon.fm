@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
-import { api } from './api';
-import { artistSchema } from '../routes/(main)/profile/schema';
+import { api } from '$lib/api/v1';
+import { artistSchema } from '../../routes/(main)/profile/schema';
 import { z } from 'zod';
 
 vi.mock('$env/static/public', () => ({
