@@ -13,11 +13,15 @@
 	export let data;
 
 	const artist = createQuery({
-		queryKey: ['artists'],
-		queryFn: () => api().getArtist(data.orgId)
+		queryKey: ['artists', data.orgId],
+		queryFn: async () => api().getArtist(data.orgId)
 	});
-	if (!artist) {
-		error(404);
+	$: {
+		if ($artist.error) {
+			error(404);
+		} else if ($artist.data) {
+			console.log($artist.data);
+		}
 	}
 </script>
 
