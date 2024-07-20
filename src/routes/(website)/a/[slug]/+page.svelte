@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
 	import Gmail from 'svelte-simples/Gmail.svelte';
 	import Instagram from 'svelte-simples/Instagram.svelte';
 	import Facebook from 'svelte-simples/Facebook.svelte';
@@ -9,28 +9,28 @@
 	import { modalOpened } from '$lib/stores/website';
 	import { createQuery } from '@tanstack/svelte-query';
 	import { api } from '$lib/api/v1';
-	import { redirect } from '@sveltejs/kit';
-	export let data;
+	import { error } from '@sveltejs/kit';
+
+	export let data: { orgId: string };
 
 	const artist = createQuery({
 		queryKey: ['artists', data.orgId],
-		queryFn: async () => api().getArtist(data.orgId)
+		queryFn: async () => api().getArtist(data.orgId),
+		staleTime: 5 * 60 * 1000 // 5 minutes
 	});
-	$: {
-		if ($artist.error) {
-			redirect(404, '/404');
-		} else if ($artist.data) {
-			console.log($artist.data);
-		}
+	$: if ($artist.error) {
+		error(404);
 	}
 </script>
 
 <svelte:head>
-	<title>{$artist.data?.stageName}</title>
+	<title>{$artist.data?.stageName || 'Artist Page'}</title>
+	<meta name="description" content="Official page of {$artist.data?.stageName}. DJ & Producer." />
 </svelte:head>
+
 <main>
-	<div class="text-8xl text-white">{$artist.data?.stageName.toUpperCase()}</div>
-	<div class="pt-12 text-3xl text-white">DJ & Producer</div>
+	<h1 class="text-8xl text-white">{$artist.data?.stageName?.toUpperCase()}</h1>
+	<p class="pt-12 text-3xl text-white">DJ & Producer</p>
 	<div class="icons">
 		<div
 			role="button"
@@ -122,34 +122,33 @@
 </main>
 
 <style>
+	:root {
+		--text-color: white;
+	}
+
 	a {
-		color: white;
+		color: var(--text-color);
 		text-decoration: none;
 	}
-	main {
-		text-align: center;
-		padding: 0;
-		margin: 0 auto;
-		text-align: center;
 
+	main {
 		display: flex;
 		flex-direction: column;
 		height: calc(100vh - 80px - 88px);
 		justify-content: center;
 		align-items: center;
+		text-align: center;
+		padding: 0;
+		margin: 0 auto;
 	}
 
 	.icons {
-		display: flex !important;
-		justify-content: center !important;
+		display: flex;
+		justify-content: center;
 		align-items: center;
 		gap: 20px;
-		cursor: pointer;
-		font-size: 30px;
-		display: flex;
-		justify-content: space-between;
-		max-width: 200px;
 		margin: 50px auto 0;
+		max-width: 200px;
 	}
 
 	.icon {
