@@ -1,16 +1,13 @@
-// src/lib/api.test.ts
 import { describe, it, expect, vi } from 'vitest';
-import { api } from './api'; // Adjust the import path as needed
+import { api } from './api';
 import { artistSchema } from '../routes/(main)/profile/schema';
 import { z } from 'zod';
 
-// Mock environment variables
 vi.mock('$env/static/public', () => ({
 	PUBLIC_API_URL: 'http://mock-api.com',
 	PUBLIC_API_VERSION: 'v1'
 }));
 
-// Helper function to create a mock fetch
 const createMockFetch = (status: number, data: unknown) => {
 	return vi.fn().mockResolvedValue({
 		ok: status >= 200 && status < 300,
@@ -19,7 +16,6 @@ const createMockFetch = (status: number, data: unknown) => {
 	});
 };
 
-// Correct mock artists data
 const mockArtists: z.infer<typeof artistSchema>[] = [
 	{
 		id: 1,
@@ -101,8 +97,7 @@ describe('API Tests', () => {
 	});
 
 	it('API should correctly parse valid data', async () => {
-		const validArtist = mockArtists[0]; // Use the first mock artist as valid data
-
+		const validArtist = mockArtists[0];
 		const mockFetch = createMockFetch(200, validArtist);
 		const apiInstance = api(mockFetch);
 
@@ -112,8 +107,8 @@ describe('API Tests', () => {
 
 	it('API should throw on invalid data', async () => {
 		const invalidArtist = {
-			id: 'not-a-number', // Should be a number
-			orgId: 123, // Should be a string
+			id: 'not-a-number',
+			orgId: 123,
 			slug: 'invalid-artist',
 			stageName: 'Invalid Artist',
 			email: 'not-an-email'
