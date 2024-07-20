@@ -20,55 +20,64 @@ class ArtistContentBase(Base):
         default=None,
         max_length=255,
         description="Artist Spotify URI",
+        regex=r"^(https?:\/\/)?(www\.)?open\.spotify\.com\/artist\/[^\s]+$",
     )
     youtube_channel_link: Optional[str] = Field(
         default=None,
         max_length=255,
         description="Artist YouTube URL",
+        regex=r"^(https?:\/\/)?(www\.)?youtube\.com\/(channel\/|user\/|c\/)?[^\s]+$",
     )
     instagram_profile_link: Optional[str] = Field(
         default=None,
         max_length=255,
         description="Artist Instagram URL",
+        regex=r"^(https?:\/\/)?(www\.)?instagram\.com\/[^\s]+$",
     )
     facebook_profile_link: Optional[str] = Field(
         default=None,
         max_length=255,
         description="Artist Facebook URL",
+        regex=r"^(https?:\/\/)?(www\.)?facebook\.com\/[^\s]+$",
     )
     x_profile_link: Optional[str] = Field(
         default=None,
         max_length=255,
         description="Artist X URL",
+        regex=r"^(https?:\/\/)?(www\.)?twitter\.com\/[^\s]+$",
     )
     tiktok_profile_link: Optional[str] = Field(
         default=None,
         max_length=255,
         description="Artist TikTok URL",
+        regex=r"^(https?:\/\/)?(www\.)?tiktok\.com\/@[^\s]+$",
     )
     soundcloud_profile_link: Optional[str] = Field(
         default=None,
         max_length=255,
         description="Artist SoundCloud URL",
+        regex=r"^(https?:\/\/)?(www\.)?soundcloud\.com\/[^\s]+$",
     )
     songkick_profile_link: Optional[str] = Field(
         default=None,
         max_length=255,
         description="Artist SongKick URL",
+        regex=r"^(https?:\/\/)?(www\.)?songkick\.com\/artists\/[^\s]+$",
     )
     bandsintown_profile_link: Optional[str] = Field(
         default=None,
         max_length=255,
         description="Artist BandsInTown URL",
+        regex=r"^(https?:\/\/)?(www\.)?bandsintown\.com\/a\/[^\s]+$",
     )
 
 
 class ArtistMediaBase(Base):
-    media_url: str | None = Field(
+    media_url: Optional[str] = Field(
         max_length=255,
         nullable=True,
         default=None,
-        regex=r"^(https?|ftp)://[^\s/$.?#].[^\s]*$",
+        regex=r"^(https?):\/\/[^\s\/$.?#].[^\s]*\.(jpg|jpeg|png|gif)$",
         description="URL of the media associated with the post",
     )
 
