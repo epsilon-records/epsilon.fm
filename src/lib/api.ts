@@ -7,7 +7,7 @@ export const api = (customFetch = fetch) => ({
 		const data = await response.json();
 		return artistSchema.array().parse(data); // Using Zod schema to parse and validate
 	},
-	getArtistById: async (id: number): Promise<z.infer<typeof ArtistSchema>> => {
+	getArtistById: async (id: number): Promise<z.infer<typeof artistSchema>> => {
 		const response = await customFetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
 		const data = await response.json();
 		return artistSchema.parse(data); // Using Zod schema to parse and validate

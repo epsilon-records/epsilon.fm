@@ -21,7 +21,7 @@
 	<title>{data.stageName}</title>
 </svelte:head>
 <main>
-	<div class="text-8xl text-white">{$artists.data}</div>
+	<div class="text-8xl text-white">{$artists[0].stageName}</div>
 	<div class="pt-12 text-3xl text-white">DJ & Producer</div>
 	<div class="icons">
 		<div
