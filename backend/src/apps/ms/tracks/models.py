@@ -168,5 +168,5 @@ class Track(
     SoftDeleteMixin,
     table=True,
 ):
-    __tablename__ = "epsilon_track"
-    __table_args__ = ({"comment": "Epsilon track information"},)
+    __tablename__ = "ms_track"
+    __table_args__ = ({"comment": "Managament System track information"},)

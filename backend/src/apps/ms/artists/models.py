@@ -102,5 +102,5 @@ class Artist(
     SoftDeleteMixin,
     table=True,
 ):
-    __tablename__ = "epsilon_artist"
-    __table_args__ = ({"comment": "Epsilon artist information"},)
+    __tablename__ = "ms_artist"
+    __table_args__ = ({"comment": "Management System artist information"},)
