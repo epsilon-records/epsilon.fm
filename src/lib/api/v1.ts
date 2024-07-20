@@ -32,7 +32,7 @@ export const api = (
 	 */
 	getArtists: async (): Promise<z.infer<typeof artistSchema>[]> => {
 		try {
-			const response = await customFetch(constructUrl('artist'));
+			const response = await customFetch(constructUrl('artists'));
 			if (!response.ok) {
 				throw new APIError('Failed to fetch artists', response.status);
 			}
@@ -53,7 +53,7 @@ export const api = (
 	 */
 	getArtist: async (slug: string): Promise<z.infer<typeof artistSchema>> => {
 		try {
-			const response = await customFetch(constructUrl(`artist/${slug}`));
+			const response = await customFetch(constructUrl(`artists/${slug}`));
 			if (!response.ok) {
 				throw new APIError(`Failed to fetch artist with slug ${slug}`, response.status);
 			}
