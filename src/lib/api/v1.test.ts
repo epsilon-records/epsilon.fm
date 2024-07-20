@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { api } from '$lib/api/v1';
-import { artistSchema } from '../../routes/(main)/profile/schema';
+import { artistSchema } from '../schema';
 import { z } from 'zod';
 
 vi.mock('$env/static/public', () => ({
@@ -68,7 +68,7 @@ describe('API Tests', () => {
 		const mockFetch = createMockFetch(500, null);
 		const apiInstance = api(mockFetch);
 
-		await expect(apiInstance.getArtists()).rejects.toThrow('Failed to fetch artists');
+		await expect(apiInstance.getArtists()).rejects.toThrow('Failed to fetch data from artists');
 	});
 
 	it('getArtist should return a single artist', async () => {
@@ -92,7 +92,7 @@ describe('API Tests', () => {
 		const apiInstance = api(mockFetch);
 
 		await expect(apiInstance.getArtist('nonexistent')).rejects.toThrow(
-			'Failed to fetch artist with slug nonexistent'
+			'Failed to fetch data from artists/nonexistent'
 		);
 	});
 

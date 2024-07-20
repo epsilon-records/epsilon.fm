@@ -8,7 +8,7 @@
 
 	const artist = createQuery({
 		queryKey: ['artists'],
-		queryFn: () => api().getArtist(data.orgId)
+		queryFn: async () => api().getArtist(data.orgId)
 	});
 	if (!artist) {
 		error(404);

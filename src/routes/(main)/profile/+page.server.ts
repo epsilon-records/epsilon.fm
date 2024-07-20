@@ -1,7 +1,7 @@
 import type { PageServerLoad, Actions } from './$types.js';
 import { message, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
-import { artistSchema } from './schema';
+import { artistSchema } from '../../../lib/schema.js';
 import { db } from '$lib/db';
 import { artist } from '$lib/db/schema';
 import { eq } from 'drizzle-orm';

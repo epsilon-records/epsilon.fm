@@ -1,4 +1,4 @@
-import { artistSchema } from '../../routes/(main)/profile/schema';
+import { artistSchema } from '$lib/schema';
 import { PUBLIC_API_URL, PUBLIC_API_VERSION } from '$env/static/public';
 import { z, ZodError } from 'zod';
 
@@ -15,12 +15,39 @@ class APIError extends Error {
 const constructUrl = (path: string) => `${PUBLIC_API_URL}/${PUBLIC_API_VERSION}/${path}`;
 
 /**
+ * Generic function to fetch and parse data from the API
+ * @param path - The API path to fetch from
+ * @param schema - The Zod schema to parse the response with
+ * @param customFetch - The fetch function to use
+ * @returns Parsed data
+ * @throws {APIError} If the request fails or the response is not successful
+ */
+async function fetchAndParse<T>(
+	path: string,
+	schema: z.ZodType<T>,
+	customFetch: typeof fetch
+): Promise<T> {
+	try {
+		const response = await customFetch(constructUrl(path));
+		if (!response.ok) {
+			throw new APIError(`Failed to fetch data from ${path}`, response.status);
+		}
+		const data = await response.json();
+		return schema.parse(data);
+	} catch (error) {
+		throw error instanceof APIError || error instanceof ZodError
+			? error
+			: new APIError(`Failed to fetch data from ${path}`);
+	}
+}
+
+/**
  * Represents an API object that provides methods for fetching artists and artist details.
  * @param customFetch - Optional custom fetch function to use for making HTTP requests.
  * @returns An API object with methods for fetching artists and artist details.
  */
 export const api = (
-	customFetch = fetch
+	customFetch: typeof fetch = fetch
 ): {
 	getArtists: () => Promise<z.infer<typeof artistSchema>[]>;
 	getArtist: (slug: string) => Promise<z.infer<typeof artistSchema>>;
@@ -28,41 +55,13 @@ export const api = (
 	/**
 	 * Fetches an array of artists.
 	 * @returns A promise that resolves to an array of artists.
-	 * @throws {APIError} If the request fails or the response is not successful.
 	 */
-	getArtists: async (): Promise<z.infer<typeof artistSchema>[]> => {
-		try {
-			const response = await customFetch(constructUrl('artists'));
-			if (!response.ok) {
-				throw new APIError('Failed to fetch artists', response.status);
-			}
-			const data = await response.json();
-			return artistSchema.array().parse(data);
-		} catch (error) {
-			throw error instanceof APIError || error instanceof ZodError
-				? error
-				: new APIError('Failed to fetch artists');
-		}
-	},
+	getArtists: () => fetchAndParse('artists', artistSchema.array(), customFetch),
 
 	/**
 	 * Fetches an artist by slug.
 	 * @param slug - The slug of the artist to fetch.
 	 * @returns A promise that resolves to the artist object.
-	 * @throws {APIError} If the request fails or the response is not successful.
 	 */
-	getArtist: async (slug: string): Promise<z.infer<typeof artistSchema>> => {
-		try {
-			const response = await customFetch(constructUrl(`artists/${slug}`));
-			if (!response.ok) {
-				throw new APIError(`Failed to fetch artist with slug ${slug}`, response.status);
-			}
-			const data = await response.json();
-			return artistSchema.parse(data);
-		} catch (error) {
-			throw error instanceof APIError || error instanceof ZodError
-				? error
-				: new APIError(`Failed to fetch artist with slug ${slug}`);
-		}
-	}
+	getArtist: (slug: string) => fetchAndParse(`artists/${slug}`, artistSchema, customFetch)
 });
