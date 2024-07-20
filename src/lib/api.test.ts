@@ -1,0 +1,127 @@
+// src/lib/api.test.ts
+import { describe, it, expect, vi } from 'vitest';
+import { api } from './api'; // Adjust the import path as needed
+import { artistSchema } from '../routes/(main)/profile/schema';
+import { z } from 'zod';
+
+// Mock environment variables
+vi.mock('$env/static/public', () => ({
+	PUBLIC_API_URL: 'http://mock-api.com',
+	PUBLIC_API_VERSION: 'v1'
+}));
+
+// Helper function to create a mock fetch
+const createMockFetch = (status: number, data: unknown) => {
+	return vi.fn().mockResolvedValue({
+		ok: status >= 200 && status < 300,
+		status,
+		json: async () => data
+	});
+};
+
+// Correct mock artists data
+const mockArtists: z.infer<typeof artistSchema>[] = [
+	{
+		id: 1,
+		orgId: 'org123',
+		slug: 'artist-one',
+		stageName: 'Artist One',
+		email: 'artist.one@example.com',
+		biography: 'Artist One is a talented musician with a unique sound.',
+		spotifyArtistLink: 'https://open.spotify.com/artist/123',
+		youtubeChannelLink: 'https://www.youtube.com/channel/123',
+		instagramProfileLink: 'https://www.instagram.com/artistone',
+		facebookProfileLink: 'https://www.facebook.com/artistone',
+		xProfileLink: 'https://x.com/artistone',
+		tiktokProfileLink: 'https://www.tiktok.com/@artistone',
+		soundcloudProfileLink: 'https://soundcloud.com/artistone',
+		songkickProfileLink: 'https://www.songkick.com/artists/123-artist-one',
+		bandsintownProfileLink: 'https://www.bandsintown.com/a/123-artist-one'
+	},
+	{
+		id: 2,
+		orgId: 'org456',
+		slug: 'artist-two',
+		stageName: 'Artist Two',
+		email: 'artist.two@example.com',
+		biography: 'Artist Two is a rising star in the electronic music scene.',
+		spotifyArtistLink: 'https://open.spotify.com/artist/456',
+		youtubeChannelLink: 'https://www.youtube.com/channel/456',
+		instagramProfileLink: 'https://www.instagram.com/artisttwo',
+		facebookProfileLink: 'https://www.facebook.com/artisttwo'
+	}
+];
+
+describe('API Tests', () => {
+	it('getArtists should return an array of artists', async () => {
+		const mockFetch = createMockFetch(200, mockArtists);
+		const apiInstance = api(mockFetch);
+
+		const result = await apiInstance.getArtists();
+
+		expect(result).toHaveLength(2);
+		expect(result).toEqual(
+			expect.arrayContaining([
+				expect.objectContaining({ slug: 'artist-one' }),
+				expect.objectContaining({ slug: 'artist-two' })
+			])
+		);
+	});
+
+	it('getArtists should throw an APIError on failed request', async () => {
+		const mockFetch = createMockFetch(500, null);
+		const apiInstance = api(mockFetch);
+
+		await expect(apiInstance.getArtists()).rejects.toThrow('Failed to fetch artists');
+	});
+
+	it('getArtist should return a single artist', async () => {
+		const mockArtist = mockArtists[0]; // Use the first mock artist
+
+		const mockFetch = createMockFetch(200, mockArtist);
+		const apiInstance = api(mockFetch);
+
+		const result = await apiInstance.getArtist('artist-one');
+
+		expect(result).toEqual(
+			expect.objectContaining({
+				slug: 'artist-one',
+				stageName: 'Artist One'
+			})
+		);
+	});
+
+	it('getArtist should throw an APIError on failed request', async () => {
+		const mockFetch = createMockFetch(404, null);
+		const apiInstance = api(mockFetch);
+
+		await expect(apiInstance.getArtist('nonexistent')).rejects.toThrow(
+			'Failed to fetch artist with slug nonexistent'
+		);
+	});
+
+	it('API should correctly parse valid data', async () => {
+		const validArtist = mockArtists[0]; // Use the first mock artist as valid data
+
+		const mockFetch = createMockFetch(200, validArtist);
+		const apiInstance = api(mockFetch);
+
+		const result = await apiInstance.getArtist('artist-one');
+		expect(() => artistSchema.parse(result)).not.toThrow();
+	});
+
+	it('API should throw on invalid data', async () => {
+		const invalidArtist = {
+			id: 'not-a-number', // Should be a number
+			orgId: 123, // Should be a string
+			slug: 'invalid-artist',
+			stageName: 'Invalid Artist',
+			email: 'not-an-email'
+		};
+
+		const mockFetch = createMockFetch(200, invalidArtist);
+		const apiInstance = api(mockFetch);
+
+		await expect(apiInstance.getArtist('invalid-artist')).rejects.toThrow(z.ZodError);
+	});
+});
