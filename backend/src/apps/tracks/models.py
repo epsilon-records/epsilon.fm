@@ -77,7 +77,9 @@ class TrackContentBase(Base):
         max_length=255,
         nullable=True,
         description="Track Apple Music URI",
-        schema_extra={"examples": ["https://music.apple.com/us/track/exampletrack/123456789"]},
+        schema_extra={
+            "examples": ["https://music.apple.com/us/track/exampletrack/123456789"]
+        },
     )
     youtube_url: str = Field(
         max_length=255,

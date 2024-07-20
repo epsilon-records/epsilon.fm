@@ -63,12 +63,7 @@ async def write_artist(
     return await crud_artists.create(db=db, object=artist_internal)
 
 
-@router.get("/artists/user/{user_id}", response_model=PaginatedListResponse[ArtistRead])
-@cache(
-    key_prefix="artists:user:{user_id}:page_{page}:items_per_page:{items_per_page}",
-    resource_id_name="user_id",
-    expiration=60,
-)
+@router.get("/artists", response_model=PaginatedListResponse[ArtistRead])
 async def read_artists(
     request: Request,
     user_id: UUID,
@@ -77,18 +72,11 @@ async def read_artists(
     page: int = 1,
     items_per_page: int = 10,
 ) -> dict:
-    db_user = await crud_users.get(
-        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
-    )
-    if not db_user:
-        raise NotFoundException(detail="User not found")
-
     artists_data = await crud_artists.get_multi(
         db=db,
         offset=compute_offset(page, items_per_page),
         limit=items_per_page,
         schema_to_select=ArtistRead,
-        user_id=db_user["id"],
         is_deleted=False,
     )
 

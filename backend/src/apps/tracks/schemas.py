@@ -14,7 +14,9 @@ class TrackBase(TrackContentBase):
     pass
 
 
-class Track(TrackBase, TrackMediaBase, TrackUserBase, UUIDMixin, TimestampMixin, SoftDeleteMixin):
+class Track(
+    TrackBase, TrackMediaBase, TrackUserBase, UUIDMixin, TimestampMixin, SoftDeleteMixin
+):
     pass
 
 

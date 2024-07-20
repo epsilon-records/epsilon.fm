@@ -36,7 +36,9 @@ from src.core.utils.paginated import (
 router = fastapi.APIRouter(tags=["Epsilon - Tracks"])
 
 
-@router.post("/epsilon/tracks/user/{user_id}", response_model=TrackRead, status_code=201)
+@router.post(
+    "/epsilon/tracks/user/{user_id}", response_model=TrackRead, status_code=201
+)
 async def write_track(
     request: Request,
     user_id: UUID,
@@ -44,12 +46,16 @@ async def write_track(
     current_user: Annotated[UserRead, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> TrackRead:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if db_user is None:
         raise NotFoundException(detail="User not found")
 
     if current_user["id"] != db_user["id"]:
-        raise ForbiddenException(detail="You are not allowed to create an track for this user")
+        raise ForbiddenException(
+            detail="You are not allowed to create an track for this user"
+        )
 
     # Prepare the track data
     track_internal_dict = track.model_dump()
@@ -59,7 +65,9 @@ async def write_track(
     return await crud_tracks.create(db=db, object=track_internal)
 
 
-@router.get("/epsilon/tracks/user/{user_id}", response_model=PaginatedListResponse[TrackRead])
+@router.get(
+    "/epsilon/tracks/user/{user_id}", response_model=PaginatedListResponse[TrackRead]
+)
 @cache(
     key_prefix="epsilon:tracks:user:{user_id}:page_{page}:items_per_page:{items_per_page}",
     resource_id_name="user_id",
@@ -73,7 +81,9 @@ async def read_tracks(
     page: int = 1,
     items_per_page: int = 10,
 ) -> dict:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if not db_user:
         raise NotFoundException(detail="User not found")
 
@@ -86,11 +96,15 @@ async def read_tracks(
         is_deleted=False,
     )
 
-    return paginated_response(crud_data=tracks_data, page=page, items_per_page=items_per_page)
+    return paginated_response(
+        crud_data=tracks_data, page=page, items_per_page=items_per_page
+    )
 
 
 @router.get("/epsilon/tracks/{track_id}/user/{user_id}", response_model=TrackRead)
-@cache(key_prefix="epsilon:tracks:user:{user_id}:track_cache", resource_id_name="track_id")
+@cache(
+    key_prefix="epsilon:tracks:user:{user_id}:track_cache", resource_id_name="track_id"
+)
 async def read_track(
     request: Request,
     user_id: UUID,
@@ -98,7 +112,9 @@ async def read_track(
     current_user: Annotated[UserRead, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> dict:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if db_user is None:
         raise NotFoundException(detail="User not found")
 
@@ -129,7 +145,9 @@ async def patch_track(
     current_user: Annotated[UserRead, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> Dict[str, str]:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if db_user is None:
         raise NotFoundException(detail="User not found")
 
@@ -159,14 +177,20 @@ async def erase_track(
     current_user: Annotated[UserRead, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> Dict[str, str]:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if db_user is None:
         raise NotFoundException(detail="User not found")
 
-    if not current_user["is_superuser"] and str(current_user["id"]) != str(db_user["id"]):
+    if not current_user["is_superuser"] and str(current_user["id"]) != str(
+        db_user["id"]
+    ):
         raise ForbiddenException(detail="You are not allowed to delete this track")
 
-    db_track = await crud_tracks.get(db=db, schema_to_select=Track, id=track_id, is_deleted=False)
+    db_track = await crud_tracks.get(
+        db=db, schema_to_select=Track, id=track_id, is_deleted=False
+    )
     if db_track is None or db_track["is_deleted"]:
         if current_user["is_superuser"]:
             raise NotFoundException(detail="Track already deleted (soft delete).")
@@ -192,7 +216,9 @@ async def erase_db_track(
     track_id: UUID,
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> Dict[str, str]:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if db_user is None:
         raise NotFoundException(detail="User not found")
 

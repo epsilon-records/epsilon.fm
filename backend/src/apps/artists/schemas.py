@@ -5,7 +5,11 @@ from datetime import datetime
 from pydantic import ConfigDict
 
 # Local Dependencies
-from src.apps.ms.artists.models import ArtistContentBase, ArtistMediaBase, ArtistUserBase
+from src.apps.ms.artists.models import (
+    ArtistContentBase,
+    ArtistMediaBase,
+    ArtistUserBase,
+)
 from src.core.common.models import UUIDMixin, TimestampMixin, SoftDeleteMixin
 from src.core.utils.partial import optional
 
@@ -15,12 +19,19 @@ class ArtistBase(ArtistContentBase):
 
 
 class Artist(
-    ArtistBase, ArtistMediaBase, ArtistUserBase, UUIDMixin, TimestampMixin, SoftDeleteMixin
+    ArtistBase,
+    ArtistMediaBase,
+    ArtistUserBase,
+    UUIDMixin,
+    TimestampMixin,
+    SoftDeleteMixin,
 ):
     pass
 
 
-class ArtistRead(ArtistBase, ArtistMediaBase, ArtistUserBase, UUIDMixin, TimestampMixin):
+class ArtistRead(
+    ArtistBase, ArtistMediaBase, ArtistUserBase, UUIDMixin, TimestampMixin
+):
     pass
 
 
