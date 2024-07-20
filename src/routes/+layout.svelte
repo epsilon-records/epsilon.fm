@@ -1,5 +1,9 @@
-<script>
+<script lang="ts">
 	import { PUBLIC_WEGLOT_API_KEY, PUBLIC_METICULOUS_RECORDING_TOKEN } from '$env/static/public';
+	import { QueryClientProvider } from '@tanstack/svelte-query';
+	import { SvelteQueryDevtools } from '@tanstack/svelte-query-devtools';
+	import type { LayoutData } from './$types';
+	export let data: LayoutData;
 </script>
 
 <svelte:head>
@@ -19,4 +23,8 @@
 		</script>
 	{/if}
 </svelte:head>
-<slot />
+
+<QueryClientProvider client={data.queryClient}>
+	<slot />
+	<SvelteQueryDevtools />
+</QueryClientProvider>
