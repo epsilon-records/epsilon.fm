@@ -1,5 +1,5 @@
 import { artistSchema } from '../routes/(main)/profile/schema';
-import { PUBLIC_API_URL, PUBLIC_API_VERSION } from '$env/static/private';
+import { PUBLIC_API_URL, PUBLIC_API_VERSION } from '$env/static/public';
 import { z } from 'zod';
 
 export const api = (customFetch = fetch) => ({
