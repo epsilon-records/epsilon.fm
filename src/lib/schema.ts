@@ -6,7 +6,7 @@ const artistSchema = z.object({
 	updated_at: z.string().datetime({ offset: true }).optional(),
 	org_id: z.string().max(255),
 	slug: z.string().max(255).optional(),
-	stage_name: z.string().max(50),
+	stage_name: z.string().max(50).optional(),
 	media_url: z.string().url().nullable().optional(),
 	email: z.string().max(255),
 	biography: z.string().max(1000),
