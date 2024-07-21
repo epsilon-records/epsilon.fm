@@ -18,7 +18,7 @@ const createMockFetch = (status: number, data: unknown) => {
 
 const mockArtists: z.infer<typeof artistSchema>[] = [
 	{
-		id: 1,
+		id: '123e4567-e89b-12d3-a456-426614174000',
 		orgId: 'org123',
 		slug: 'artist-one',
 		stageName: 'Artist One',
@@ -35,7 +35,7 @@ const mockArtists: z.infer<typeof artistSchema>[] = [
 		bandsintownProfileLink: 'https://www.bandsintown.com/a/123-artist-one'
 	},
 	{
-		id: 2,
+		id: 'f47ac10b-58cc-4372-a567-0e02b2c3d479',
 		orgId: 'org456',
 		slug: 'artist-two',
 		stageName: 'Artist Two',

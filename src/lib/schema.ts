@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 const artistSchema = z.object({
-	id: z.number().optional(),
+	id: z.string().uuid().optional(),
 	orgId: z.string().max(255),
 	slug: z.string().max(255),
 	stageName: z.string().max(50),
@@ -19,12 +19,12 @@ const artistSchema = z.object({
 });
 
 const genreSchema = z.object({
-	id: z.number().optional(),
+	id: z.string().uuid().optional(),
 	name: z.string().max(50)
 });
 
 const releaseSchema = z.object({
-	id: z.number().optional(),
+	id: z.string().uuid().optional(),
 	artistId: z.number(),
 	title: z.string().max(100),
 	releaseDate: z.string(), // Using string to represent date
@@ -41,7 +41,7 @@ const releaseSchema = z.object({
 });
 
 const trackSchema = z.object({
-	id: z.number().optional(),
+	id: z.string().uuid().optional(),
 	releaseId: z.number(),
 	title: z.string().max(100),
 	preview: z.number(),
@@ -63,8 +63,8 @@ const trackSchema = z.object({
 });
 
 const trackSubgenreSchema = z.object({
-	trackId: z.number(),
-	subgenreId: z.number()
+	trackId: z.string().uuid(),
+	subgenreId: z.string().uuid()
 });
 
 export type ArtistSchema = typeof artistSchema;
