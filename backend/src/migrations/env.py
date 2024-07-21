@@ -1,6 +1,7 @@
 # Built-in Dependencies
 from logging.config import fileConfig
 import asyncio
+import os
 
 # Third-Party Dependencies
 from sqlalchemy.ext.asyncio import async_engine_from_config
@@ -11,7 +12,7 @@ from alembic import context
 # Local Dependencies
 from src.core.common.models import Base
 from src.core.config import settings
-from src.core.db import *
+
 
 # Define the custom Alembic version table name
 custom_alembic_version_table_name = "_alembic_version"
@@ -19,8 +20,12 @@ custom_alembic_version_table_name = "_alembic_version"
 # The Alembic Config object providing access to the .ini file values.
 config = context.config
 
-# Set the SQLAlchemy URL using the Postgres async URI from settings.
+# Set the SQLAlchemy URL using the Postgres async URI from settings
 config.set_main_option(name="sqlalchemy.url", value=f"{settings.POSTGRES_ASYNC_URI}")
+
+# Override with the database URL from environment variable if it exists
+if "DATABASE_URL" in os.environ:
+    config.set_main_option(name="sqlalchemy.url", value=f"{os.environ['DATABASE_URL']}")
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
@@ -46,11 +51,11 @@ target_metadata.naming_convention = {
 
 
 def filter_db_objects(
-    object,  # noqa: indirect usage
+    object,
     name,
     type_,
-    *args,  # noqa: indirect usage
-    **kwargs,  # noqa: indirect usage
+    *args,
+    **kwargs,
 ):
     """
     Filter the database objects based on the given criteria.
