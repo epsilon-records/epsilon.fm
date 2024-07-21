@@ -1,7 +1,7 @@
 import { artistSchema } from '$lib/schema';
 import { PUBLIC_API_URL, PUBLIC_API_VERSION } from '$env/static/public';
 import { z, ZodError } from 'zod';
-import { logger } from '$lib/logger';
+import logger from '$lib/logger';
 
 class APIError extends Error {
 	constructor(
