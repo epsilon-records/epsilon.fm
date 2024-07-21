@@ -83,16 +83,16 @@ async def read_artists(
     )
 
 
-@router.get("/artists/{artist_id}", response_model=ArtistRead)
+@router.get("/artists/{org_id}", response_model=ArtistRead)
 async def read_artist(
     request: Request,
-    artist_id: str,
+    org_id: str,
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> dict:
     db_artist = await crud_artists.get(
         db=db,
         schema_to_select=ArtistRead,
-        org_id=artist_id,
+        org_id=org_id,
         is_deleted=False,
     )
     if db_artist is None:
