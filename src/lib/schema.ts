@@ -2,6 +2,9 @@ import { z } from 'zod';
 
 const artistSchema = z.object({
 	id: z.string().uuid().optional(),
+	created_at: z.string().datetime({ offset: true }),
+	updated_at: z.string().datetime({ offset: true }),
+	media_url: z.string().url().nullable(),
 	orgId: z.string().max(255),
 	slug: z.string().max(255),
 	stageName: z.string().max(50),

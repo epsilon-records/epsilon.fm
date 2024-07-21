@@ -29,9 +29,7 @@ class Artist(
     pass
 
 
-class ArtistRead(
-    ArtistBase, ArtistMediaBase, ArtistUserBase, UUIDMixin, TimestampMixin
-):
+class ArtistRead(ArtistBase, ArtistMediaBase, UUIDMixin, TimestampMixin):
     pass
 
 
