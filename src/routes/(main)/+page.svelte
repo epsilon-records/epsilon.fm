@@ -16,8 +16,8 @@
 	export let data: PageData;
 
 	const uploader = createUploader('imageUploader', {
-		onClientUploadComplete: (res) => {
-			logger.info(`onClientUploadComplete`, res);
+		onClientUploadComplete: (result) => {
+			logger.info(`onClientUploadComplete`, result);
 			alert('Upload Completed');
 		},
 		onUploadError: (error: Error) => {
