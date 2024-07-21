@@ -192,6 +192,10 @@ class CORSSettings(BaseSettings):
     CORS_MAX_AGE: int = int(config("CORS_MAX_AGE", default="600"))
 
 
+class MetricsSettings(BaseSettings):
+    README_API_KEY: str = config("README_API_KEY", default="")
+
+
 class EnvironmentOption(Enum):
     LOCAL = "local"
     STAGING = "staging"

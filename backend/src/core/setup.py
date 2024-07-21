@@ -6,6 +6,7 @@ from typing import Union, Dict, Any
 # Third-Party Dependencies
 from fastapi.openapi.docs import get_swagger_ui_html, get_redoc_html
 from fastapi.middleware.cors import CORSMiddleware
+from readme_metrics import MetricsApiConfig
 from fastapi import FastAPI, APIRouter
 from fastapi.openapi.utils import get_openapi
 from arq.connections import RedisSettings
@@ -32,6 +33,7 @@ from src.core.config import (
     AppSettings,
     ClientSideCacheSettings,
     CORSSettings,
+    MetricsSettings,
     RedisQueueSettings,
     RedisRateLimiterSettings,
     EnvironmentOption,
@@ -173,6 +175,7 @@ def create_application(
         - RedisCacheSettings: Sets up event handlers for creating and closing a Redis cache pool.
         - ClientSideCacheSettings: Integrates middleware for client-side caching.
         - CORSSettings: Configures Cross-Origin Resource Sharing (CORS) middleware.
+        - MetricsSettings: Configures middleware for readme.io metrics.
         - RedisQueueSettings: Sets up event handlers for creating and closing a Redis queue pool.
         - EnvironmentSettings: Conditionally sets documentation URLs and integrates custom routes for API documentation based on environment type.
 
@@ -248,6 +251,20 @@ def create_application(
             allow_headers=settings.CORS_ALLOW_HEADERS,
             expose_headers=settings.CORS_EXPOSE_HEADERS,
             max_age=settings.CORS_MAX_AGE,
+        )
+
+    if isinstance(settings, MetricsSettings):
+        # Add middleware for readme.io metrics
+        application.add_middleware(
+            application,
+            MetricsApiConfig(
+                "API_KEY",
+                lambda req: {
+                    "api_key": "<userId>",
+                    "label": "<userNameToShowInDashboard>",
+                    "email": "<userEmailAddress>",
+                },
+            ),
         )
 
     if isinstance(settings, RedisQueueSettings):

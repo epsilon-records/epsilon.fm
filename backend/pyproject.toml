@@ -32,6 +32,7 @@ greenlet = "^3.0.3"
 pyyaml = "^6.0.1"
 pre-commit = "^3.7.1"
 ruff = "^0.5.2"
+readme-metrics = "^3.1.0"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.6.0"
