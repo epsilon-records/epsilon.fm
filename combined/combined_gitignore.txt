@@ -1,3 +1,0 @@
-
-// File: /opt/src/epsilon.fm/.husky/_/.gitignore
-*
