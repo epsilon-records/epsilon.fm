@@ -78,7 +78,9 @@ async def read_artists(
         schema_to_select=ArtistDB,
         is_deleted=False,
     )
-
+    for artist in artists_data:
+        artist["slug"] = "<slug>"
+        artist["stage_name"] = "<stage_name>"
     return paginated_response(
         crud_data=artists_data, page=page, items_per_page=items_per_page
     )
