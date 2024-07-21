@@ -149,6 +149,7 @@ def create_application(
         AppSettings,
         ClientSideCacheSettings,
         CORSSettings,
+        MetricsSettings,
         RedisQueueSettings,
         RedisRateLimiterSettings,
         EnvironmentSettings,

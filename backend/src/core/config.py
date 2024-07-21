@@ -194,6 +194,8 @@ class CORSSettings(BaseSettings):
 
 class MetricsSettings(BaseSettings):
     README_API_KEY: str = config("README_API_KEY", default="")
+    README_BASE_LOG_URL: str = config("README_BASE_LOG_URL", default="")
+    README_BUFFER_LENGTH: int = config("README_BUFFER_LENGTH", default=1)
 
 
 class EnvironmentOption(Enum):
@@ -216,6 +218,7 @@ class Settings(
     RedisCacheSettings,
     ClientSideCacheSettings,
     CORSSettings,
+    MetricsSettings,
     RedisQueueSettings,
     RedisRateLimiterSettings,
     RedisHashSettings,
