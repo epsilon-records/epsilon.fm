@@ -258,7 +258,7 @@ def create_application(
         application.add_middleware(
             application,
             MetricsApiConfig(
-                "API_KEY",
+                settings.README_API_KEY,
                 lambda req: {
                     "api_key": "<userId>",
                     "label": "<userNameToShowInDashboard>",
