@@ -55,7 +55,7 @@ async def write_artist(
             detail="You are not allowed to create an artist for this user"
         )
 
-    # Prepare the artist data
+    # Prepare the atist data
     artist_internal_dict = artist.model_dump()
     artist_internal_dict["user_id"] = current_user["id"]
 
