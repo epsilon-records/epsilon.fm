@@ -6,6 +6,7 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"db:revision": "poetry --directory ./backend run alembic -c ./backend/alembic.ini revision --autogenerate",
+		"db:upgrade": "poetry --directory ./backend run alembic -c ./backend/alembic.ini upgrade head",
 		"test": "poetry --directory ./backend run python -m pytest -vv ./backend/tests && bun run test:integration && bun run test:unit",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
