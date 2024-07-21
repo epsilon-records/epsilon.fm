@@ -31,12 +31,6 @@
 		script.async = true;
 		script.setAttribute('data-uid', '47e61bac90');
 		node.appendChild(script);
-
-		return {
-			destroy() {
-				node.removeChild(script);
-			}
-		};
 	}
 
 	slug.set(data.slug);
