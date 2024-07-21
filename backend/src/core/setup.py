@@ -6,7 +6,6 @@ from typing import Union, Dict, Any
 # Third-Party Dependencies
 from fastapi.openapi.docs import get_swagger_ui_html, get_redoc_html
 from fastapi.middleware.cors import CORSMiddleware
-from readme_metrics import MetricsMiddleware
 from fastapi import FastAPI, APIRouter
 from fastapi.openapi.utils import get_openapi
 from arq.connections import RedisSettings
@@ -254,22 +253,22 @@ def create_application(
             max_age=settings.CORS_MAX_AGE,
         )
 
-    if isinstance(settings, MetricsSettings):
-        # Add middleware for readme.io metrics
-        application.add_middleware(
-            MetricsMiddleware,
-            api_key=settings.README_API_KEY,
-            grouping_function=lambda req: {
-                "api_key": "<userId>",
-                "label": "<userNameToShowInDashboard>",
-                "email": "<userEmailAddress>",
-            },
-            base_log_url=settings.README_BASE_LOG_URL,
-            buffer_length=settings.README_BUFFER_LENGTH,
-            development_mode=(
-                settings.ENVIRONMENT != EnvironmentOption.PRODUCTION
-            ),  # set to true if in a development environment
-        )
+    # if isinstance(settings, MetricsSettings):
+    #     # Add middleware for readme.io metrics
+    #     application.add_middleware(
+    #         MetricsMiddleware,
+    #         api_key=settings.README_API_KEY,
+    #         grouping_function=lambda req: {
+    #             "api_key": "<userId>",
+    #             "label": "<userNameToShowInDashboard>",
+    #             "email": "<userEmailAddress>",
+    #         },
+    #         base_log_url=settings.README_BASE_LOG_URL,
+    #         buffer_length=settings.README_BUFFER_LENGTH,
+    #         development_mode=(
+    #             settings.ENVIRONMENT != EnvironmentOption.PRODUCTION
+    #         ),  # set to true if in a development environment
+    #     )
 
     if isinstance(settings, RedisQueueSettings):
         # Add event handlers for Redis queue pool setup and shutdown
