@@ -84,6 +84,7 @@ async def read_artists(
     )
 
 
+#
 @router.get("/artists/{artist_id}", response_model=ArtistRead)
 async def read_artist(
     request: Request,
