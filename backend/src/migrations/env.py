@@ -13,7 +13,6 @@ from alembic import context
 from src.core.common.models import Base
 from src.core.config import settings
 
-
 # Define the custom Alembic version table name
 custom_alembic_version_table_name = "_alembic_version"
 
