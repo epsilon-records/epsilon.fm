@@ -38,10 +38,10 @@
 	<form method="POST" use:enhance>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="stageName">
+				<Field {form} name="stage_name">
 					<Control let:attrs>
 						<Label>Artist Stage Name</Label>
-						<Input {...attrs} class="bg-muted text-xl" bind:value={$formData.stageName} readonly />
+						<Input {...attrs} class="bg-muted text-xl" bind:value={$formData.stage_name} readonly />
 					</Control>
 					<div class="grid gap-4 text-xs">
 						<Description>
@@ -54,10 +54,10 @@
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="orgId">
+				<Field {form} name="org_id">
 					<Control let:attrs>
 						<Label>ID</Label>
-						<Input {...attrs} class="bg-muted" bind:value={$formData.orgId} readonly />
+						<Input {...attrs} class="bg-muted" bind:value={$formData.org_id} readonly />
 					</Control>
 				</Field>
 			</div>
@@ -110,12 +110,12 @@
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="spotifyArtistLink">
+				<Field {form} name="spotify_artist_link">
 					<Control let:attrs>
 						<Label>Spotify Artist Link</Label>
 						<Input
 							{...attrs}
-							bind:value={$formData.spotifyArtistLink}
+							bind:value={$formData.spotify_artist_link}
 							placeholder="Spotify Artist Link"
 						/>
 					</Control>
@@ -128,12 +128,12 @@
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="youtubeChannelLink">
+				<Field {form} name="youtube_channel_link">
 					<Control let:attrs>
 						<Label>YouTube Channel Link</Label>
 						<Input
 							{...attrs}
-							bind:value={$formData.youtubeChannelLink}
+							bind:value={$formData.youtube_channel_link}
 							placeholder="YouTube Channel Link"
 						/>
 					</Control>
@@ -146,12 +146,12 @@
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="instagramProfileLink">
+				<Field {form} name="instagram_profile_link">
 					<Control let:attrs>
 						<Label>Instagram Profile Link</Label>
 						<Input
 							{...attrs}
-							bind:value={$formData.instagramProfileLink}
+							bind:value={$formData.instagram_profile_link}
 							placeholder="Instagram Profile Link"
 						/>
 					</Control>
@@ -164,12 +164,12 @@
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="facebookProfileLink">
+				<Field {form} name="facebook_profile_link">
 					<Control let:attrs>
 						<Label>Facebook Profile Link</Label>
 						<Input
 							{...attrs}
-							bind:value={$formData.facebookProfileLink}
+							bind:value={$formData.facebook_profile_link}
 							placeholder="Facebook Profile Link"
 						/>
 					</Control>
@@ -182,10 +182,10 @@
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="xProfileLink">
+				<Field {form} name="x_profile_link">
 					<Control let:attrs>
 						<Label>X Profile Link</Label>
-						<Input {...attrs} bind:value={$formData.xProfileLink} placeholder="X Profile Link" />
+						<Input {...attrs} bind:value={$formData.x_profile_link} placeholder="X Profile Link" />
 					</Control>
 					<div class="grid gap-4 text-xs sm:grid-cols-2">
 						<Description class="">Your X artist profile link.</Description>
@@ -196,12 +196,12 @@
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="tiktokProfileLink">
+				<Field {form} name="tiktok_profile_link">
 					<Control let:attrs>
 						<Label>TikTok Profile Link</Label>
 						<Input
 							{...attrs}
-							bind:value={$formData.tiktokProfileLink}
+							bind:value={$formData.tiktok_profile_link}
 							placeholder="TikTok Profile Link"
 						/>
 					</Control>
@@ -214,12 +214,12 @@
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="soundcloudProfileLink">
+				<Field {form} name="soundcloud_profile_link">
 					<Control let:attrs>
 						<Label>SoundCloud Profile Link</Label>
 						<Input
 							{...attrs}
-							bind:value={$formData.soundcloudProfileLink}
+							bind:value={$formData.soundcloud_profile_link}
 							placeholder="SoundCloud Profile Link"
 						/>
 					</Control>
@@ -232,12 +232,12 @@
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="songkickProfileLink">
+				<Field {form} name="songkick_profile_link">
 					<Control let:attrs>
 						<Label>Songkick Profile Link</Label>
 						<Input
 							{...attrs}
-							bind:value={$formData.songkickProfileLink}
+							bind:value={$formData.songkick_profile_link}
 							placeholder="Songkick Profile Link"
 						/>
 					</Control>
@@ -250,12 +250,12 @@
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="bandsintownProfileLink">
+				<Field {form} name="bandsintown_profile_link">
 					<Control let:attrs>
 						<Label>Bandsintown Profile Link</Label>
 						<Input
 							{...attrs}
-							bind:value={$formData.bandsintownProfileLink}
+							bind:value={$formData.bandsintown_profile_link}
 							placeholder="Bandsintown Profile Link"
 						/>
 					</Control>

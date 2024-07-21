@@ -2,23 +2,23 @@ import { z } from 'zod';
 
 const artistSchema = z.object({
 	id: z.string().uuid().optional(),
-	created_at: z.string().datetime({ offset: true }),
-	updated_at: z.string().datetime({ offset: true }),
-	media_url: z.string().url().nullable(),
-	orgId: z.string().max(255),
-	slug: z.string().max(255),
-	stageName: z.string().max(50),
+	created_at: z.string().datetime({ offset: true }).optional(),
+	updated_at: z.string().datetime({ offset: true }).optional(),
+	org_id: z.string().max(255),
+	slug: z.string().max(255).optional(),
+	stage_name: z.string().max(50),
+	media_url: z.string().url().nullable().optional(),
 	email: z.string().max(255),
 	biography: z.string().max(1000),
-	spotifyArtistLink: z.string().max(255).optional(),
-	youtubeChannelLink: z.string().max(255).optional(),
-	instagramProfileLink: z.string().max(255).optional(),
-	facebookProfileLink: z.string().max(255).optional(),
-	xProfileLink: z.string().max(255).optional(), // X refers to Twitter
-	tiktokProfileLink: z.string().max(255).optional(),
-	soundcloudProfileLink: z.string().max(255).optional(),
-	songkickProfileLink: z.string().max(255).optional(),
-	bandsintownProfileLink: z.string().max(255).optional()
+	spotify_artist_link: z.string().max(255).optional(),
+	youtube_channel_link: z.string().max(255).optional(),
+	instagram_profile_link: z.string().max(255).optional(),
+	facebook_profile_link: z.string().max(255).optional(),
+	x_profile_link: z.string().max(255).optional(), // X refers to Twitter
+	tiktok_profile_link: z.string().max(255).optional(),
+	soundcloud_profile_link: z.string().max(255).optional(),
+	songkick_profile_link: z.string().max(255).optional(),
+	bandsintown_profile_link: z.string().max(255).optional()
 });
 
 const genreSchema = z.object({

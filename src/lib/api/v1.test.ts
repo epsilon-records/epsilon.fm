@@ -19,32 +19,32 @@ const createMockFetch = (status: number, data: unknown) => {
 const mockArtists: z.infer<typeof artistSchema>[] = [
 	{
 		id: '123e4567-e89b-12d3-a456-426614174000',
-		orgId: 'org123',
+		org_id: 'org123',
 		slug: 'artist-one',
-		stageName: 'Artist One',
+		stage_name: 'Artist One',
 		email: 'artist.one@example.com',
 		biography: 'Artist One is a talented musician with a unique sound.',
-		spotifyArtistLink: 'https://open.spotify.com/artist/123',
-		youtubeChannelLink: 'https://www.youtube.com/channel/123',
-		instagramProfileLink: 'https://www.instagram.com/artistone',
-		facebookProfileLink: 'https://www.facebook.com/artistone',
-		xProfileLink: 'https://x.com/artistone',
-		tiktokProfileLink: 'https://www.tiktok.com/@artistone',
-		soundcloudProfileLink: 'https://soundcloud.com/artistone',
-		songkickProfileLink: 'https://www.songkick.com/artists/123-artist-one',
-		bandsintownProfileLink: 'https://www.bandsintown.com/a/123-artist-one'
+		spotify_artist_link: 'https://open.spotify.com/artist/123',
+		youtube_channel_link: 'https://www.youtube.com/channel/123',
+		instagram_profile_link: 'https://www.instagram.com/artistone',
+		facebook_profile_link: 'https://www.facebook.com/artistone',
+		x_profile_link: 'https://x.com/artistone',
+		tiktok_profile_link: 'https://www.tiktok.com/@artistone',
+		soundcloud_profile_link: 'https://soundcloud.com/artistone',
+		songkick_profile_link: 'https://www.songkick.com/artists/123-artist-one',
+		bandsintown_profile_link: 'https://www.bandsintown.com/a/123-artist-one'
 	},
 	{
 		id: 'f47ac10b-58cc-4372-a567-0e02b2c3d479',
-		orgId: 'org456',
+		org_id: 'org456',
 		slug: 'artist-two',
-		stageName: 'Artist Two',
+		stage_name: 'Artist Two',
 		email: 'artist.two@example.com',
 		biography: 'Artist Two is a rising star in the electronic music scene.',
-		spotifyArtistLink: 'https://open.spotify.com/artist/456',
-		youtubeChannelLink: 'https://www.youtube.com/channel/456',
-		instagramProfileLink: 'https://www.instagram.com/artisttwo',
-		facebookProfileLink: 'https://www.facebook.com/artisttwo'
+		spotify_artist_link: 'https://open.spotify.com/artist/456',
+		youtube_channel_link: 'https://www.youtube.com/channel/456',
+		instagram_profile_link: 'https://www.instagram.com/artisttwo',
+		facebook_profile_link: 'https://www.facebook.com/artisttwo'
 	}
 ];
 
@@ -82,7 +82,7 @@ describe('API Tests', () => {
 		expect(result).toEqual(
 			expect.objectContaining({
 				slug: 'artist-one',
-				stageName: 'Artist One'
+				stage_name: 'Artist One'
 			})
 		);
 	});
@@ -110,7 +110,7 @@ describe('API Tests', () => {
 			id: 'not-a-number',
 			orgId: 123,
 			slug: 'invalid-artist',
-			stageName: 'Invalid Artist',
+			stage_name: 'Invalid Artist',
 			email: 'not-an-email'
 		};
 

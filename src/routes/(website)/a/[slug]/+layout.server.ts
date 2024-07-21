@@ -7,7 +7,7 @@ export const load = (async ({ params }) => {
 	});
 	return {
 		orgId: response.id ?? null,
-		stageName: response.name ?? null,
+		stage_name: response.name ?? null,
 		imageUrl: response.imageUrl ?? null,
 		slug: response.slug ?? null,
 		email: 'hello@epsilonrecords.com' ?? null

@@ -15,12 +15,12 @@ export const load: PageServerLoad = async ({ locals }) => {
 	if (session && session.claims && session.claims.org_id) {
 		const organizationId = session.claims.org_id ?? null;
 		const response = await clerkClient.organizations.getOrganization({ organizationId });
-		const stageName = response.name ?? null;
+		const stage_name = response.name ?? null;
 		const slug = response.slug ?? null;
-		if (!organizationId || !stageName || !slug) {
+		if (!organizationId || !stage_name || !slug) {
 			throw redirect(500, '/');
 		}
-		const data = await db.select().from(artist).where(eq(artist.orgId, organizationId));
+		const data = await db.select().from(artist).where(eq(artist.org_id, organizationId));
 		if (data.length != 0) {
 			// Convert null values to undefined
 			const formattedData = Object.fromEntries(
@@ -28,8 +28,8 @@ export const load: PageServerLoad = async ({ locals }) => {
 			);
 			form = await superValidate(formattedData, zod(artistSchema), { strict: true });
 		}
-		form.data.orgId = organizationId;
-		form.data.stageName = stageName;
+		form.data.org_id = organizationId;
+		form.data.stage_name = stage_name;
 		form.data.slug = slug;
 	}
 	return {
@@ -46,11 +46,14 @@ export const actions: Actions = {
 			});
 		}
 		try {
-			const updatedData = { ...form.data, id: form.data.id?.toString() };
-			await db.insert(artist).values(updatedData).onConflictDoUpdate({
-				target: artist.orgId,
-				set: updatedData
-			});
+			// const updatedData = {
+			// 	...form.data,
+			// 	id: form.data.id?.toString()
+			// };
+			// await db.insert(artist).values(updatedData).onConflictDoUpdate({
+			// 	target: artist.org_id,
+			// 	set: updatedData
+			// });
 		} catch {
 			return fail(500, {
 				form

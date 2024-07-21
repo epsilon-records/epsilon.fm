@@ -24,12 +24,12 @@
 </script>
 
 <svelte:head>
-	<title>{$artist.data?.stageName || 'Artist Page'}</title>
-	<meta name="description" content="Official page of {$artist.data?.stageName}. DJ & Producer." />
+	<title>{$artist.data?.stage_name || 'Artist Page'}</title>
+	<meta name="description" content="Official page of {$artist.data?.stage_name}. DJ & Producer." />
 </svelte:head>
 
 <main>
-	<h1 class="text-8xl text-white">{$artist.data?.stageName?.toUpperCase()}</h1>
+	<h1 class="text-8xl text-white">{$artist.data?.stage_name?.toUpperCase()}</h1>
 	<p class="pt-12 text-3xl text-white">DJ & Producer</p>
 	<div class="icons">
 		<div
@@ -46,9 +46,9 @@
 				<Gmail />
 			</div>
 		</div>
-		{#if $artist.data?.instagramProfileLink}
+		{#if $artist.data?.instagram_profile_link}
 			<a
-				href={$artist.data?.instagramProfileLink}
+				href={$artist.data?.instagram_profile_link}
 				aria-label="Instagram"
 				target="_blank"
 				rel="noopener noreferrer"
@@ -58,9 +58,9 @@
 				</div>
 			</a>
 		{/if}
-		{#if $artist.data?.facebookProfileLink}
+		{#if $artist.data?.facebook_profile_link}
 			<a
-				href={$artist.data?.facebookProfileLink}
+				href={$artist.data?.facebook_profile_link}
 				aria-label="Facebook"
 				target="_blank"
 				rel="noopener noreferrer"
@@ -70,9 +70,9 @@
 				</div>
 			</a>
 		{/if}
-		{#if $artist.data?.soundcloudProfileLink}
+		{#if $artist.data?.soundcloud_profile_link}
 			<a
-				href={$artist.data?.soundcloudProfileLink}
+				href={$artist.data?.soundcloud_profile_link}
 				aria-label="SoundCloud"
 				target="_blank"
 				rel="noopener noreferrer"
@@ -82,9 +82,9 @@
 				</div>
 			</a>
 		{/if}
-		{#if $artist.data?.bandsintownProfileLink}
+		{#if $artist.data?.bandsintown_profile_link}
 			<a
-				href={$artist.data?.bandsintownProfileLink}
+				href={$artist.data?.bandsintown_profile_link}
 				aria-label="Bandsintown"
 				target="_blank"
 				rel="noopener noreferrer"
@@ -94,9 +94,9 @@
 				</div>
 			</a>
 		{/if}
-		{#if $artist.data?.tiktokProfileLink}
+		{#if $artist.data?.tiktok_profile_link}
 			<a
-				href={$artist.data?.tiktokProfileLink}
+				href={$artist.data?.tiktok_profile_link}
 				aria-label="TikTok"
 				target="_blank"
 				rel="noopener noreferrer"
@@ -106,9 +106,9 @@
 				</div>
 			</a>
 		{/if}
-		{#if $artist.data?.youtubeChannelLink}
+		{#if $artist.data?.youtube_channel_link}
 			<a
-				href={$artist.data?.youtubeChannelLink}
+				href={$artist.data?.youtube_channel_link}
 				aria-label="YouTube"
 				target="_blank"
 				rel="noopener noreferrer"

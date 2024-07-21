@@ -23,18 +23,18 @@ export const user = pgTable('user', {
 
 export const artist = pgTable('artist', {
 	id: uuid('id').primaryKey().defaultRandom().notNull(),
-	orgId: varchar('org_id', { length: 255 }).unique().notNull(),
+	org_id: varchar('org_id', { length: 255 }).unique().notNull(),
 	email: varchar('email', { length: 255 }).notNull(),
 	biography: text('biography').notNull(),
-	spotifyArtistLink: varchar('spotify_artist_link', { length: 255 }),
-	youtubeChannelLink: varchar('youtube_channel_link', { length: 255 }),
-	instagramProfileLink: varchar('instagram_profile_link', { length: 255 }),
-	facebookProfileLink: varchar('facebook_profile_link', { length: 255 }),
-	xProfileLink: varchar('x_profile_link', { length: 255 }), // X refers to Twitter
-	tiktokProfileLink: varchar('tiktok_profile_link', { length: 255 }),
-	soundcloudProfileLink: varchar('soundcloud_profile_link', { length: 255 }),
-	songkickProfileLink: varchar('songkick_profile_link', { length: 255 }),
-	bandsintownProfileLink: varchar('bandsintown_profile_link', { length: 255 }),
+	spotify_artist_link: varchar('spotify_artist_link', { length: 255 }),
+	youtube_channel_link: varchar('youtube_channel_link', { length: 255 }),
+	instagram_profile_link: varchar('instagram_profile_link', { length: 255 }),
+	facebook_profile_link: varchar('facebook_profile_link', { length: 255 }),
+	x_profile_link: varchar('x_profile_link', { length: 255 }), // X refers to Twitter
+	tiktok_profile_link: varchar('tiktok_profile_link', { length: 255 }),
+	soundcloud_profile_link: varchar('soundcloud_profile_link', { length: 255 }),
+	songkick_profile_link: varchar('songkick_profile_link', { length: 255 }),
+	bandsintown_profile_link: varchar('bandsintown_profile_link', { length: 255 }),
 	updatedAt: timestamp('updated_at').defaultNow().notNull()
 });
 

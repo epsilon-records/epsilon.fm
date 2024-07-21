@@ -18,7 +18,7 @@
 </script>
 
 <svelte:head>
-	<title>{$artist.data?.stageName} — About</title>
+	<title>{$artist.data?.stage_name} — About</title>
 </svelte:head>
 
 <div class="container">
