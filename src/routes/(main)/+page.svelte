@@ -14,6 +14,7 @@
 	import type { PageData } from './$types.js';
 
 	export let data: PageData;
+
 	const uploader = createUploader('imageUploader', {
 		onClientUploadComplete: (res) => {
 			logger.info(`onClientUploadComplete`, res);
@@ -109,7 +110,7 @@
 			</Card.Header>
 			<Card.Content>
 				<div class="flex items-center justify-center">
-					<script
+					Loading<script
 						async
 						data-uid="47e61bac90"
 						src="https://epsilon.ck.page/47e61bac90/index.js"
