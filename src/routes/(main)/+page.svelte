@@ -25,7 +25,7 @@
 		}
 	});
 
-	function loadConvertKit(node) {
+	function loadConvertKit(node: HTMLElement) {
 		const script = document.createElement('script');
 		script.src = 'https://epsilon.ck.page/47e61bac90/index.js';
 		script.async = true;
