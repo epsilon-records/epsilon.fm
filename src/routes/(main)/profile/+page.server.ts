@@ -2,9 +2,6 @@ import type { PageServerLoad, Actions } from './$types.js';
 import { message, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { artistSchema } from '../../../lib/schema.js';
-import { db } from '$lib/db';
-import { artist } from '$lib/db/schema';
-import { eq } from 'drizzle-orm';
 import { clerkClient } from '@clerk/clerk-sdk-node';
 import { redirect, fail } from '@sveltejs/kit';
 
@@ -20,7 +17,8 @@ export const load: PageServerLoad = async ({ locals }) => {
 		if (!organizationId || !stage_name || !slug) {
 			throw redirect(500, '/');
 		}
-		const data = await db.select().from(artist).where(eq(artist.org_id, organizationId));
+		// const data = await db.select().from(artist).where(eq(artist.org_id, organizationId));
+		const data: string = '';
 		if (data.length != 0) {
 			// Convert null values to undefined
 			const formattedData = Object.fromEntries(
