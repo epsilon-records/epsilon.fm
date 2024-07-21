@@ -75,7 +75,7 @@ async def read_artists(
         db=db,
         offset=compute_offset(page, items_per_page),
         limit=items_per_page,
-        schema_to_select=ArtistRead,
+        schema_to_select=ArtistDB,
         is_deleted=False,
     )
 
