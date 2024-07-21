@@ -31,7 +31,7 @@ from src.core.utils.paginated import (
     compute_offset,
 )
 
-# TOD: Improvment the cache strategy on composite routes. Eg: '/artists/{artist_id}/user/{user_id}' is not good.
+# TODO: Improvment the cache strategy on composite routes. Eg: '/artists/{artist_id}/user/{user_id}' is not good.
 
 router = fastapi.APIRouter(tags=["Artists"])
 
