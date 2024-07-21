@@ -66,6 +66,7 @@ async def write_artist(
 @router.get("/artists", response_model=PaginatedListResponse[ArtistRead])
 async def read_artists(
     request: Request,
+    current_user: Annotated[UserRead, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(async_get_db)],
     page: int = 1,
     items_per_page: int = 10,
@@ -87,6 +88,7 @@ async def read_artists(
 async def read_artist(
     request: Request,
     artist_id: str,
+    current_user: Annotated[UserRead, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> dict:
     db_artist = await crud_artists.get(
