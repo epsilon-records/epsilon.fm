@@ -97,7 +97,8 @@ async def read_artist(
     )
     if db_artist is None:
         raise NotFoundException(detail="Artist not found")
-
+    db_artist["slug"] = "<slug>"
+    db_artist["stage_name"] = "<stage_name>"
     return db_artist
 
 
