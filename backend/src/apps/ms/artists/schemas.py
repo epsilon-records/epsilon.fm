@@ -29,6 +29,10 @@ class Artist(
     pass
 
 
+class ArtistDB(ArtistBase, ArtistMediaBase, UUIDMixin, TimestampMixin):
+    pass
+
+
 class ArtistRead(ArtistBase, ArtistMediaBase, UUIDMixin, TimestampMixin):
     slug: str
     stage_name: str

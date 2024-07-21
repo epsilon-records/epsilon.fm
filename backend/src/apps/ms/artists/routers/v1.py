@@ -23,6 +23,7 @@ from src.apps.ms.artists.schemas import (
     ArtistCreate,
     ArtistUpdate,
     ArtistRead,
+    ArtistDB,
     ArtistCreateInternal,
 )
 from src.core.utils.paginated import (
@@ -91,7 +92,7 @@ async def read_artist(
 ) -> dict:
     db_artist = await crud_artists.get(
         db=db,
-        schema_to_select=ArtistRead,
+        schema_to_select=ArtistDB,
         org_id=org_id,
         is_deleted=False,
     )
