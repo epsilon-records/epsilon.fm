@@ -3,6 +3,7 @@ from datetime import datetime
 
 # Third-Party Dependencies
 from pydantic import ConfigDict
+from sqlmodel import Field
 
 # Local Dependencies
 from src.apps.ms.artists.models import (
@@ -34,8 +35,10 @@ class ArtistDB(ArtistBase, ArtistMediaBase, UUIDMixin, TimestampMixin):
 
 
 class ArtistRead(ArtistBase, ArtistMediaBase, UUIDMixin, TimestampMixin):
-    slug: str
-    stage_name: str
+    slug: str = Field(default=None)
+    stage_name: str = Field(default=None)
+    __tablename__ = None
+    model_config = ConfigDict(from_attributes=True)
 
 
 class ArtistCreate(ArtistBase, ArtistMediaBase):
