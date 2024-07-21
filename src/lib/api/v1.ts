@@ -34,6 +34,7 @@ async function fetchAndParse<T>(
 			throw new APIError(`Failed to fetch data from ${path}`, response.status);
 		}
 		const data = await response.json();
+		console.log(data);
 		return schema.parse(data);
 	} catch (error) {
 		logger.error(error);
