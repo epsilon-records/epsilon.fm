@@ -264,9 +264,9 @@ def create_application(
                     "label": "<userNameToShowInDashboard>",
                     "email": "<userEmailAddress>",
                 },
-                development=False
-                if settings.ENVIRONMENT == EnvironmentOption.PRODUCTION
-                else True,  # set to true if in a development environment
+                development=(
+                    settings.ENVIRONMENT != EnvironmentOption.PRODUCTION
+                ),  # set to true if in a development environment
                 buffer_length=1,
             ),
         )
