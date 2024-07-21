@@ -1,6 +1,7 @@
 import { artistSchema } from '$lib/schema';
 import { PUBLIC_API_URL, PUBLIC_API_VERSION } from '$env/static/public';
 import { z, ZodError } from 'zod';
+import { logger } from '$lib/logger';
 
 class APIError extends Error {
 	constructor(
@@ -35,6 +36,7 @@ async function fetchAndParse<T>(
 		const data = await response.json();
 		return schema.parse(data);
 	} catch (error) {
+		logger.error(error);
 		throw error instanceof APIError || error instanceof ZodError
 			? error
 			: new APIError(`Failed to fetch data from ${path}`);
