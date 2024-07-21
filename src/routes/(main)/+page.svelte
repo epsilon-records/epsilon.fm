@@ -25,6 +25,20 @@
 		}
 	});
 
+	function loadConvertKit(node) {
+		const script = document.createElement('script');
+		script.src = 'https://epsilon.ck.page/47e61bac90/index.js';
+		script.async = true;
+		script.setAttribute('data-uid', '47e61bac90');
+		node.appendChild(script);
+
+		return {
+			destroy() {
+				node.removeChild(script);
+			}
+		};
+	}
+
 	slug.set(data.slug);
 </script>
 
@@ -109,12 +123,8 @@
 				</div>
 			</Card.Header>
 			<Card.Content>
-				<div class="flex items-center justify-center">
-					Loading<script
-						async
-						data-uid="47e61bac90"
-						src="https://epsilon.ck.page/47e61bac90/index.js"
-					></script>
+				<div class="flex items-center justify-center" use:loadConvertKit>
+					<!-- ConvertKit form will be inserted here by the script -->
 				</div>
 			</Card.Content>
 		</Card.Root>
