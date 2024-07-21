@@ -83,26 +83,16 @@ async def read_artists(
     )
 
 
-@router.get("/artists/{artist_id}/user/{user_id}", response_model=ArtistRead)
-@cache(key_prefix="artists:user:{user_id}:artist_cache", resource_id_name="artist_id")
+@router.get("/artists/{artist_id}", response_model=ArtistRead)
 async def read_artist(
     request: Request,
-    user_id: UUID,
-    artist_id: UUID,
-    current_user: Annotated[UserRead, Depends(get_current_user)],
+    artist_id: str,
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> dict:
-    db_user = await crud_users.get(
-        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
-    )
-    if db_user is None:
-        raise NotFoundException(detail="User not found")
-
     db_artist = await crud_artists.get(
         db=db,
         schema_to_select=ArtistRead,
-        id=artist_id,
-        user_id=db_user["id"],
+        org_id=artist_id,
         is_deleted=False,
     )
     if db_artist is None:
