@@ -2,6 +2,7 @@
 from typing import Dict, Any
 
 # Local Dependencies
+from src.core.common.schemas import PaginatedListResponse  # noqa: F401
 
 
 # Function to create a paginated response
