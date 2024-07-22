@@ -18,27 +18,22 @@ export const load: PageServerLoad = async ({ locals }) => {
 		if (!org_id || !stage_name || !slug) {
 			return fail(500, { message: 'Organization data is incomplete' });
 		}
-
 		try {
-			const data = await api().getArtists(); // Fetch data using the API
-			if (data.length !== 0) {
-				const artistData = data.find((artist) => artist.org_id === org_id);
-				if (artistData) {
-					// Convert null values to undefined
-					const formattedData = Object.fromEntries(
-						Object.entries(artistData).map(([key, value]) => [
-							key,
-							value === null ? undefined : value
-						])
-					);
-					form = await superValidate(formattedData, zod(artistSchema), { strict: true });
+			const artist = await api().getArtist(slug); // Fetch data using the API
+			if (artist) {
+				// Convert null values to undefined
+				const formattedData = Object.fromEntries(
+					Object.entries(artist).map(([key, value]) => [key, value === null ? undefined : value])
+				);
+				form = await superValidate(formattedData, zod(artistSchema), { strict: true });
+				if (!form.valid) {
+					return fail(400, { form });
 				}
 			}
 		} catch (error) {
 			console.error('Error fetching artist data:', error);
 			return fail(500, { message: 'Error fetching artist data' });
 		}
-
 		form.data.org_id = org_id;
 		form.data.stage_name = stage_name;
 		form.data.slug = slug;
@@ -57,12 +52,11 @@ export const actions: Actions = {
 			});
 		}
 		try {
-			const updatedData = {
+			const data = {
 				...form.data,
 				id: form.data.id?.toString()
 			};
-
-			await api().writeArtist(updatedData); // Use the API to write data
+			await api().writeArtist(data); // Use the API to write data
 		} catch (error) {
 			console.error('Error writing artist data:', error);
 			return fail(500, {
