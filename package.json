@@ -5,6 +5,7 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
+		"api:sync": "bunx rdme openapi https://api.epsilon.fm/openapi.json --key= --id=",
 		"db:revision": "poetry --directory ./backend run alembic -c ./backend/alembic.ini revision --autogenerate",
 		"db:upgrade": "poetry --directory ./backend run alembic -c ./backend/alembic.ini upgrade head",
 		"test": "poetry --directory ./backend run python -m pytest -vv ./backend/tests && bun run test:integration && bun run test:unit",
