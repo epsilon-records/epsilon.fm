@@ -10,8 +10,8 @@ from sqlalchemy import pool
 from alembic import context
 
 # Local Dependencies
-from src.core.common.models import Base
 from src.core.config import settings
+from src.core.common.models import Base
 
 # Define the custom Alembic version table name
 custom_alembic_version_table_name = "_alembic_version"
@@ -24,6 +24,7 @@ config.set_main_option(name="sqlalchemy.url", value=f"{settings.POSTGRES_ASYNC_U
 
 # Override with the database URL from environment variable if it exists
 if "DATABASE_URL" in os.environ:
+    print(f"Using DATABASE_URL: {os.environ['DATABASE_URL']}")
     config.set_main_option(name="sqlalchemy.url", value=f"{os.environ['DATABASE_URL']}")
 
 # Interpret the config file for Python logging.
