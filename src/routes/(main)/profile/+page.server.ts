@@ -17,7 +17,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 		if (!organizationId || !stage_name || !slug) {
 			throw redirect(500, '/');
 		}
-		// const data = await db.select().from(artist).where(eq(artist.org_id, organizationId));
+		// const data = await db.select().from(artist).where(eq(artist.org_id, organizationId))
 		const data: string = '';
 		if (data.length != 0) {
 			// Convert null values to undefined
