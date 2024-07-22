@@ -107,10 +107,10 @@ export const api = (
 
 	/**
 	 * Fetches an artist by slug.
-	 * @param slug - The slug of the artist to fetch.
+	 * @param org_id - The organization ID of the artist to fetch.
 	 * @returns A promise that resolves to the artist object.
 	 */
-	getArtist: (slug: string) => fetchData(`artists/${slug}`, artistSchema, customFetch),
+	getArtist: (org_id: string) => fetchData(`artists/${org_id}`, artistSchema, customFetch),
 
 	/**
 	 * Writes (inserts or updates) a new artist.

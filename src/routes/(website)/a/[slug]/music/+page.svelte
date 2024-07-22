@@ -8,8 +8,8 @@
 	export let data;
 
 	const artist = createQuery({
-		queryKey: ['artists', data.orgId],
-		queryFn: async () => api().getArtist(data.orgId),
+		queryKey: ['artists', data.org_id],
+		queryFn: async () => api().getArtist(data.org_id),
 		staleTime: 5 * 60 * 1000 // 5 minutes
 	});
 	$: if ($artist.error) {

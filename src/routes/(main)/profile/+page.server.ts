@@ -19,7 +19,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 			return fail(500, { message: 'Organization data is incomplete' });
 		}
 		try {
-			const artistData = await api().getArtist(slug); // Fetch data using the API
+			const artistData = await api().getArtist(org_id); // Fetch data using the API
 			if (artistData) {
 				// Convert null values to undefined
 				const formattedData = Object.fromEntries(
@@ -61,9 +61,9 @@ export const actions: Actions = {
 			};
 
 			// Check if the artist exists to decide whether to update or insert
-			const existingArtist = await api().getArtist(form.data.slug);
+			const existingArtist = await api().getArtist(form.data.org_id);
 			if (existingArtist) {
-				await api().updateArtist(form.data.slug, updatedData); // Update existing artist
+				await api().updateArtist(form.data.org_id, updatedData); // Update existing artist
 			} else {
 				await api().writeArtist(updatedData); // Insert new artist
 			}
