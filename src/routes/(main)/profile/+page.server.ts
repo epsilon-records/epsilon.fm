@@ -1,7 +1,7 @@
 import type { PageServerLoad, Actions } from './$types.js';
 import { message, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
-import { artistSchema } from '$lib/schema.js';
+import { artistSchema } from '$lib/schema';
 import { clerkClient } from '@clerk/clerk-sdk-node';
 import { fail } from '@sveltejs/kit';
 import { api } from '$lib/api/v1';
@@ -18,12 +18,16 @@ export const load: PageServerLoad = async ({ locals }) => {
 		if (!org_id || !stage_name || !slug) {
 			return fail(500, { message: 'Organization data is incomplete' });
 		}
+
 		try {
-			const artist = await api().getArtist(slug); // Fetch data using the API
-			if (artist) {
+			const artistData = await api().getArtist(slug); // Fetch data using the API
+			if (artistData) {
 				// Convert null values to undefined
 				const formattedData = Object.fromEntries(
-					Object.entries(artist).map(([key, value]) => [key, value === null ? undefined : value])
+					Object.entries(artistData).map(([key, value]) => [
+						key,
+						value === null ? undefined : value
+					])
 				);
 				form = await superValidate(formattedData, zod(artistSchema), { strict: true });
 				if (!form.valid) {
@@ -34,6 +38,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 			console.error('Error fetching artist data:', error);
 			return fail(500, { message: 'Error fetching artist data' });
 		}
+
 		form.data.org_id = org_id;
 		form.data.stage_name = stage_name;
 		form.data.slug = slug;
@@ -52,16 +57,23 @@ export const actions: Actions = {
 			});
 		}
 		try {
-			const data = {
+			const updatedData = {
 				...form.data,
 				id: form.data.id?.toString()
 			};
-			await api().writeArtist(data); // Use the API to write data
+
+			// Check if the artist exists to decide whether to update or insert
+			const existingArtist = await api().getArtist(form.data.slug);
+			if (existingArtist) {
+				await api().updateArtist(form.data.slug, updatedData); // Update existing artist
+			} else {
+				await api().writeArtist(updatedData); // Insert new artist
+			}
 		} catch (error) {
-			console.error('Error writing artist data:', error);
+			console.error('Error writing or updating artist data:', error);
 			return fail(500, {
 				form,
-				message: 'Error writing artist data'
+				message: 'Error writing or updating artist data'
 			});
 		}
 		return message(form, 'success');
