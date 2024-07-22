@@ -2,6 +2,7 @@
 	import * as Card from '$lib/components/ui/card';
 	import type { PageData } from './$types.js';
 	import ProfileForm from './ProfileForm.svelte';
+	import { Circle3 } from 'svelte-loading-spinners';
 	export let data: PageData;
 </script>
 
@@ -14,7 +15,7 @@
 		{#if data.form}
 			<ProfileForm data={data.form} />
 		{:else}
-			<p>Loading profile...</p>
+			<Circle3 />
 		{/if}
 	</Card.Content>
 </Card.Root>

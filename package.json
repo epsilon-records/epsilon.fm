@@ -105,6 +105,7 @@
 		"stream-chat": "^8.37.0",
 		"svelte-french-toast": "^1.2.0",
 		"svelte-legos": "^0.2.3",
+		"svelte-loading-spinners": "^0.3.6",
 		"svelte-tel-input": "^3.4.1",
 		"sveltekit-superforms": "^2.16.0",
 		"tailwind-merge": "^2.4.0",
