@@ -43,7 +43,7 @@
 	};
 
 	onMount(() => {
-		document.body.style.backgroundImage = `url(${data.imageUrl})`;
+		document.body.style.backgroundImage = `url(${data.image_url})`;
 		document.body.style.backgroundSize = 'cover';
 		document.body.style.backgroundPosition = 'center';
 		document.body.style.backgroundRepeat = 'no-repeat';

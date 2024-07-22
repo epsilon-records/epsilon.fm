@@ -11,13 +11,10 @@ export default defineConfig({
 				project: 'epsilon'
 			}
 		}),
-		sveltekit(),
-		enhancedImages()
+		enhancedImages(),
+		sveltekit()
 	],
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
-	},
-	define: {
-		'process.env.NODE_ENV': JSON.stringify(process.env.mode)
 	}
 });

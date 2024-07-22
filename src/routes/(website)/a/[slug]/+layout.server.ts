@@ -6,9 +6,9 @@ export const load = (async ({ params }) => {
 		slug: params.slug
 	});
 	return {
-		orgId: response.id ?? null,
+		org_id: response.id ?? null,
 		stage_name: response.name ?? null,
-		imageUrl: response.imageUrl ?? null,
+		image_url: response.imageUrl ?? null,
 		slug: response.slug ?? null,
 		email: 'hello@epsilonrecords.com' ?? null
 	};

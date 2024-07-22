@@ -108,7 +108,7 @@ describe('API Tests', () => {
 	it('API should throw on invalid data', async () => {
 		const invalidArtist = {
 			id: 'not-a-number',
-			orgId: 123,
+			org_id: 123,
 			slug: 'invalid-artist',
 			stage_name: 'Invalid Artist',
 			email: 'not-an-email'

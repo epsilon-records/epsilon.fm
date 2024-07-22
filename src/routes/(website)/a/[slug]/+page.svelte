@@ -11,7 +11,7 @@
 	import { api } from '$lib/api/v1';
 	import { error } from '@sveltejs/kit';
 
-	export let data: { orgId: string };
+	export let data: { org_id: string };
 
 	const artist = createQuery({
 		queryKey: ['artists', data.org_id],

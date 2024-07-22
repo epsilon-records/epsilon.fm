@@ -58,7 +58,7 @@ export const actions: Actions = {
 			};
 
 			// Check if the artist exists to decide whether to update or insert
-			const existingArtist = await api().fetchArtist(form.data.org_id);
+			const existingArtist = await api().getArtist(form.data.org_id);
 			if (existingArtist) {
 				await api().updateArtist(form.data.org_id, updatedData); // Update existing artist
 			} else {
