@@ -87,58 +87,6 @@ class TrackContentBase(Base):
         description="Track YouTube URL",
         schema_extra={"examples": ["https://www.youtube.com/channel/exampletrack"]},
     )
-    instagram_url: str = Field(
-        max_length=255,
-        nullable=True,
-        description="Track Instagram URL",
-        schema_extra={"examples": ["https://www.instagram.com/exampletrack/"]},
-    )
-    facebook_url: str = Field(
-        max_length=255,
-        nullable=True,
-        description="Track Facebook URL",
-        schema_extra={"examples": ["https://www.facebook.com/exampletrack/"]},
-    )
-    x_url: str = Field(
-        max_length=255,
-        nullable=True,
-        description="Track X URL",
-        schema_extra={"examples": ["https://www.x.com/exampletrack"]},
-    )
-    tiktok_url: str = Field(
-        max_length=255,
-        nullable=True,
-        description="Track TikTok URL",
-        schema_extra={"examples": ["https://www.tiktok.com/@exampletrack"]},
-    )
-    soundcloud_url: str = Field(
-        max_length=255,
-        nullable=True,
-        description="Track SoundCloud URL",
-        schema_extra={"examples": ["https://soundcloud.com/exampletrack"]},
-    )
-    songkick_url: str = Field(
-        max_length=255,
-        nullable=True,
-        description="Track SongKick URL",
-        schema_extra={"examples": ["https://www.songkick.com/tracks/exampletrack"]},
-    )
-    bandsintown_url: str = Field(
-        max_length=255,
-        nullable=True,
-        description="Track BandsInTown URL",
-        schema_extra={"examples": ["https://www.bandsintown.com/tracks/exampletrack"]},
-    )
-    how_did_you_hear_about_us: str = Field(
-        max_length=255,
-        nullable=True,
-        description="How did you hear about us?",
-    )
-    anr_referral: str = Field(
-        max_length=255,
-        nullable=True,
-        description="A&R Referral",
-    )
 
 
 class TrackMediaBase(Base):
