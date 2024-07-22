@@ -37,12 +37,13 @@ from src.core.utils.paginated import (
 router = fastapi.APIRouter(tags=["Artists"])
 
 
-@router.post("/artists/user/{user_id}", response_model=ArtistRead, status_code=201)
+@router.post("/artists", response_model=ArtistRead, status_code=201)
+# @router.post("/artists/user/{user_id}", response_model=ArtistRead, status_code=201)
 async def write_artist(
     request: Request,
-    user_id: UUID,
+    # user_id: UUID,
     artist: ArtistCreate,
-    current_user: Annotated[UserRead, Depends(get_current_user)],
+    # current_user: Annotated[UserRead, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> ArtistRead:
     """
@@ -64,20 +65,20 @@ async def write_artist(
         NotFoundException: If the specified user is not found.
         ForbiddenException: If the current user is not allowed to create an artist for the specified user.
     """
-    db_user = await crud_users.get(
-        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
-    )
-    if db_user is None:
-        raise NotFoundException(detail="User not found")
+    # db_user = await crud_users.get(
+    #     db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    # )
+    # if db_user is None:
+    #     raise NotFoundException(detail="User not found")
 
-    if current_user["id"] != db_user["id"]:
-        raise ForbiddenException(
-            detail="You are not allowed to create an artist for this user"
-        )
+    # if current_user["id"] != db_user["id"]:
+    #     raise ForbiddenException(
+    #         detail="You are not allowed to create an artist for this user"
+    #     )
 
     # Prepare the artist data
     artist_internal_dict = artist.model_dump()
-    artist_internal_dict["user_id"] = current_user["id"]
+    # artist_internal_dict["user_id"] = current_user["id"]
 
     artist_internal = ArtistCreateInternal(**artist_internal_dict)
     return await crud_artists.create(db=db, object=artist_internal)
@@ -154,18 +155,19 @@ async def read_artist(
     return db_artist
 
 
-@router.patch("/artists/{artist_id}/user/{user_id}")
-@cache(
-    "artists:user:{user_id}:artist_cache",
-    resource_id_name="artist_id",
-    pattern_to_invalidate_extra=["e:artists:user:{user_id}:*"],
-)
+@router.patch("/artists/{artist_id}")
+# @router.patch("/artists/{artist_id}/user/{user_id}")
+# @cache(
+#     "artists:user:{user_id}:artist_cache",
+#     resource_id_name="artist_id",
+#     pattern_to_invalidate_extra=["e:artists:user:{user_id}:*"],
+# )
 async def patch_artist(
     request: Request,
-    user_id: UUID,
+    # user_id: UUID,
     artist_id: UUID,
     values: ArtistUpdate,
-    current_user: Annotated[UserRead, Depends(get_current_user)],
+    # current_user: Annotated[UserRead, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> Dict[str, str]:
     """
@@ -188,14 +190,14 @@ async def patch_artist(
         NotFoundException: If the user or artist is not found.
         ForbiddenException: If the current user is not allowed to update the artist.
     """
-    db_user = await crud_users.get(
-        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
-    )
-    if db_user is None:
-        raise NotFoundException(detail="User not found")
+    # db_user = await crud_users.get(
+    #     db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    # )
+    # if db_user is None:
+    #     raise NotFoundException(detail="User not found")
 
-    if str(db_user["id"]) != str(current_user["id"]):
-        raise ForbiddenException(detail="You are not allowed to update this artist")
+    # if str(db_user["id"]) != str(current_user["id"]):
+    #     raise ForbiddenException(detail="You are not allowed to update this artist")
 
     db_artist = await crud_artists.get(
         db=db, schema_to_select=ArtistRead, id=artist_id, is_deleted=False
