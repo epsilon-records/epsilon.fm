@@ -12,9 +12,9 @@ def load_gitignore(directory):
 def should_ignore(path, spec):
     return spec.match_file(path) if spec else False
 
-def combine_files_by_extension(directory, extensions, ignored_dirs):
+def consolidate_files_by_extension(directory, extensions, ignored_dirs):
     gitignore_spec = load_gitignore(directory)
-    output_file = os.path.join(directory, 'combined_code.txt')
+    output_file = os.path.join(directory, 'consolidated_codebase.txt')
     
     with open(output_file, 'w', encoding='utf-8') as outfile:
         for ext in extensions:
@@ -49,4 +49,4 @@ if __name__ == "__main__":
     # Specify the directories to ignore
     ignored_dirs = ['backend/.venv','node_modules', 'src-tauri', '.git']
 
-    combine_files_by_extension(directory, extensions, ignored_dirs)
+    consolidate_files_by_extension(directory, extensions, ignored_dirs)
