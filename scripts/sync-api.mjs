@@ -10,5 +10,5 @@ const __dirname = path.dirname(__filename);
 // Load environment variables from .env file
 dotenv.config({ path: path.resolve(__dirname, '../backend/.env') });
 
-const apiSyncCommand = `bunx rdme openapi https://api.epsilon.fm/openapi.json --key=${process.env.README_API_KEY} --id=66994c8f15ee25004370d87d`;
+const apiSyncCommand = `bunx rdme openapi https://api.epsilon.fm/openapi.json --key=${process.env.README_API_KEY} --id=${process.env.README_SYNC_ID}`;
 execSync(apiSyncCommand, { stdio: 'inherit' });
