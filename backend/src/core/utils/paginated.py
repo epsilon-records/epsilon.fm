@@ -2,11 +2,12 @@
 from typing import Dict, Any
 
 # Local Dependencies
-from src.core.common.schemas import PaginatedListResponse
 
 
 # Function to create a paginated response
-def paginated_response(crud_data: dict, page: int, items_per_page: int) -> Dict[str, Any]:
+def paginated_response(
+    crud_data: dict, page: int, items_per_page: int
+) -> Dict[str, Any]:
     """
     Create a paginated response based on the provided data and pagination parameters.
 

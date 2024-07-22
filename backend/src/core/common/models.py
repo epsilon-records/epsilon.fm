@@ -114,7 +114,9 @@ class TimestampMixin(SQLModel):
         return None
 
     @field_serializer("updated_at")
-    def serialize_updated_at(self, updated_at: datetime | None, _info: Any) -> str | None:
+    def serialize_updated_at(
+        self, updated_at: datetime | None, _info: Any
+    ) -> str | None:
         if updated_at is not None:
             return updated_at.isoformat()
 

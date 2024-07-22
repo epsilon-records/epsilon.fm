@@ -3,7 +3,9 @@ class CacheIdentificationInferenceError(Exception):
     Exception raised when the system could not infer the id for the resource being cached.
     """
 
-    def __init__(self, message: str = "Could not infer id for resource being cached.") -> None:
+    def __init__(
+        self, message: str = "Could not infer id for resource being cached."
+    ) -> None:
         self.message = message
         super().__init__(self.message)
 

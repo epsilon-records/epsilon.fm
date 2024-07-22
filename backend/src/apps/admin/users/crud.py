@@ -9,7 +9,9 @@ from src.apps.admin.users.schemas import (
 )
 
 # CRUD operations for the 'User' model
-CRUDUser = CRUDBase[User, UserCreateInternal, UserUpdate, UserUpdateInternal, UserDelete]
+CRUDUser = CRUDBase[
+    User, UserCreateInternal, UserUpdate, UserUpdateInternal, UserDelete
+]
 
 # Create an instance of CRUDUser for the 'User' model
 crud_users = CRUDUser(User)

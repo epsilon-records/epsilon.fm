@@ -48,7 +48,10 @@ async def get_current_user(
         )
     else:
         user = await crud_users.get(
-            db=db, username=token_data.username_or_email, is_active=True, is_deleted=False
+            db=db,
+            username=token_data.username_or_email,
+            is_active=True,
+            is_deleted=False,
         )
 
     if user:
@@ -85,7 +88,9 @@ async def get_optional_user(
     except HTTPException as http_exc:
         if http_exc.status_code != 401:
             # Log unexpected HTTPException with non-401 status code.
-            logger.error(f"Unexpected HTTPException in get_optional_user: {http_exc.detail}")
+            logger.error(
+                f"Unexpected HTTPException in get_optional_user: {http_exc.detail}"
+            )
         return None
 
     except Exception as exc:
@@ -95,7 +100,9 @@ async def get_optional_user(
 
 
 # Function to get the current superuser based on the provided current user information
-async def get_current_superuser(current_user: Annotated[dict, Depends(get_current_user)]) -> dict:
+async def get_current_superuser(
+    current_user: Annotated[dict, Depends(get_current_user)],
+) -> dict:
     if not current_user["is_superuser"]:
         raise ForbiddenException(detail="You do not have enough privileges.")
 
@@ -115,7 +122,9 @@ async def rate_limiter(
         user_id = user["id"]
         tier = await crud_tiers.get(db, id=user["tier_id"])
         if tier:
-            rate_limit = await crud_rate_limits.get(db=db, tier_id=tier["id"], path=path)
+            rate_limit = await crud_rate_limits.get(
+                db=db, tier_id=tier["id"], path=path
+            )
             if rate_limit:
                 # If rate limit settings are found, use them; otherwise, apply default settings
                 limit, period = rate_limit["limit"], rate_limit["period"]
@@ -125,7 +134,9 @@ async def rate_limiter(
                 )
                 limit, period = DEFAULT_LIMIT, DEFAULT_PERIOD
         else:
-            logger.warning(f"User {user_id} has no assigned tier. Applying default rate limit.")
+            logger.warning(
+                f"User {user_id} has no assigned tier. Applying default rate limit."
+            )
             limit, period = DEFAULT_LIMIT, DEFAULT_PERIOD
     else:
         # If no user is present, apply default rate limit settings based on the client host
@@ -137,7 +148,9 @@ async def rate_limiter(
             x_forwarded_for = request.headers.get("x-forwarded-for", None)
             x_real_ip = request.headers.get("x-real-ip", None)
             user_id = (
-                x_forwarded_for if x_forwarded_for else (x_real_ip if x_real_ip else "Unknown")
+                x_forwarded_for
+                if x_forwarded_for
+                else (x_real_ip if x_real_ip else "Unknown")
             )
 
         limit, period = DEFAULT_LIMIT, DEFAULT_PERIOD

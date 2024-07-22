@@ -44,12 +44,16 @@ async def write_post(
     current_user: Annotated[UserRead, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> PostRead:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if db_user is None:
         raise NotFoundException(detail="User not found")
 
     if current_user["id"] != db_user["id"]:
-        raise ForbiddenException(detail="You are not allowed to create a post for this user")
+        raise ForbiddenException(
+            detail="You are not allowed to create a post for this user"
+        )
 
     # Prepare the post data
     post_internal_dict = post.model_dump()
@@ -59,7 +63,9 @@ async def write_post(
     return await crud_posts.create(db=db, object=post_internal)
 
 
-@router.get("/blog/posts/user/{user_id}", response_model=PaginatedListResponse[PostRead])
+@router.get(
+    "/blog/posts/user/{user_id}", response_model=PaginatedListResponse[PostRead]
+)
 @cache(
     key_prefix="blog:posts:user:{user_id}:page_{page}:items_per_page:{items_per_page}",
     resource_id_name="user_id",
@@ -73,7 +79,9 @@ async def read_posts(
     page: int = 1,
     items_per_page: int = 10,
 ) -> dict:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if not db_user:
         raise NotFoundException(detail="User not found")
 
@@ -86,7 +94,9 @@ async def read_posts(
         is_deleted=False,
     )
 
-    return paginated_response(crud_data=posts_data, page=page, items_per_page=items_per_page)
+    return paginated_response(
+        crud_data=posts_data, page=page, items_per_page=items_per_page
+    )
 
 
 @router.get("/blog/posts/{post_id}/user/{user_id}", response_model=PostRead)
@@ -98,7 +108,9 @@ async def read_post(
     current_user: Annotated[UserRead, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> dict:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if db_user is None:
         raise NotFoundException(detail="User not found")
 
@@ -129,14 +141,18 @@ async def patch_post(
     current_user: Annotated[UserRead, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> Dict[str, str]:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if db_user is None:
         raise NotFoundException(detail="User not found")
 
     if str(db_user["id"]) != str(current_user["id"]):
         raise ForbiddenException(detail="You are not allowed to update this post")
 
-    db_post = await crud_posts.get(db=db, schema_to_select=PostRead, id=post_id, is_deleted=False)
+    db_post = await crud_posts.get(
+        db=db, schema_to_select=PostRead, id=post_id, is_deleted=False
+    )
     if db_post is None:
         raise NotFoundException(detail="Post not found")
 
@@ -157,14 +173,20 @@ async def erase_post(
     current_user: Annotated[UserRead, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> Dict[str, str]:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if db_user is None:
         raise NotFoundException(detail="User not found")
 
-    if not current_user["is_superuser"] and str(current_user["id"]) != str(db_user["id"]):
+    if not current_user["is_superuser"] and str(current_user["id"]) != str(
+        db_user["id"]
+    ):
         raise ForbiddenException(detail="You are not allowed to delete this post")
 
-    db_post = await crud_posts.get(db=db, schema_to_select=Post, id=post_id, is_deleted=False)
+    db_post = await crud_posts.get(
+        db=db, schema_to_select=Post, id=post_id, is_deleted=False
+    )
     if db_post is None or db_post["is_deleted"]:
         if current_user["is_superuser"]:
             raise NotFoundException(detail="Post already deleted (soft delete).")
@@ -190,7 +212,9 @@ async def erase_db_post(
     post_id: UUID,
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> Dict[str, str]:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if db_user is None:
         raise NotFoundException(detail="User not found")
 

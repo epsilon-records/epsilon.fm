@@ -9,7 +9,9 @@ from src.apps.system.tiers.schemas import (
 )
 
 # CRUD operations for the 'Tier' model
-CRUDTier = CRUDBase[Tier, TierCreateInternal, TierUpdate, TierUpdateInternal, TierDelete]
+CRUDTier = CRUDBase[
+    Tier, TierCreateInternal, TierUpdate, TierUpdateInternal, TierDelete
+]
 
 # Create an instance of CRUDTier for the 'Tier' model
 crud_tiers = CRUDTier(Tier)

@@ -59,9 +59,7 @@ class QueueHealth(BaseModel):
         date_string = parts.pop(0)  # Remove and obtain the first part as the date
         time_string = parts.pop(0)  # Obtain the second part time
         current_year = datetime.now().year  # Get the current year
-        date_time_string = (
-            f"{date_string} {current_year} {time_string}"  # Create the full date and time string
-        )
+        date_time_string = f"{date_string} {current_year} {time_string}"  # Create the full date and time string
         date_time = datetime.strptime(
             date_time_string, "%b-%d %Y %H:%M:%S"
         )  # Convert the string into a Datetime object

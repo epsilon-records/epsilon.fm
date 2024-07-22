@@ -88,7 +88,9 @@ def _extract_data_inside_brackets(input_string: str) -> List[str]:
 
 
 # Helper Function
-def _construct_data_dict(data_inside_brackets: List[str], kwargs: Dict[str, Any]) -> Dict[str, Any]:
+def _construct_data_dict(
+    data_inside_brackets: List[str], kwargs: Dict[str, Any]
+) -> Dict[str, Any]:
     """
     Construct a dictionary based on data inside brackets and keyword arguments.
 
@@ -201,7 +203,9 @@ async def _delete_keys_by_pattern(pattern: str) -> None:
     while True:
         try:
             # Scan for keys matching the pattern
-            new_cursor, keys = await client.scan(cursor=cursor, match=pattern, count=100)
+            new_cursor, keys = await client.scan(
+                cursor=cursor, match=pattern, count=100
+            )
 
             # Update cursor for the next iteration
             cursor = new_cursor
@@ -330,7 +334,9 @@ def cache(
             if resource_id_name:
                 resource_id = kwargs[resource_id_name]
             else:
-                resource_id = _infer_resource_id(kwargs=kwargs, resource_id_type=resource_id_type)
+                resource_id = _infer_resource_id(
+                    kwargs=kwargs, resource_id_type=resource_id_type
+                )
 
             # Format the cache key based on the provided prefix and resource_id
             formatted_key_prefix = _format_prefix(key_prefix, kwargs)
@@ -339,7 +345,10 @@ def cache(
             # If the request is a GET, attempt to retrieve cached data
             if request.method == "GET":
                 # Ensure that no invalidation parameters are provided for a GET request
-                if to_invalidate_extra is not None or pattern_to_invalidate_extra is not None:
+                if (
+                    to_invalidate_extra is not None
+                    or pattern_to_invalidate_extra is not None
+                ):
                     raise InvalidRequestError
 
                 # Retrieve cached data if available

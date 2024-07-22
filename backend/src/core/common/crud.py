@@ -120,7 +120,9 @@ class CRUDBase(
         bool
             True if a record exists, False otherwise.
         """
-        to_select = _extract_matching_columns_from_kwargs(model=self._model, kwargs=kwargs)
+        to_select = _extract_matching_columns_from_kwargs(
+            model=self._model, kwargs=kwargs
+        )
         stmt = select(*to_select).filter_by(**kwargs).limit(1)
 
         result = await db.exec(stmt)
@@ -147,9 +149,15 @@ class CRUDBase(
         This method provides a quick way to get the count of records without retrieving the actual data.
         """
         if kwargs:
-            conditions = [getattr(self._model, key) == value for key, value in kwargs.items()]
+            conditions = [
+                getattr(self._model, key) == value for key, value in kwargs.items()
+            ]
             combined_conditions = and_(*conditions)
-            count_query = select(func.count()).select_from(self._model).filter(combined_conditions)
+            count_query = (
+                select(func.count())
+                .select_from(self._model)
+                .filter(combined_conditions)
+            )
         else:
             count_query = select(func.count()).select_from(self._model)
         total_count: int = await db.scalar(count_query)
@@ -303,7 +311,9 @@ class CRUDBase(
 
         for column in columns:
             labeled_column = _add_column_with_prefix(column, join_prefix)
-            if f"{join_prefix}{column.name}" not in [col.name for col in primary_select]:
+            if f"{join_prefix}{column.name}" not in [
+                col.name for col in primary_select
+            ]:
                 join_select.append(labeled_column)
 
         # Build the select statement with the specified join type and join condition
@@ -312,7 +322,9 @@ class CRUDBase(
         elif join_type == "inner":
             stmt = select(*primary_select, *join_select).join(join_model, join_on)
         else:
-            raise ValueError(f"Invalid join type: {join_type}. Only 'left' or 'inner' are valid.")
+            raise ValueError(
+                f"Invalid join type: {join_type}. Only 'left' or 'inner' are valid."
+            )
 
         # Apply additional filters based on kwargs
         for key, value in kwargs.items():
@@ -403,7 +415,9 @@ class CRUDBase(
 
         for column in columns:
             labeled_column = _add_column_with_prefix(column, join_prefix)
-            if f"{join_prefix}{column.name}" not in [col.name for col in primary_select]:
+            if f"{join_prefix}{column.name}" not in [
+                col.name for col in primary_select
+            ]:
                 join_select.append(labeled_column)
 
         if join_type == "left":
@@ -411,7 +425,9 @@ class CRUDBase(
         elif join_type == "inner":
             stmt = select(*primary_select, *join_select).join(join_model, join_on)
         else:
-            raise ValueError(f"Invalid join type: {join_type}. Only 'left' or 'inner' are valid.")
+            raise ValueError(
+                f"Invalid join type: {join_type}. Only 'left' or 'inner' are valid."
+            )
 
         for key, value in kwargs.items():
             if hasattr(self._model, key):
@@ -480,7 +496,9 @@ class CRUDBase(
         await db.exec(stmt)
         await db.commit()
 
-    async def delete(self, db: AsyncSession, db_row: Row | None = None, **kwargs: Any) -> None:
+    async def delete(
+        self, db: AsyncSession, db_row: Row | None = None, **kwargs: Any
+    ) -> None:
         """
         Soft delete a record if it has "is_deleted" attribute, otherwise perform a hard delete.
 

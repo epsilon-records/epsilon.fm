@@ -36,7 +36,9 @@ class ClientCacheMiddleware(BaseHTTPMiddleware):
         super().__init__(app)
         self.max_age = max_age
 
-    async def dispatch(self, request: Request, call_next: RequestResponseEndpoint) -> Response:
+    async def dispatch(
+        self, request: Request, call_next: RequestResponseEndpoint
+    ) -> Response:
         """
         Process the request and set the `Cache-Control` header in the response.
 

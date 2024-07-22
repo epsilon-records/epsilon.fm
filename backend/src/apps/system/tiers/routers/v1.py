@@ -71,7 +71,9 @@ async def read_tiers(
         schema_to_select=TierRead,
     )
 
-    return paginated_response(crud_data=tiers_data, page=page, items_per_page=items_per_page)
+    return paginated_response(
+        crud_data=tiers_data, page=page, items_per_page=items_per_page
+    )
 
 
 @router.get(

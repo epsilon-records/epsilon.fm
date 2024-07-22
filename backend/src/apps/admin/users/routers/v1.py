@@ -35,7 +35,7 @@ from src.core.utils.paginated import (
     paginated_response,
     compute_offset,
 )
-from src.core.security import get_password_hash, blacklist_token, oauth2_scheme
+from src.core.security import get_password_hash, oauth2_scheme
 from src.core.config import settings
 from src.core.utils import cache
 
@@ -91,7 +91,9 @@ async def read_users(
         is_deleted=False,
     )
 
-    return paginated_response(crud_data=users_data, page=page, items_per_page=items_per_page)
+    return paginated_response(
+        crud_data=users_data, page=page, items_per_page=items_per_page
+    )
 
 
 @router.get("/admin/users/me/", response_model=UserRead)
@@ -109,7 +111,9 @@ async def read_user(
     user_id: UUID,
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> dict:
-    db_user = await crud_users.get(db=db, schema_to_select=UserRead, id=user_id, is_deleted=False)
+    db_user = await crud_users.get(
+        db=db, schema_to_select=UserRead, id=user_id, is_deleted=False
+    )
     if db_user is None:
         raise NotFoundException(detail="User not found")
 
@@ -129,7 +133,9 @@ async def patch_user(
         raise NotFoundException(detail="User not found")
 
     # Check if the user is not a superuser and is not updating their own user
-    if not current_user["is_superuser"] and str(db_user["id"]) != str(current_user["id"]):
+    if not current_user["is_superuser"] and str(db_user["id"]) != str(
+        current_user["id"]
+    ):
         raise ForbiddenException(detail="You are not allowed to update this user")
 
     if values.username != db_user["username"]:
@@ -163,7 +169,9 @@ async def erase_user(
         raise NotFoundException(detail="User not found")
 
     # Check if the user is not a superuser and is not deleting their own user
-    if not current_user["is_superuser"] and str(db_user["id"]) != str(current_user["id"]):
+    if not current_user["is_superuser"] and str(db_user["id"]) != str(
+        current_user["id"]
+    ):
         raise ForbiddenException(detail="You are not allowed to delete this user")
 
     # Soft delete user on the database
@@ -178,7 +186,9 @@ async def erase_user(
     return {"message": "User deleted"}
 
 
-@router.delete("/admin/users/{user_id}/db", dependencies=[Depends(get_current_superuser)])
+@router.delete(
+    "/admin/users/{user_id}/db", dependencies=[Depends(get_current_superuser)]
+)
 async def erase_db_user(
     request: Request,
     user_id: UUID,

@@ -4,7 +4,7 @@ from datetime import datetime, UTC
 # Third-Party Dependencies
 from redis.asyncio import Redis, ConnectionPool
 from sqlmodel.ext.asyncio.session import AsyncSession
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI
 
 # Local Dependencies
 from src.core.logger import logging
@@ -117,7 +117,9 @@ async def is_rate_limited(
             return True
 
     except Exception as e:
-        logger.exception(f"Error checking rate limit for user {user_id} on path {path}: {e}")
+        logger.exception(
+            f"Error checking rate limit for user {user_id} on path {path}: {e}"
+        )
         raise e
 
     return False

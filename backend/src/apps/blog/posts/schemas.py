@@ -14,7 +14,9 @@ class PostBase(PostContentBase):
     pass
 
 
-class Post(PostBase, PostMediaBase, PostUserBase, UUIDMixin, TimestampMixin, SoftDeleteMixin):
+class Post(
+    PostBase, PostMediaBase, PostUserBase, UUIDMixin, TimestampMixin, SoftDeleteMixin
+):
     pass
 
 

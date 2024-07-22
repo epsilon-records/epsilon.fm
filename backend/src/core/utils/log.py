@@ -10,7 +10,6 @@ import psutil
 
 
 def log_system_info(logger: logging.Logger) -> None:
-
     # Obtain username and machine IP
     user_name = os.getenv("USER") or os.getenv("LOGNAME") or os.getenv("USERNAME")
     ip_address = socket.gethostbyname(socket.gethostname())

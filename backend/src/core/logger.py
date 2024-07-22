@@ -4,7 +4,6 @@ import logging
 import os
 
 # Local Dependencies
-from src.core.config import settings
 
 # Constants
 LOG_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "logs")
@@ -25,7 +24,9 @@ LOGGING_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 logging.basicConfig(level=LOGGING_LEVEL, format=LOGGING_FORMAT)
 
 # Configuring a rotating file handler for logging
-file_handler = RotatingFileHandler(filename=LOG_FILE_PATH, maxBytes=10485760, backupCount=5)
+file_handler = RotatingFileHandler(
+    filename=LOG_FILE_PATH, maxBytes=10485760, backupCount=5
+)
 file_handler.setLevel(level=LOGGING_LEVEL)
 file_handler.setFormatter(fmt=logging.Formatter(fmt=LOGGING_FORMAT))
 

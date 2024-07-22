@@ -1,5 +1,5 @@
 # Built-in Dependencies
-from typing import Dict, Optional, List, Optional, Annotated
+from typing import Dict, List, Optional, Annotated
 
 # Third-Party Dependencies
 from fastapi import APIRouter, Depends, Request
@@ -27,7 +27,9 @@ router = APIRouter(tags=["Admin - Tasks"])
     dependencies=[Depends(rate_limiter)],
 )
 async def create_task(
-    request: Request, current_user: Annotated[UserRead, Depends(get_current_user)], message: str
+    request: Request,
+    current_user: Annotated[UserRead, Depends(get_current_user)],
+    message: str,
 ) -> Dict[str, str]:
     """
     Create a new background task.
@@ -49,7 +51,9 @@ async def create_task(
 
 @router.get("/admin/tasks/{task_id}")
 async def get_task(
-    request: Request, current_user: Annotated[UserRead, Depends(get_current_user)], task_id: str
+    request: Request,
+    current_user: Annotated[UserRead, Depends(get_current_user)],
+    task_id: str,
 ) -> Optional[JobDef]:
     """
     Get information about a specific background task.
@@ -130,7 +134,9 @@ async def read_queue_health(
     health_queue_from_redis = await queue.pool.get(f"arq:{queue_name}:health-check")
 
     if not health_queue_from_redis:
-        raise NotFoundException(detail=f"Queue with name '{queue_name}' not found on broker.")
+        raise NotFoundException(
+            detail=f"Queue with name '{queue_name}' not found on broker."
+        )
 
     queue_health = QueueHealth.from_string(health_queue_from_redis.decode("utf-8"))
     return queue_health

@@ -71,7 +71,9 @@ async def refresh_access_token(
     if not user_data:
         raise UnauthorizedException(detail="Invalid refresh token.")
 
-    new_access_token = await create_access_token(data={"sub": user_data.username_or_email})
+    new_access_token = await create_access_token(
+        data={"sub": user_data.username_or_email}
+    )
     return {"access_token": new_access_token, "token_type": "bearer"}
 
 

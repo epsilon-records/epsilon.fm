@@ -56,7 +56,9 @@ async def write_rate_limit(
     if not is_valid_path(path=rate_limit.path, app=request.app):
         raise UnprocessableEntityException(detail="Invalid path")
 
-    db_rate_limit = await crud_rate_limits.exists(db=db, name=rate_limit_internal_dict["name"])
+    db_rate_limit = await crud_rate_limits.exists(
+        db=db, name=rate_limit_internal_dict["name"]
+    )
     if db_rate_limit:
         raise DuplicateValueException(detail="Rate Limit Name not available")
 
@@ -88,7 +90,9 @@ async def read_rate_limits(
         tier_id=tier_id,
     )
 
-    return paginated_response(crud_data=rate_limits_data, page=page, items_per_page=items_per_page)
+    return paginated_response(
+        crud_data=rate_limits_data, page=page, items_per_page=items_per_page
+    )
 
 
 @router.get(
@@ -142,9 +146,13 @@ async def patch_rate_limit(
             raise NotFoundException(detail="Invalid path")
 
         # Checks if there is already a rate limit for this path
-        db_rate_limit_path = await crud_rate_limits.exists(db=db, tier_id=tier_id, path=values.path)
+        db_rate_limit_path = await crud_rate_limits.exists(
+            db=db, tier_id=tier_id, path=values.path
+        )
         if db_rate_limit_path:
-            raise DuplicateValueException(detail="There is already a rate limit for this path")
+            raise DuplicateValueException(
+                detail="There is already a rate limit for this path"
+            )
 
     if values.name is not None:
         db_rate_limit_name = await crud_rate_limits.exists(
@@ -152,7 +160,9 @@ async def patch_rate_limit(
             name=values.name,
         )
         if db_rate_limit_name:
-            raise DuplicateValueException(detail="There is already a rate limit with this name")
+            raise DuplicateValueException(
+                detail="There is already a rate limit with this name"
+            )
 
     await crud_rate_limits.update(db=db, object=values, id=rate_limit_id)
     return {"message": "Rate Limit updated"}

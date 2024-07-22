@@ -48,7 +48,12 @@ class RateLimitTierBase(Base):
 
 
 class RateLimit(
-    UUIDMixin, RateLimitConfigBase, RateLimitNameBase, RateLimitTierBase, TimestampMixin, table=True
+    UUIDMixin,
+    RateLimitConfigBase,
+    RateLimitNameBase,
+    RateLimitTierBase,
+    TimestampMixin,
+    table=True,
 ):
     __tablename__ = "system_rate_limit"
     __table_args__ = ({"comment": "Rate limit configuration"},)

@@ -9,7 +9,9 @@ from src.apps.blog.posts.schemas import (
 )
 
 # Define CRUD operations for the 'Post' model
-CRUDPost = CRUDBase[Post, PostCreateInternal, PostUpdate, PostUpdateInternal, PostDelete]
+CRUDPost = CRUDBase[
+    Post, PostCreateInternal, PostUpdate, PostUpdateInternal, PostDelete
+]
 
 # Create an instance of CRUDPost for the 'Post' model
 crud_posts = CRUDPost(Post)
