@@ -14,12 +14,10 @@ def should_ignore(path, spec):
 
 def combine_files_by_extension(directory, extensions, ignored_dirs):
     gitignore_spec = load_gitignore(directory)
-    combined_dir = os.path.join(directory, 'combined')
-    os.makedirs(combined_dir, exist_ok=True)
+    output_file = os.path.join(directory, 'combined_code.txt')
     
-    for ext in extensions:
-        output_file = os.path.join(combined_dir, f"combined_{ext.lstrip('.')}.txt")
-        with open(output_file, 'w', encoding='utf-8') as outfile:
+    with open(output_file, 'w', encoding='utf-8') as outfile:
+        for ext in extensions:
             for root, dirs, files in os.walk(directory):
                 # Skip base directory files and ignored directories
                 if root == directory or any(ignored_dir in root for ignored_dir in ignored_dirs):
@@ -35,19 +33,20 @@ def combine_files_by_extension(directory, extensions, ignored_dirs):
                     # Check if file matches the current extension and is not ignored
                     if file.endswith(ext) and not should_ignore(file_path, gitignore_spec):
                         with open(file_path, 'r', encoding='utf-8') as infile:
-                            outfile.write(f"\n// File: {file_path}\n")
+                            outfile.write(f"\n\n// Start of {file}\n")
+                            outfile.write(f"// File Path: {file_path}\n")
+                            outfile.write(f"// File Extension: {ext}\n\n")
                             outfile.write(infile.read())
-                            outfile.write("\n")
-        print(f"Files with extension {ext} combined into {output_file}")
+                            outfile.write(f"\n\n// End of {file}\n")
 
 if __name__ == "__main__":
     # Specify the directory to walk through
     directory = "/opt/src/epsilon.fm"
 
     # Specify the file extensions to include
-    extensions = ['.ts', '.js', '.jsx', '.tsx', '.svelte', '.html', '.css', '.md', '.json', '.gitignore', '.npmrc', '.prettierignore', '.prettierrc']
+    extensions = ['.py','.ts', '.js', '.jsx', '.tsx', '.svelte', '.html', '.css', '.md', '.json', '.gitignore', '.npmrc', '.prettierignore', '.prettierrc']
 
     # Specify the directories to ignore
-    ignored_dirs = ['node_modules', 'src-tauri', '.git']
+    ignored_dirs = ['backend/.venv','node_modules', 'src-tauri', '.git']
 
     combine_files_by_extension(directory, extensions, ignored_dirs)
