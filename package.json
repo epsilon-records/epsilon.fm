@@ -97,6 +97,7 @@
 		"esbuild": "^0.23.0",
 		"formsnap": "^1.0.1",
 		"lint-staged": "^15.2.7",
+		"lodash": "^4.17.21",
 		"lucide-svelte": "^0.411.0",
 		"mode-watcher": "^0.4.0",
 		"pino": "^9.3.1",

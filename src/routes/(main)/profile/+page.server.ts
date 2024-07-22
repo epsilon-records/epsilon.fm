@@ -5,28 +5,25 @@ import { artistSchema } from '$lib/schema';
 import { clerkClient } from '@clerk/clerk-sdk-node';
 import { fail } from '@sveltejs/kit';
 import { api } from '$lib/api/v1';
+import _ from 'lodash';
 
 export const load: PageServerLoad = async ({ locals }) => {
-	// Use type assertion to access 'session'
-	const session = (locals as { session?: { claims?: { org_id?: string } } }).session;
 	let form = await superValidate(zod(artistSchema));
-	if (session && session.claims && session.claims.org_id) {
-		const org_id = session.claims.org_id ?? null;
+	// Use type assertion to access 'session'
+	const session = _.get(locals, 'session') as { claims?: { org_id?: string } } | undefined;
+	const org_id = _.get(session, 'claims.org_id');
+	if (org_id) {
 		const response = await clerkClient.organizations.getOrganization({ organizationId: org_id });
-		const stage_name = response.name ?? null;
-		const slug = response.slug ?? null;
-		if (!org_id || !stage_name || !slug) {
+		const stage_name = _.get(response, 'name', null);
+		const slug = _.get(response, 'slug', null);
+		if (!stage_name || !slug) {
 			return fail(500, { message: 'Organization data is incomplete' });
 		}
 		try {
 			const artistData = await api().getArtist(org_id); // Fetch data using the API
 			if (artistData) {
-				// Convert null values to undefined
-				const formattedData = Object.fromEntries(
-					Object.entries(artistData).map(([key, value]) => [
-						key,
-						value === null ? undefined : value
-					])
+				const formattedData = _.mapValues(artistData, (value) =>
+					value === null ? undefined : value
 				);
 				form = await superValidate(formattedData, zod(artistSchema), { strict: true });
 				if (!form.valid) {
@@ -61,7 +58,7 @@ export const actions: Actions = {
 			};
 
 			// Check if the artist exists to decide whether to update or insert
-			const existingArtist = await api().getArtist(form.data.org_id);
+			const existingArtist = await api().fetchArtist(form.data.org_id);
 			if (existingArtist) {
 				await api().updateArtist(form.data.org_id, updatedData); // Update existing artist
 			} else {
