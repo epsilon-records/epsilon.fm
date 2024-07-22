@@ -18,7 +18,6 @@ export const load: PageServerLoad = async ({ locals }) => {
 		if (!org_id || !stage_name || !slug) {
 			return fail(500, { message: 'Organization data is incomplete' });
 		}
-
 		try {
 			const artistData = await api().getArtist(slug); // Fetch data using the API
 			if (artistData) {
@@ -36,9 +35,8 @@ export const load: PageServerLoad = async ({ locals }) => {
 			}
 		} catch (error) {
 			console.error('Error fetching artist data:', error);
-			return fail(500, { message: 'Error fetching artist data' });
+			return fail(400, { form });
 		}
-
 		form.data.org_id = org_id;
 		form.data.stage_name = stage_name;
 		form.data.slug = slug;
