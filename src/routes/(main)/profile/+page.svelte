@@ -11,6 +11,10 @@
 		<Card.Description>Update your profile 🎨</Card.Description>
 	</Card.Header>
 	<Card.Content>
-		<ProfileForm data={data.form} />
+		{#if data.form}
+			<ProfileForm data={data.form} />
+		{:else}
+			<p>Loading profile...</p>
+		{/if}
 	</Card.Content>
 </Card.Root>

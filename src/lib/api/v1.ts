@@ -16,14 +16,14 @@ class APIError extends Error {
 const constructUrl = (path: string) => `${PUBLIC_API_URL}/${PUBLIC_API_VERSION}/${path}`;
 
 /**
- * Generic function to fetch and parse data from the API
+ * Generic function to fetch from the API
  * @param path - The API path to fetch from
  * @param schema - The Zod schema to parse the response with
  * @param customFetch - The fetch function to use
  * @returns Parsed data
  * @throws {APIError} If the request fails or the response is not successful
  */
-async function fetchAndParse<T>(
+async function fetchData<T>(
 	path: string,
 	schema: z.ZodType<T>,
 	customFetch: typeof fetch
@@ -103,17 +103,17 @@ export const api = (
 	 * Fetches an array of artists.
 	 * @returns A promise that resolves to an array of artists.
 	 */
-	getArtists: () => fetchAndParse('artists', artistSchema.array(), customFetch),
+	getArtists: () => fetchData('artists', artistSchema.array(), customFetch),
 
 	/**
 	 * Fetches an artist by slug.
 	 * @param slug - The slug of the artist to fetch.
 	 * @returns A promise that resolves to the artist object.
 	 */
-	getArtist: (slug: string) => fetchAndParse(`artists/${slug}`, artistSchema, customFetch),
+	getArtist: (slug: string) => fetchData(`artists/${slug}`, artistSchema, customFetch),
 
 	/**
-	 * Writes (inserts) a new artist.
+	 * Writes (inserts or updates) a new artist.
 	 * @param artist - The artist data to insert.
 	 * @returns A promise that resolves to the inserted artist object.
 	 */
