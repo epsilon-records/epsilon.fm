@@ -74,7 +74,7 @@
 			>
 			<SignedIn
 				><NavLi href="/music">Music</NavLi>
-				<NavLi href={`/a/${$slug}`}>Website</NavLi>
+				<NavLi href={`/a/${$slug}`} target="_blank">Website ↗</NavLi>
 				<NavLi href="/settings">Settings</NavLi></SignedIn
 			>
 		</NavUl>
