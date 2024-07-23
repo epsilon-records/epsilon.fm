@@ -76,7 +76,7 @@
 		"@capacitor/ios": "^6.1.0",
 		"@clerk/clerk-js": "^5.9.0",
 		"@clerk/clerk-sdk-node": "^5.0.16",
-		"@internationalized/date": "3.5.4",
+		"@internationalized/date": "3.5.5",
 		"@neoconfetti/svelte": "^2.2.1",
 		"@rollup/pluginutils": "^5.1.0",
 		"@sentry/sveltekit": "^8.18.0",
