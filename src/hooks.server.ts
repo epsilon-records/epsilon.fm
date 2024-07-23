@@ -38,15 +38,7 @@ export const handle: Handle = sequence(
 	Sentry.sentryHandle(),
 	handleClerk(CLERK_SECRET_KEY, {
 		debug: false,
-		protectedPaths: [
-			'/admin',
-			'/profile',
-			'/releases',
-			'/merch',
-			'/website',
-			'/social',
-			'/royalties'
-		],
+		protectedPaths: ['/settings', '/music'],
 		signInUrl: '/sign-in'
 	}),
 	handleSubdomain
