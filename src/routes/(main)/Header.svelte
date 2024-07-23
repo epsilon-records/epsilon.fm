@@ -12,11 +12,6 @@
 	import { resetMode, setMode } from 'mode-watcher';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import { Button } from '$lib/components/ui/button';
-
-	let website = '';
-	slug.subscribe((value) => {
-		website = value;
-	});
 </script>
 
 <header>
@@ -75,11 +70,12 @@
 				><NavLi href="/">Home</NavLi>
 				<NavLi href="/faq">FAQ</NavLi>
 				<NavLi href="/artists">Artists</NavLi>
-				<NavLi href="/">Pricing</NavLi></SignedOut
+				<NavLi href="/pricing">Pricing</NavLi></SignedOut
 			>
 			<SignedIn
-				><NavLi href="/profile">Profile</NavLi>
-				<NavLi href="/a/{website}">Website</NavLi></SignedIn
+				><NavLi href="/music">Music</NavLi>
+				<NavLi href={`/a/${$slug}`}>Website</NavLi>
+				<NavLi href="/settings">Settings</NavLi></SignedIn
 			>
 		</NavUl>
 	</Navbar>
