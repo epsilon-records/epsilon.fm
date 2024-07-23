@@ -6,10 +6,9 @@
 	import { ModeWatcher } from 'mode-watcher';
 	import { Toaster } from 'svelte-french-toast';
 	import { onMount } from 'svelte';
-	import { Command } from 'cmdk-sv';
+	import CommandPalette from '$lib/components/CommandPallete.svelte';
 	export let data: LayoutServerData & PageData;
 
-	let loading = false;
 	onMount(() => {
 		document.body.style.backgroundImage = '';
 		document.body.style.backgroundSize = '';
@@ -20,26 +19,7 @@
 
 <div class="app">
 	<Header />
-	<Command.Root>
-		<Command.Input />
-		<Command.List>
-			{#if loading}
-				<Command.Loading>Loading...</Command.Loading>
-			{/if}
-
-			<Command.Empty>No results found.</Command.Empty>
-
-			<Command.Group heading="Fruits">
-				<Command.Item>Apple</Command.Item>
-				<Command.Item>Orange</Command.Item>
-				<Command.Separator />
-				<Command.Item>Pear</Command.Item>
-				<Command.Item>Blueberry</Command.Item>
-			</Command.Group>
-
-			<Command.Item>Fish</Command.Item>
-		</Command.List>
-	</Command.Root>
+	<CommandPalette />
 	<main>
 		<ModeWatcher />
 		<slot />
