@@ -5,7 +5,7 @@
 	const sidebarNavItems = [
 		{
 			title: 'Profile',
-			href: '/forms'
+			href: '/settings'
 		},
 		{
 			title: 'Account',

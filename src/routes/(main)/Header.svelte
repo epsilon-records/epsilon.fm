@@ -22,8 +22,8 @@
 					<div class="flex items-center">
 						<OrganizationSwitcher
 							hidePersonal={true}
-							afterCreateOrganizationUrl="/profile"
-							afterSelectOrganizationUrl="/profile"
+							afterCreateOrganizationUrl="/settings"
+							afterSelectOrganizationUrl="/settings"
 						/>
 					</div>
 				</SignedIn>
