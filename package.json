@@ -40,7 +40,7 @@
 		"@sveltejs/vite-plugin-svelte": "^3.1.1",
 		"@tailwindcss/typography": "^0.5.13",
 		"@tauri-apps/cli": "^2.0.0-beta.22",
-		"@types/eslint": "^8.56.10",
+		"@types/eslint": "^9.6.0",
 		"autoprefixer": "^10.4.19",
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
