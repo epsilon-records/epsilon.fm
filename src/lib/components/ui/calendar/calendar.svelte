@@ -1,10 +1,9 @@
 <script lang="ts">
 	import { Calendar as CalendarPrimitive } from 'bits-ui';
 	import * as Calendar from './index.js';
-	import { cn } from '$lib/utils.js';
+	import { cn } from '@/utils.js';
 
 	type $$Props = CalendarPrimitive.Props;
-
 	type $$Events = CalendarPrimitive.Events;
 
 	export let value: $$Props['value'] = undefined;

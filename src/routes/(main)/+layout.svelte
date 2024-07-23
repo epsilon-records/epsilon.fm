@@ -6,10 +6,9 @@
 	import { ModeWatcher } from 'mode-watcher';
 	import { Toaster } from 'svelte-french-toast';
 	import { onMount } from 'svelte';
-	import CommandPalette from '$lib/components/CommandPallete.svelte';
 	export let data: LayoutServerData & PageData;
 
-	onMount(() => {
+	onMount(async () => {
 		document.body.style.backgroundImage = '';
 		document.body.style.backgroundSize = '';
 		document.body.style.backgroundPosition = '';
@@ -19,7 +18,6 @@
 
 <div class="app">
 	<Header />
-	<CommandPalette />
 	<main>
 		<ModeWatcher />
 		<slot />

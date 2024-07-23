@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { DropdownMenu as DropdownMenuPrimitive } from 'bits-ui';
-	import { cn, flyAndScale } from '$lib/utils.js';
+	import { cn, flyAndScale } from '@/utils.js';
 
 	type $$Props = DropdownMenuPrimitive.ContentProps;
-	type $$Events = DropdownMenuPrimitive.ContentEvents;
 
 	let className: $$Props['class'] = undefined;
 	export let sideOffset: $$Props['sideOffset'] = 4;

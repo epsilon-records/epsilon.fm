@@ -3,11 +3,12 @@
 	import { cn, flyAndScale } from '$lib/utils.js';
 
 	type $$Props = MenubarPrimitive.SubContentProps;
-	type $$Events = MenubarPrimitive.SubContentEvents;
-
 	let className: $$Props['class'] = undefined;
 	export let transition: $$Props['transition'] = flyAndScale;
-	export let transitionConfig: $$Props['transitionConfig'] = { x: -10, y: 0 };
+	export let transitionConfig: $$Props['transitionConfig'] = {
+		x: -10,
+		y: 0
+	};
 	export { className as class };
 </script>
 
@@ -15,13 +16,10 @@
 	{transition}
 	{transitionConfig}
 	class={cn(
-		'z-50 min-w-max rounded-md border bg-popover p-1 text-popover-foreground focus:outline-none',
+		'z-50 min-w-max rounded-md border bg-popover p-1 text-popover-foreground shadow-lg focus:outline-none',
 		className
 	)}
 	{...$$restProps}
-	on:focusout
-	on:pointermove
-	on:keydown
 >
 	<slot />
 </MenubarPrimitive.SubContent>

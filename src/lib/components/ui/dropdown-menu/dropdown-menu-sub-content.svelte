@@ -3,7 +3,6 @@
 	import { cn, flyAndScale } from '$lib/utils.js';
 
 	type $$Props = DropdownMenuPrimitive.SubContentProps;
-	type $$Events = DropdownMenuPrimitive.SubContentEvents;
 
 	let className: $$Props['class'] = undefined;
 	export let transition: $$Props['transition'] = flyAndScale;

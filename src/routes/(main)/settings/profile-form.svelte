@@ -22,7 +22,7 @@
 	import { Input } from '$lib/components/ui/input/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { Textarea } from '$lib/components/ui/textarea/index.js';
-	import { cn } from '$lib/utils.js';
+	import { cn } from '@/utils.js';
 	import { browser } from '$app/environment';
 
 	export let data: SuperValidated<Infer<ProfileFormSchema>>;

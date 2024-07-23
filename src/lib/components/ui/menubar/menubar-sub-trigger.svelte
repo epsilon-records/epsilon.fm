@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Menubar as MenubarPrimitive } from 'bits-ui';
-	import ChevronRight from 'lucide-svelte/icons/chevron-right';
+	import ChevronRight from 'svelte-radix/ChevronRight.svelte';
 	import { cn } from '$lib/utils.js';
 
 	type $$Props = MenubarPrimitive.SubTriggerProps & {
@@ -19,8 +19,8 @@
 		inset && 'pl-8',
 		className
 	)}
-	on:click
 	{...$$restProps}
+	on:click
 	on:keydown
 	on:focusin
 	on:focusout
