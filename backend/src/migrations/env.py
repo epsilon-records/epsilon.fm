@@ -12,6 +12,7 @@ from alembic import context
 # Local Dependencies
 from src.core.config import settings
 from src.core.common.models import Base
+import src.core.db  # noqa: F401
 
 # Define the custom Alembic version table name
 custom_alembic_version_table_name = "_alembic_version"
