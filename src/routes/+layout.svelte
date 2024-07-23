@@ -27,5 +27,4 @@
 <QueryClientProvider client={data.queryClient}>
 	<slot />
 	<SvelteQueryDevtools />
-	<slot />
 </QueryClientProvider>
