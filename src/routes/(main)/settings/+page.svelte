@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types.js';
-	import ProfileForm from './profile-form.svelte';
+	import ProfileForm from '$lib/components/ProfileForm.svelte';
 	import { Separator } from '$lib/components/ui/separator/index.js';
 	import { Stretch } from 'svelte-loading-spinners';
 	export let data: PageData;
