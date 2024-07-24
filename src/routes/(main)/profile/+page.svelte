@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card';
 	import type { PageData } from './$types.js';
-	import ProfileForm from './ProfileForm.svelte';
+	import ProfileForm from './profile-form.svelte';
 	import { Stretch } from 'svelte-loading-spinners';
 	export let data: PageData;
 </script>

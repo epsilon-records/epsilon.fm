@@ -1,127 +1,279 @@
-<script lang="ts" context="module">
-	import { z } from 'zod';
-	export const profileFormSchema = z.object({
-		username: z
-			.string()
-			.min(2, 'Username must be at least 2 characters.')
-			.max(30, 'Username must not be longer than 30 characters'),
-		email: z.string({ required_error: 'Please select an email to display' }).email(),
-		bio: z.string().min(4).max(160).default('I own a computer.'),
-		urls: z.array(z.string().url()).default(['https://shadcn.com', 'https://twitter.com/shadcn'])
-	});
-	export type ProfileFormSchema = typeof profileFormSchema;
-</script>
-
 <script lang="ts">
-	import { type Infer, type SuperValidated, superForm } from 'sveltekit-superforms';
+	import { Field, Control, Label, FieldErrors, Description } from 'formsnap';
+	import { Input } from '$lib/components/ui/input';
+	import { Textarea } from '$lib/components/ui/textarea';
+	import * as Form from '$lib/components/ui/form';
+	import { artistSchema, type ArtistSchema } from '../../../lib/schema';
 	import SuperDebug from 'sveltekit-superforms';
+	import { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
+	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
+	import toast from 'svelte-french-toast';
+	import success from '$lib/audio/success.mp3';
 	import { tick } from 'svelte';
-	import * as Form from '$lib/components/ui/form/index.js';
-	import * as Select from '$lib/components/ui/select/index.js';
-	import { Input } from '$lib/components/ui/input/index.js';
-	import { Button } from '$lib/components/ui/button/index.js';
-	import { Textarea } from '$lib/components/ui/textarea/index.js';
-	import { cn } from '@/utils.js';
-	import { browser } from '$app/environment';
+	import { confetti } from '@neoconfetti/svelte';
+	export let data: SuperValidated<Infer<ArtistSchema>>;
 
-	export let data: SuperValidated<Infer<ProfileFormSchema>>;
-
+	let isVisible = false;
 	const form = superForm(data, {
-		validators: zodClient(profileFormSchema)
+		validators: zodClient(artistSchema),
+		resetForm: false,
+		async onUpdated({ form }) {
+			if (form.message == 'success') {
+				const audio = new Audio();
+				audio.src = success;
+				audio.load();
+				isVisible = false;
+				await tick();
+				isVisible = true;
+				audio.play();
+				toast.success('Successfully saved!');
+			}
+		}
 	});
-
 	const { form: formData, enhance } = form;
-
-	function addUrl() {
-		$formData.urls = [...$formData.urls, ''];
-
-		tick().then(() => {
-			const urlInputs = Array.from(
-				document.querySelectorAll<HTMLElement>("#profile-form input[name='urls']")
-			);
-			const lastInput = urlInputs[urlInputs.length - 1];
-			lastInput && lastInput.focus();
-		});
-	}
-
-	$: selectedEmail = {
-		label: $formData.email,
-		value: $formData.email
-	};
 </script>
 
-<form method="POST" class="space-y-8" use:enhance id="profile-form">
-	<Form.Field {form} name="username">
-		<Form.Control let:attrs>
-			<Form.Label>Username</Form.Label>
-			<Input placeholder="@shadcn" {...attrs} bind:value={$formData.username} />
-		</Form.Control>
-		<Form.Description>
-			This is your public display name. It can be your real name or a pseudonym. You can only change
-			this once every 30 days.
-		</Form.Description>
-		<Form.FieldErrors />
-	</Form.Field>
-
-	<Form.Field {form} name="email">
-		<Form.Control let:attrs>
-			<Form.Label>Email</Form.Label>
-			<Select.Root
-				selected={selectedEmail}
-				onSelectedChange={(s) => {
-					s && ($formData.email = s.value);
-				}}
-			>
-				<Select.Trigger {...attrs}>
-					<Select.Value placeholder="Select a verified email to display" />
-				</Select.Trigger>
-				<Select.Content>
-					<Select.Item value="m@example.com" label="m@example.com" />
-					<Select.Item value="m@google.com" label="m@google.com" />
-					<Select.Item value="m@support.com" label="m@supporte.com" />
-				</Select.Content>
-			</Select.Root>
-			<input hidden name={attrs.name} bind:value={$formData.email} />
-		</Form.Control>
-		<Form.Description>
-			You can manage verified email addresses in your <a href="/examples/forms">email settings</a>.
-		</Form.Description>
-		<Form.FieldErrors />
-	</Form.Field>
-	<Form.Field {form} name="bio">
-		<Form.Control let:attrs>
-			<Form.Label>Bio</Form.Label>
-			<Textarea {...attrs} bind:value={$formData.bio} />
-		</Form.Control>
-		<Form.Description>
-			You can <span>@mention</span> other users and organizations to link to them.
-		</Form.Description>
-		<Form.FieldErrors />
-	</Form.Field>
-	<div>
-		<Form.Fieldset {form} name="urls">
-			<Form.Legend>URLs</Form.Legend>
-			{#each $formData.urls as _, i}<!-- eslint-disable-line @typescript-eslint/no-unused-vars -->
-				<Form.ElementField {form} name="urls[{i}]">
-					<Form.Description class={cn(i !== 0 && 'sr-only')}>
-						Add links to your website, blog, or social media profiles.
-					</Form.Description>
-					<Form.Control let:attrs>
-						<Input {...attrs} bind:value={$formData.urls[i]} />
-					</Form.Control>
-					<Form.FieldErrors />
-				</Form.ElementField>
-			{/each}
-		</Form.Fieldset>
-		<Button type="button" variant="outline" size="sm" class="mt-2" on:click={addUrl}>
-			Add URL
-		</Button>
-	</div>
-
-	<Form.Button>Update profile</Form.Button>
-</form>
-
-{#if browser}
-	<SuperDebug data={$formData} />
-{/if}
+<SignedIn>
+	<form method="POST" use:enhance>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="stage_name">
+					<Control let:attrs>
+						<Label>Artist Stage Name</Label>
+						<Input {...attrs} class="bg-muted text-xl" bind:value={$formData.stage_name} readonly />
+					</Control>
+					<div class="grid gap-4 text-xs">
+						<Description>
+							Your artist stage name may be updated by changing your organization name, noting that
+							correct spelling and capitalization are required to ensure proper music delivery.
+						</Description>
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="org_id">
+					<Control let:attrs>
+						<Label>ID</Label>
+						<Input {...attrs} class="bg-muted" bind:value={$formData.org_id} readonly />
+					</Control>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="slug">
+					<Control let:attrs>
+						<Label>Artist Website</Label>
+						<Input {...attrs} class="bg-muted" bind:value={$formData.slug} readonly />
+					</Control>
+					<div class="grid gap-4 text-xs">
+						<Description>
+							Your artist website may me accessed at <a
+								class="text-blue-500"
+								href="https://{$formData.slug}.epsilon.fm">{$formData.slug}.epsilon.fm</a
+							> and may be updated by changing your organization slug.
+						</Description>
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="email">
+					<Control let:attrs>
+						<Label>Artist Contact Email</Label>
+						<Input {...attrs} bind:value={$formData.email} placeholder="Artist Contact Email" />
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your artist contact email.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="biography">
+					<Control let:attrs>
+						<Label>Artist Biography</Label>
+						<Textarea {...attrs} bind:value={$formData.biography} placeholder="Biography" />
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your artist biography.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="spotify_artist_link">
+					<Control let:attrs>
+						<Label>Spotify Artist Link</Label>
+						<Input
+							{...attrs}
+							bind:value={$formData.spotify_artist_link}
+							placeholder="Spotify Artist Link"
+						/>
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your Spotify artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="youtube_channel_link">
+					<Control let:attrs>
+						<Label>YouTube Channel Link</Label>
+						<Input
+							{...attrs}
+							bind:value={$formData.youtube_channel_link}
+							placeholder="YouTube Channel Link"
+						/>
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your YouTube artist channel link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="instagram_profile_link">
+					<Control let:attrs>
+						<Label>Instagram Profile Link</Label>
+						<Input
+							{...attrs}
+							bind:value={$formData.instagram_profile_link}
+							placeholder="Instagram Profile Link"
+						/>
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your Instagram artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="facebook_profile_link">
+					<Control let:attrs>
+						<Label>Facebook Profile Link</Label>
+						<Input
+							{...attrs}
+							bind:value={$formData.facebook_profile_link}
+							placeholder="Facebook Profile Link"
+						/>
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your Facebook artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="x_profile_link">
+					<Control let:attrs>
+						<Label>X Profile Link</Label>
+						<Input {...attrs} bind:value={$formData.x_profile_link} placeholder="X Profile Link" />
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your X artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="tiktok_profile_link">
+					<Control let:attrs>
+						<Label>TikTok Profile Link</Label>
+						<Input
+							{...attrs}
+							bind:value={$formData.tiktok_profile_link}
+							placeholder="TikTok Profile Link"
+						/>
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your TikTok artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="soundcloud_profile_link">
+					<Control let:attrs>
+						<Label>SoundCloud Profile Link</Label>
+						<Input
+							{...attrs}
+							bind:value={$formData.soundcloud_profile_link}
+							placeholder="SoundCloud Profile Link"
+						/>
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your SoundCloud artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="songkick_profile_link">
+					<Control let:attrs>
+						<Label>Songkick Profile Link</Label>
+						<Input
+							{...attrs}
+							bind:value={$formData.songkick_profile_link}
+							placeholder="Songkick Profile Link"
+						/>
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your Songkick artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div class="mb-4 grid gap-4 sm:grid-cols-1">
+			<div>
+				<Field {form} name="bandsintown_profile_link">
+					<Control let:attrs>
+						<Label>Bandsintown Profile Link</Label>
+						<Input
+							{...attrs}
+							bind:value={$formData.bandsintown_profile_link}
+							placeholder="Bandsintown Profile Link"
+						/>
+					</Control>
+					<div class="grid gap-4 text-xs sm:grid-cols-2">
+						<Description class="">Your Bandsintown artist profile link.</Description>
+						<FieldErrors class="text-right text-red-500" />
+					</div>
+				</Field>
+			</div>
+		</div>
+		<div>
+			<Form.Button>Submit</Form.Button>
+		</div>
+		{#if isVisible}
+			<div use:confetti></div>
+		{/if}
+		<div class="m-4">
+			<SuperDebug data={$formData} />
+		</div>
+	</form>
+</SignedIn>

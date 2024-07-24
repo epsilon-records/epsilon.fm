@@ -2,6 +2,7 @@
 	import type { PageData } from './$types.js';
 	import ProfileForm from './profile-form.svelte';
 	import { Separator } from '$lib/components/ui/separator/index.js';
+	import { Stretch } from 'svelte-loading-spinners';
 	export let data: PageData;
 </script>
 
@@ -11,5 +12,9 @@
 		<p class="text-sm text-muted-foreground">This is how others will see you on the site.</p>
 	</div>
 	<Separator />
-	<ProfileForm data={data.form} />
+	{#if data.form}
+		<ProfileForm data={data.form} />
+	{:else}
+		<Stretch />
+	{/if}
 </div>
