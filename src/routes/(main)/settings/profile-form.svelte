@@ -35,22 +35,16 @@
 
 <SignedIn>
 	<form method="POST" use:enhance>
-		<div class="mb-4 grid gap-4 sm:grid-cols-1">
-			<div>
-				<Form.Field {form} name="stage_name">
-					<Form.Control let:attrs>
-						<Form.Label>Artist Stage Name</Form.Label>
-						<Input {...attrs} class="bg-muted text-xl" bind:value={$formData.stage_name} readonly />
-					</Form.Control>
-					<div class="grid gap-4 text-xs">
-						<Form.Description>
-							Your artist stage name may be updated by changing your organization name, noting that
-							correct spelling and capitalization are required to ensure proper music delivery.
-						</Form.Description>
-					</div>
-				</Form.Field>
-			</div>
-		</div>
+		<Form.Field {form} name="stage_name">
+			<Form.Control let:attrs>
+				<Form.Label>Artist Stage Name</Form.Label>
+				<Input {...attrs} class="bg-muted text-xl" bind:value={$formData.stage_name} readonly />
+			</Form.Control>
+			<Form.Description>
+				Your artist stage name may be updated by changing your organization name, noting that
+				correct spelling and capitalization are required to ensure proper music delivery.
+			</Form.Description>
+		</Form.Field>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
 				<Form.Field {form} name="org_id">
