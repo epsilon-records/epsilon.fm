@@ -1,7 +1,6 @@
 # Built-in Dependencies
 from logging.config import fileConfig
 import asyncio
-import os
 
 # Third-Party Dependencies
 from sqlalchemy.ext.asyncio import async_engine_from_config
@@ -22,10 +21,6 @@ config = context.config
 
 # Set the SQLAlchemy URL using the Postgres async URI from settings
 config.set_main_option(name="sqlalchemy.url", value=f"{settings.POSTGRES_ASYNC_URI}")
-
-# Override with the database URL from environment variable if it exists
-if "DATABASE_URL" in os.environ:
-    config.set_main_option(name="sqlalchemy.url", value=f"{os.environ['DATABASE_URL']}")
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
