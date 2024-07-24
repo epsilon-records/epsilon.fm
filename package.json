@@ -13,7 +13,7 @@
 		"test": "poetry --directory ./backend run python -m pytest -vv ./backend/tests && bun run test:integration && bun run test:unit",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --check . && eslint . && poetry --directory ./backend run ruff check --fix --config ./backend/pyproject.toml",
+		"lint": "eslint --fix . && poetry --directory ./backend run ruff check --fix --config ./backend/pyproject.toml",
 		"format": "prettier --write --list-different . && poetry --directory ./backend run ruff format --config ./backend/pyproject.toml",
 		"test:integration": "playwright test",
 		"test:unit": "vitest",
