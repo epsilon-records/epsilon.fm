@@ -36,12 +36,5 @@ api_v1_router.include_router(
         path="/tracks",
         tags=["Tracks"],
         included_methods=["create", "read", "read_paginated", "update", "delete"],
-        endpoint_names={
-            "create": "Write Track",
-            "read": "Read Track",
-            "read_paginated": "Read Tracks",
-            "update": "Update Track",
-            "delete": "Delete Track",
-        },
     )
 )
