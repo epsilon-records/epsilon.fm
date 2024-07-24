@@ -35,7 +35,6 @@ api_v1_router.include_router(
         update_schema=TrackUpdateInternal,
         path="/tracks",
         tags=["Tracks"],
-        summary="Tracks",
         included_methods=["create", "read", "read_paginated", "update", "delete"],
     )
 )
