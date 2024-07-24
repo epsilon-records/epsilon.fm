@@ -42,7 +42,7 @@
 		"@tauri-apps/cli": "^2.0.0-beta.22",
 		"@types/eslint": "^8.56.10",
 		"autoprefixer": "^10.4.19",
-		"eslint": "^8.56.0",
+		"eslint": "^9.7.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-storybook": "^0.8.0",
 		"eslint-plugin-svelte": "^2.42.0",
