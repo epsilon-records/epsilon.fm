@@ -104,7 +104,7 @@ async def read_artist(
     return db_artist
 
 
-@router.patch("/artists/{artist_id}")
+@router.patch("/artists/{org_id}")
 # @router.patch("/artists/{artist_id}/user/{user_id}")
 # @cache(
 #     "artists:user:{user_id}:artist_cache",
@@ -114,7 +114,7 @@ async def read_artist(
 async def patch_artist(
     request: Request,
     # user_id: UUID,
-    artist_id: UUID,
+    org_id: str,
     values: ArtistUpdate,
     # current_user: Annotated[UserRead, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(async_get_db)],
@@ -129,12 +129,12 @@ async def patch_artist(
     #     raise ForbiddenException(detail="You are not allowed to update this artist")
 
     db_artist = await crud_artists.get(
-        db=db, schema_to_select=ArtistRead, id=artist_id, is_deleted=False
+        db=db, schema_to_select=ArtistRead, org_id=org_id, is_deleted=False
     )
     if db_artist is None:
         raise NotFoundException(detail="Artist not found")
 
-    await crud_artists.update(db=db, object=values, id=artist_id)
+    await crud_artists.update(db=db, object=values, org_id=org_id)
     return {"message": "Artist updated"}
 
 
