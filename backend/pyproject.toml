@@ -8,26 +8,26 @@ readme = "README.md"
 packages = [{ include = "src" }]
 
 [tool.poetry.dependencies]
-alembic = "^1.13.1"
+alembic = "^1.13.2"
 arq = "^0.25.0"
 asyncpg = "^0.29.0"
-bcrypt = "^4.1.2"
+bcrypt = "^4.2.0"
 fastapi = {extras = ["all"], version = "^0.111.1"}
 fastapi-async-sqlalchemy = "^0.6.1"
 gunicorn = "^22.0.0"
-pytest = "^7.4.4"
-pydantic-settings = "^2.1.0"
+pytest = "^8.3.1"
+pydantic-settings = "^2.3.4"
 pyjwt = { extras = ["crypto"], version = "^2.8.0" }
 python = "^3.12"
 python-jose = "^3.3.0"
-redis = "^5.0.1"
-types-redis = "^4.6.0.11"
-SQLAlchemy = "^2.0.23"
+redis = "^5.0.7"
+types-redis = "^4.6.0.20240425"
+SQLAlchemy = "^2.0.31"
 SQLAlchemy-Utils = "^0.41.1"
-sqlmodel = "^0.0.14"
+sqlmodel = "^0.0.21"
 uvicorn = "^0.27.0"
 uvloop = { version = "^0.19.0", markers = "sys_platform == 'linux'" }
-psutil = "^5.9.8"
+psutil = "^6.0.0"
 greenlet = "^3.0.3"
 pyyaml = "^6.0.1"
 pre-commit = "^3.7.1"
@@ -37,8 +37,8 @@ pathspec = "^0.12.1"
 fastcrud = "^0.13.1"
 
 [tool.poetry.group.dev.dependencies]
-pre-commit = "^3.6.0"
-mypy = "^1.8.0"
+pre-commit = "^3.7.1"
+mypy = "^1.11.0"
 
 [tool.black]
 line-length = 100
