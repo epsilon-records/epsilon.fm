@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import Header from './Header.svelte';
+import Header from './header.svelte';
 
 describe('Header', () => {
 	it('should render', () => {

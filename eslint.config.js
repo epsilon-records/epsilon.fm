@@ -28,6 +28,6 @@ export default [
 		}
 	},
 	{
-		ignores: ['build/', '.svelte-kit/', 'dist/', '.vercel/', 'src/lib/components']
+		ignores: ['backend/.venv/', 'build/', '.svelte-kit/', 'dist/', '.vercel/', 'src/lib/components']
 	}
 ];

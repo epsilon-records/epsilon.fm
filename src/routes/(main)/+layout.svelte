@@ -1,6 +1,6 @@
 <script lang="ts">
 	import './main.css';
-	import Header from './Header.svelte';
+	import Header from './header.svelte';
 	import type { LayoutServerData, PageData } from './$types';
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import { ModeWatcher } from 'mode-watcher';
