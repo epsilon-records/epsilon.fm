@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Field, Control, Label, FieldErrors, Description } from 'formsnap';
 	import { Input } from '$lib/components/ui/input';
 	import { Textarea } from '$lib/components/ui/textarea';
 	import * as Form from '$lib/components/ui/form';
@@ -38,232 +37,232 @@
 	<form method="POST" use:enhance>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="stage_name">
-					<Control let:attrs>
-						<Label>Artist Stage Name</Label>
+				<Form.Field {form} name="stage_name">
+					<Form.Control let:attrs>
+						<Form.Label>Artist Stage Name</Form.Label>
 						<Input {...attrs} class="bg-muted text-xl" bind:value={$formData.stage_name} readonly />
-					</Control>
+					</Form.Control>
 					<div class="grid gap-4 text-xs">
-						<Description>
+						<Form.Description>
 							Your artist stage name may be updated by changing your organization name, noting that
 							correct spelling and capitalization are required to ensure proper music delivery.
-						</Description>
+						</Form.Description>
 					</div>
-				</Field>
+				</Form.Field>
 			</div>
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="org_id">
-					<Control let:attrs>
-						<Label>ID</Label>
+				<Form.Field {form} name="org_id">
+					<Form.Control let:attrs>
+						<Form.Label>ID</Form.Label>
 						<Input {...attrs} class="bg-muted" bind:value={$formData.org_id} readonly />
-					</Control>
-				</Field>
+					</Form.Control>
+				</Form.Field>
 			</div>
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="slug">
-					<Control let:attrs>
-						<Label>Artist Website</Label>
+				<Form.Field {form} name="slug">
+					<Form.Control let:attrs>
+						<Form.Label>Artist Website</Form.Label>
 						<Input {...attrs} class="bg-muted" bind:value={$formData.slug} readonly />
-					</Control>
+					</Form.Control>
 					<div class="grid gap-4 text-xs">
-						<Description>
+						<Form.Description>
 							Your artist website may me accessed at <a
 								class="text-blue-500"
 								href="https://{$formData.slug}.epsilon.fm">{$formData.slug}.epsilon.fm</a
 							> and may be updated by changing your organization slug.
-						</Description>
+						</Form.Description>
 					</div>
-				</Field>
+				</Form.Field>
 			</div>
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="email">
-					<Control let:attrs>
-						<Label>Artist Contact Email</Label>
+				<Form.Field {form} name="email">
+					<Form.Control let:attrs>
+						<Form.Label>Artist Contact Email</Form.Label>
 						<Input {...attrs} bind:value={$formData.email} placeholder="Artist Contact Email" />
-					</Control>
+					</Form.Control>
 					<div class="grid gap-4 text-xs sm:grid-cols-2">
-						<Description class="">Your artist contact email.</Description>
-						<FieldErrors class="text-right text-red-500" />
+						<Form.Description class="">Your artist contact email.</Form.Description>
+						<Form.FieldErrors class="text-right text-red-500" />
 					</div>
-				</Field>
+				</Form.Field>
 			</div>
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="biography">
-					<Control let:attrs>
-						<Label>Artist Biography</Label>
+				<Form.Field {form} name="biography">
+					<Form.Control let:attrs>
+						<Form.Label>Artist Biography</Form.Label>
 						<Textarea {...attrs} bind:value={$formData.biography} placeholder="Biography" />
-					</Control>
+					</Form.Control>
 					<div class="grid gap-4 text-xs sm:grid-cols-2">
-						<Description class="">Your artist biography.</Description>
-						<FieldErrors class="text-right text-red-500" />
+						<Form.Description class="">Your artist biography.</Form.Description>
+						<Form.FieldErrors class="text-right text-red-500" />
 					</div>
-				</Field>
+				</Form.Field>
 			</div>
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="spotify_artist_link">
-					<Control let:attrs>
-						<Label>Spotify Artist Link</Label>
+				<Form.Field {form} name="spotify_artist_link">
+					<Form.Control let:attrs>
+						<Form.Label>Spotify Artist Link</Form.Label>
 						<Input
 							{...attrs}
 							bind:value={$formData.spotify_artist_link}
 							placeholder="Spotify Artist Link"
 						/>
-					</Control>
+					</Form.Control>
 					<div class="grid gap-4 text-xs sm:grid-cols-2">
-						<Description class="">Your Spotify artist profile link.</Description>
-						<FieldErrors class="text-right text-red-500" />
+						<Form.Description class="">Your Spotify artist profile link.</Form.Description>
+						<Form.FieldErrors class="text-right text-red-500" />
 					</div>
-				</Field>
+				</Form.Field>
 			</div>
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="youtube_channel_link">
-					<Control let:attrs>
-						<Label>YouTube Channel Link</Label>
+				<Form.Field {form} name="youtube_channel_link">
+					<Form.Control let:attrs>
+						<Form.Label>YouTube Channel Link</Form.Label>
 						<Input
 							{...attrs}
 							bind:value={$formData.youtube_channel_link}
 							placeholder="YouTube Channel Link"
 						/>
-					</Control>
+					</Form.Control>
 					<div class="grid gap-4 text-xs sm:grid-cols-2">
-						<Description class="">Your YouTube artist channel link.</Description>
-						<FieldErrors class="text-right text-red-500" />
+						<Form.Description class="">Your YouTube artist channel link.</Form.Description>
+						<Form.FieldErrors class="text-right text-red-500" />
 					</div>
-				</Field>
+				</Form.Field>
 			</div>
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="instagram_profile_link">
-					<Control let:attrs>
-						<Label>Instagram Profile Link</Label>
+				<Form.Field {form} name="instagram_profile_link">
+					<Form.Control let:attrs>
+						<Form.Label>Instagram Profile Link</Form.Label>
 						<Input
 							{...attrs}
 							bind:value={$formData.instagram_profile_link}
 							placeholder="Instagram Profile Link"
 						/>
-					</Control>
+					</Form.Control>
 					<div class="grid gap-4 text-xs sm:grid-cols-2">
-						<Description class="">Your Instagram artist profile link.</Description>
-						<FieldErrors class="text-right text-red-500" />
+						<Form.Description class="">Your Instagram artist profile link.</Form.Description>
+						<Form.FieldErrors class="text-right text-red-500" />
 					</div>
-				</Field>
+				</Form.Field>
 			</div>
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="facebook_profile_link">
-					<Control let:attrs>
-						<Label>Facebook Profile Link</Label>
+				<Form.Field {form} name="facebook_profile_link">
+					<Form.Control let:attrs>
+						<Form.Label>Facebook Profile Link</Form.Label>
 						<Input
 							{...attrs}
 							bind:value={$formData.facebook_profile_link}
 							placeholder="Facebook Profile Link"
 						/>
-					</Control>
+					</Form.Control>
 					<div class="grid gap-4 text-xs sm:grid-cols-2">
-						<Description class="">Your Facebook artist profile link.</Description>
-						<FieldErrors class="text-right text-red-500" />
+						<Form.Description class="">Your Facebook artist profile link.</Form.Description>
+						<Form.FieldErrors class="text-right text-red-500" />
 					</div>
-				</Field>
+				</Form.Field>
 			</div>
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="x_profile_link">
-					<Control let:attrs>
-						<Label>X Profile Link</Label>
+				<Form.Field {form} name="x_profile_link">
+					<Form.Control let:attrs>
+						<Form.Label>X Profile Link</Form.Label>
 						<Input {...attrs} bind:value={$formData.x_profile_link} placeholder="X Profile Link" />
-					</Control>
+					</Form.Control>
 					<div class="grid gap-4 text-xs sm:grid-cols-2">
-						<Description class="">Your X artist profile link.</Description>
-						<FieldErrors class="text-right text-red-500" />
+						<Form.Description class="">Your X artist profile link.</Form.Description>
+						<Form.FieldErrors class="text-right text-red-500" />
 					</div>
-				</Field>
+				</Form.Field>
 			</div>
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="tiktok_profile_link">
-					<Control let:attrs>
-						<Label>TikTok Profile Link</Label>
+				<Form.Field {form} name="tiktok_profile_link">
+					<Form.Control let:attrs>
+						<Form.Label>TikTok Profile Link</Form.Label>
 						<Input
 							{...attrs}
 							bind:value={$formData.tiktok_profile_link}
 							placeholder="TikTok Profile Link"
 						/>
-					</Control>
+					</Form.Control>
 					<div class="grid gap-4 text-xs sm:grid-cols-2">
-						<Description class="">Your TikTok artist profile link.</Description>
-						<FieldErrors class="text-right text-red-500" />
+						<Form.Description class="">Your TikTok artist profile link.</Form.Description>
+						<Form.FieldErrors class="text-right text-red-500" />
 					</div>
-				</Field>
+				</Form.Field>
 			</div>
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="soundcloud_profile_link">
-					<Control let:attrs>
-						<Label>SoundCloud Profile Link</Label>
+				<Form.Field {form} name="soundcloud_profile_link">
+					<Form.Control let:attrs>
+						<Form.Label>SoundCloud Profile Link</Form.Label>
 						<Input
 							{...attrs}
 							bind:value={$formData.soundcloud_profile_link}
 							placeholder="SoundCloud Profile Link"
 						/>
-					</Control>
+					</Form.Control>
 					<div class="grid gap-4 text-xs sm:grid-cols-2">
-						<Description class="">Your SoundCloud artist profile link.</Description>
-						<FieldErrors class="text-right text-red-500" />
+						<Form.Description class="">Your SoundCloud artist profile link.</Form.Description>
+						<Form.FieldErrors class="text-right text-red-500" />
 					</div>
-				</Field>
+				</Form.Field>
 			</div>
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="songkick_profile_link">
-					<Control let:attrs>
-						<Label>Songkick Profile Link</Label>
+				<Form.Field {form} name="songkick_profile_link">
+					<Form.Control let:attrs>
+						<Form.Label>Songkick Profile Link</Form.Label>
 						<Input
 							{...attrs}
 							bind:value={$formData.songkick_profile_link}
 							placeholder="Songkick Profile Link"
 						/>
-					</Control>
+					</Form.Control>
 					<div class="grid gap-4 text-xs sm:grid-cols-2">
-						<Description class="">Your Songkick artist profile link.</Description>
-						<FieldErrors class="text-right text-red-500" />
+						<Form.Description class="">Your Songkick artist profile link.</Form.Description>
+						<Form.FieldErrors class="text-right text-red-500" />
 					</div>
-				</Field>
+				</Form.Field>
 			</div>
 		</div>
 		<div class="mb-4 grid gap-4 sm:grid-cols-1">
 			<div>
-				<Field {form} name="bandsintown_profile_link">
-					<Control let:attrs>
-						<Label>Bandsintown Profile Link</Label>
+				<Form.Field {form} name="bandsintown_profile_link">
+					<Form.Control let:attrs>
+						<Form.Label>Bandsintown Profile Link</Form.Label>
 						<Input
 							{...attrs}
 							bind:value={$formData.bandsintown_profile_link}
 							placeholder="Bandsintown Profile Link"
 						/>
-					</Control>
+					</Form.Control>
 					<div class="grid gap-4 text-xs sm:grid-cols-2">
-						<Description class="">Your Bandsintown artist profile link.</Description>
-						<FieldErrors class="text-right text-red-500" />
+						<Form.Description class="">Your Bandsintown artist profile link.</Form.Description>
+						<Form.FieldErrors class="text-right text-red-500" />
 					</div>
-				</Field>
+				</Form.Field>
 			</div>
 		</div>
 		<div>
