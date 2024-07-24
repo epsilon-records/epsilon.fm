@@ -5,4 +5,4 @@ from src.apps.system.tiers.models import Tier  # noqa: F401
 from src.apps.system.rate_limits.models import RateLimit  # noqa: F401
 from src.apps.blog.posts.models import Post  # noqa: F401
 from src.apps.ms.artists.models import Artist  # noqa: F401
-from src.core.ms.tracks.models import Track  # noqa: F401
+from src.apps.ms.tracks.models import Track  # noqa: F401
