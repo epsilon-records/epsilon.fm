@@ -555,6 +555,23 @@ typer = ">=0.12.3"
 standard = ["fastapi", "uvicorn[standard] (>=0.15.0)"]
 
 [[package]]
+name = "fastcrud"
+version = "0.13.1"
+description = "FastCRUD is a Python package for FastAPI, offering robust async CRUD operations and flexible endpoint creation utilities."
+optional = false
+python-versions = "<4.0,>=3.9"
+files = [
+    {file = "fastcrud-0.13.1-py3-none-any.whl", hash = "sha256:2c0d911f1dfa7367238a17a7f3dc1617173ad77c9965d4fbc1019aef465fd00d"},
+    {file = "fastcrud-0.13.1.tar.gz", hash = "sha256:b00706297d880b85bd8ab7b7102128a6b31eb7aa11860747b95fb664abe5507b"},
+]
+
+[package.dependencies]
+fastapi = ">=0.100.0,<0.112.0"
+pydantic = ">=2.0.0,<3.0.0"
+SQLAlchemy = ">=2.0.0,<3.0.0"
+SQLAlchemy-Utils = ">=0.41.1,<0.42.0"
+
+[[package]]
 name = "filelock"
 version = "3.13.1"
 description = "A platform independent file lock."
@@ -2390,4 +2407,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "3dd96515dcd9a436f139afd749c19994facf1173ad8ff3ac36af9bfa6b0571fd"
+content-hash = "43c007a850bbe3d9d1877297032a1d140f737469a41bacc6d4a1d017f1f50f63"

@@ -34,6 +34,7 @@ pre-commit = "^3.7.1"
 ruff = "^0.5.2"
 readme-metrics = "^3.1.0"
 pathspec = "^0.12.1"
+fastcrud = "^0.13.1"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.6.0"
