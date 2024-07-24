@@ -13,7 +13,7 @@ from src.apps.blog.posts.routers.v1 import router as posts_router
 from src.apps.ms.artists.routers.v1 import router as artists_router
 from src.apps.system.utils.routers.v1 import router as utils_router
 from src.apps.ms.tracks.models import Track
-from src.apps.ms.tracks.schemas import Track as TrackSchema
+from src.apps.ms.tracks.schemas import TrackCreateInternal, TrackUpdateInternal
 
 # Create an APIRouter instance for versioning and prefixing routes
 api_v1_router = APIRouter(prefix="/v1")
@@ -31,8 +31,8 @@ api_v1_router.include_router(
     crud_router(
         session=async_get_db,
         model=Track,
-        create_schema=TrackSchema,
-        update_schema=TrackSchema,
+        create_schema=TrackCreateInternal,
+        update_schema=TrackUpdateInternal,
         path="/tracks",
         tags=["Tracks"],
     )
