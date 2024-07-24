@@ -30,7 +30,7 @@
 					class="absolute inset-0 rounded-md bg-muted"
 					in:send={{ key: 'active-sidebar-tab' }}
 					out:receive={{ key: 'active-sidebar-tab' }}
-				/>
+				></div>
 			{/if}
 			<div class="relative">
 				{item.title}

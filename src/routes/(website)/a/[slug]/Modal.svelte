@@ -18,7 +18,7 @@
 
 {#if isOpen}
 	<div class={`modal ${closing && 'closing'}`}>
-		<div class="backdrop" on:click={close} role="button" tabindex="0" on:keypress={close} />
+		<div class="backdrop" on:click={close} role="button" tabindex="0" on:keypress={close}></div>
 		<div class="content-wrapper">
 			<div class="content">
 				<slot name="content" />
