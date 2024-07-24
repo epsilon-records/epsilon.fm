@@ -125,6 +125,6 @@ export const api = (
 	 * @param artist - The artist data to update.
 	 * @returns A promise that resolves to the updated artist object.
 	 */
-	updateArtist: (slug, artist) =>
-		writeData(`artists/${slug}`, 'PUT', artist, artistSchema, customFetch)
+	updateArtist: (org_id: string, artist) =>
+		writeData(`artists/${org_id}`, 'PUT', artist, artistSchema, customFetch)
 });
