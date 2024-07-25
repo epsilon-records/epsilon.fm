@@ -8,7 +8,7 @@
 <p align="center">
   <strong>API Documentation:</strong> <strong><a href="https://epsilon.readme.io">v0.0.4</a>
   <br />
-  <strong>Base URL:</strong> <strong>https://api.epsilon.fm/v1/
+  <strong>Base URL:</strong> <strong>https://api.epsilon.fm/v1/</strong>
   <br />
   <strong>Test Endpoint:</strong> <a href="https://api.epsilon.fm/v1/system/utils/ping">Ping</a>
 </p>
