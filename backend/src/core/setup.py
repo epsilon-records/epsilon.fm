@@ -23,7 +23,10 @@ from src.apps.blog.posts.management.commands import create_first_post
 from src.core.db.session import async_engine as engine
 from src.core.utils.log import log_system_info
 from src.core.utils import cache, rate_limit
+from src.apps.ms.artists.models import Artist
 from src.apps.ms.tracks.models import Track
+from src.apps.ms.genres.models import Genre
+from src.apps.ms.subgenres.models import Subgenre
 from src.core.common.models import Base
 from src.core.config import settings
 from src.core.logger import logging
@@ -228,7 +231,10 @@ def create_application(
 
     # Add admin interface for managing database models
     admin = Admin(engine, title=settings.PROJECT_NAME)
+    admin.add_view(ModelView(Artist))
     admin.add_view(ModelView(Track))
+    admin.add_view(ModelView(Genre))
+    admin.add_view(ModelView(Subgenre))
     admin.mount_to(application)
 
     if isinstance(settings, DatabaseSettings):
