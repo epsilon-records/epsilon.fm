@@ -3,9 +3,12 @@
 </h1>
 
 <p align="center" markdown=1>
-  A modern open-source music distribution platform. Visit us at <a href="https://epsilon.fm">epsilon.fm</a>
+  A modern open-source music distribution management system. Visit us at <a href="https://epsilon.fm">epsilon.fm</a>
 </p>
-
+<p align="center markdown=1>
+  API Documentation: <a href="https://epsilon.readme.io">v0.0.4 API Docs</a>
+  Ping Endpoint: https://api.epsilon.fm/v1/system/utils/ping
+</p>
 <p align="center">
   <picture>
     <img src="https://github.com/epsilon-records/epsilon.fm/blob/7c15660bc1c2d4f3f709218ec1a085b40990d41d/src/lib/images/spinning-logo.gif" width="130" alt="Logo for Epsilon">    
