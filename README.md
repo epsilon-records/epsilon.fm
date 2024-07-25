@@ -2,10 +2,10 @@
   <a href="https://epsilon.fm">Epsilon Management System</a>
 </h1>
 
-<p align="center" markdown=1>
+<p align="center">
   A modern open-source music distribution management system. Visit us at <a href="https://epsilon.fm">epsilon.fm</a>
 </p>
-<p align="center markdown=1>
+<p align="center">
   API Documentation: <a href="https://epsilon.readme.io">v0.0.4 API Docs</a>
   Ping Endpoint: https://api.epsilon.fm/v1/system/utils/ping
 </p>
