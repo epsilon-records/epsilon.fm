@@ -6,7 +6,7 @@
   A modern open-source music distribution management system. Visit us at <a href="https://epsilon.fm">epsilon.fm</a>
 </p>
 <p align="center">
-  <strong>API Documentation:</strong> <a href="https://epsilon.readme.io"><strong>v0.0.4</strong></a>
+  <strong>API Documentation:</strong> <a href="https://epsilon.readme.io">v0.0.4</a>
   <br />
   <strong>Base URL:</strong> https://api.epsilon.fm/v1/
   <br />
