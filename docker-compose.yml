@@ -1,0 +1,21 @@
+services:
+  web:
+    build: ./backend
+    command: uvicorn src.main:app --reload --workers 1 --host 0.0.0.0 --port 8000
+    volumes:
+      - ./backend:/usr/src/app
+    ports:
+      - 8000:8000
+    environment:
+      - ENVIRONMENT=local
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/epsilondb
+    depends_on:
+      - db
+
+  db:
+    build: ./backend/src/core/db
+    expose:
+      - 5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
