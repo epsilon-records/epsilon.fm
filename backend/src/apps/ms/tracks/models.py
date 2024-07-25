@@ -8,7 +8,7 @@ from sqlmodel import Field, Relationship
 # Local Dependencies
 from src.core.common.models import SoftDeleteMixin, TimestampMixin, UUIDMixin, Base
 from src.apps.ms.genres.models import Genre
-from src.apps.ms.subgenre.models import Subgenre
+from src.apps.ms.subgenres.models import Subgenre
 
 
 class TrackContentBase(Base):
