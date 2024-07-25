@@ -112,7 +112,7 @@
 		"paneforge": "^0.0.5",
 		"pino": "^9.3.1",
 		"postgres": "^3.4.4",
-		"posthog-js": "^1.148.0",
+		"posthog-js": "^1.149.2",
 		"shiki": "^1.11.0",
 		"stream-chat": "^8.37.0",
 		"stylelint-config-tailwindcss": "^0.0.7",
