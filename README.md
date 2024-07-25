@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://epsilon.fm">Epsilon Management System</a>
+  <a href="https://epsilon.fm">Epsilon MS</a>
 </h1>
 
 <p align="center">
