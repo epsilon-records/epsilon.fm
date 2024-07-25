@@ -8,6 +8,7 @@ from fastapi.openapi.docs import get_swagger_ui_html, get_redoc_html
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, APIRouter
 from fastapi.openapi.utils import get_openapi
+from starlette_admin.contrib.sqlmodel import Admin, ModelView
 from arq.connections import RedisSettings
 from arq import create_pool
 import redis.asyncio as redis
@@ -22,6 +23,7 @@ from src.apps.blog.posts.management.commands import create_first_post
 from src.core.db.session import async_engine as engine
 from src.core.utils.log import log_system_info
 from src.core.utils import cache, rate_limit
+from src.apps.ms.tracks.models import Track
 from src.core.common.models import Base
 from src.core.config import settings
 from src.core.logger import logging
@@ -223,6 +225,11 @@ def create_application(
     application.add_event_handler("startup", startup_logging)
     application.add_event_handler("shutdown", shutdown_logging)
     application.add_event_handler("startup", set_threadpool_tokens)
+
+    # Add admin interface for managing database models
+    admin = Admin(engine, title=settings.PROJECT_NAME)
+    admin.add_view(ModelView(Track))
+    admin.mount_to(application)
 
     if isinstance(settings, DatabaseSettings):
         # Add event handlers for database setup during startup

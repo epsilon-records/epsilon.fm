@@ -3,10 +3,12 @@ from uuid import UUID
 from datetime import date
 
 # Third-Party Dependencies
-from sqlmodel import Field
+from sqlmodel import Field, Relationship
 
 # Local Dependencies
 from src.core.common.models import SoftDeleteMixin, TimestampMixin, UUIDMixin, Base
+from src.models.genre_model import Genre
+from src.models.subgenre_model import Subgenre
 
 
 class TrackContentBase(Base):
@@ -87,6 +89,16 @@ class TrackContentBase(Base):
         description="Track YouTube URL",
         schema_extra={"examples": ["https://www.youtube.com/channel/exampletrack"]},
     )
+    primary_genre_id: UUID = Field(
+        nullable=False,
+        foreign_key="ms_genre.id",
+        description="Primary Genre ID",
+    )
+    primary_subgenre_id: UUID = Field(
+        nullable=False,
+        foreign_key="ms_subgenre.id",
+        description="Primary Subgenre ID",
+    )
 
 
 class TrackMediaBase(Base):
@@ -117,4 +129,13 @@ class Track(
     table=True,
 ):
     __tablename__ = "ms_track"
-    __table_args__ = ({"comment": "Managament System track information"},)
+    __table_args__ = ({"comment": "Management System track information"},)
+
+    primary_genre: "Genre" = Relationship(
+        sa_relationship_kwargs={"primaryjoin": "Track.primary_genre_id == Genre.id"}
+    )
+    primary_subgenre: "Subgenre" = Relationship(
+        sa_relationship_kwargs={
+            "primaryjoin": "Track.primary_subgenre_id == Subgenre.id"
+        }
+    )
