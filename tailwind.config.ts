@@ -8,7 +8,6 @@ const config: Config = {
 		'./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}',
 		'./node_modules/flowbite-svelte-blocks/**/*.{html,js,svelte,ts}'
 	],
-	safelist: ['dark'],
 	theme: {
 		extend: {
 			colors: {

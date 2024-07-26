@@ -1,33 +1,19 @@
 <script lang="ts">
 	import '../../app.css';
-	import Header from '$lib/components/Header.svelte';
 	import type { LayoutServerData, PageData } from './$types';
 	import { Badge } from '$lib/components/ui/badge/index.js';
-	import { ModeWatcher } from 'mode-watcher';
-	import { Toaster } from 'svelte-french-toast';
-	import { onMount } from 'svelte';
 	export let data: LayoutServerData & PageData;
-
-	onMount(async () => {
-		document.body.style.backgroundImage = '';
-		document.body.style.backgroundSize = '';
-		document.body.style.backgroundPosition = '';
-		document.body.style.backgroundRepeat = '';
-	});
 </script>
 
 <div class="app">
-	<Header />
 	<main>
-		<ModeWatcher />
 		<slot />
-		<Toaster />
 	</main>
 	<footer>
 		<p class="text-muted-foreground text-sm">Made with ❤️ by Epsilon Records</p>
-		<Badge class="m-2" variant={data.env == 'development' ? 'outline' : 'default'}
-			>{data.env}: {data.gitCommitSha ? data.gitCommitSha : 'unknown'}</Badge
-		>
+		<Badge class="m-2" variant={data.env === 'development' ? 'outline' : 'default'}>
+			{data.env}: {data.gitCommitSha ?? 'unknown'}
+		</Badge>
 	</footer>
 </div>
 
