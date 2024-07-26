@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { env } from '$env/dynamic/public';
+	// import { env } from '$env/dynamic/public';
 	import { QueryClientProvider } from '@tanstack/svelte-query';
 	import { SvelteQueryDevtools } from '@tanstack/svelte-query-devtools';
 	import type { LayoutData } from './$types';
@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-	{#if env.PUBLIC_METICULOUS_RECORDING_TOKEN}
+	<!-- {#if env.PUBLIC_METICULOUS_RECORDING_TOKEN}
 		<script
 			data-project-id={env.PUBLIC_METICULOUS_RECORDING_TOKEN}
 			data-is-production-environment={import.meta.env.MODE === 'production'}
@@ -21,7 +21,7 @@
 				api_key: 'wg_0a000660678e1bd22f8ae33745094d231'
 			});
 		</script>
-	{/if}
+	{/if} -->
 </svelte:head>
 
 <QueryClientProvider client={data.queryClient}>
