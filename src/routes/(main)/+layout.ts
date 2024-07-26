@@ -10,7 +10,7 @@ inject({ mode: dev ? 'development' : 'production' });
 injectSpeedInsights();
 
 export const load: LayoutLoad = (async () => {
-	if (browser) {
+	if (browser && env.PUBLIC_POSTHOG_API_KEY) {
 		posthog.init(env.PUBLIC_POSTHOG_API_KEY, {
 			api_host: 'https://eu.i.posthog.com',
 			person_profiles: 'identified_only' // or 'always' to create profiles for anonymous users as well
