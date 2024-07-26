@@ -1,5 +1,5 @@
 import { artistSchema } from '$lib/schema';
-import { PUBLIC_API_URL, PUBLIC_API_VERSION } from '$env/static/public';
+import { env } from '$env/dynamic/public';
 import { z, ZodError } from 'zod';
 import logger from '$lib/logger';
 
@@ -13,7 +13,7 @@ class APIError extends Error {
 	}
 }
 
-const constructUrl = (path: string) => `${PUBLIC_API_URL}/${PUBLIC_API_VERSION}/${path}`;
+const constructUrl = (path: string) => `${env.PUBLIC_API_URL}/${env.PUBLIC_API_VERSION}/${path}`;
 
 /**
  * Generic function to fetch from the API

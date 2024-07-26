@@ -21,12 +21,9 @@ Thumbs.db
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-# Sentry Config File
-.sentryclirc
-*storybook.log
-
 # Storybook
 storybook-static
+*storybook.log
 
 # Sentry Config File
 .sentryclirc

@@ -51,7 +51,6 @@
 		"flowbite-svelte": "^0.46.15",
 		"flowbite-svelte-icons": "^1.6.1",
 		"globals": "^15.8.0",
-		"husky": "^9.0.11",
 		"postcss": "^8.4.39",
 		"prettier": "^3.3.3",
 		"prettier-plugin-svelte": "^3.2.5",
@@ -68,7 +67,7 @@
 		"tailwindcss": "^3.4.6",
 		"tslib": "^2.6.3",
 		"typescript": "^5.5.3",
-		"vite": "^5.3.4",
+		"vite": "^5.3.5",
 		"vitest": "^2.0.3"
 	},
 	"type": "module",
@@ -104,11 +103,13 @@
 		"devmoji": "^2.3.0",
 		"esbuild": "^0.23.0",
 		"formsnap": "^1.0.1",
+		"husky": "^9.1.2",
 		"lint-staged": "^15.2.7",
 		"lodash": "^4.17.21",
 		"lucide-svelte": "^0.414.0",
 		"mode-watcher": "^0.4.0",
 		"ninja-keys": "^1.2.2",
+		"node-gyp": "^10.2.0",
 		"paneforge": "^0.0.5",
 		"pino": "^9.3.1",
 		"postgres": "^3.4.4",
@@ -142,6 +143,5 @@
 		"commitizen": {
 			"path": "cz-conventional-changelog"
 		}
-	},
-	"module": "index.ts"
+	}
 }

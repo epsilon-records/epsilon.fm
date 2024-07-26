@@ -18,6 +18,7 @@ codebase.txt
 # Output
 .output
 .vercel
+.svelte-kit
 build
 
 # OS

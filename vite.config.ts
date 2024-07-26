@@ -8,7 +8,8 @@ export default defineConfig({
 		sentrySvelteKit({
 			sourceMapsUploadOptions: {
 				org: 'epsilon-records',
-				project: 'epsilon'
+				project: 'epsilon',
+				telemetry: false
 			}
 		}),
 		enhancedImages(),

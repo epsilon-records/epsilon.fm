@@ -2,7 +2,7 @@
 import * as Sentry from '@sentry/sveltekit';
 import type { HandleClientError } from '@sveltejs/kit';
 import { initializeClerkClient } from 'clerk-sveltekit/client';
-import { PUBLIC_CLERK_PUBLISHABLE_KEY } from '$env/static/public';
+import { env } from '$env/dynamic/public';
 
 Sentry.init({
 	dsn: import.meta.env.SENTRY_DSN,
@@ -12,7 +12,7 @@ Sentry.init({
 	integrations: [Sentry.replayIntegration()]
 });
 
-initializeClerkClient(PUBLIC_CLERK_PUBLISHABLE_KEY, {
+initializeClerkClient(env.PUBLIC_CLERK_PUBLISHABLE_KEY, {
 	afterSignInUrl: '/music',
 	afterSignUpUrl: '/music',
 	signInUrl: '/sign-in',

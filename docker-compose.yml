@@ -1,14 +1,41 @@
 services:
-  web:
+  frontend:
+    build: .
+    command: bun run dev --host
+    volumes:
+      - ./src:/app/src
+    ports:
+      - 80:5173
+    environment:
+      - MODE=development
+      - VERCEL_GIT_COMMIT_SHA=unknown
+      - PUBLIC_API_URL=http://backend:8000
+      - PUBLIC_API_VERSION=v1
+      - PUBLIC_POSTHOG_API_KEY=
+      - PUBLIC_METICULOUS_RECORDING_TOKEN=
+      - PUBLIC_WEGLOT_API_KEY=
+      - PUBLIC_GOOGLE_PLACES_API_KEY=
+      - PUBLIC_CLERK_PUBLISHABLE_KEY=
+      - CLERK_SECRET_KEY=
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
+      - LOGFLARE_API_KEY=
+      - LOGFLARE_SOURCE_TOKEN=
+      - STREAM_API_KEY=
+      - STREAM_APP_SECRET=
+      - UPLOADTHING_SECRET=
+
+    depends_on:
+      - backend
+
+  backend:
     build: ./backend
     command: uvicorn src.main:app --reload --workers 1 --host 0.0.0.0 --port 8000
     volumes:
-      - ./backend:/usr/src/app
+      - ./backend:/app
     ports:
       - 8000:8000
     environment:
       - ENVIRONMENT=local
-      - DATABASE_URL=postgres://postgres:postgres@db:5432/epsilondb
     depends_on:
       - db
 

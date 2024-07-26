@@ -1,4 +1,4 @@
-import { UPLOADTHING_SECRET } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 import { ourFileRouter } from '$lib/server/uploadthing';
 
 import { createRouteHandler } from 'uploadthing/server';
@@ -7,7 +7,7 @@ import { createRouteHandler } from 'uploadthing/server';
 const { GET, POST } = createRouteHandler({
 	router: ourFileRouter,
 	config: {
-		uploadthingSecret: UPLOADTHING_SECRET
+		uploadthingSecret: env.UPLOADTHING_SECRET
 	}
 });
 
