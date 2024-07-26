@@ -2,8 +2,8 @@
 	import SignIn from 'clerk-sveltekit/client/SignIn.svelte';
 </script>
 
-<div class="container">
+<main>
 	<div class="m-4 self-center">
 		<SignIn redirectUrl="/" />
 	</div>
-</div>
+</main>
