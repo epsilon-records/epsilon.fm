@@ -2,8 +2,17 @@
 	import SignUp from 'clerk-sveltekit/client/SignUp.svelte';
 </script>
 
-<main>
+<div class="container">
 	<div class="m-4 self-center">
 		<SignUp redirectUrl="/" />
 	</div>
-</main>
+</div>
+
+<style>
+	.container {
+		max-width: 900px;
+		padding: 1em;
+		display: flex;
+		justify-content: center;
+	}
+</style>
