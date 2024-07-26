@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '../../app.css';
+	import '../../../app.css';
 	import Navbar from './NavBar.svelte';
 	import Button from './Button.svelte';
 	import Gmail from 'svelte-simples/Gmail.svelte';
