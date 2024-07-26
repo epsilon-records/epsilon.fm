@@ -249,7 +249,7 @@ def create_application(
 
     if isinstance(settings, ClientSideCacheSettings):
         # Add middleware for client-side caching with specified max age if environment is not local (development)
-        if settings.ENVIRONMENT.value != settings.ENVIRONMENT.LOCAL.value:
+        if settings.ENVIRONMENT.value != settings.ENVIRONMENT.DEVELOPMENT.value:
             application.add_middleware(
                 ClientCacheMiddleware, max_age=settings.CLIENT_CACHE_MAX_AGE
             )
