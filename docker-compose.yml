@@ -73,14 +73,15 @@ services:
       - DEFAULT_RATE_LIMIT_PERIOD=1
     depends_on:
       - db
+      - redis
 
   db:
     build: ./backend/src/core/db
     expose:
       - 5432
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER="postgres"
+      - POSTGRES_PASSWORD="postgres"
 
   redis:
     image: redis
