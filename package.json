@@ -3,6 +3,8 @@
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
+		"dev:api": "poetry --directory ./backend run uvicorn src.main:app --reload",
+		"dev:app": "cargo run --manifest-path=./src-tauri/Cargo.toml tauri dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"sync:api": "node ./scripts/sync-api.mjs",
