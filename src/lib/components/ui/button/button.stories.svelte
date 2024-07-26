@@ -1,14 +1,7 @@
-<script context="module">
-	import Button from './button.svelte';
-
-	export const meta = {
-		title: 'Button',
-		component: Button
-	};
-</script>
-
 <script>
-	import { Story, Template } from '@storybook/addon-svelte-csf';
+	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
+
+	import Button from './Button.svelte';
 
 	let count = 0;
 	function handleClick() {
@@ -16,14 +9,16 @@
 	}
 </script>
 
+<Meta component={Button} autodocs />
+
 <Template let:args>
-	<!--👇 'on:click' allows to forward event to addon-actions  -->
-	<Button {...args} on:click on:click={handleClick}>
+	<Button {...args} on:click={handleClick} on:click>
 		You clicked: {count}
 	</Button>
 </Template>
 
-<!-- Dynamic snippet should be disabled for this story -->
-<Story name="Button No Args">
-	<Button>Label</Button>
-</Story>
+<Story name="Default" />
+
+<Story name="Large" args={{ size: 'lg' }} />
+
+<Story name="Small" source args={{ size: 'sm' }} />

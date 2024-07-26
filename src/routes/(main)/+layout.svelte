@@ -1,5 +1,5 @@
 <script lang="ts">
-	import './main.css';
+	import '../../app.css';
 	import Header from '$lib/components/Header.svelte';
 	import type { LayoutServerData, PageData } from './$types';
 	import { Badge } from '$lib/components/ui/badge/index.js';
