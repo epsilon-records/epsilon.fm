@@ -17,7 +17,6 @@ services:
       - PUBLIC_GOOGLE_PLACES_API_KEY=${PUBLIC_GOOGLE_PLACES_API_KEY}
       - PUBLIC_CLERK_PUBLISHABLE_KEY=${PUBLIC_CLERK_PUBLISHABLE_KEY}
       - CLERK_SECRET_KEY=${CLERK_SECRET_KEY}
-      - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
       - STREAM_API_KEY=${STREAM_API_KEY}
       - STREAM_APP_SECRET=${STREAM_APP_SECRET}
       - UPLOADTHING_SECRET=${UPLOADTHING_SECRET}
@@ -33,7 +32,45 @@ services:
     ports:
       - 8000:8000
     environment:
-      - ENVIRONMENT=local
+      - ENVIRONMENT=development
+      - PROJECT_NAME="Epsilon MS"
+      - PROJECT_DESCRIPTION="A modern open-source music distribution management system."
+      - APP_VERSION="0.0.4"
+      - CONTACT_NAME="Nathaniel Houk"
+      - CONTACT_EMAIL="nate@epsilonrecords.com"
+      - LICENSE_NAME="MIT"
+      - LICENSE_IDENTIFIER="MIT"
+      - BASE_URL="http://backend:8000"
+      - SECRET_KEY=${SECRET_KEY}
+      - ALGORITHM=HS256
+      - ACCESS_TOKEN_EXPIRE_MINUTES=1440
+      - POSTGRES_USER="postgres"
+      - POSTGRES_PASSWORD="postgres"
+      - POSTGRES_SERVER="db"
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB="postgres"
+      - REDIS_CACHE_HOST="redis"
+      - REDIS_CACHE_PORT=6379
+      - REDIS_CACHE_DB=0
+      - REDIS_CACHE_USERNAME="default"
+      - REDIS_CACHE_PASSWORD=""
+      - REDIS_RATE_LIMIT_HOST="redis"
+      - REDIS_RATE_LIMIT_PORT=6379
+      - REDIS_RATE_LIMIT_DB=0
+      - REDIS_RATE_LIMIT_USERNAME="default"
+      - REDIS_RATE_LIMIT_PASSWORD=""
+      - REDIS_QUEUE_HOST="redis"
+      - REDIS_QUEUE_PORT=6379
+      - REDIS_QUEUE_DB=0
+      - REDIS_QUEUE_USERNAME="default"
+      - REDIS_QUEUE_PASSWORD=""
+      - ADMIN_NAME="John Doe"
+      - ADMIN_EMAIL="johndoe@example.com"
+      - ADMIN_USERNAME="admin"
+      - ADMIN_PASSWORD="password"
+      - TIER_NAME_DEFAULT="Default"
+      - DEFAULT_RATE_LIMIT_LIMIT=4
+      - DEFAULT_RATE_LIMIT_PERIOD=1
     depends_on:
       - db
 
@@ -44,3 +81,6 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+
+  redis:
+    image: redis

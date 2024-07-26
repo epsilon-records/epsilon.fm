@@ -199,13 +199,12 @@ class MetricsSettings(BaseSettings):
 
 
 class EnvironmentOption(Enum):
-    LOCAL = "local"
-    STAGING = "staging"
+    DEVELOPMENT = "development"
     PRODUCTION = "production"
 
 
 class EnvironmentSettings(BaseSettings):
-    ENVIRONMENT: EnvironmentOption = config("ENVIRONMENT", default="local")
+    ENVIRONMENT: EnvironmentOption = config("ENVIRONMENT", default="development")
 
 
 class Settings(
