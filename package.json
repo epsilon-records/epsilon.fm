@@ -108,7 +108,7 @@
 		"husky": "^9.1.2",
 		"lint-staged": "^15.2.7",
 		"lodash": "^4.17.21",
-		"lucide-svelte": "^0.414.0",
+		"lucide-svelte": "^0.416.0",
 		"mode-watcher": "^0.4.0",
 		"ninja-keys": "^1.2.2",
 		"node-gyp": "^10.2.0",
