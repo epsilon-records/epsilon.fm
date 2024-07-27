@@ -14,7 +14,7 @@
 
 <div class="app flex min-h-screen flex-col">
 	<QueryClientProvider client={data.queryClient}>
-		<Toaster />
+		<Toaster></Toaster>
 		<main class="flex flex-grow items-center justify-center">
 			<slot></slot>
 		</main>
