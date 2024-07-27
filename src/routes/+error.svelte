@@ -20,7 +20,7 @@
 			</svelte:fragment>
 		</Page404>
 	</Section>
-{:else}
+{:else if $page.status === 500}
 	<Section name="page500">
 		<Page500>
 			<svelte:fragment slot="h1">500</svelte:fragment>

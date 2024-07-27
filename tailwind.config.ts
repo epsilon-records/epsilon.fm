@@ -58,8 +58,8 @@ const config: Config = {
 				sans: [...fontFamily.sans]
 			}
 		}
-	}
-	// plugins: [require('flowbite/plugin'), require('flowbite-typography')]
+	},
+	plugins: [require('flowbite/plugin'), require('flowbite-typography')]
 };
 
 export default config;

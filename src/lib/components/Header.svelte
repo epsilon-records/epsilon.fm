@@ -7,7 +7,6 @@
 	import ClerkLoading from 'clerk-sveltekit/client/ClerkLoading.svelte';
 	import ClerkLoaded from 'clerk-sveltekit/client/ClerkLoaded.svelte';
 	import OrganizationSwitcher from 'clerk-sveltekit/client/OrganizationSwitcher.svelte';
-	import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
 	import Sun from 'lucide-svelte/icons/sun';
 	import Moon from 'lucide-svelte/icons/moon';
 	import { slug } from '$lib/stores/main';

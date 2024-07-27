@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Section } from 'flowbite-svelte-blocks';
 	import { Label, Input, Button, Select, Textarea } from 'flowbite-svelte';
 	const handleSubmit = () => {
 		alert('Form submited.');

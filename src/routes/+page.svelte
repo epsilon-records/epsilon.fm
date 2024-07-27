@@ -5,7 +5,6 @@
 	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
 	import SignInButton from 'clerk-sveltekit/client/SignInButton.svelte';
 	import SignUpButton from 'clerk-sveltekit/client/SignUpButton.svelte';
-	import partners from '$lib/images/partners.png';
 	import Typewriter from 'svelte-typewriter';
 	import { createUploader } from '$lib/utils/uploadthing';
 	import { UploadDropzone } from '@uploadthing/svelte';
@@ -51,14 +50,12 @@
 	<SignedOut>
 		<Card.Root class="m-4">
 			<Card.Header>
-				<Card.Title>EpsilonFM</Card.Title>
+				<Card.Title>Epsilon FM</Card.Title>
 				<Card.Description>A modern open-source music business platform.</Card.Description>
 			</Card.Header>
 			<Card.Content>
-				<Typewriter>
-					<h4 class="scroll-m-20 text-center text-4xl font-semibold tracking-tight">
-						Unlimited music distribution for just $29/month
-					</h4>
+				<Typewriter mode="scramble" scrambleSlowdown={true} keepCursorOnFinish={true}>
+					<h4 class="scroll-m-20 text-center text-4xl font-semibold tracking-tight">Welcome</h4>
 				</Typewriter>
 			</Card.Content>
 			<Card.Content>
@@ -70,44 +67,6 @@
 						<SignUpButton mode="modal">Sign up</SignUpButton>
 					</Button>
 				</SignedOut>
-			</Card.Content>
-		</Card.Root>
-		<Card.Root class="m-4">
-			<Card.Header>
-				<div class="flex items-center justify-center">
-					<p class="font-mono text-2xl">Goodbye DistroKid. Hello Epsilon.</p>
-				</div></Card.Header
-			>
-			<Card.Content>
-				<p class="font-mono">
-					🎉 Discover our modern open-source platform, meticulously designed with your needs in
-					mind. We offer a comprehensive suite of features that empower you to take control of your
-					creative journey. 🎨 Whether you're an emerging artist or an established performer, our
-					tools are tailored to help you thrive in the digital age. 🌟 With capabilities such as
-					creating a professional artist website 🌐, managing social media 📱, and offering
-					merchandise options 🛍️, you can expand your global reach and fully manage your artistic
-					presence. 🌍✨
-				</p>
-			</Card.Content>
-		</Card.Root>
-		<Card.Root class="m-4">
-			<Card.Header>
-				<div class="flex items-center justify-center">
-					<p class="font-mono text-2xl">Industry Partners</p>
-				</div></Card.Header
-			>
-			<Card.Content>
-				<p class="font-mono">
-					We believe in the power of collaboration. That’s why we partner with leading companies in
-					the music industry to bring you unparalleled opportunities and experiences. Our extensive
-					network ensures you have access to the best resources and support available. From
-					distribution to promotion, we provide everything you need to succeed. Our platform makes
-					it easy to get your music on all major streaming platforms and digital stores, ensuring
-					your tracks are available to listeners everywhere.
-				</p>
-			</Card.Content>
-			<Card.Content>
-				<img alt="Epsilon Distribution Partners" src={partners} />
 			</Card.Content>
 		</Card.Root>
 		<Card.Root class="m-4">
