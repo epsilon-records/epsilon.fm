@@ -1,6 +1,4 @@
 <script lang="ts">
-	import GitHubCorner from './GitHubCorner.svelte';
-
 	import '../app.css';
 	import { QueryClientProvider } from '@tanstack/svelte-query';
 	import { SvelteQueryDevtools } from '@tanstack/svelte-query-devtools';
@@ -17,7 +15,6 @@
 <div class="app flex min-h-screen flex-col">
 	<QueryClientProvider client={data.queryClient}>
 		<Toaster />
-		<GitHubCorner />
 		<main class="flex flex-grow items-center justify-center">
 			<slot></slot>
 		</main>

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import GitHubCorner from './GitHubCorner.svelte';
 	import * as Card from '$lib/components/ui/card';
 	import { Button } from '$lib/components/ui/button/index';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
@@ -36,13 +37,14 @@
 </script>
 
 <svelte:head>
-	<title>Epsilon Distribution</title>
+	<title>Epsilon FM</title>
 	<meta
 		name="description"
-		content="Our modern open-source music distribution platform includes features like an artist website, social media management, and merch, empowering you with global reach and full control over your creative work."
+		content="Our modern open-source music distribution platform includes a beautifully designed artist website, customised merch, generative AI music videos, and access to over one hundred global digital streaming platforms including Beatport, Traxsource, and Juno Download."
 	/>
 </svelte:head>
 
+<GitHubCorner />
 <section>
 	<SignedIn>
 		<UploadDropzone {uploader} />
