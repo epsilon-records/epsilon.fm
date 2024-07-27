@@ -32,12 +32,12 @@
 	/>
 </svelte:head>
 
-<GitHubCorner />
 <section>
 	<SignedIn>
 		<Dashboard></Dashboard>
 	</SignedIn>
 	<SignedOut>
+		<GitHubCorner />
 		<Card.Root class="m-4">
 			<Card.Header>
 				<Card.Title>Epsilon FM</Card.Title>
