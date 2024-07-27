@@ -103,7 +103,6 @@
 		"cross-env": "^7.0.3",
 		"devmoji": "^2.3.0",
 		"esbuild": "^0.23.0",
-		"flowbite-typography": "^1.0.3",
 		"formsnap": "^1.0.1",
 		"framer-motion": "^11.3.19",
 		"husky": "^9.1.2",
