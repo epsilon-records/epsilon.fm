@@ -3,7 +3,7 @@
 	"style": "new-york",
 	"tailwind": {
 		"config": "tailwind.config.ts",
-		"css": "src/routes/(app)/app.css",
+		"css": "src/app.css",
 		"baseColor": "slate"
 	},
 	"aliases": {

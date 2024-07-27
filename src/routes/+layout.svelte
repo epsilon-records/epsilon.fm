@@ -1,30 +1,25 @@
 <script lang="ts">
-	// import { env } from '$env/dynamic/public';
+	import '../app.css';
 	import { QueryClientProvider } from '@tanstack/svelte-query';
 	import { SvelteQueryDevtools } from '@tanstack/svelte-query-devtools';
-	import type { LayoutData } from './$types';
-	export let data: LayoutData;
+	import type { LayoutData, LayoutServerData } from './$types';
+	import { Toaster } from 'svelte-french-toast';
+
+	export let data: LayoutData & LayoutServerData;
 </script>
 
-<svelte:head>
-	<!-- {#if env.PUBLIC_METICULOUS_RECORDING_TOKEN}
-		<script
-			data-project-id={env.PUBLIC_METICULOUS_RECORDING_TOKEN}
-			data-is-production-environment={import.meta.env.MODE === 'production'}
-			src="https://snippet.meticulous.ai/v1/meticulous.js"
-		></script>
-	{/if}
-	{#if env.PUBLIC_WEGLOT_API_KEY}
-		<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
-		<script>
-			Weglot.initialize({
-				api_key: 'wg_0a000660678e1bd22f8ae33745094d231'
-			});
-		</script>
-	{/if} -->
-</svelte:head>
-
-<QueryClientProvider client={data.queryClient}>
-	<slot />
-	<SvelteQueryDevtools />
-</QueryClientProvider>
+<div class="app flex min-h-screen flex-col">
+	<QueryClientProvider client={data.queryClient}>
+		<!-- <Header /> -->
+		<Toaster />
+		<main class="flex flex-grow items-center justify-center">
+			<slot></slot>
+		</main>
+		<footer>
+			<p class="m-4 flex flex-grow items-center justify-center text-sm text-muted-foreground">
+				Made with ❤️ by Epsilon Records
+			</p>
+		</footer>
+		<SvelteQueryDevtools></SvelteQueryDevtools>
+	</QueryClientProvider>
+</div>

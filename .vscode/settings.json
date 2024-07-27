@@ -35,5 +35,8 @@
 		},
 		"editor.wordBasedSuggestions": "off"
 	},
-	"codium.codeCompletion.enable": true
+	"codium.codeCompletion.enable": true,
+	"files.associations": {
+		"*.css": "tailwindcss"
+	}
 }

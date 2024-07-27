@@ -1,9 +1,9 @@
 import type { LayoutServerLoad } from './$types';
-import { env } from '$env/dynamic/private';
+import { MODE, VERCEL_GIT_COMMIT_SHA } from '$env/static/private';
 
 export const load: LayoutServerLoad = async () => {
 	return {
-		env: import.meta.env.MODE ?? 'development',
-		gitCommitSha: env.VERCEL_GIT_COMMIT_SHA ?? 'unknown'
+		env: MODE ?? 'development',
+		gitCommitSha: VERCEL_GIT_COMMIT_SHA ?? 'unknown'
 	};
 };

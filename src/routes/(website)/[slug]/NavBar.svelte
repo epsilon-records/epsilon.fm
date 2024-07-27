@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Burger from './Hamburger.svelte';
-	import Logo from '$lib/images/logo.png';
+	import logo from '$lib/images/logo.png';
 	import routes from './NavRoutes';
 	import { modalOpened } from '$lib/stores/website';
 	let opened = false;
@@ -11,7 +11,7 @@
 <div class={opened ? 'NavBar open' : 'NavBar'}>
 	<div class="innerContainer">
 		<a href="https://epsilon.fm">
-			<img src={Logo} alt="logo" class="logo" />
+			<img src={logo} alt="logo" class="logo" />
 		</a>
 		<div class="burger">
 			<Burger bind:open={opened} />
