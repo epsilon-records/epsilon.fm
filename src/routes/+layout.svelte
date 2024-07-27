@@ -1,5 +1,5 @@
 <script lang="ts">
-	import GitHubRibbon from './GitHubRibbon.svelte';
+	import GitHubCorner from './GitHubCorner.svelte';
 
 	import '../app.css';
 	import { QueryClientProvider } from '@tanstack/svelte-query';
@@ -17,7 +17,7 @@
 <div class="app flex min-h-screen flex-col">
 	<QueryClientProvider client={data.queryClient}>
 		<Toaster />
-		<GitHubRibbon />
+		<GitHubCorner />
 		<main class="flex flex-grow items-center justify-center">
 			<slot></slot>
 		</main>
