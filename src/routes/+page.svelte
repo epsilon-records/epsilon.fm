@@ -7,23 +7,11 @@
 	import SignInButton from 'clerk-sveltekit/client/SignInButton.svelte';
 	import SignUpButton from 'clerk-sveltekit/client/SignUpButton.svelte';
 	import Typewriter from 'svelte-typewriter';
-	import { createUploader } from '$lib/utils/uploadthing';
-	import { UploadDropzone } from '@uploadthing/svelte';
 	import { slug } from '$lib/stores/main';
-	import logger from '$lib/logger';
 	import type { PageData } from './$types.js';
+	import Dashboard from '$lib/components/blocks/dashboard/dashboard.svelte';
 
 	export let data: PageData;
-
-	const uploader = createUploader('imageUploader', {
-		onClientUploadComplete: (result) => {
-			logger.info(`onClientUploadComplete`, result);
-			alert('Upload Completed');
-		},
-		onUploadError: (error: Error) => {
-			alert(`ERROR! ${error.message}`);
-		}
-	});
 
 	function loadConvertKit(node: HTMLElement) {
 		const script = document.createElement('script');
@@ -47,7 +35,7 @@
 <GitHubCorner />
 <section>
 	<SignedIn>
-		<UploadDropzone {uploader} />
+		<Dashboard></Dashboard>
 	</SignedIn>
 	<SignedOut>
 		<Card.Root class="m-4">
