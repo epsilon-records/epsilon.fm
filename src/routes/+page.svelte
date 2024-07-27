@@ -7,11 +7,7 @@
 	import SignInButton from 'clerk-sveltekit/client/SignInButton.svelte';
 	import SignUpButton from 'clerk-sveltekit/client/SignUpButton.svelte';
 	import Typewriter from 'svelte-typewriter';
-	import { slug } from '$lib/stores/main';
-	import type { PageData } from './$types.js';
-	import Dashboard from '$lib/components/blocks/dashboard/dashboard.svelte';
-
-	export let data: PageData;
+	import Application from '$lib/components/blocks/application/application.svelte';
 
 	function loadConvertKit(node: HTMLElement) {
 		const script = document.createElement('script');
@@ -20,8 +16,6 @@
 		script.setAttribute('data-uid', '47e61bac90');
 		node.appendChild(script);
 	}
-
-	slug.set(data.slug);
 </script>
 
 <svelte:head>
@@ -34,7 +28,7 @@
 
 <section>
 	<SignedIn>
-		<Dashboard></Dashboard>
+		<Application></Application>
 	</SignedIn>
 	<SignedOut>
 		<GitHubCorner />
