@@ -153,8 +153,8 @@
 	<Menubar.Menu>
 		<Menubar.Trigger>View</Menubar.Trigger>
 		<Menubar.Content>
-			<Menubar.CheckboxItem>Show Playing Next</Menubar.CheckboxItem>
-			<Menubar.CheckboxItem checked>Show Lyrics</Menubar.CheckboxItem>
+			<Menubar.CheckboxItem checked>Show Music</Menubar.CheckboxItem>
+			<a href="/dashboard"><Menubar.CheckboxItem>Show Dashboard</Menubar.CheckboxItem></a>
 			<Menubar.Separator />
 			<Menubar.Item inset disabled>Show Status Bar</Menubar.Item>
 			<Menubar.Separator />
@@ -166,18 +166,20 @@
 		<Menubar.Trigger class="hidden md:block">Account</Menubar.Trigger>
 		<Menubar.Content>
 			<Menubar.Group>
-				<Menubar.Label inset>Switch Account</Menubar.Label>
+				<Menubar.Label inset>Switch Label</Menubar.Label>
 				<Menubar.Separator />
 				<Menubar.RadioGroup value="benoit">
-					<Menubar.RadioItem value="andy">Andy</Menubar.RadioItem>
-					<Menubar.RadioItem value="benoit">Benoit</Menubar.RadioItem>
-					<Menubar.RadioItem value="Luis">Luis</Menubar.RadioItem>
+					<Menubar.RadioItem value="andy">Epsilon Records</Menubar.RadioItem>
+					<Menubar.RadioItem value="benoit">Nieuwe Groove Collectief</Menubar.RadioItem>
+					<Menubar.RadioItem value="Luis">diVerse Records</Menubar.RadioItem>
 				</Menubar.RadioGroup>
 			</Menubar.Group>
 			<Menubar.Separator />
-			<Menubar.Item inset>Manage Family...</Menubar.Item>
+			<Menubar.Item inset href="https://billing.stripe.com/p/login/5kA5kRfnU4AP4s88ww"
+				>Manage Billing...</Menubar.Item
+			>
 			<Menubar.Separator />
-			<Menubar.Item inset>Add Account...</Menubar.Item>
+			<Menubar.Item inset>Add Label...</Menubar.Item>
 		</Menubar.Content>
 	</Menubar.Menu>
 </Menubar.Root>

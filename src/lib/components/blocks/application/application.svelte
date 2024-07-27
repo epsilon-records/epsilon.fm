@@ -7,10 +7,17 @@
 	import { Separator } from '$lib/components/ui/separator/index.js';
 	import * as Tabs from '$lib/components/ui/tabs/index.js';
 	import { ScrollArea } from '$lib/components/ui/scroll-area/index.js';
+	import UserButton from 'clerk-sveltekit/client/UserButton.svelte';
+	import { dark } from '@clerk/themes';
 </script>
 
 <div class="hidden md:block">
-	<Menu />
+	<div class="flex items-center justify-between">
+		<Menu />
+		<div class="pr-6 pt-2">
+			<UserButton afterSignOutUrl="/" />
+		</div>
+	</div>
 	<div class="border-t">
 		<div class="bg-background">
 			<div class="grid lg:grid-cols-5">
