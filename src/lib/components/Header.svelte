@@ -1,22 +1,22 @@
 <script lang="ts">
-	import logo from '$lib/images/logo.png';
-	import github from '$lib/images/github.svg';
-	import UserButton from 'clerk-sveltekit/client/UserButton.svelte';
-	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
-	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
-	import ClerkLoading from 'clerk-sveltekit/client/ClerkLoading.svelte';
-	import ClerkLoaded from 'clerk-sveltekit/client/ClerkLoaded.svelte';
-	import OrganizationSwitcher from 'clerk-sveltekit/client/OrganizationSwitcher.svelte';
-	import Sun from 'lucide-svelte/icons/sun';
-	import Moon from 'lucide-svelte/icons/moon';
-	import { slug } from '$lib/stores/main';
-	import { resetMode, setMode } from 'mode-watcher';
-	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
-	import { Button } from '$lib/components/ui/button';
+	// import logo from '$lib/images/logo.png';
+	// import github from '$lib/images/github.svg';
+	// import UserButton from 'clerk-sveltekit/client/UserButton.svelte';
+	// import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
+	// import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
+	// import ClerkLoading from 'clerk-sveltekit/client/ClerkLoading.svelte';
+	// import ClerkLoaded from 'clerk-sveltekit/client/ClerkLoaded.svelte';
+	// import OrganizationSwitcher from 'clerk-sveltekit/client/OrganizationSwitcher.svelte';
+	// import Sun from 'lucide-svelte/icons/sun';
+	// import Moon from 'lucide-svelte/icons/moon';
+	// import { slug } from '$lib/stores/main';
+	// import { resetMode, setMode } from 'mode-watcher';
+	// import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
+	// import { Button } from '$lib/components/ui/button';
 </script>
 
 <header>
-	<Navbar>
+	<!-- <Navbar>
 		<div class="corner pt-2">
 			<NavBrand href="/">
 				<SignedIn>
@@ -34,7 +34,7 @@
 			</NavBrand>
 		</div>
 		<div class="flex md:order-2">
-			<!-- <div class="corner pt-1">
+			<div class="corner pt-1">
 				<DropdownMenu.Root>
 					<DropdownMenu.Trigger asChild let:builder>
 						<Button builders={[builder]} variant="ghost" size="icon">
@@ -53,7 +53,7 @@
 						<DropdownMenu.Item on:click={() => resetMode()}>System</DropdownMenu.Item>
 					</DropdownMenu.Content>
 				</DropdownMenu.Root>
-			</div> -->
+			</div>
 			<div class="corner pt-2">
 				<SignedIn>
 					<UserButton afterSignOutUrl="/" />
@@ -79,7 +79,7 @@
 				<NavLi href="/settings">Settings</NavLi></SignedIn
 			>
 		</NavUl>
-	</Navbar>
+	</Navbar> -->
 </header>
 
 <style>
