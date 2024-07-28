@@ -83,7 +83,7 @@
 </header>
 
 <style>
-	header {
+	/* header {
 		justify-content: space-between;
 		flex: 1;
 		display: flex;
@@ -112,5 +112,5 @@
 		width: 2em;
 		height: 2em;
 		object-fit: contain;
-	}
+	} */
 </style>

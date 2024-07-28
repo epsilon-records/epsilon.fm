@@ -6,7 +6,7 @@
 	<Menubar.Menu>
 		<Menubar.Trigger class="font-bold">Music</Menubar.Trigger>
 		<Menubar.Content>
-			<Menubar.Item>About Music</Menubar.Item>
+			<Menubar.Item>About Epsilon FM</Menubar.Item>
 			<Menubar.Separator />
 			<Menubar.Item>
 				Preferences... <Menubar.Shortcut>⌘,</Menubar.Shortcut>

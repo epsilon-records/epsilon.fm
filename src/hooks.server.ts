@@ -1,7 +1,7 @@
 import * as Sentry from '@sentry/sveltekit';
 import { sequence } from '@sveltejs/kit/hooks';
 import { handleClerk } from 'clerk-sveltekit/server';
-import { env } from '$env/dynamic/private';
+import { CLERK_SECRET_KEY } from '$env/static/private';
 import { redirect } from '@sveltejs/kit';
 import type { Handle } from '@sveltejs/kit';
 
@@ -36,7 +36,7 @@ export const handleSubdomain: Handle = async ({ event, resolve }) => {
 
 export const handle: Handle = sequence(
 	Sentry.sentryHandle(),
-	handleClerk(env.CLERK_SECRET_KEY, {
+	handleClerk(CLERK_SECRET_KEY, {
 		debug: false,
 		protectedPaths: [
 			'/settings/account',

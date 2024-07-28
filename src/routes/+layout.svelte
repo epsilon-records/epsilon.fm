@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<script async src="https://buttons.github.io/buttons.js"></script>
+	<script async defer src="https://buttons.github.io/buttons.js"></script>
 </svelte:head>
 
 <div class="app flex min-h-screen flex-col">
@@ -27,9 +27,8 @@
 					class="github-button"
 					href="https://github.com/epsilon-records/epsilon.fm"
 					data-color-scheme="no-preference: light; light: light; dark: dark;"
-					data-icon="octicon-star"
 					data-show-count="true"
-					aria-label="Star epsilon-records/epsilon.fm on GitHub">Star</a
+					aria-label="Star epsilon-records/epsilon.fm on GitHub">Star on GitHub</a
 				>
 			</p>
 		</footer>

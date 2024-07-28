@@ -1,7 +1,7 @@
 <script lang="ts">
-	import MusicTabs from './MusicTabs.svelte';
-	import { Sidebar, Menu } from './(components)';
-	import { playlists } from './(data)/playlists.js';
+	import MusicTabs from '$lib/components/blocks/application/MusicTabs.svelte';
+	import { Sidebar, Menu } from '$lib/components/blocks/application/(components)';
+	import { playlists } from '$lib/components/blocks/application/(data)/playlists.js';
 </script>
 
 <div class="hidden md:block">

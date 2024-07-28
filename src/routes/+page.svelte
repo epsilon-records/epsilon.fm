@@ -4,7 +4,7 @@
 	import GitHubCorner from '$lib/components/GitHubCorner.svelte';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
-	import Application from '$lib/components/blocks/application/application.svelte';
+	import Application from '@/components/blocks/application/Music.svelte';
 </script>
 
 <svelte:head>

@@ -18,9 +18,7 @@ config = Config(env_path)
 
 
 class AppSettings(BaseSettings):
-    PROJECT_NAME: str = config(
-        "PROJECT_NAME", default="FastAPI Async SQLModel Boilerplate"
-    )
+    PROJECT_NAME: str = config("PROJECT_NAME", default="Epsilon Stack")
     PROJECT_DESCRIPTION: str | None = config("PROJECT_DESCRIPTION", default=None)
     APP_VERSION: str | None = config("APP_VERSION", default="0.0.1")
     LICENSE_NAME: str | None = config("LICENSE_NAME", default=None)
