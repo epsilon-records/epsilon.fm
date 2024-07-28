@@ -231,10 +231,10 @@ def create_application(
 
     # Add admin interface for managing database models
     admin = Admin(engine, title=settings.PROJECT_NAME)
-    admin.add_view(ModelView(Artist), icon="fas fa-list")
-    admin.add_view(ModelView(Track), icon="fas fa-list")
-    admin.add_view(ModelView(Genre), icon="fas fa-list")
-    admin.add_view(ModelView(Subgenre), icon="fas fa-list")
+    admin.add_view(ModelView(Artist))
+    admin.add_view(ModelView(Track))
+    admin.add_view(ModelView(Genre))
+    admin.add_view(ModelView(Subgenre))
     admin.mount_to(application)
 
     if isinstance(settings, DatabaseSettings):
