@@ -16,6 +16,7 @@
 	import ShoppingCart from 'lucide-svelte/icons/shopping-cart';
 	import Truck from 'lucide-svelte/icons/truck';
 	import UsersRound from 'lucide-svelte/icons/users-round';
+	import Menu from '$lib/components/blocks/application/(components)/menu.svelte';
 
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js';
@@ -187,6 +188,7 @@
 					</nav>
 				</Sheet.Content>
 			</Sheet.Root>
+			<Menu />
 			<Breadcrumb.Root class="hidden md:flex">
 				<Breadcrumb.List>
 					<Breadcrumb.Item>
