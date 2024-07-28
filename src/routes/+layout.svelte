@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<script async defer src="https://buttons.github.io/buttons.js"></script>
+	<script async="false" defer src="https://buttons.github.io/buttons.js"></script>
 </svelte:head>
 
 <div class="app flex min-h-screen flex-col">
