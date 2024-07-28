@@ -2,7 +2,7 @@
 	import * as Menubar from '$lib/components/ui/menubar/index.js';
 </script>
 
-<Menubar.Root class="rounded-none border-b border-none px-2 lg:px-4">
+<Menubar.Root class="sticky top-0 z-50 rounded-none border-b border-none px-2 lg:px-4">
 	<Menubar.Menu>
 		<Menubar.Trigger class="font-bold">Music</Menubar.Trigger>
 		<Menubar.Content>
