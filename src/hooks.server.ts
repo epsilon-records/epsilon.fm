@@ -37,7 +37,7 @@ export const handleSubdomain: Handle = async ({ event, resolve }) => {
 export const handle: Handle = sequence(
 	Sentry.sentryHandle(),
 	handleClerk(CLERK_SECRET_KEY, {
-		debug: false,
+		debug: true,
 		protectedPaths: [
 			'/settings/account',
 			'/settings/appearance',

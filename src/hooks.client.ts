@@ -13,8 +13,8 @@ Sentry.init({
 });
 
 initializeClerkClient(env.PUBLIC_CLERK_PUBLISHABLE_KEY, {
-	afterSignInUrl: '/music',
-	afterSignUpUrl: '/music',
+	afterSignInUrl: '/',
+	afterSignUpUrl: '/',
 	signInUrl: '/sign-in',
 	signUpUrl: '/sign-up'
 });
