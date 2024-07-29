@@ -7,11 +7,10 @@
 </p>
 <p align="center">
   <strong>Web URL:</strong> <a href="https://ms.epsilon.fm">ms.epsilon.fm</a>
-  <strong>API Documentation:</strong> <a href="https://epsilon.readme.io">v0.0.4</a>
   <br />
-  <strong>API Base URL:</strong> api.epsilon.fm
+  <strong>API Base URL:</strong> api.epsilon.fm (test endpoint: <a href="https://api.epsilon.fm/v1/system/utils/ping">Ping</a>)
   <br />
-  <strong>Test Endpoint:</strong> <a href="https://api.epsilon.fm/v1/system/utils/ping">Ping</a>
+  <strong>Documentation:</strong> <a href="https://epsilon.readme.io">v0.0.4</a>
 </p>
 <p align="center">
   <picture>
