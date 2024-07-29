@@ -1,5 +1,5 @@
 import vercelAdapter from '@sveltejs/adapter-vercel';
-import staticAdapter from '@sveltejs/adapter-static';
+import autoAdapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -31,7 +31,7 @@ function getAdapter() {
 			}
 		});
 	} else {
-		return staticAdapter();
+		return autoAdapter();
 	}
 }
 
