@@ -1,7 +1,7 @@
 {
 	"productName": "Epsilon",
 	"version": "0.1.0",
-	"identifier": "com.tauri.dev",
+	"identifier": "fm.epsilon.ms",
 	"build": {
 		"frontendDist": "https://ms.epsilon.fm",
 		"devUrl": "http://localhost:5173",
