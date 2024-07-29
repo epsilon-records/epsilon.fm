@@ -4,7 +4,7 @@
 	import { Button } from '$lib/components/ui/button';
 </script>
 
-<div class="flex justify-center py-48">
+<div class="flex min-h-screen items-center justify-center">
 	{#if $page.status === 404}
 		<Section name="page404">
 			<Page404>
