@@ -3,7 +3,7 @@
 	import { Input } from '$lib/components/ui/input';
 	import { Textarea } from '$lib/components/ui/textarea';
 	import * as Form from '$lib/components/ui/form';
-	import { artistSchema, type ArtistSchema } from '../../../lib/schema';
+	import { artistSchema, type ArtistSchema } from '$lib/schema';
 	import SuperDebug from 'sveltekit-superforms';
 	import { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';

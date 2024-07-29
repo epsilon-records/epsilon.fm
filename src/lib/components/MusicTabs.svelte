@@ -1,7 +1,7 @@
 <script lang="ts">
 	import PlusCircled from 'svelte-radix/PlusCircled.svelte';
-	import { AlbumArtwork, PodcastEmptyPlaceholder } from './(components)';
-	import { playlists } from './(data)/playlists';
+	import AlbumArtwork from '$lib/components/album-artwork.svelte';
+	import PodcastEmptyPlaceholder from '$lib/components/podcast-empty-placeholder.svelte';
 	import { listenNowAlbums, madeForYouAlbums } from './(data)/albums';
 	import { Button } from '$lib/components/ui/button';
 	import { Separator } from '$lib/components/ui/separator';

@@ -1,37 +1,31 @@
 <script lang="ts">
-	import '../app.css';
+	import Main from '$lib/components/Main.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+	import '$src/app.css';
 	import { QueryClientProvider } from '@tanstack/svelte-query';
 	import { SvelteQueryDevtools } from '@tanstack/svelte-query-devtools';
 	import type { LayoutData, LayoutServerData } from './$types';
 	import { Toaster } from 'svelte-french-toast';
-
+	import ClerkLoaded from 'clerk-sveltekit/client/ClerkLoaded.svelte';
+	import ClerkLoading from 'clerk-sveltekit/client/ClerkLoading.svelte';
+	import { Stretch } from 'svelte-loading-spinners';
 	export let data: LayoutData & LayoutServerData;
 </script>
 
-<svelte:head>
-	<script async defer src="https://buttons.github.io/buttons.js"></script>
-</svelte:head>
-
 <div class="app flex min-h-screen flex-col">
-	<QueryClientProvider client={data.queryClient}>
-		<Toaster></Toaster>
-		<main class="flex flex-grow items-center justify-center">
-			<slot></slot>
-		</main>
-		<footer>
-			<p class="flex flex-grow items-center justify-center text-sm">
-				Made with ❤️ by&nbsp;<a href="https://epsilonrecords.nl">Epsilon Records</a>
-			</p>
-			<p class="flex flex-grow items-center justify-center pb-4 pt-2 text-sm">
-				<a
-					class="github-button"
-					href="https://github.com/epsilon-records/epsilon.fm"
-					data-color-scheme="no-preference: light; light: light; dark: dark;"
-					data-show-count="true"
-					aria-label="Star epsilon-records/epsilon.fm on GitHub">Star on GitHub</a
-				>
-			</p>
-		</footer>
-		<SvelteQueryDevtools></SvelteQueryDevtools>
-	</QueryClientProvider>
+	<ClerkLoading>
+		<div class="flex h-screen items-center justify-center">
+			<Stretch />
+		</div>
+	</ClerkLoading>
+	<ClerkLoaded>
+		<QueryClientProvider client={data.queryClient}>
+			<Main>
+				<slot />
+			</Main>
+			<Footer></Footer>
+			<Toaster></Toaster>
+			<SvelteQueryDevtools></SvelteQueryDevtools>
+		</QueryClientProvider>
+	</ClerkLoaded>
 </div>

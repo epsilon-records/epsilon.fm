@@ -1,7 +1,7 @@
 <script lang="ts">
 	import PlusCircled from 'svelte-radix/PlusCircled.svelte';
-	import type { Album } from '../(data)/albums.js';
-	import { playlists } from '../(data)/playlists.js';
+	import type { Album } from '$lib/components/(data)/albums.js';
+	import { playlists } from '$lib/components/(data)/playlists.js';
 	import { cn } from '$lib/utils.js';
 	import * as ContextMenu from '$lib/components/ui/context-menu/index.js';
 

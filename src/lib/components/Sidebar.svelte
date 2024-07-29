@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Playlist } from '../(data)/playlists.js';
+	import type { Playlist } from '$lib/components/(data)/playlists.js';
 	import { cn } from '$lib/utils.js';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { ScrollArea } from '$lib/components/ui/scroll-area/index.js';

@@ -1,10 +1,4 @@
 <script lang="ts">
-	import WelcomeCard from '$lib/components/WelcomeCard.svelte';
-	import NewsletterCard from '$lib/components/NewsletterCard.svelte';
-	import GitHubCorner from '$lib/components/GitHubCorner.svelte';
-	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
-	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
-	import Application from '@/components/blocks/application/Music.svelte';
 </script>
 
 <svelte:head>
@@ -15,13 +9,4 @@
 	/>
 </svelte:head>
 
-<section>
-	<SignedIn>
-		<Application></Application>
-	</SignedIn>
-	<SignedOut>
-		<GitHubCorner />
-		<WelcomeCard></WelcomeCard>
-		<NewsletterCard></NewsletterCard>
-	</SignedOut>
-</section>
+Content

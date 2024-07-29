@@ -11,7 +11,8 @@ const config = {
 			checkOrigin: true
 		},
 		alias: {
-			'@/*': './src/lib/*'
+			'@/*': './src/lib/*',
+			'$src/*': './src/*'
 		}
 	}
 };
@@ -28,9 +29,6 @@ function getAdapter() {
 				minimumCacheTTL: 300,
 				domains: [process.env.BASE_URL]
 			}
-			// isr: {
-			// 	expiration: 60
-			// }
 		});
 	} else {
 		return autoAdapter();

@@ -178,6 +178,7 @@
 			<Menubar.Item inset href="https://billing.stripe.com/p/login/5kA5kRfnU4AP4s88ww"
 				>Manage Billing...</Menubar.Item
 			>
+			<Menubar.Item inset href="/settings">Manage Settings...</Menubar.Item>
 			<Menubar.Separator />
 			<Menubar.Item inset>Add Label...</Menubar.Item>
 		</Menubar.Content>
