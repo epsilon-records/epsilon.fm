@@ -15,9 +15,10 @@
 		{ href: '/orders', icon: ClipboardList, label: 'Orders' },
 		{ href: '/products', icon: ShoppingBag, label: 'Products' },
 		{ href: '/customers', icon: Users, label: 'Customers' },
-		{ href: '/analytics', icon: ChartNoAxesCombined, label: 'Analytics' },
-		{ href: '/settings', icon: Settings, label: 'Settings' }
+		{ href: '/analytics', icon: ChartNoAxesCombined, label: 'Analytics' }
 	];
+
+	const settingsItem = { href: '/settings', icon: Settings, label: 'Settings' };
 
 	$: activeItem = $page.url.pathname.split('/')[1] || 'dashboard';
 </script>
@@ -45,5 +46,24 @@
 				<Tooltip.Content side="right">{label}</Tooltip.Content>
 			</Tooltip.Root>
 		{/each}
+	</nav>
+	<nav class="mt-auto flex flex-col items-center gap-4 px-2 py-4">
+		<Tooltip.Root>
+			<Tooltip.Trigger asChild let:builder>
+				<a
+					href={settingsItem.href}
+					class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8 {activeItem ===
+					'settings'
+						? 'bg-accent text-accent-foreground'
+						: ''}"
+					use:builder.action
+					{...builder}
+				>
+					<svelte:component this={settingsItem.icon} class="h-5 w-5" />
+					<span class="sr-only">{settingsItem.label}</span>
+				</a>
+			</Tooltip.Trigger>
+			<Tooltip.Content side="right">{settingsItem.label}</Tooltip.Content>
+		</Tooltip.Root>
 	</nav>
 </aside>

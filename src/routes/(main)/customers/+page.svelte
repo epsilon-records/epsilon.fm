@@ -3,7 +3,7 @@
 </script>
 
 <Dashboard>
-	<svelte:fragment slot="topLeft"></svelte:fragment>
+	<svelte:fragment slot="topLeft">Customers</svelte:fragment>
 	<svelte:fragment slot="topCenter"></svelte:fragment>
 	<svelte:fragment slot="topRight"></svelte:fragment>
 	<svelte:fragment slot="content"></svelte:fragment>
