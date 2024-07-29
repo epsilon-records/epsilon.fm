@@ -1,13 +1,9 @@
 import { fontFamily } from 'tailwindcss/defaultTheme';
 import type { Config } from 'tailwindcss';
-import flowbitePlugin from 'flowbite/plugin';
 
 const config: Config = {
 	darkMode: ['class'],
-	content: [
-		'./src/**/*.{html,js,svelte,ts}',
-		'./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'
-	],
+	content: ['./src/**/*.{html,js,svelte,ts}'],
 	safelist: ['dark'],
 	theme: {
 		container: {
@@ -26,17 +22,7 @@ const config: Config = {
 				foreground: 'hsl(var(--foreground) / <alpha-value>)',
 				primary: {
 					DEFAULT: 'hsl(var(--primary) / <alpha-value>)',
-					foreground: 'hsl(var(--primary-foreground) / <alpha-value>)',
-					50: '#FFF5F2',
-					100: '#FFF1EE',
-					200: '#FFE4DE',
-					300: '#FFD5CC',
-					400: '#FFBCAD',
-					500: '#FE795D',
-					600: '#EF562F',
-					700: '#EB4F27',
-					800: '#CC4522',
-					900: '#A5371B'
+					foreground: 'hsl(var(--primary-foreground) / <alpha-value>)'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary) / <alpha-value>)',
@@ -72,8 +58,7 @@ const config: Config = {
 				sans: [...fontFamily.sans]
 			}
 		}
-	},
-	plugins: [flowbitePlugin]
+	}
 };
 
 export default config;
