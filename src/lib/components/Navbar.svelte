@@ -1,26 +1,33 @@
 <script lang="ts">
-	import House from 'lucide-svelte/icons/House';
-	import FileChartLine from 'lucide-svelte/icons/file-chart-line';
-	import Package from 'lucide-svelte/icons/package';
+	import { page } from '$app/stores';
+	import LayoutDashboard from 'lucide-svelte/icons/layout-dashboard';
+	import ClipboardList from 'lucide-svelte/icons/clipboard-list';
+	import ShoppingBag from 'lucide-svelte/icons/shopping-bag';
+	import Users from 'lucide-svelte/icons/users';
+	import ChartNoAxesCombined from 'lucide-svelte/icons/chart-no-axes-combined';
 	import Settings from 'lucide-svelte/icons/settings';
-	import ShoppingCart from 'lucide-svelte/icons/shopping-cart';
-	import UsersRound from 'lucide-svelte/icons/users-round';
 	import * as Tooltip from '$lib/components/ui/tooltip/index.js';
 
-	export let activeItem:
-		| 'dashboard'
-		| 'orders'
-		| 'products'
-		| 'customers'
-		| 'analytics'
-		| 'settings' = 'dashboard';
+	$: activeItem = $page.url.pathname.startsWith('/dashboard')
+		? 'dashboard'
+		: $page.url.pathname.startsWith('/orders')
+			? 'orders'
+			: $page.url.pathname.startsWith('/products')
+				? 'products'
+				: $page.url.pathname.startsWith('/customers')
+					? 'customers'
+					: $page.url.pathname.startsWith('/analytics')
+						? 'analytics'
+						: $page.url.pathname.startsWith('/settings')
+							? 'settings'
+							: 'dashboard';
 </script>
 
 <nav class="flex flex-col items-center gap-4 px-2 py-4">
 	<Tooltip.Root>
 		<Tooltip.Trigger asChild let:builder>
 			<a
-				href="##"
+				href="/dashboard"
 				class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8 {activeItem ===
 				'dashboard'
 					? 'bg-accent text-accent-foreground'
@@ -28,7 +35,7 @@
 				use:builder.action
 				{...builder}
 			>
-				<House class="h-5 w-5" />
+				<LayoutDashboard class="h-5 w-5" />
 				<span class="sr-only">Dashboard</span>
 			</a>
 		</Tooltip.Trigger>
@@ -37,7 +44,7 @@
 	<Tooltip.Root>
 		<Tooltip.Trigger asChild let:builder>
 			<a
-				href="##"
+				href="/orders"
 				class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8 {activeItem ===
 				'orders'
 					? 'bg-accent text-accent-foreground'
@@ -45,7 +52,7 @@
 				use:builder.action
 				{...builder}
 			>
-				<ShoppingCart class="h-5 w-5" />
+				<ClipboardList class="h-5 w-5" />
 				<span class="sr-only">Orders</span>
 			</a>
 		</Tooltip.Trigger>
@@ -54,7 +61,7 @@
 	<Tooltip.Root>
 		<Tooltip.Trigger asChild let:builder>
 			<a
-				href="##"
+				href="/products"
 				class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8 {activeItem ===
 				'products'
 					? 'bg-accent text-accent-foreground'
@@ -62,7 +69,7 @@
 				use:builder.action
 				{...builder}
 			>
-				<Package class="h-5 w-5" />
+				<ShoppingBag class="h-5 w-5" />
 				<span class="sr-only">Products</span>
 			</a>
 		</Tooltip.Trigger>
@@ -71,7 +78,7 @@
 	<Tooltip.Root>
 		<Tooltip.Trigger asChild let:builder>
 			<a
-				href="##"
+				href="/customers"
 				class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8 {activeItem ===
 				'customers'
 					? 'bg-accent text-accent-foreground'
@@ -79,7 +86,7 @@
 				use:builder.action
 				{...builder}
 			>
-				<UsersRound class="h-5 w-5" />
+				<Users class="h-5 w-5" />
 				<span class="sr-only">Customers</span>
 			</a>
 		</Tooltip.Trigger>
@@ -88,7 +95,7 @@
 	<Tooltip.Root>
 		<Tooltip.Trigger asChild let:builder>
 			<a
-				href="##"
+				href="/analytics"
 				class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8 {activeItem ===
 				'analytics'
 					? 'bg-accent text-accent-foreground'
@@ -96,7 +103,7 @@
 				use:builder.action
 				{...builder}
 			>
-				<FileChartLine class="h-5 w-5" />
+				<ChartNoAxesCombined class="h-5 w-5" />
 				<span class="sr-only">Analytics</span>
 			</a>
 		</Tooltip.Trigger>
