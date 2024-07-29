@@ -75,12 +75,14 @@
 		</Sheet.Content>
 	</Sheet.Root>
 	{#key $mode}
-		<OrganizationSwitcher
-			appearance={{ baseTheme: $mode === 'dark' ? dark : neobrutalism }}
-			hidePersonal={true}
-			afterCreateOrganizationUrl="/settings"
-			afterSelectOrganizationUrl="/settings"
-		/>
+		<div class="pt-2">
+			<OrganizationSwitcher
+				appearance={{ baseTheme: $mode === 'dark' ? dark : neobrutalism }}
+				hidePersonal={true}
+				afterCreateOrganizationUrl="/settings"
+				afterSelectOrganizationUrl="/settings"
+			/>
+		</div>
 	{/key}
 	<Breadcrumbs></Breadcrumbs>
 	<div class="relative ml-auto flex-1 md:grow-0">
