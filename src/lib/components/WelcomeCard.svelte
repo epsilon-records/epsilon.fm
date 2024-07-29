@@ -6,14 +6,24 @@
 	import Typewriter from 'svelte-typewriter';
 </script>
 
-<Card.Root class="m-4">
+<Card.Root class="m-4 w-3/5 max-w-xl">
 	<Card.Header>
 		<Card.Title>Epsilon FM</Card.Title>
-		<Card.Description>A modern open-source music business platform.</Card.Description>
+		<Card.Description
+			>The modern open-source music business platform for industry professionals.</Card.Description
+		>
 	</Card.Header>
 	<Card.Content>
-		<Typewriter mode="scramble" scrambleSlowdown={true} keepCursorOnFinish={true}>
-			<h4 class="scroll-m-20 text-center text-4xl font-semibold tracking-tight">Welcome</h4>
+		<Typewriter mode="loopOnce" interval={100} cursor={true} keepCursorOnFinish={true}>
+			<h4 class="scroll-m-20 text-center text-4xl font-semibold tracking-tight">
+				Goodbye DistroKid.
+			</h4>
+			<h4 class="scroll-m-20 text-center text-4xl font-semibold tracking-tight">
+				Hello Epsilon FM.
+			</h4>
+			<h4 class="scroll-m-20 text-center text-4xl font-semibold tracking-tight">
+				Welcome to the future.
+			</h4>
 		</Typewriter>
 	</Card.Content>
 	<Card.Content>

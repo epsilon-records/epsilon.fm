@@ -1,5 +1,5 @@
 <script lang="ts">
-	import House from 'lucide-svelte/icons/house';
+	import Library from 'lucide-svelte/icons/library';
 	import FileChartLine from 'lucide-svelte/icons/file-chart-line';
 	import Package from 'lucide-svelte/icons/package';
 	import Package2 from 'lucide-svelte/icons/package-2';
@@ -11,10 +11,10 @@
 
 <nav class="flex flex-col items-center gap-4 px-2 py-4">
 	<a
-		href="##"
+		href="/"
 		class="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
 	>
-		<Package2 class="h-4 w-4 transition-all group-hover:scale-110" />
+		<Library class="h-5 w-5 transition-all group-hover:scale-110" />
 		<span class="sr-only">Epsilon FM</span>
 	</a>
 	<Tooltip.Root>
@@ -25,7 +25,7 @@
 				use:builder.action
 				{...builder}
 			>
-				<House class="h-5 w-5" />
+				<Library class="h-5 w-5" />
 				<span class="sr-only">Dashboard</span>
 			</a>
 		</Tooltip.Trigger>
@@ -92,7 +92,7 @@
 	<Tooltip.Root>
 		<Tooltip.Trigger asChild let:builder>
 			<a
-				href="##"
+				href="/settings"
 				class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
 				use:builder.action
 				{...builder}
