@@ -31,9 +31,9 @@
 	</Card.Content>
 	<Card.Content>
 		<SignedIn>
-			<Button class="m-2"><UserButton /></Button>
+			<UserButton />
+			<Button href="/dashboard" class="m-2">📊 Goto Dashboard</Button>
 			<Button href="/create" class="m-2">💿 Create New Release</Button>
-			<Button href="/dashboard" class="m-2">📊 Dashboard</Button>
 		</SignedIn>
 		<SignedOut>
 			<Button class="m-2">
