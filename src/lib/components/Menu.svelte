@@ -182,7 +182,7 @@
 			<Menubar.Item inset href="/settings">Manage Settings...</Menubar.Item>
 			<Menubar.Separator />
 			<Menubar.Item inset>Add Label...</Menubar.Item>
-			<Menubar.Item inset><SignOutButton /></Menubar.Item>
+			<Menubar.Item inset><SignOutButton>🔒 Sign Out</SignOutButton></Menubar.Item>
 		</Menubar.Content>
 	</Menubar.Menu>
 </Menubar.Root>

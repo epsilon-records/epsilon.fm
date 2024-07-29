@@ -13,6 +13,7 @@
 	import { Input } from '$lib/components/ui/input/index.js';
 	import * as Sheet from '$lib/components/ui/sheet/index.js';
 	import logo from '$lib/images/logo.png';
+	import UserButton from 'clerk-sveltekit/client/UserButton.svelte';
 </script>
 
 <header
@@ -78,6 +79,7 @@
 			class="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[320px]"
 		/>
 	</div>
+	<UserButton afterSignOutUrl="/" />
 	<DropdownMenu.Root>
 		<DropdownMenu.Trigger asChild let:builder>
 			<Button
