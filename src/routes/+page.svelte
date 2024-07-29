@@ -1,5 +1,5 @@
 <script lang="ts">
-	import WelcomeCard from '$lib/components/WelcomeCard.svelte';
+	import HomeCard from '@/components/HomeCard.svelte';
 	import NewsletterCard from '$lib/components/NewsletterCard.svelte';
 	import GitHubCorner from '$lib/components/GitHubCorner.svelte';
 </script>
@@ -14,6 +14,6 @@
 
 <GitHubCorner />
 <div class="flex flex-grow flex-col items-center justify-center">
-	<WelcomeCard></WelcomeCard>
+	<HomeCard></HomeCard>
 	<NewsletterCard></NewsletterCard>
 </div>
