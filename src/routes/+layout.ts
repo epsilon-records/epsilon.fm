@@ -7,6 +7,9 @@ import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 import posthog from 'posthog-js';
 import { env } from '$env/dynamic/public';
 
+// export const prerender = true;
+// export const ssr = false;
+
 inject({ mode: dev ? 'development' : 'production' });
 injectSpeedInsights();
 
