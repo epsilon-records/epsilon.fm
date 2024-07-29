@@ -32,7 +32,7 @@
 	<Card.Content>
 		<SignedIn>
 			<UserButton />
-			<Button class="m-2">Back to Dashboard 🚀</Button>
+			<Button href="/dashboard" class="m-2">Back to Dashboard 🚀</Button>
 		</SignedIn>
 		<SignedOut>
 			<Button class="m-2">
