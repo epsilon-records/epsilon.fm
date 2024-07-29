@@ -24,7 +24,7 @@
 	<Card.Header class="pb-3">
 		<Card.Title>{getGreeting()}</Card.Title>
 		<Card.Description class="max-w-lg text-balance leading-relaxed">
-			Introducing our new Release Dashboard, designed for easy management and detailed analysis.
+			Introducing our new release dashboard, designed for easy management and detailed analysis.
 		</Card.Description>
 	</Card.Header>
 	<Card.Footer>
