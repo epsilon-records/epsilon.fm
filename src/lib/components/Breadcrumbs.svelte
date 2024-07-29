@@ -11,7 +11,11 @@
 
 <Breadcrumb.Root class="hidden md:flex">
 	<Breadcrumb.List>
+		<Breadcrumb.Item>
+			<Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+		</Breadcrumb.Item>
 		{#each breadcrumbs as crumb, index}
+			<Breadcrumb.Separator />
 			<Breadcrumb.Item>
 				{#if index === breadcrumbs.length - 1}
 					<Breadcrumb.Page>{crumb.name}</Breadcrumb.Page>
@@ -19,9 +23,6 @@
 					<Breadcrumb.Link href={crumb.href}>{crumb.name}</Breadcrumb.Link>
 				{/if}
 			</Breadcrumb.Item>
-			{#if index !== breadcrumbs.length - 1}
-				<Breadcrumb.Separator />
-			{/if}
 		{/each}
 	</Breadcrumb.List>
 </Breadcrumb.Root>

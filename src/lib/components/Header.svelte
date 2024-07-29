@@ -8,7 +8,7 @@
 </script>
 
 <header
-	class="sticky top-14 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:px-6"
+	class="sticky top-8 z-30 flex h-14 items-center gap-4 border-b border-t bg-background px-4 sm:px-6"
 >
 	<NavbarSheet></NavbarSheet>
 	<ArtistSwitcher></ArtistSwitcher>

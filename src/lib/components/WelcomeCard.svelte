@@ -35,8 +35,7 @@
 				<div class="m-2 pt-1">
 					<UserButton />
 				</div>
-				<Button href="/dashboard" class="m-2">📊 Goto Dashboard</Button>
-				<Button href="/create" class="m-2">💿 Create New Release</Button>
+				<Button href="/dashboard" class="m-2">Goto Dashboard</Button>
 			</div>
 		</SignedIn>
 		<SignedOut>
