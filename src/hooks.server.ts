@@ -21,7 +21,11 @@ export const handle: Handle = sequence(
 			'/settings/display',
 			'/settings/notifications',
 			'/settings/profile',
-			'/music'
+			'/music',
+			'/orders',
+			'/products',
+			'/customers',
+			'/analytics'
 		],
 		signInUrl: '/sign-in'
 	})

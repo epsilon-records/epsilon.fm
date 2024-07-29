@@ -10,24 +10,8 @@
 			<WelcomeCard firstName={user?.firstName ?? ''}></WelcomeCard>
 		</SignedIn>
 	</svelte:fragment>
-	<svelte:fragment slot="topCenter">
-		<SignedIn let:user>
-			<WelcomeCard firstName={user?.firstName ?? ''}></WelcomeCard>
-		</SignedIn>
-	</svelte:fragment>
-	<svelte:fragment slot="topRight">
-		<SignedIn let:user>
-			<WelcomeCard firstName={user?.firstName ?? ''}></WelcomeCard>
-		</SignedIn>
-	</svelte:fragment>
-	<svelte:fragment slot="content">
-		<SignedIn let:user>
-			<WelcomeCard firstName={user?.firstName ?? ''}></WelcomeCard>
-		</SignedIn>
-	</svelte:fragment>
-	<svelte:fragment slot="sidebar">
-		<SignedIn let:user>
-			<WelcomeCard firstName={user?.firstName ?? ''}></WelcomeCard>
-		</SignedIn>
-	</svelte:fragment>
+	<svelte:fragment slot="topCenter"></svelte:fragment>
+	<svelte:fragment slot="topRight"></svelte:fragment>
+	<svelte:fragment slot="content"></svelte:fragment>
+	<svelte:fragment slot="sidebar"></svelte:fragment>
 </Dashboard>
