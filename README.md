@@ -1,16 +1,16 @@
 <h1 align="center">
-  <a href="https://epsilon.fm">Epsilon Management System</a>
+  <a href="https://ms.epsilon.fm">Epsilon Management System</a>
 </h1>
 
 <p align="center">
-  A modern open-source music distribution management system. Visit us at <a href="https://epsilon.fm">epsilon.fm</a>
+  A modern open-source music distribution management system.
 </p>
 <p align="center">
-  <strong>API Documentation:</strong> <a href="https://epsilon.readme.io">v0.0.4</a>
+  <strong>Web URL:</strong> <a href="https://ms.epsilon.fm">ms.epsilon.fm</a>
   <br />
-  <strong>Base URL:</strong> https://api.epsilon.fm/v1/
+  <strong>API Base URL:</strong> api.epsilon.fm [<a href="https://api.epsilon.fm/v1/system/utils/ping">Ping</a>]
   <br />
-  <strong>Test Endpoint:</strong> <a href="https://api.epsilon.fm/v1/system/utils/ping">Ping</a>
+  <strong>Documentation:</strong> <a href="https://epsilon.readme.io">v0.0.4</a>
 </p>
 <p align="center">
   <picture>
