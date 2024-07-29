@@ -1,5 +1,6 @@
 <script lang="ts">
 	import * as Menubar from '$lib/components/ui/menubar/index.js';
+	import SignOutButton from 'clerk-sveltekit/client/SignOutButton.svelte';
 </script>
 
 <Menubar.Root class="sticky top-0 z-50 rounded-none border-b border-none px-2 lg:px-4">
@@ -181,6 +182,7 @@
 			<Menubar.Item inset href="/settings">Manage Settings...</Menubar.Item>
 			<Menubar.Separator />
 			<Menubar.Item inset>Add Label...</Menubar.Item>
+			<Menubar.Item inset><SignOutButton /></Menubar.Item>
 		</Menubar.Content>
 	</Menubar.Menu>
 </Menubar.Root>
