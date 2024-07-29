@@ -6,9 +6,10 @@
   A modern open-source music distribution management system.
 </p>
 <p align="center">
+  <strong>Web URL:</strong> <a href="https://ms.epsilon.fm">ms.epsilon.fm</a>
   <strong>API Documentation:</strong> <a href="https://epsilon.readme.io">v0.0.4</a>
   <br />
-  <strong>Base URL:</strong> https://api.epsilon.fm/v1/
+  <strong>API Base URL:</strong> api.epsilon.fm
   <br />
   <strong>Test Endpoint:</strong> <a href="https://api.epsilon.fm/v1/system/utils/ping">Ping</a>
 </p>
