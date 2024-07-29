@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { redirect } from '@sveltejs/kit';
 	import * as Menubar from '$lib/components/ui/menubar/index.js';
 	import SignOutButton from 'clerk-sveltekit/client/SignOutButton.svelte';
 </script>
