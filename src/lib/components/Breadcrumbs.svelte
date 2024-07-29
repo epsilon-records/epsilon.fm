@@ -1,19 +1,27 @@
 <script lang="ts">
 	import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js';
+	import { page } from '$app/stores';
+
+	$: routes = $page.url.pathname.split('/').filter(Boolean);
+	$: breadcrumbs = routes.map((route, index) => ({
+		name: route.charAt(0).toUpperCase() + route.slice(1),
+		href: '/' + routes.slice(0, index + 1).join('/')
+	}));
 </script>
 
 <Breadcrumb.Root class="hidden md:flex">
 	<Breadcrumb.List>
-		<Breadcrumb.Item>
-			<Breadcrumb.Link href="##">Dashboard</Breadcrumb.Link>
-		</Breadcrumb.Item>
-		<Breadcrumb.Separator />
-		<Breadcrumb.Item>
-			<Breadcrumb.Link href="##">Orders</Breadcrumb.Link>
-		</Breadcrumb.Item>
-		<Breadcrumb.Separator />
-		<Breadcrumb.Item>
-			<Breadcrumb.Page>Recent Orders</Breadcrumb.Page>
-		</Breadcrumb.Item>
+		{#each breadcrumbs as crumb, index}
+			<Breadcrumb.Item>
+				{#if index === breadcrumbs.length - 1}
+					<Breadcrumb.Page>{crumb.name}</Breadcrumb.Page>
+				{:else}
+					<Breadcrumb.Link href={crumb.href}>{crumb.name}</Breadcrumb.Link>
+				{/if}
+			</Breadcrumb.Item>
+			{#if index !== breadcrumbs.length - 1}
+				<Breadcrumb.Separator />
+			{/if}
+		{/each}
 	</Breadcrumb.List>
 </Breadcrumb.Root>
