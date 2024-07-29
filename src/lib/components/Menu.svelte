@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { redirect } from '@sveltejs/kit';
 	import * as Menubar from '$lib/components/ui/menubar/index.js';
 	import SignOutButton from 'clerk-sveltekit/client/SignOutButton.svelte';
 </script>
@@ -182,7 +183,10 @@
 			<Menubar.Item inset href="/settings">Manage Settings...</Menubar.Item>
 			<Menubar.Separator />
 			<Menubar.Item inset>Add Label...</Menubar.Item>
-			<Menubar.Item inset><SignOutButton>🔒 Sign Out</SignOutButton></Menubar.Item>
+			<Menubar.Item inset
+				><SignOutButton signOutOptions={{ redirectUrl: '/sign-in' }}>🔒 Sign Out</SignOutButton
+				></Menubar.Item
+			>
 		</Menubar.Content>
 	</Menubar.Menu>
 </Menubar.Root>
