@@ -31,9 +31,11 @@
 	</Card.Content>
 	<Card.Content>
 		<SignedIn>
-			<UserButton />
-			<Button href="/dashboard" class="m-2">📊 Goto Dashboard</Button>
-			<Button href="/create" class="m-2">💿 Create New Release</Button>
+			<div class="flex flex-row">
+				<UserButton />
+				<Button href="/dashboard" class="m-2">📊 Goto Dashboard</Button>
+				<Button href="/create" class="m-2">💿 Create New Release</Button>
+			</div>
 		</SignedIn>
 		<SignedOut>
 			<Button class="m-2">
