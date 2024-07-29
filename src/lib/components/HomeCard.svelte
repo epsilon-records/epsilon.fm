@@ -31,11 +31,11 @@
 	</Card.Content>
 	<Card.Content>
 		<SignedIn>
-			<div class="flex flex-row">
+			<div class="flex flex-row justify-between">
+				<Button href="/dashboard" class="m-2">👈 Back to Dashboard</Button>
 				<div class="m-2 pt-1">
 					<UserButton />
 				</div>
-				<Button href="/dashboard" class="m-2">Goto Dashboard</Button>
 			</div>
 		</SignedIn>
 		<SignedOut>

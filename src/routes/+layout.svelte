@@ -22,10 +22,10 @@
 	<ClerkLoaded>
 		<QueryClientProvider client={data.queryClient}>
 			<slot />
-			<Footer></Footer>
+			<Footer />
 			<ModeWatcher />
-			<Toaster></Toaster>
-			<SvelteQueryDevtools></SvelteQueryDevtools>
+			<Toaster />
+			<SvelteQueryDevtools />
 		</QueryClientProvider>
 	</ClerkLoaded>
 </div>

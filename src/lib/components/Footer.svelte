@@ -5,6 +5,8 @@
 </script>
 
 <footer>
-	<MadeWithLove></MadeWithLove>
-	<StarOnGitHub></StarOnGitHub>
+	<slot name="footer">
+		<MadeWithLove></MadeWithLove>
+		<StarOnGitHub></StarOnGitHub>
+	</slot>
 </footer>
