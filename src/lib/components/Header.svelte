@@ -12,8 +12,10 @@
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
 	import { Input } from '$lib/components/ui/input/index.js';
 	import * as Sheet from '$lib/components/ui/sheet/index.js';
-	import logo from '$lib/images/logo.png';
 	import UserButton from 'clerk-sveltekit/client/UserButton.svelte';
+	import Sun from 'lucide-svelte/icons/sun';
+	import Moon from 'lucide-svelte/icons/moon';
+	import { resetMode, setMode } from 'mode-watcher';
 </script>
 
 <header
@@ -79,25 +81,23 @@
 			class="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[320px]"
 		/>
 	</div>
-	<UserButton afterSignOutUrl="/" />
 	<DropdownMenu.Root>
 		<DropdownMenu.Trigger asChild let:builder>
-			<Button
-				variant="outline"
-				size="icon"
-				class="overflow-hidden rounded-full"
-				builders={[builder]}
-			>
-				<img src={logo} width={36} height={36} alt="Avatar" class="overflow-hidden rounded-full" />
+			<Button builders={[builder]} variant="ghost" size="icon">
+				<Sun
+					class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+				/>
+				<Moon
+					class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+				/>
+				<span class="sr-only">Toggle theme</span>
 			</Button>
 		</DropdownMenu.Trigger>
 		<DropdownMenu.Content align="end">
-			<DropdownMenu.Label>My Account</DropdownMenu.Label>
-			<DropdownMenu.Separator />
-			<DropdownMenu.Item>Settings</DropdownMenu.Item>
-			<DropdownMenu.Item>Support</DropdownMenu.Item>
-			<DropdownMenu.Separator />
-			<DropdownMenu.Item>Logout</DropdownMenu.Item>
+			<DropdownMenu.Item on:click={() => setMode('light')}>Light</DropdownMenu.Item>
+			<DropdownMenu.Item on:click={() => setMode('dark')}>Dark</DropdownMenu.Item>
+			<DropdownMenu.Item on:click={() => resetMode()}>System</DropdownMenu.Item>
 		</DropdownMenu.Content>
 	</DropdownMenu.Root>
+	<UserButton afterSignOutUrl="/" />
 </header>

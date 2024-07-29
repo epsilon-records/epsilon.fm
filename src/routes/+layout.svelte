@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
 	import '$src/app.css';
+	import { ModeWatcher } from 'mode-watcher';
 	import { QueryClientProvider } from '@tanstack/svelte-query';
 	import { SvelteQueryDevtools } from '@tanstack/svelte-query-devtools';
 	import type { LayoutData, LayoutServerData } from './$types';
@@ -22,6 +23,7 @@
 		<QueryClientProvider client={data.queryClient}>
 			<slot />
 			<Footer></Footer>
+			<ModeWatcher />
 			<Toaster></Toaster>
 			<SvelteQueryDevtools></SvelteQueryDevtools>
 		</QueryClientProvider>
