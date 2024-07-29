@@ -10,12 +10,14 @@
 	import UsersRound from 'lucide-svelte/icons/users-round';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
+	import OrganizationSwitcher from 'clerk-sveltekit/client/OrganizationSwitcher.svelte';
 	import { Input } from '$lib/components/ui/input/index.js';
 	import * as Sheet from '$lib/components/ui/sheet/index.js';
 	import UserButton from 'clerk-sveltekit/client/UserButton.svelte';
 	import Sun from 'lucide-svelte/icons/sun';
 	import Moon from 'lucide-svelte/icons/moon';
-	import { resetMode, setMode } from 'mode-watcher';
+	import { resetMode, setMode, mode } from 'mode-watcher';
+	import { neobrutalism, dark } from '@clerk/themes';
 </script>
 
 <header
@@ -72,6 +74,14 @@
 			</nav>
 		</Sheet.Content>
 	</Sheet.Root>
+	{#key $mode}
+		<OrganizationSwitcher
+			appearance={{ baseTheme: $mode === 'dark' ? dark : neobrutalism }}
+			hidePersonal={true}
+			afterCreateOrganizationUrl="/settings"
+			afterSelectOrganizationUrl="/settings"
+		/>
+	{/key}
 	<Breadcrumbs></Breadcrumbs>
 	<div class="relative ml-auto flex-1 md:grow-0">
 		<Search class="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -99,5 +109,7 @@
 			<DropdownMenu.Item on:click={() => resetMode()}>System</DropdownMenu.Item>
 		</DropdownMenu.Content>
 	</DropdownMenu.Root>
-	<UserButton afterSignOutUrl="/" />
+	{#key $mode}
+		<UserButton appearance={{ baseTheme: $mode === 'dark' ? dark : neobrutalism }} />
+	{/key}
 </header>

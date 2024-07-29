@@ -2,7 +2,6 @@
 	import Library from 'lucide-svelte/icons/library';
 	import FileChartLine from 'lucide-svelte/icons/file-chart-line';
 	import Package from 'lucide-svelte/icons/package';
-	import Package2 from 'lucide-svelte/icons/package-2';
 	import Settings from 'lucide-svelte/icons/settings';
 	import ShoppingCart from 'lucide-svelte/icons/shopping-cart';
 	import UsersRound from 'lucide-svelte/icons/users-round';
@@ -10,13 +9,6 @@
 </script>
 
 <nav class="flex flex-col items-center gap-4 px-2 py-4">
-	<a
-		href="/"
-		class="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
-	>
-		<Library class="h-5 w-5 transition-all group-hover:scale-110" />
-		<span class="sr-only">Epsilon FM</span>
-	</a>
 	<Tooltip.Root>
 		<Tooltip.Trigger asChild let:builder>
 			<a
