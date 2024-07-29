@@ -1,6 +1,6 @@
 {
 	"name": "epsilon",
-	"version": "0.0.1",
+	"version": "0.0.6",
 	"scripts": {
 		"dev": "vite dev",
 		"dev:api": "poetry --directory ./backend run uvicorn src.main:app --reload",

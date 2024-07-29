@@ -10,7 +10,7 @@
   <br />
   <strong>API Base URL:</strong> api.epsilon.fm [<a href="https://api.epsilon.fm/v1/system/utils/ping">Ping</a>]
   <br />
-  <strong>Documentation:</strong> <a href="https://epsilon.readme.io">v0.0.4</a>
+  <strong>Documentation:</strong> <a href="https://epsilon.readme.io">v0.0.6</a>
 </p>
 <p align="center">
   <picture>
