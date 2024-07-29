@@ -8,7 +8,7 @@
 <p align="center">
   <strong>Web URL:</strong> <a href="https://ms.epsilon.fm">ms.epsilon.fm</a>
   <br />
-  <strong>API Base URL:</strong> api.epsilon.fm (test endpoint: <a href="https://api.epsilon.fm/v1/system/utils/ping">Ping</a>)
+  <strong>API Base URL:</strong> api.epsilon.fm [<a href="https://api.epsilon.fm/v1/system/utils/ping">Ping</a>]
   <br />
   <strong>Documentation:</strong> <a href="https://epsilon.readme.io">v0.0.4</a>
 </p>
