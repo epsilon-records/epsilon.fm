@@ -39,7 +39,6 @@ export const handle: Handle = sequence(
 	handleClerk(CLERK_SECRET_KEY, {
 		debug: false,
 		protectedPaths: [
-			'/',
 			'/dashboard',
 			'/settings',
 			'/settings/account',

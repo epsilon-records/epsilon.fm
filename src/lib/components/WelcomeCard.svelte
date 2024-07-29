@@ -4,6 +4,9 @@
 	import SignInButton from 'clerk-sveltekit/client/SignInButton.svelte';
 	import SignUpButton from 'clerk-sveltekit/client/SignUpButton.svelte';
 	import Typewriter from 'svelte-typewriter';
+	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
+	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
+	import SignOutButton from 'clerk-sveltekit/client/SignOutButton.svelte';
 </script>
 
 <Card.Root class="m-4 w-3/5 max-w-xl">
@@ -27,11 +30,18 @@
 		</Typewriter>
 	</Card.Content>
 	<Card.Content>
-		<Button class="m-2">
-			<SignInButton mode="modal">Login</SignInButton>
-		</Button>
-		<Button class="m-2">
-			<SignUpButton mode="modal">Sign up</SignUpButton>
-		</Button>
+		<SignedIn>
+			<Button class="m-2">
+				<SignOutButton>Logout</SignOutButton>
+			</Button>
+		</SignedIn>
+		<SignedOut>
+			<Button class="m-2">
+				<SignInButton mode="modal">Login</SignInButton>
+			</Button>
+			<Button class="m-2">
+				<SignUpButton mode="modal">Sign up</SignUpButton>
+			</Button>
+		</SignedOut>
 	</Card.Content>
 </Card.Root>

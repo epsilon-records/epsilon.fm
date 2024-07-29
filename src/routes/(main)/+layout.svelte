@@ -1,11 +1,7 @@
 <script lang="ts">
 	import '$src/app.css';
-	import WelcomeCard from '$lib/components/WelcomeCard.svelte';
-	import NewsletterCard from '$lib/components/NewsletterCard.svelte';
-	import GitHubCorner from '$lib/components/GitHubCorner.svelte';
 	import Menu from '$lib/components/Menu.svelte';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
-	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
 	import Aside from '$lib/components/Aside.svelte';
 	import Header from '$lib/components/Header.svelte';
 </script>
@@ -20,10 +16,3 @@
 		</div>
 	</div>
 </SignedIn>
-<SignedOut>
-	<div class="flex flex-grow flex-col items-center justify-center">
-		<WelcomeCard></WelcomeCard>
-		<NewsletterCard></NewsletterCard>
-	</div>
-	<GitHubCorner />
-</SignedOut>

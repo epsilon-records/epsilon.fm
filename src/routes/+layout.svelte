@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Main from '$lib/components/Main.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import '$src/app.css';
 	import { QueryClientProvider } from '@tanstack/svelte-query';
@@ -9,6 +8,7 @@
 	import ClerkLoaded from 'clerk-sveltekit/client/ClerkLoaded.svelte';
 	import ClerkLoading from 'clerk-sveltekit/client/ClerkLoading.svelte';
 	import { Stretch } from 'svelte-loading-spinners';
+
 	export let data: LayoutData & LayoutServerData;
 </script>
 
@@ -20,9 +20,7 @@
 	</ClerkLoading>
 	<ClerkLoaded>
 		<QueryClientProvider client={data.queryClient}>
-			<Main>
-				<slot />
-			</Main>
+			<slot />
 			<Footer></Footer>
 			<Toaster></Toaster>
 			<SvelteQueryDevtools></SvelteQueryDevtools>

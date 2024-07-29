@@ -1,5 +1,7 @@
 <script lang="ts">
-	import Dashboard from '$lib/components/Dashboard.svelte';
+	import WelcomeCard from '$lib/components/WelcomeCard.svelte';
+	import NewsletterCard from '$lib/components/NewsletterCard.svelte';
+	import GitHubCorner from '$lib/components/GitHubCorner.svelte';
 </script>
 
 <svelte:head>
@@ -10,4 +12,8 @@
 	/>
 </svelte:head>
 
-<Dashboard />
+<GitHubCorner />
+<div class="flex flex-grow flex-col items-center justify-center">
+	<WelcomeCard></WelcomeCard>
+	<NewsletterCard></NewsletterCard>
+</div>
