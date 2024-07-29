@@ -3,5 +3,5 @@
 </script>
 
 <div class="m-4 self-center">
-	<SignUp redirectUrl="/" />
+	<SignUp redirectUrl="/dashboard" />
 </div>
