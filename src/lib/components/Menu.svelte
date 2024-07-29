@@ -154,7 +154,7 @@
 	<Menubar.Menu>
 		<Menubar.Trigger>View</Menubar.Trigger>
 		<Menubar.Content>
-			<a href="/"><Menubar.CheckboxItem checked>Show Music</Menubar.CheckboxItem></a>
+			<a href="/music"><Menubar.CheckboxItem checked>Show Music</Menubar.CheckboxItem></a>
 			<a href="/dashboard"><Menubar.CheckboxItem>Show Dashboard</Menubar.CheckboxItem></a>
 			<Menubar.Separator />
 			<Menubar.Item inset disabled>Show Status Bar</Menubar.Item>
