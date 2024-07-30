@@ -160,46 +160,50 @@
 						disabled={$page.url.pathname.startsWith('/dashboard')}
 						value="dashboard"
 					>
-						Open Dashboard
+						Dashboard
 					</Menubar.RadioItem>
 				</a>
 				<a href="/music">
 					<Menubar.RadioItem disabled={$page.url.pathname.startsWith('/music')} value="music">
-						Open Music
+						Music
 					</Menubar.RadioItem>
 				</a>
 				<a href="/orders">
 					<Menubar.RadioItem disabled={$page.url.pathname.startsWith('/orders')} value="orders">
-						Open Orders
+						Orders
 					</Menubar.RadioItem>
 				</a>
 				<a href="/products">
 					<Menubar.RadioItem disabled={$page.url.pathname.startsWith('/products')} value="products">
-						Open Products
+						Products
 					</Menubar.RadioItem>
 				</a>
 				<a href="/customers">
 					<Menubar.RadioItem
 						disabled={$page.url.pathname.startsWith('/customers')}
 						value="customers"
-					>
-						Open Customers
+						>Customers
 					</Menubar.RadioItem>
 				</a>
 				<a href="/analytics">
 					<Menubar.RadioItem
 						disabled={$page.url.pathname.startsWith('/analytics')}
 						value="analytics"
-					>
-						Open Analytics
+						>Analytics
 					</Menubar.RadioItem>
 				</a>
 			</Menubar.RadioGroup>
 			<Menubar.Separator />
-			<Menubar.Item inset disabled>Show Status Bar</Menubar.Item>
+			<Menubar.CheckboxItem checked disabled>Show Status Bar</Menubar.CheckboxItem>
+			<Menubar.CheckboxItem checked disabled>Show Sidebar</Menubar.CheckboxItem>
 			<Menubar.Separator />
-			<Menubar.Item inset>Hide Sidebar</Menubar.Item>
-			<Menubar.Item disabled inset>Enter Full Screen</Menubar.Item>
+			<Menubar.Item
+				on:click={() =>
+					document.fullscreenElement
+						? document.exitFullscreen()
+						: document.documentElement.requestFullscreen()}
+				inset>{document.fullscreenElement ? 'Exit Full Screen' : 'Enter Full Screen'}</Menubar.Item
+			>
 		</Menubar.Content>
 	</Menubar.Menu>
 	<Menubar.Menu>
@@ -207,19 +211,17 @@
 		<Menubar.Content>
 			<Menubar.Group>
 				<Menubar.Label inset>Switch Label</Menubar.Label>
-				<Menubar.Separator />
 				<Menubar.RadioGroup value="nieuwe-groove-collectief">
 					<Menubar.RadioItem disabled value="epsilon-records">Epsilon Records</Menubar.RadioItem>
-					<Menubar.RadioItem value="nieuwe-groove-collectief"
+					<Menubar.RadioItem disabled value="nieuwe-groove-collectief"
 						>Nieuwe Groove Collectief</Menubar.RadioItem
 					>
-					<Menubar.RadioItem value="diverse-records">diVerse Records</Menubar.RadioItem>
+					<Menubar.RadioItem disabled value="diverse-records">diVerse Records</Menubar.RadioItem>
 				</Menubar.RadioGroup>
 			</Menubar.Group>
 			<Menubar.Separator />
 			<Menubar.Group>
 				<Menubar.Label inset>Switch Artist</Menubar.Label>
-				<Menubar.Separator />
 				<Menubar.RadioGroup value="vozz-rich">
 					<Menubar.RadioItem disabled value="vozz-rich">Vozz Rich</Menubar.RadioItem>
 				</Menubar.RadioGroup>
