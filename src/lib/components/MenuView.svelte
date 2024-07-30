@@ -2,7 +2,7 @@
 	import ToggleLayout from './ToggleLayout.svelte';
 	import QuickNavigate from './QuickNavigate.svelte';
 	import ToggleFullScreen from './ToggleFullScreen.svelte';
-	import * as Menubar from '$lib/components/ui/menubar/index.js';
+	import * as Menubar from '$lib/components/ui/menubar/index';
 </script>
 
 <Menubar.Menu>

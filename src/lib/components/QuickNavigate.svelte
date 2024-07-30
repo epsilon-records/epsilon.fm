@@ -6,14 +6,15 @@
 	const items = ['dashboard', 'music', 'orders', 'products', 'customers', 'analytics'];
 
 	function handleKeydown(event: KeyboardEvent) {
+		console.log(event.key);
 		const key = parseInt(event.key);
+
 		if (!isNaN(key) && key > 0 && key <= items.length) {
 			goto(`/${items[key - 1]}`);
+			console.log(items[key - 1]);
 		}
 	}
 </script>
-
-<svelte:window on:keydown={handleKeydown} />
 
 <Menubar.RadioGroup value={$page.url.pathname.split('/')[1] || 'dashboard'}>
 	{#each items as item, index}

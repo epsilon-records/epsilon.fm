@@ -1,7 +1,8 @@
 <script lang="ts">
 	import '$src/app.css';
+	import { Badge } from '$lib/components/ui/badge/index';
 </script>
 
-<p class="flex flex-grow items-center justify-center pt-4 text-sm">
-	Made with ❤️ by&nbsp;<a href="https://epsilonrecords.nl">Epsilon Records</a>
-</p>
+<div class="p-1 text-xs">
+	<Badge><a href="https://epsilonrecords.nl">Made with ❤️ by Epsilon Records</a></Badge>
+</div>

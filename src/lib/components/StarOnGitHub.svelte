@@ -6,7 +6,7 @@
 	<script async defer src="https://buttons.github.io/buttons.js"></script>
 </svelte:head>
 
-<p class="flex flex-grow items-center justify-center pb-4 pt-2 text-sm">
+<div class="p-1 text-xs">
 	<a
 		class="github-button"
 		href="https://github.com/epsilon-records/epsilon.fm"
@@ -14,4 +14,4 @@
 		data-show-count="true"
 		aria-label="Star epsilon-records/epsilon.fm on GitHub">Star on GitHub</a
 	>
-</p>
+</div>
