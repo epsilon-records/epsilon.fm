@@ -5,6 +5,12 @@
 
 version: 2
 updates:
+  # Update GitHub actions in workflows
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+
   # Maintain dependencies for npm
   - package-ecosystem: 'npm'
     directory: '/'
@@ -14,5 +20,25 @@ updates:
   # Maintain dependencies for Composer
   - package-ecosystem: 'cargo'
     directory: '/src-tauri'
+    schedule:
+      interval: 'daily'
+
+  # Enable version updates for Python/Pip - Production
+  - package-ecosystem: 'pip'
+    # Look for a `requirements.txt` in the `root` directory
+    # also 'setup.cfg', 'runtime.txt' and 'requirements/*.txt'
+    directory: '/backend'
+    schedule:
+      interval: 'daily'
+
+  - package-ecosystem: 'docker'
+    # Look for a `Dockerfile` in the `compose/production/postgres` directory
+    directory: '/'
+    schedule:
+      interval: 'daily'
+
+  - package-ecosystem: 'docker'
+    # Look for a `Dockerfile` in the `compose/production/postgres` directory
+    directory: '/backend'
     schedule:
       interval: 'daily'
