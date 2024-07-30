@@ -1,4 +1,8 @@
 <script lang="ts">
+	import MenubarNavigate from './MenubarNavigate.svelte';
+
+	import MenubarFullScreen from './MenubarFullScreen.svelte';
+
 	import * as Menubar from '$lib/components/ui/menubar/index.js';
 	import { page } from '$app/stores';
 </script>
@@ -154,56 +158,12 @@
 	<Menubar.Menu>
 		<Menubar.Trigger>View</Menubar.Trigger>
 		<Menubar.Content>
-			<Menubar.RadioGroup value={$page.url.pathname.split('/')[1] || 'dashboard'}>
-				<a href="/dashboard">
-					<Menubar.RadioItem
-						disabled={$page.url.pathname.startsWith('/dashboard')}
-						value="dashboard"
-					>
-						Dashboard <Menubar.Shortcut>⌘1</Menubar.Shortcut>
-					</Menubar.RadioItem>
-				</a>
-				<a href="/music">
-					<Menubar.RadioItem disabled={$page.url.pathname.startsWith('/music')} value="music">
-						Music <Menubar.Shortcut>⌘2</Menubar.Shortcut>
-					</Menubar.RadioItem>
-				</a>
-				<a href="/orders">
-					<Menubar.RadioItem disabled={$page.url.pathname.startsWith('/orders')} value="orders">
-						Orders <Menubar.Shortcut>⌘3</Menubar.Shortcut>
-					</Menubar.RadioItem>
-				</a>
-				<a href="/products">
-					<Menubar.RadioItem disabled={$page.url.pathname.startsWith('/products')} value="products">
-						Products <Menubar.Shortcut>⌘4</Menubar.Shortcut>
-					</Menubar.RadioItem>
-				</a>
-				<a href="/customers">
-					<Menubar.RadioItem
-						disabled={$page.url.pathname.startsWith('/customers')}
-						value="customers"
-						>Customers <Menubar.Shortcut>⌘5</Menubar.Shortcut>
-					</Menubar.RadioItem>
-				</a>
-				<a href="/analytics">
-					<Menubar.RadioItem
-						disabled={$page.url.pathname.startsWith('/analytics')}
-						value="analytics"
-						>Analytics <Menubar.Shortcut>⌘6</Menubar.Shortcut>
-					</Menubar.RadioItem>
-				</a>
-			</Menubar.RadioGroup>
+			<MenubarNavigate></MenubarNavigate>
 			<Menubar.Separator />
 			<Menubar.CheckboxItem checked disabled>Show Status Bar</Menubar.CheckboxItem>
 			<Menubar.CheckboxItem checked disabled>Show Sidebar</Menubar.CheckboxItem>
 			<Menubar.Separator />
-			<Menubar.Item
-				on:click={() =>
-					document.fullscreenElement
-						? document.exitFullscreen()
-						: document.documentElement.requestFullscreen()}
-				inset>{document.fullscreenElement ? 'Exit Full Screen' : 'Enter Full Screen'}</Menubar.Item
-			>
+			<MenubarFullScreen />
 		</Menubar.Content>
 	</Menubar.Menu>
 	<Menubar.Menu>
