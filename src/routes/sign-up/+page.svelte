@@ -7,6 +7,6 @@
 <div class="m-4 self-center">
 	<SignUp
 		appearance={{ baseTheme: $mode === 'dark' ? dark : neobrutalism }}
-		redirectUrl="/onboarding"
+		redirectUrl="/dashboard"
 	/>
 </div>

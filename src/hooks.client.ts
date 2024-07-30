@@ -14,7 +14,7 @@ Sentry.init({
 
 initializeClerkClient(env.PUBLIC_CLERK_PUBLISHABLE_KEY, {
 	afterSignInUrl: '/dashboard',
-	afterSignUpUrl: '/onboarding',
+	afterSignUpUrl: '/dashboard',
 	signInUrl: '/sign-in',
 	signUpUrl: '/sign-up'
 });
