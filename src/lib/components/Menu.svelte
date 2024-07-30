@@ -160,36 +160,36 @@
 						disabled={$page.url.pathname.startsWith('/dashboard')}
 						value="dashboard"
 					>
-						Dashboard
+						Dashboard <Menubar.Shortcut>⌘1</Menubar.Shortcut>
 					</Menubar.RadioItem>
 				</a>
 				<a href="/music">
 					<Menubar.RadioItem disabled={$page.url.pathname.startsWith('/music')} value="music">
-						Music
+						Music <Menubar.Shortcut>⌘2</Menubar.Shortcut>
 					</Menubar.RadioItem>
 				</a>
 				<a href="/orders">
 					<Menubar.RadioItem disabled={$page.url.pathname.startsWith('/orders')} value="orders">
-						Orders
+						Orders <Menubar.Shortcut>⌘3</Menubar.Shortcut>
 					</Menubar.RadioItem>
 				</a>
 				<a href="/products">
 					<Menubar.RadioItem disabled={$page.url.pathname.startsWith('/products')} value="products">
-						Products
+						Products <Menubar.Shortcut>⌘4</Menubar.Shortcut>
 					</Menubar.RadioItem>
 				</a>
 				<a href="/customers">
 					<Menubar.RadioItem
 						disabled={$page.url.pathname.startsWith('/customers')}
 						value="customers"
-						>Customers
+						>Customers <Menubar.Shortcut>⌘5</Menubar.Shortcut>
 					</Menubar.RadioItem>
 				</a>
 				<a href="/analytics">
 					<Menubar.RadioItem
 						disabled={$page.url.pathname.startsWith('/analytics')}
 						value="analytics"
-						>Analytics
+						>Analytics <Menubar.Shortcut>⌘6</Menubar.Shortcut>
 					</Menubar.RadioItem>
 				</a>
 			</Menubar.RadioGroup>
