@@ -1,10 +1,6 @@
 <script lang="ts">
-	import MenubarNavigate from './MenubarNavigate.svelte';
-
-	import MenubarFullScreen from './MenubarFullScreen.svelte';
-
+	import MenuView from './MenuView.svelte';
 	import * as Menubar from '$lib/components/ui/menubar/index.js';
-	import { page } from '$app/stores';
 </script>
 
 <Menubar.Root class="sticky top-0 z-50 rounded-none border-b border-none px-2 lg:px-4">
@@ -155,17 +151,7 @@
 			</Menubar.Item>
 		</Menubar.Content>
 	</Menubar.Menu>
-	<Menubar.Menu>
-		<Menubar.Trigger>View</Menubar.Trigger>
-		<Menubar.Content>
-			<MenubarNavigate></MenubarNavigate>
-			<Menubar.Separator />
-			<Menubar.CheckboxItem checked disabled>Show Status Bar</Menubar.CheckboxItem>
-			<Menubar.CheckboxItem checked disabled>Show Sidebar</Menubar.CheckboxItem>
-			<Menubar.Separator />
-			<MenubarFullScreen />
-		</Menubar.Content>
-	</Menubar.Menu>
+	<MenuView></MenuView>
 	<Menubar.Menu>
 		<Menubar.Trigger class="hidden md:block">Account</Menubar.Trigger>
 		<Menubar.Content>
@@ -198,6 +184,14 @@
 			<Menubar.Item inset href="https://accounts.epsilon.fm/create-organization"
 				>Add Artist...</Menubar.Item
 			>
+		</Menubar.Content>
+	</Menubar.Menu>
+	<Menubar.Menu>
+		<Menubar.Trigger class="hidden md:block">Help</Menubar.Trigger>
+		<Menubar.Content>
+			<Menubar.Item>Documentation</Menubar.Item>
+			<Menubar.Item>FAQs</Menubar.Item>
+			<Menubar.Item>Contact Support</Menubar.Item>
 		</Menubar.Content>
 	</Menubar.Menu>
 </Menubar.Root>
