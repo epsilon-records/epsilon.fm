@@ -1,5 +1,6 @@
 <script lang="ts">
 	import * as Menubar from '$lib/components/ui/menubar/index.js';
+	import { page } from '$app/stores';
 </script>
 
 <Menubar.Root class="sticky top-0 z-50 rounded-none border-b border-none px-2 lg:px-4">
@@ -153,8 +154,16 @@
 	<Menubar.Menu>
 		<Menubar.Trigger>View</Menubar.Trigger>
 		<Menubar.Content>
-			<a href="/music"><Menubar.CheckboxItem checked>Show Music</Menubar.CheckboxItem></a>
-			<a href="/dashboard"><Menubar.CheckboxItem>Show Dashboard</Menubar.CheckboxItem></a>
+			<a href="/music"
+				><Menubar.CheckboxItem checked={$page.url.pathname.startsWith('/music')}
+					>Show Music</Menubar.CheckboxItem
+				></a
+			>
+			<a href="/dashboard"
+				><Menubar.CheckboxItem checked={$page.url.pathname.startsWith('/dashboard')}
+					>Show Dashboard</Menubar.CheckboxItem
+				></a
+			>
 			<Menubar.Separator />
 			<Menubar.Item inset disabled>Show Status Bar</Menubar.Item>
 			<Menubar.Separator />
