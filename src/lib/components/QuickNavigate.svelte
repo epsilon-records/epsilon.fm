@@ -8,7 +8,7 @@
 		<a href="/{item}">
 			<Menubar.RadioItem disabled={$page.url.pathname.startsWith(`/${item}`)} value={item}>
 				{item.charAt(0).toUpperCase() + item.slice(1)}
-				<Menubar.Shortcut>⇧⌘{index + 1}</Menubar.Shortcut>
+				<Menubar.Shortcut>{index + 1}</Menubar.Shortcut>
 			</Menubar.RadioItem>
 		</a>
 	{/each}
