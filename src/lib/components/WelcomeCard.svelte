@@ -1,10 +1,9 @@
 <script lang="ts">
-	import { Button } from '$lib/components/ui/button/index.js';
-	import * as Card from '$lib/components/ui/card/index.js';
+	import { Button } from '$lib/components/ui/button';
+	import * as Card from '$lib/components/ui/card';
+	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 
-	export let firstName: string;
-
-	function getGreeting(): string {
+	function getGreeting(firstName: string | null | undefined): string {
 		const hour = new Date().getHours();
 		let greeting = '';
 
@@ -20,14 +19,16 @@
 	}
 </script>
 
-<Card.Root class="sm:col-span-2">
-	<Card.Header class="pb-3">
-		<Card.Title>{getGreeting()}</Card.Title>
-		<Card.Description class="max-w-lg text-balance leading-relaxed">
-			Introducing our new release dashboard, designed for easy management and detailed analysis.
-		</Card.Description>
-	</Card.Header>
-	<Card.Footer>
-		<Button>Create New Release</Button>
-	</Card.Footer>
-</Card.Root>
+<SignedIn let:user>
+	<Card.Root class="sm:col-span-2">
+		<Card.Header class="pb-3">
+			<Card.Title>{getGreeting(user?.firstName)}</Card.Title>
+			<Card.Description class="max-w-lg text-balance leading-relaxed">
+				Introducing our new release dashboard, designed for easy management and detailed analysis.
+			</Card.Description>
+		</Card.Header>
+		<Card.Footer>
+			<Button>Create New Release</Button>
+		</Card.Footer>
+	</Card.Root>
+</SignedIn>

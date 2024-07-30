@@ -1,10 +1,11 @@
 <script lang="ts">
-	import ToggleLayoutOptions from './ToggleLayoutOptions.svelte';
-	import QuickNavigate from './QuickNavigate.svelte';
-	import ToggleFullScreen from './ToggleFullScreen.svelte';
+	import ToggleLayoutOptions from '$lib/components/ToggleLayoutOptions.svelte';
+	import QuickNavigate from '$lib/components/QuickNavigate.svelte';
+	import ToggleFullScreen from '$lib/components/ToggleFullScreen.svelte';
 	import * as Menubar from '$lib/components/ui/menubar/index';
 	import { goto } from '$app/navigation';
 	import { statusBarVisible, sideBarVisible } from '$lib/stores/ui';
+	import QuickNavigateSettings from '$lib/components/QuickNavigateSettings.svelte';
 
 	const items = ['dashboard', 'music', 'orders', 'products', 'customers', 'analytics'];
 
@@ -49,6 +50,8 @@
 	<Menubar.Trigger>View</Menubar.Trigger>
 	<Menubar.Content>
 		<QuickNavigate />
+		<Menubar.Separator />
+		<QuickNavigateSettings />
 		<Menubar.Separator />
 		<ToggleLayoutOptions />
 		<Menubar.Separator />
