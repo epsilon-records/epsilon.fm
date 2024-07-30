@@ -4,7 +4,7 @@
 	import '$src/app.css';
 </script>
 
-<footer>
+<footer class="fixed bottom-0 left-0 w-full bg-gray-100 py-2 text-center">
 	<slot name="footer">
 		<MadeWithLove></MadeWithLove>
 		<StarOnGitHub></StarOnGitHub>
