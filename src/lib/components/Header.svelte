@@ -10,10 +10,10 @@
 <header
 	class="sticky top-8 z-30 flex h-14 items-center gap-4 border-b border-t bg-background px-4 sm:px-6"
 >
-	<NavbarSheet></NavbarSheet>
-	<ArtistSwitcher></ArtistSwitcher>
-	<Breadcrumbs></Breadcrumbs>
-	<SearchBar></SearchBar>
-	<SelectMode></SelectMode>
-	<UserSwitcher></UserSwitcher>
+	<NavbarSheet />
+	<ArtistSwitcher />
+	<Breadcrumbs />
+	<SearchBar />
+	<SelectMode />
+	<UserSwitcher />
 </header>
