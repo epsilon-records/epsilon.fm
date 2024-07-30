@@ -101,6 +101,7 @@
 		"class-variance-authority": "^0.7.0",
 		"clerk-sveltekit": "^0.4.2",
 		"clsx": "^2.1.1",
+		"cmdk-sv": "^0.0.18",
 		"cross-env": "^7.0.3",
 		"devmoji": "^2.3.0",
 		"esbuild": "^0.23.0",

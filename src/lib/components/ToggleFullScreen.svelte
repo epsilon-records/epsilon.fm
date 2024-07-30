@@ -7,5 +7,8 @@
 		document.fullscreenElement
 			? document.exitFullscreen()
 			: document.documentElement.requestFullscreen()}
-	inset>{document.fullscreenElement ? 'Exit Full Screen' : 'Enter Full Screen'}</Menubar.Item
+	inset
+	>{document.fullscreenElement ? 'Exit Full Screen' : 'Enter Full Screen'}<Menubar.Shortcut
+		>⌘F</Menubar.Shortcut
+	></Menubar.Item
 >

@@ -1,9 +1,10 @@
 <script lang="ts">
-	import ToggleLayout from './ToggleLayout.svelte';
+	import ToggleLayoutOptions from './ToggleLayoutOptions.svelte';
 	import QuickNavigate from './QuickNavigate.svelte';
 	import ToggleFullScreen from './ToggleFullScreen.svelte';
 	import * as Menubar from '$lib/components/ui/menubar/index';
 	import { goto } from '$app/navigation';
+	import { statusBarVisible } from '$lib/stores/ui';
 
 	const items = ['dashboard', 'music', 'orders', 'products', 'customers', 'analytics'];
 
@@ -26,6 +27,9 @@
 		if (event.key === 'f') {
 			event.preventDefault();
 			toggleFullScreen();
+		} else if (event.key === '/') {
+			event.preventDefault();
+			statusBarVisible.update((value) => !value);
 		} else {
 			const key = parseInt(event.key);
 			if (!isNaN(key) && key > 0 && key <= items.length) {
@@ -43,8 +47,7 @@
 	<Menubar.Content>
 		<QuickNavigate />
 		<Menubar.Separator />
-		<Menubar.Separator />
-		<ToggleLayout></ToggleLayout>
+		<ToggleLayoutOptions />
 		<Menubar.Separator />
 		<ToggleFullScreen />
 	</Menubar.Content>
