@@ -17,7 +17,7 @@ jobs:
         with:
           fetch-depth: 0
         #👇 Adds Chromatic as a step in the workflow
-      - uses: chromaui/action@v1
+      - uses: chromaui/action@v11
         # Options required for Chromatic's GitHub Action
         with:
           #👇 Chromatic projectToken,
