@@ -5,23 +5,23 @@
 	const sidebarNavItems = [
 		{
 			title: 'Profile',
-			href: '/settings'
+			href: '/profile'
 		},
 		{
 			title: 'Account',
-			href: '/settings/account'
+			href: '/profile/account'
 		},
 		{
 			title: 'Appearance',
-			href: '/settings/appearance'
+			href: '/profile/appearance'
 		},
 		{
 			title: 'Notifications',
-			href: '/settings/notifications'
+			href: '/profile/notifications'
 		},
 		{
 			title: 'Display',
-			href: '/settings/display'
+			href: '/profile/display'
 		}
 	];
 </script>
