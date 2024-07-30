@@ -236,7 +236,7 @@
 			>
 			<Menubar.Separator />
 			<Menubar.Item inset href="https://accounts.epsilon.fm/create-organization"
-				>Add Label...</Menubar.Item
+				>Add Artist...</Menubar.Item
 			>
 		</Menubar.Content>
 	</Menubar.Menu>
