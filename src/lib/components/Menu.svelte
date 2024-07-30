@@ -154,36 +154,47 @@
 	<Menubar.Menu>
 		<Menubar.Trigger>View</Menubar.Trigger>
 		<Menubar.Content>
-			<a href="/dashboard"
-				><Menubar.CheckboxItem checked={$page.url.pathname.startsWith('/dashboard')}
-					>Show Dashboard</Menubar.CheckboxItem
-				></a
-			>
-			<a href="/music"
-				><Menubar.CheckboxItem checked={$page.url.pathname.startsWith('/music')}
-					>Show Music</Menubar.CheckboxItem
-				></a
-			>
-			<a href="/orders"
-				><Menubar.CheckboxItem checked={$page.url.pathname.startsWith('/orders')}
-					>Show Orders</Menubar.CheckboxItem
-				></a
-			>
-			<a href="/products"
-				><Menubar.CheckboxItem checked={$page.url.pathname.startsWith('/products')}
-					>Show Products</Menubar.CheckboxItem
-				></a
-			>
-			<a href="/customers"
-				><Menubar.CheckboxItem checked={$page.url.pathname.startsWith('/customers')}
-					>Show Customers</Menubar.CheckboxItem
-				></a
-			>
-			<a href="/analytics"
-				><Menubar.CheckboxItem checked={$page.url.pathname.startsWith('/analytics')}
-					>Show Analytics</Menubar.CheckboxItem
-				></a
-			>
+			<Menubar.RadioGroup value={$page.url.pathname.split('/')[1] || 'dashboard'}>
+				<a href="/dashboard">
+					<Menubar.RadioItem
+						disabled={$page.url.pathname.startsWith('/dashboard')}
+						value="dashboard"
+					>
+						Open Dashboard
+					</Menubar.RadioItem>
+				</a>
+				<a href="/music">
+					<Menubar.RadioItem disabled={$page.url.pathname.startsWith('/music')} value="music">
+						Open Music
+					</Menubar.RadioItem>
+				</a>
+				<a href="/orders">
+					<Menubar.RadioItem disabled={$page.url.pathname.startsWith('/orders')} value="orders">
+						Open Orders
+					</Menubar.RadioItem>
+				</a>
+				<a href="/products">
+					<Menubar.RadioItem disabled={$page.url.pathname.startsWith('/products')} value="products">
+						Open Products
+					</Menubar.RadioItem>
+				</a>
+				<a href="/customers">
+					<Menubar.RadioItem
+						disabled={$page.url.pathname.startsWith('/customers')}
+						value="customers"
+					>
+						Open Customers
+					</Menubar.RadioItem>
+				</a>
+				<a href="/analytics">
+					<Menubar.RadioItem
+						disabled={$page.url.pathname.startsWith('/analytics')}
+						value="analytics"
+					>
+						Open Analytics
+					</Menubar.RadioItem>
+				</a>
+			</Menubar.RadioGroup>
 			<Menubar.Separator />
 			<Menubar.Item inset disabled>Show Status Bar</Menubar.Item>
 			<Menubar.Separator />
@@ -197,10 +208,20 @@
 			<Menubar.Group>
 				<Menubar.Label inset>Switch Label</Menubar.Label>
 				<Menubar.Separator />
-				<Menubar.RadioGroup value="benoit">
-					<Menubar.RadioItem value="andy">Epsilon Records</Menubar.RadioItem>
-					<Menubar.RadioItem value="benoit">Nieuwe Groove Collectief</Menubar.RadioItem>
-					<Menubar.RadioItem value="Luis">diVerse Records</Menubar.RadioItem>
+				<Menubar.RadioGroup value="nieuwe-groove-collectief">
+					<Menubar.RadioItem disabled value="epsilon-records">Epsilon Records</Menubar.RadioItem>
+					<Menubar.RadioItem value="nieuwe-groove-collectief"
+						>Nieuwe Groove Collectief</Menubar.RadioItem
+					>
+					<Menubar.RadioItem value="diverse-records">diVerse Records</Menubar.RadioItem>
+				</Menubar.RadioGroup>
+			</Menubar.Group>
+			<Menubar.Separator />
+			<Menubar.Group>
+				<Menubar.Label inset>Switch Artist</Menubar.Label>
+				<Menubar.Separator />
+				<Menubar.RadioGroup value="vozz-rich">
+					<Menubar.RadioItem disabled value="vozz-rich">Vozz Rich</Menubar.RadioItem>
 				</Menubar.RadioGroup>
 			</Menubar.Group>
 			<Menubar.Separator />
@@ -212,7 +233,9 @@
 				>Manage Billing...</Menubar.Item
 			>
 			<Menubar.Separator />
-			<Menubar.Item inset>Add Label...</Menubar.Item>
+			<Menubar.Item inset href="https://accounts.epsilon.fm/create-organization"
+				>Add Label...</Menubar.Item
+			>
 		</Menubar.Content>
 	</Menubar.Menu>
 </Menubar.Root>
