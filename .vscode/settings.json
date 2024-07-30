@@ -1,4 +1,5 @@
 {
+	"recommendations": ["svelte.svelte-vscode"],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": "explicit"
 	},
@@ -9,7 +10,7 @@
 	"eslint.enable": true,
 	"html.format.enable": true,
 	"htmlhint.enable": true,
-	"prettier.requireConfig": false,
+	"prettier.requireConfig": true,
 	"prettier.useEditorConfig": true,
 	"stylelint.autoFixOnSave": true,
 	"search.exclude": {

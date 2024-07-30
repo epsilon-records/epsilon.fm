@@ -20,7 +20,7 @@
 		{ href: '/analytics', icon: ChartNoAxesCombined, label: 'Analytics' }
 	];
 
-	const settingsItem = { href: '/settings', icon: Settings, label: 'Settings' };
+	const settingsItem = { href: '/profile', icon: Settings, label: 'Settings' };
 
 	$: activeItem = $page.url.pathname.split('/')[1] || 'dashboard';
 </script>

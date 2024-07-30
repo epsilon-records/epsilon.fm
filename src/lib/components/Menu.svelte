@@ -204,10 +204,13 @@
 				</Menubar.RadioGroup>
 			</Menubar.Group>
 			<Menubar.Separator />
+			<Menubar.Item inset href="https://accounts.epsilon.fm/user">Manage Artist...</Menubar.Item>
+			<Menubar.Item inset href="https://accounts.epsilon.fm/organization"
+				>Manage Account...</Menubar.Item
+			>
 			<Menubar.Item inset href="https://billing.stripe.com/p/login/5kA5kRfnU4AP4s88ww"
 				>Manage Billing...</Menubar.Item
 			>
-			<Menubar.Item inset href="/settings">Manage Settings...</Menubar.Item>
 			<Menubar.Separator />
 			<Menubar.Item inset>Add Label...</Menubar.Item>
 		</Menubar.Content>
