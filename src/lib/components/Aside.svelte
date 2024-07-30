@@ -3,6 +3,7 @@
 	import * as Tooltip from '$lib/components/ui/tooltip/index.js';
 	import {
 		LayoutDashboard,
+		Music,
 		ClipboardList,
 		ShoppingBag,
 		Users,
@@ -12,6 +13,7 @@
 
 	const navItems = [
 		{ href: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+		{ href: '/music', icon: Music, label: 'Music' },
 		{ href: '/orders', icon: ClipboardList, label: 'Orders' },
 		{ href: '/products', icon: ShoppingBag, label: 'Products' },
 		{ href: '/customers', icon: Users, label: 'Customers' },

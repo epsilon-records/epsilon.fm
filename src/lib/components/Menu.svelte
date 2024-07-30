@@ -154,14 +154,34 @@
 	<Menubar.Menu>
 		<Menubar.Trigger>View</Menubar.Trigger>
 		<Menubar.Content>
+			<a href="/dashboard"
+				><Menubar.CheckboxItem checked={$page.url.pathname.startsWith('/dashboard')}
+					>Show Dashboard</Menubar.CheckboxItem
+				></a
+			>
 			<a href="/music"
 				><Menubar.CheckboxItem checked={$page.url.pathname.startsWith('/music')}
 					>Show Music</Menubar.CheckboxItem
 				></a
 			>
-			<a href="/dashboard"
-				><Menubar.CheckboxItem checked={$page.url.pathname.startsWith('/dashboard')}
-					>Show Dashboard</Menubar.CheckboxItem
+			<a href="/orders"
+				><Menubar.CheckboxItem checked={$page.url.pathname.startsWith('/orders')}
+					>Show Orders</Menubar.CheckboxItem
+				></a
+			>
+			<a href="/products"
+				><Menubar.CheckboxItem checked={$page.url.pathname.startsWith('/products')}
+					>Show Products</Menubar.CheckboxItem
+				></a
+			>
+			<a href="/customers"
+				><Menubar.CheckboxItem checked={$page.url.pathname.startsWith('/customers')}
+					>Show Customers</Menubar.CheckboxItem
+				></a
+			>
+			<a href="/analytics"
+				><Menubar.CheckboxItem checked={$page.url.pathname.startsWith('/analytics')}
+					>Show Analytics</Menubar.CheckboxItem
 				></a
 			>
 			<Menubar.Separator />
