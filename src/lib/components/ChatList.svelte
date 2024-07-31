@@ -10,7 +10,11 @@
 	<div class="relative mx-auto max-w-2xl px-4">
 		{#each $messages as message, index}
 			<div>
-				<ChatMessage {message} />
+				{#if index == $messages.length - 1}
+					<ChatMessage {message} typewriter={true} />
+				{:else}
+					<ChatMessage {message} typewriter={false} />
+				{/if}
 				{#if index < $messages.length - 1}
 					<Separator class="md:my-2" />
 				{/if}

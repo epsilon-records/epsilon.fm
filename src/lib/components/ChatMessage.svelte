@@ -4,8 +4,9 @@
 	import SpinningLogo from '@/components/SpinningLogo.svelte';
 	import { cn } from '$lib/utils';
 	import type { Message } from 'ai';
-
+	import Typewriter from 'svelte-typewriter';
 	export let message: Message;
+	export let typewriter: boolean;
 </script>
 
 <div class={cn('group relative mb-4 flex items-start md:-ml-12')} {...$$restProps}>
@@ -21,8 +22,14 @@
 			🧠
 		{/if}
 	</div>
-	<div class="ml-4 mt-1 flex-1 overflow-hidden px-1">
-		{message.content}
+	<div class="ml-4 mt-1 w-screen flex-1 overflow-hidden px-1">
+		{#if typewriter && message.role === 'assistant'}
+			<Typewriter speed={50} delay={100} loop={true} cursor={true}>
+				{message.content}
+			</Typewriter>
+		{:else}
+			{message.content}
+		{/if}
 	</div>
 	<ChatMessageActions {message} />
 </div>

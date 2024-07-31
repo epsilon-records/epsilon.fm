@@ -7,7 +7,6 @@ export const load: PageServerLoad = async ({ locals }) => {
 	const session = _.get(locals, 'session') as { userId?: string } | undefined;
 	const userId = _.get(session, 'userId');
 	if (userId) {
-		console.log(userId);
 		const chats = getChats(userId);
 		return {
 			chats

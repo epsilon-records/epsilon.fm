@@ -23,7 +23,7 @@
 
 <div class="mx-auto max-w-2xl px-4">
 	<div class="rounded-lg border bg-background p-4">
-		<h1 class="mb-2 text-lg font-semibold">Welcome to the Epsilon AI Music Brain!</h1>
+		<h1 class="mb-2 text-lg font-semibold">🧠 Welcome to the Epsilon AI Music Brain!</h1>
 		<p class="leading-normal text-muted-foreground">
 			You can start a conversation here or try the following examples:
 		</p>
