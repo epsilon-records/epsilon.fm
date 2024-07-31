@@ -5,9 +5,6 @@
 	import { cn } from '$lib/utils';
 	import { useChat, type Message } from '@ai-sdk/svelte';
 
-	// TODO: Save in local storage
-	let previewToken: string | null = null;
-
 	export let id: string | undefined = undefined;
 	export let initialMessages: Message[] | undefined = undefined;
 	let className: string | undefined | null = undefined;
@@ -17,8 +14,7 @@
 		initialMessages,
 		id,
 		body: {
-			id,
-			previewToken
+			id
 		}
 	});
 </script>

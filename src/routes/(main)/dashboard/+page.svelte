@@ -4,7 +4,6 @@
 	import Dashboard from '$lib/components/Dashboard.svelte';
 	import type { PageServerData } from './$types';
 	import OrdersThisMonth from '$lib/components/OrdersThisMonth.svelte';
-	import ChatCard from '$lib/components/ChatCard.svelte';
 	import OrderTabs from '$lib/components/OrderTabs.svelte';
 	export let data: PageServerData;
 </script>
@@ -13,9 +12,7 @@
 	<svelte:fragment slot="topLeft">
 		<WelcomeCard />
 	</svelte:fragment>
-	<svelte:fragment slot="topCenter">
-		<ChatCard />
-	</svelte:fragment>
+	<svelte:fragment slot="topCenter"></svelte:fragment>
 	<svelte:fragment slot="topRight">
 		<OrdersThisMonth />
 	</svelte:fragment>

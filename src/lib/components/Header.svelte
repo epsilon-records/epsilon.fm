@@ -11,6 +11,7 @@
 	import { IconGitHub, IconSeparator, IconSvelteChat, IconVercel } from '$lib/components/ui/icons';
 	import type { Chat } from '$lib/types';
 	import { cn } from '$lib/utils';
+	import { userId } from '$lib/stores/auth';
 
 	export let chats: Chat[];
 </script>
@@ -35,7 +36,7 @@
 		{/if}
 		<div class="flex items-center">
 			<IconSeparator class="h-6 w-6 text-muted-foreground/50" />
-			{#if $page.data.session}
+			{#if userId}
 				<UserMenu />
 			{:else}
 				<LoginButton variant="link" showGithubIcon={false} text="Login" class="-ml-2" />

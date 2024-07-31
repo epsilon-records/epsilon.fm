@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
 	import { Button } from '$lib/components/ui/button';
 	import { IconMoon, IconSun } from '$lib/components/ui/icons';
 	import { resolvedTheme, theme } from '$lib/theme';

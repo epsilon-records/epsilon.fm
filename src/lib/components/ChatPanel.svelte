@@ -3,7 +3,6 @@
 	import { Button } from '$lib/components/ui/button';
 	import { IconRefresh, IconStop } from '$lib/components/ui/icons';
 	import type { UseChatHelpers } from 'ai/svelte';
-	import FooterText from '$lib/components/FooterText.svelte';
 	import PromptForm from '$lib/components/PromptForm.svelte';
 
 	export let id: string | undefined = undefined;
@@ -45,7 +44,6 @@
 				{input}
 				{isLoading}
 			/>
-			<FooterText class="hidden sm:block" />
 		</div>
 	</div>
 </div>

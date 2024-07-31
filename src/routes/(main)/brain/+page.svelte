@@ -3,6 +3,7 @@
 	import { nanoid } from '$lib/utils';
 
 	const id = nanoid();
+	console.log(id);
 </script>
 
 <Chat {id} />
