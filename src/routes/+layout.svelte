@@ -10,6 +10,7 @@
 	import ClerkLoaded from 'clerk-sveltekit/client/ClerkLoaded.svelte';
 	import ClerkLoading from 'clerk-sveltekit/client/ClerkLoading.svelte';
 	import PageTransition from '$lib/components/PageTransition.svelte';
+	import AudioPlayer from '$lib/components/AudioPlayer.svelte';
 
 	export let data: LayoutData;
 </script>
@@ -24,8 +25,9 @@
 				<slot />
 				<ModeWatcher />
 				<Toaster />
-				<SvelteQueryDevtools />
+				<AudioPlayer />
 				<StatusBar />
+				<SvelteQueryDevtools />
 			</QueryClientProvider>
 		</ClerkLoaded>
 	</div>
