@@ -1,10 +1,10 @@
 import type { PageServerLoad } from './$types';
 import { Musicfetch } from '$lib/consumer/musicfetch';
-import { MUSIC_FETCH_API_KEY } from '$env/static/private';
+import { MUSICFETCH_API_KEY } from '$env/static/private';
 import type { MusicfetchArtist } from '$lib/consumer/musicfetch';
 
 export const load = (async () => {
-	const musicfetch = new Musicfetch(MUSIC_FETCH_API_KEY);
+	const musicfetch = new Musicfetch(MUSICFETCH_API_KEY);
 	const trackUrl = 'https://open.spotify.com/track/0mrka7jzpLiieKpZmkrDr4';
 	const services = ['appleMusic', 'deezer', 'tidal'];
 	let artistInfo: MusicfetchArtist | null = null;
