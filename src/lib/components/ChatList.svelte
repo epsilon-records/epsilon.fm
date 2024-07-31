@@ -12,7 +12,7 @@
 			<div>
 				<ChatMessage {message} />
 				{#if index < $messages.length - 1}
-					<Separator class="my-4 md:my-8" />
+					<Separator class="md:my-2" />
 				{/if}
 			</div>
 		{/each}

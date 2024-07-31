@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ChatMessageActions from '$lib/components/ChatMessageActions.svelte';
 	import { IconOpenAI, IconUser } from '$lib/components/ui/icons';
+	import SpinningLogo from '@/components/SpinningLogo.svelte';
 	import { cn } from '$lib/utils';
 	import type { Message } from 'ai';
 
@@ -17,10 +18,10 @@
 		{#if message.role === 'user'}
 			<IconUser />
 		{:else}
-			<IconOpenAI />
+			🧠
 		{/if}
 	</div>
-	<div class="ml-4 flex-1 space-y-2 overflow-hidden px-1">
+	<div class="ml-4 mt-1 flex-1 overflow-hidden px-1">
 		{message.content}
 	</div>
 	<ChatMessageActions {message} />
