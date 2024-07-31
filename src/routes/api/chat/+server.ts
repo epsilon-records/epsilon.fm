@@ -1,15 +1,10 @@
 import { OPENAI_API_KEY } from '$env/static/private';
-import type { Config } from '@sveltejs/adapter-vercel';
 import { OpenAIStream, StreamingTextResponse } from 'ai';
 import type { RequestHandler } from './$types';
 import { Configuration, OpenAIApi } from 'openai-edge';
 import { kv } from '$lib/kv';
 import { nanoid } from '$lib/utils';
 import { currentUserId } from '$lib/stores/brain';
-
-export const config: Config = {
-	runtime: 'edge'
-};
 
 export const POST = (async ({ request }) => {
 	try {
