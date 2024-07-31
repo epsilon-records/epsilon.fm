@@ -13,7 +13,9 @@
 	<div class="status-bar fixed bottom-0 left-0 w-full border-t" class:pl-14={$sidebarVisible}>
 		<div class="flex items-center justify-between p-1">
 			<div class="flex items-center">
-				<SignedIn><FavouritesMenu /></SignedIn>
+				<SignedIn>
+					<FavouritesMenu />
+				</SignedIn>
 			</div>
 			<div class="flex items-center">
 				<SignedOut>

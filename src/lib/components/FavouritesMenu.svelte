@@ -3,4 +3,4 @@
 	import { Badge } from '$lib/components/ui/badge';
 </script>
 
-<Badge>☰ Favourites</Badge>
+<Badge variant="outline">☰ Favourites</Badge>

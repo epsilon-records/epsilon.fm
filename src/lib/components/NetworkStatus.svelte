@@ -20,6 +20,6 @@
 	});
 </script>
 
-<Badge variant={networkStatus === 'Connected' ? 'default' : 'destructive'}>
+<Badge variant={networkStatus === 'Connected' ? 'outline' : 'destructive'}>
 	{networkStatus === 'Connected' ? '📶 ' : ''}{networkStatus}
 </Badge>

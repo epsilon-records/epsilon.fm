@@ -26,4 +26,4 @@
 	});
 </script>
 
-<Badge>🕒 {currentTime}</Badge>
+<Badge variant="outline">🕒 {currentTime}</Badge>
