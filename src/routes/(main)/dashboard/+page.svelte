@@ -10,16 +10,16 @@
 	<svelte:fragment slot="topLeft">
 		<WelcomeCard />
 	</svelte:fragment>
-	<svelte:fragment slot="topCenter">
+	<svelte:fragment slot="topCenter"></svelte:fragment>
+	<svelte:fragment slot="topRight"></svelte:fragment>
+	<svelte:fragment slot="content"></svelte:fragment>
+	<svelte:fragment slot="sidebar">
 		{#await data}
 			<p>Loading stats...</p>
 		{:then data}
 			<StatsCard artistInfo={data.artistInfo} error={data.error} />
 		{:catch error}
 			<p>Error loading stats: {error.message}</p>
-		{/await}
-	</svelte:fragment>
-	<svelte:fragment slot="topRight"></svelte:fragment>
-	<svelte:fragment slot="content"></svelte:fragment>
-	<svelte:fragment slot="sidebar"></svelte:fragment>
+		{/await}</svelte:fragment
+	>
 </Dashboard>
