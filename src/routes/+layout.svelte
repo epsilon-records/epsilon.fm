@@ -9,8 +9,10 @@
 	import { Toaster } from 'svelte-french-toast';
 	import ClerkLoaded from 'clerk-sveltekit/client/ClerkLoaded.svelte';
 	import ClerkLoading from 'clerk-sveltekit/client/ClerkLoading.svelte';
+	import PageTransition from '$lib/components/PageTransition.svelte';
 
 	export let data: LayoutData;
+	console.log(data.url);
 </script>
 
 <div class="app flex min-h-screen flex-col">
@@ -19,7 +21,9 @@
 	</ClerkLoading>
 	<ClerkLoaded>
 		<QueryClientProvider client={data.queryClient}>
-			<slot />
+			<PageTransition key={data.url.pathname === '/' ? '/' : 'loaded'}>
+				<slot />
+			</PageTransition>
 			<ModeWatcher />
 			<Toaster />
 			<SvelteQueryDevtools />

@@ -10,7 +10,7 @@ import { env } from '$env/dynamic/public';
 inject({ mode: dev ? 'development' : 'production' });
 injectSpeedInsights();
 
-export const load: LayoutLoad = (async () => {
+export const load: LayoutLoad = (async ({ url }) => {
 	const queryClient = new QueryClient({
 		defaultOptions: {
 			queries: {
@@ -24,5 +24,5 @@ export const load: LayoutLoad = (async () => {
 			person_profiles: 'identified_only'
 		});
 	}
-	return { queryClient };
+	return { url: url, queryClient: queryClient };
 }) satisfies LayoutLoad;
