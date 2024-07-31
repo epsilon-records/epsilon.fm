@@ -14,7 +14,7 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 	} else {
 		throw redirect(302, `/sign-in?redirect=/chat/${params.id}`);
 	}
-	const chat = await getChat(params.id, `${userId}`);
+	const chat = await getChat(params.id, userId);
 	if (!chat) {
 		throw error(404, 'Not found');
 	}

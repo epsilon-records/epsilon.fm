@@ -2,6 +2,8 @@ import type { Chat } from '$lib/types';
 import { kv } from '@vercel/kv';
 
 export async function getChats(userId?: string | null) {
+	console.log('getChats');
+	console.log(userId);
 	if (!userId) {
 		return [];
 	}
@@ -17,7 +19,7 @@ export async function getChats(userId?: string | null) {
 		}
 
 		const results = await pipeline.exec();
-
+		console.log(results);
 		return results as Chat[];
 	} catch (error) {
 		return [];
