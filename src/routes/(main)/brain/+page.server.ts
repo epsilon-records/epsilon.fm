@@ -6,10 +6,8 @@ export const load: PageServerLoad = async ({ locals }) => {
 	// Use type assertion to access 'session'
 	const session = _.get(locals, 'session') as { userId?: string } | undefined;
 	const userId = _.get(session, 'userId');
-	if (session && session.userId) {
-		const chats = getChats(`${userId}`);
-		return {
-			chats
-		};
-	}
+	const chats = getChats(userId);
+	return {
+		chats
+	};
 };

@@ -9,10 +9,9 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 	const session = _.get(locals, 'session') as { userId?: string } | undefined;
 	const userId = _.get(session, 'userId');
 	if (userId) {
-		console.log(userId);
 		currentUserId.set(userId);
 	} else {
-		throw redirect(302, `/sign-in?redirect=/chat/${params.id}`);
+		throw redirect(302, `/sign-in?redirect=/brain/chat/${params.id}`);
 	}
 	const chat = await getChat(params.id, userId);
 	if (!chat) {

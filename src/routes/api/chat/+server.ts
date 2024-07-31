@@ -21,7 +21,7 @@ export const POST = (async ({ request }) => {
 	if (currentUserId) {
 		const id = json.id ?? nanoid();
 		const createdAt = Date.now();
-		const path = `/chat/${id}`;
+		const path = `/brain/chat/${id}`;
 		const payload = {
 			id,
 			title,
