@@ -14,7 +14,7 @@
 		{#await data}
 			<p>Loading stats...</p>
 		{:then data}
-			<StatsCard trackInfo={data.trackInfo} error={data.error} />
+			<StatsCard artistInfo={data.artistInfo} error={data.error} />
 		{:catch error}
 			<p>Error loading stats: {error.message}</p>
 		{/await}

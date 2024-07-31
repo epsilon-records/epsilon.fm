@@ -22,7 +22,7 @@
 <SignedIn let:user>
 	<Card.Root class="sm:col-span-2">
 		<Card.Header class="pb-3">
-			<Card.Title>{getGreeting(user?.firstName)}</Card.Title>
+			<Card.Title class="text-4xl">{getGreeting(user?.firstName)}</Card.Title>
 			<Card.Description class="max-w-lg text-balance leading-relaxed">
 				Introducing our new release dashboard, designed for easy management and detailed analysis.
 			</Card.Description>

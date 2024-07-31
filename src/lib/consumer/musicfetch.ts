@@ -78,11 +78,11 @@ export class Musicfetch {
 		this.token = token;
 	}
 
-	public async lookupTrack(
+	public async lookupArtist(
 		url: string,
 		services: string[],
 		country?: string
-	): Promise<MusicfetchTrack> {
+	): Promise<MusicfetchArtist> {
 		const endpoint = 'https://api.musicfetch.io/url';
 		const params: { [key: string]: string } = {
 			url: url,
@@ -98,6 +98,6 @@ export class Musicfetch {
 				'x-musicfetch-token': this.token
 			}
 		});
-		return response.data.result as MusicfetchTrack;
+		return response.data.result as MusicfetchArtist;
 	}
 }
