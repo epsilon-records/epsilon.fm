@@ -2,6 +2,19 @@
 	import { page } from '$app/stores';
 	import { Section, Page404, Page500 } from 'flowbite-svelte-blocks';
 	import { Button } from '$lib/components/ui/button';
+	import { statusBarVisible } from '$lib/stores/ui';
+	import { onMount, onDestroy } from 'svelte';
+
+	let originalStatusBarVisible: boolean;
+
+	onMount(() => {
+		originalStatusBarVisible = $statusBarVisible;
+		statusBarVisible.set(false);
+	});
+
+	onDestroy(() => {
+		statusBarVisible.set(originalStatusBarVisible);
+	});
 </script>
 
 <div class="flex min-h-screen items-center justify-center">
