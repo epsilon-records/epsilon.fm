@@ -4,7 +4,7 @@
 	import Dashboard from '$lib/components/Dashboard.svelte';
 	import type { PageServerData } from './$types';
 	import OrdersThisMonth from '$lib/components/OrdersThisMonth.svelte';
-	import OrdersThisWeek from '$lib/components/OrdersThisWeek.svelte';
+	import ChatCard from '$lib/components/ChatCard.svelte';
 	import OrderTabs from '$lib/components/OrderTabs.svelte';
 	export let data: PageServerData;
 </script>
@@ -14,7 +14,7 @@
 		<WelcomeCard />
 	</svelte:fragment>
 	<svelte:fragment slot="topCenter">
-		<OrdersThisWeek />
+		<ChatCard />
 	</svelte:fragment>
 	<svelte:fragment slot="topRight">
 		<OrdersThisMonth />
@@ -23,6 +23,7 @@
 		>{#await data}
 			<p>Loading stats...</p>
 		{:then data}
+			<StatsCard artistInfo={data.artistInfo} error={data.error} />
 			<StatsCard artistInfo={data.artistInfo} error={data.error} />
 		{:catch error}
 			<p>Error loading stats: {error.message}</p>

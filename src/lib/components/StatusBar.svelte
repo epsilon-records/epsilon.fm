@@ -1,6 +1,6 @@
 <script lang="ts">
 	import FavouritesMenu from './FavouritesMenu.svelte';
-	import CurrentTime from './CurrentTime.svelte';
+	import SystemClock from './SystemClock.svelte';
 	import NetworkStatus from './NetworkStatus.svelte';
 	import MadeWithLove from './MadeWithLove.svelte';
 	import '$src/app.css';
@@ -28,7 +28,7 @@
 					<FavouritesMenu />
 				</div>
 				<div class="flex items-center">
-					<CurrentTime />
+					<SystemClock />
 				</div>
 				<div class="flex items-center">
 					<NetworkStatus />

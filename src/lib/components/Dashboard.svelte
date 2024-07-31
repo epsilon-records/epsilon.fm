@@ -12,7 +12,7 @@
 				<slot name="topCenter" />
 				<slot name="topRight" />
 			</div>
-			<div class="grid gap-8 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+			<div class="grid gap-8 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
 				<slot name="content" />
 			</div>
 		</div>
