@@ -3,7 +3,7 @@
 	import { Progress } from '$lib/components/ui/progress/index.js';
 </script>
 
-<Card.Root>
+<Card.Root class="sm:col-span-1">
 	<Card.Header class="pb-2">
 		<Card.Description>This Month</Card.Description>
 		<Card.Title class="text-3xl">$5,329</Card.Title>
