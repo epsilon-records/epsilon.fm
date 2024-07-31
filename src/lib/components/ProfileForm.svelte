@@ -11,6 +11,7 @@
 	import success from '$lib/audio/success.mp3';
 	import { tick } from 'svelte';
 	import { confetti } from '@neoconfetti/svelte';
+	import { MODE } from '$env/static/private';
 	export let data: SuperValidated<Infer<ArtistSchema>>;
 	export let dataType: 'form' | 'json' = 'form';
 
@@ -266,7 +267,9 @@
 	{#if isVisible}
 		<div use:confetti></div>
 	{/if}
-	<!-- <div class="m-4">
-		<SuperDebug data={$formData} />
-	</div> -->
+	{#if import.meta.env.MODE == 'development'}
+		<div class="m-4">
+			<SuperDebug data={$formData} />
+		</div>
+	{/if}
 </form>
