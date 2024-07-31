@@ -51,6 +51,7 @@
 		</Tooltip>
 		<textarea
 			use:autosize
+			autofocus={true}
 			tabindex={0}
 			on:keydown={handleKeydown}
 			rows={1}

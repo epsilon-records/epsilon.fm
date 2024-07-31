@@ -22,7 +22,7 @@
 		</div>
 	</SignedOut>
 	<SignedIn>
-		<div class="status-bar fixed bottom-0 left-0 w-full border-t" class:pl-14={$sidebarVisible}>
+		<div class="status-bar fixed bottom-0 left-0 z-30 w-full border-t bg-background">
 			<div class="flex items-center justify-between p-1">
 				<div class="flex items-center">
 					<FavouritesMenu />
