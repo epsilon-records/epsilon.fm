@@ -6,12 +6,10 @@
 	import SuperDebug from 'sveltekit-superforms';
 	import { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
-	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	import toast from 'svelte-french-toast';
 	import success from '$lib/audio/success.mp3';
 	import { tick } from 'svelte';
 	import { confetti } from '@neoconfetti/svelte';
-	import { MODE } from '$env/static/private';
 	export let data: SuperValidated<Infer<ArtistSchema>>;
 	export let dataType: 'form' | 'json' = 'form';
 
