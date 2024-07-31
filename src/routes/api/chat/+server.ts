@@ -14,7 +14,7 @@ export const POST = (async ({ request }) => {
 	const json = await request.json();
 	const { messages } = json;
 	const result = await streamText({
-		model: openai('gpt-4-turbo-preview'),
+		model: openai('gpt-3.5-turbo'),
 		messages
 	});
 	const title = messages[0].content.substring(0, 100);
