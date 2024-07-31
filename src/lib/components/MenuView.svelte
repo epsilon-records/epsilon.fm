@@ -4,7 +4,7 @@
 	import ToggleFullScreen from '$lib/components/ToggleFullScreen.svelte';
 	import * as Menubar from '$lib/components/ui/menubar/index';
 	import { goto } from '$app/navigation';
-	import { statusBarVisible, sideBarVisible } from '$lib/stores/ui';
+	import { statusBarVisible, sidebarVisible } from '$lib/stores/ui';
 	import QuickNavigateSettings from '$lib/components/QuickNavigateSettings.svelte';
 
 	const items = ['dashboard', 'music', 'orders', 'products', 'customers', 'analytics'];
@@ -33,7 +33,7 @@
 			statusBarVisible.update((value) => !value);
 		} else if (event.key === '\\') {
 			event.preventDefault();
-			sideBarVisible.update((value) => !value);
+			sidebarVisible.update((value) => !value);
 		} else {
 			const key = parseInt(event.key);
 			if (!isNaN(key) && key > 0 && key <= items.length) {

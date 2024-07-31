@@ -1,7 +1,20 @@
 <script lang="ts">
+	import { onMount, onDestroy } from 'svelte';
+	import { sidebarVisible } from '$lib/stores/ui';
 	import HomeCard from '@/components/HomeCard.svelte';
 	import NewsletterCard from '$lib/components/NewsletterCard.svelte';
 	import GitHubCorner from '$lib/components/GitHubCorner.svelte';
+
+	let originalSidebarValue: boolean;
+
+	onMount(() => {
+		originalSidebarValue = $sidebarVisible;
+		sidebarVisible.set(false);
+	});
+
+	onDestroy(() => {
+		sidebarVisible.set(originalSidebarValue);
+	});
 </script>
 
 <svelte:head>

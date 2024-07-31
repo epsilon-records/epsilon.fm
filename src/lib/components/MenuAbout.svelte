@@ -1,11 +1,12 @@
 <script lang="ts">
 	import * as Menubar from '$lib/components/ui/menubar/index.js';
+	import { goto } from '$app/navigation';
 </script>
 
 <Menubar.Menu>
 	<Menubar.Trigger class="font-bold">Epsilon FM</Menubar.Trigger>
 	<Menubar.Content>
-		<Menubar.Item>About Epsilon FM</Menubar.Item>
+		<Menubar.Item on:click={() => goto('/')}>About Epsilon FM</Menubar.Item>
 		<Menubar.Separator />
 		<Menubar.Item>
 			Preferences... <Menubar.Shortcut>⌘,</Menubar.Shortcut>

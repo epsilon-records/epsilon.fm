@@ -12,22 +12,21 @@
 	import PageTransition from '$lib/components/PageTransition.svelte';
 
 	export let data: LayoutData;
-	console.log(data.url);
 </script>
 
-<div class="app flex min-h-screen flex-col">
-	<ClerkLoading>
-		<Loading />
-	</ClerkLoading>
-	<ClerkLoaded>
-		<QueryClientProvider client={data.queryClient}>
-			<PageTransition key={data.url.pathname === '/' ? '/' : 'loaded'}>
+<PageTransition key={data.url.pathname === '/' ? '/' : 'loaded'}>
+	<div class="app flex min-h-screen flex-col">
+		<ClerkLoading>
+			<Loading />
+		</ClerkLoading>
+		<ClerkLoaded>
+			<QueryClientProvider client={data.queryClient}>
 				<slot />
-			</PageTransition>
-			<ModeWatcher />
-			<Toaster />
-			<SvelteQueryDevtools />
-			<StatusBar />
-		</QueryClientProvider>
-	</ClerkLoaded>
-</div>
+				<ModeWatcher />
+				<Toaster />
+				<SvelteQueryDevtools />
+				<StatusBar />
+			</QueryClientProvider>
+		</ClerkLoaded>
+	</div>
+</PageTransition>
