@@ -10,26 +10,30 @@
 </script>
 
 {#if $statusBarVisible}
-	<div class="status-bar fixed bottom-0 left-0 w-full border-t" class:pl-14={$sidebarVisible}>
-		<div class="flex items-center justify-between p-1">
-			<div class="flex items-center">
-				<SignedIn>
-					<FavouritesMenu />
-				</SignedIn>
-			</div>
-			<div class="flex items-center">
-				<SignedOut>
+	<SignedOut>
+		<div class="status-bar fixed bottom-0 left-0 w-full" class:pl-14={$sidebarVisible}>
+			<div class="flex items-center justify-between p-1">
+				<div class="flex items-center"></div>
+				<div class="flex items-center">
 					<MadeWithLove />
-				</SignedOut>
-				<SignedIn>
-					<CurrentTime />
-				</SignedIn>
-			</div>
-			<div class="flex items-center space-x-1">
-				<SignedIn>
-					<NetworkStatus />
-				</SignedIn>
+				</div>
+				<div class="flex items-center"></div>
 			</div>
 		</div>
-	</div>
+	</SignedOut>
+	<SignedIn>
+		<div class="status-bar fixed bottom-0 left-0 w-full border-t" class:pl-14={$sidebarVisible}>
+			<div class="flex items-center justify-between p-1">
+				<div class="flex items-center">
+					<FavouritesMenu />
+				</div>
+				<div class="flex items-center">
+					<CurrentTime />
+				</div>
+				<div class="flex items-center">
+					<NetworkStatus />
+				</div>
+			</div>
+		</div>
+	</SignedIn>
 {/if}

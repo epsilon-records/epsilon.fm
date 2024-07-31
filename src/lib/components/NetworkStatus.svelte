@@ -21,5 +21,5 @@
 </script>
 
 <Badge variant={networkStatus === 'Connected' ? 'outline' : 'destructive'}>
-	{networkStatus === 'Connected' ? '📶 ' : ''}{networkStatus}
+	{networkStatus === 'Connected' ? '🛜 ' : ''}{networkStatus}
 </Badge>

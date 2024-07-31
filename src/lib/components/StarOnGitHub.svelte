@@ -11,7 +11,8 @@
 		class="github-button"
 		href="https://github.com/epsilon-records/epsilon.fm"
 		data-color-scheme="no-preference: light; light: light; dark: dark;"
+		data-size="large"
 		data-show-count="true"
-		aria-label="Star epsilon-records/epsilon.fm on GitHub">Star on GitHub</a
+		aria-label="Star epsilon-records/epsilon.fm on GitHub">Star</a
 	>
 </div>
