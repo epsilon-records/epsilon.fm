@@ -9,7 +9,7 @@
 	$: activeItem = $page.url.pathname.split('/')[1] || 'dashboard';
 </script>
 
-<nav class="mt-auto flex flex-col items-center gap-4 px-2 {$statusBarVisible ? 'py-8' : 'py-4'}">
+<nav class="mt-auto flex flex-col items-center gap-4 px-2 {$statusBarVisible ? 'py-12' : 'py-4'}">
 	<Tooltip.Root>
 		<Tooltip.Trigger asChild let:builder>
 			<a

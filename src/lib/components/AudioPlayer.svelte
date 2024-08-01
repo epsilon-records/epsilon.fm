@@ -18,10 +18,14 @@
 		audio.controls = true;
 		audio.src = vozzRich;
 		wavesurfer = WaveSurfer.create({
+			height: 64,
+			width: '200%',
+			autoCenter: true,
 			container: '#waveform',
 			waveColor: 'rgb(200, 0, 200)',
 			progressColor: 'rgb(100, 0, 100)',
 			media: audio,
+			cursorWidth: 4,
 			barWidth: 2,
 			barGap: 1,
 			barRadius: 2,
@@ -56,7 +60,7 @@
 <SignedIn>
 	<div
 		id="waveform"
-		class="fixed border-t bg-background"
+		class="fixed mb-1 h-16 border-t bg-background"
 		class:hidden={!$waveformBarVisible}
 		class:w-full={!$sidebarVisible}
 		class:w-[calc(100%-3.5rem)]={$sidebarVisible}
