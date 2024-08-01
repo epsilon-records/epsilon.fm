@@ -3,6 +3,6 @@
 	import { Badge } from '$lib/components/ui/badge/index';
 </script>
 
-<Badge class="text-xs"
+<Badge variant="outline" class="text-xs"
 	><a href="https://epsilonrecords.nl">Made with ❤️ by Epsilon Records</a></Badge
 >
