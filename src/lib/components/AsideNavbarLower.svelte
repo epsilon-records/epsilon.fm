@@ -11,10 +11,10 @@
 
 <nav
 	class="mt-auto flex flex-col items-center gap-4 px-2"
-	class:py-28={statusBarVisible && waveformBarVisible}
-	class:py-8={statusBarVisible && !waveformBarVisible}
-	class:py-20={!statusBarVisible && waveformBarVisible}
-	class:py-4={!statusBarVisible && !waveformBarVisible}
+	class:py-28={$statusBarVisible && $waveformBarVisible}
+	class:py-8={$statusBarVisible && !$waveformBarVisible}
+	class:py-20={!$statusBarVisible && $waveformBarVisible}
+	class:py-4={!$statusBarVisible && !$waveformBarVisible}
 >
 	<Tooltip.Root>
 		<Tooltip.Trigger asChild let:builder>
