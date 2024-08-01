@@ -2,18 +2,22 @@
 	import { page } from '$app/stores';
 	import { Section, Page404, Page500 } from 'flowbite-svelte-blocks';
 	import { Button } from '$lib/components/ui/button';
-	import { statusBarVisible } from '$lib/stores/ui';
+	import { statusBarVisible, waveformBarVisible } from '$lib/stores/ui';
 	import { onMount, onDestroy } from 'svelte';
 
 	let originalStatusBarVisible: boolean;
+	let originalWaveformBarVisible: boolean;
 
 	onMount(() => {
 		originalStatusBarVisible = $statusBarVisible;
+		originalWaveformBarVisible = $waveformBarVisible;
 		statusBarVisible.set(false);
+		waveformBarVisible.set(false);
 	});
 
 	onDestroy(() => {
 		statusBarVisible.set(originalStatusBarVisible);
+		statusBarVisible.set(originalWaveformBarVisible);
 	});
 </script>
 

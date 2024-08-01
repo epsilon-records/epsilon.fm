@@ -2,24 +2,33 @@
 	import WaveSurfer from 'wavesurfer.js';
 	import { onMount } from 'svelte';
 	import vozzRich from '$lib/audio/vozz-rich.mp3';
-	import {
-		sidebarVisible,
-		statusBarVisible,
-		waveformBarVisible,
-		audioControlsReady
-	} from '$lib/stores/ui';
+	import { sidebarVisible, statusBarVisible, waveformBarVisible } from '$lib/stores/ui';
+	import {} from '$lib/stores/audio';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	import Hover from 'wavesurfer.js/dist/plugins/hover.esm.js';
 
-	let wavesurfer: WaveSurfer;
+	import { audioControlsReady, currentTrack, isPlaying } from '$lib/stores/audio';
 
+	let wavesurfer: WaveSurfer;
+	function loadTrack() {
+		currentTrack.set({
+			title: 'Never Stopping',
+			artist: 'Vozz Rich'
+		});
+	}
 	onMount(() => {
 		const audio = new Audio();
 		audio.controls = true;
 		audio.src = vozzRich;
+		audio.onplay = () => {
+			isPlaying.set(true);
+		};
+		audio.onpause = () => {
+			isPlaying.set(false);
+		};
+		loadTrack();
 		wavesurfer = WaveSurfer.create({
 			height: 64,
-			width: '200%',
 			autoCenter: true,
 			container: '#waveform',
 			waveColor: 'rgb(200, 0, 200)',
@@ -60,7 +69,7 @@
 <SignedIn>
 	<div
 		id="waveform"
-		class="fixed mb-1 h-16 border-t bg-background"
+		class="sticky z-50 mb-2 mt-4 h-16 border-t bg-background"
 		class:hidden={!$waveformBarVisible}
 		class:w-full={!$sidebarVisible}
 		class:w-[calc(100%-3.5rem)]={$sidebarVisible}

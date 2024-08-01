@@ -5,8 +5,10 @@
 	import MadeWithLove from './MadeWithLove.svelte';
 	import '$src/app.css';
 	import { statusBarVisible } from '$lib/stores/ui';
+	import { currentTrack, isPlaying } from '$lib/stores/audio';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
+	import { Badge } from '$lib/components/ui/badge';
 </script>
 
 {#if $statusBarVisible}
@@ -28,10 +30,16 @@
 					<FavouritesMenu />
 				</div>
 				<div class="flex items-center">
-					<SystemClock />
+					{#if $currentTrack}
+						<Badge variant={$isPlaying ? 'default' : 'secondary'}>
+							{$isPlaying ? '⏸️ Now Playing:' : '▶️ Paused:'}
+							{$currentTrack.title} - {$currentTrack.artist}
+						</Badge>
+					{/if}
 				</div>
 				<div class="flex items-center">
 					<NetworkStatus />
+					<SystemClock />
 				</div>
 			</div>
 		</div>

@@ -17,7 +17,11 @@
 		{#if $sidebarVisible}
 			<Aside></Aside>
 		{/if}
-		<div class="flex flex-col sm:gap-4 sm:py-4 {$sidebarVisible ? 'sm:pl-14' : 'sm:pl-0'}">
+		<div
+			class="flex flex-col sm:gap-4 sm:py-4"
+			class:sm:pl-14={$sidebarVisible}
+			class:sm:pl-0={!$sidebarVisible}
+		>
 			<Header />
 			<PageTransition key={data.url.pathname}>
 				<slot />

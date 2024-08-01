@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { audioControlsReady } from '$lib/stores/ui';
+	import { audioControlsReady } from '$lib/stores/audio';
 
 	onMount(() => {
 		audioControlsReady.set(true);
