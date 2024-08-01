@@ -40,10 +40,10 @@
 		</SignedIn>
 		<SignedOut>
 			<Button class="m-2">
-				<SignInButton mode="modal">Login</SignInButton>
+				<SignInButton>Login</SignInButton>
 			</Button>
 			<Button class="m-2">
-				<SignUpButton mode="modal">Sign up</SignUpButton>
+				<SignUpButton>Sign up</SignUpButton>
 			</Button>
 		</SignedOut>
 	</Card.Content>
