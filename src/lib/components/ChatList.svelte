@@ -7,18 +7,13 @@
 </script>
 
 {#if $messages?.length}
-	<div class="relative mx-auto max-w-2xl px-4">
+	<div class="relative mx-auto w-[48rem] max-w-2xl px-4">
 		{#each $messages as message, index}
-			<div>
-				{#if index == $messages.length - 1}
-					<ChatMessage {message} typewriter={true} />
-				{:else}
-					<ChatMessage {message} typewriter={false} />
-				{/if}
-				{#if index < $messages.length - 1}
-					<Separator class="md:my-2" />
-				{/if}
-			</div>
+			{#if index == $messages.length - 1}
+				<ChatMessage {message} typewriter={true} />
+			{:else}
+				<ChatMessage {message} typewriter={false} />
+			{/if}
 		{/each}
 	</div>
 {/if}

@@ -37,7 +37,7 @@
 		<Tooltip>
 			<TooltipTrigger>
 				<Button
-					href="/"
+					href="/brain"
 					target="_self"
 					size="sm"
 					variant="outline"

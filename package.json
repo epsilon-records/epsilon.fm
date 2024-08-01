@@ -45,6 +45,7 @@
 		"@types/bun": "latest",
 		"@types/eslint": "^8.56.10",
 		"autoprefixer": "^10.4.19",
+		"daisyui": "^4.12.10",
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-storybook": "^0.8.0",

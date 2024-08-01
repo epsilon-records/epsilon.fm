@@ -12,7 +12,7 @@
 </script>
 
 <SignedIn>
-	<div class="flex min-h-screen w-full flex-col bg-muted/40">
+	<div class="flex min-h-[calc(100vh-112px)] w-full flex-col bg-muted/40">
 		<Menu />
 		{#if $sidebarVisible}
 			<Aside></Aside>

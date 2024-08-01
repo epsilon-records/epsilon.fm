@@ -14,7 +14,9 @@
 	export let input: UseChatHelpers['input'];
 </script>
 
-<div class="fixed inset-x-0 bottom-44 bg-gradient-to-b from-muted/10 from-10% to-muted/30 to-50%">
+<div
+	class="fixed inset-x-0 bottom-32 bg-gradient-to-b from-muted/10 from-10% to-muted/30 to-50% pl-16"
+>
 	<ButtonScrollToBottom />
 	<div class="mx-auto sm:max-w-2xl sm:px-4">
 		<div class="flex h-10 items-center justify-center">

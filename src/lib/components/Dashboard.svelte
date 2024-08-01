@@ -8,7 +8,9 @@
 	<SignedIn>
 		<div class="grid auto-rows-max items-start justify-center gap-4 pb-16 md:gap-8 lg:col-span-2">
 			<div class="grid gap-8 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
-				<slot name="topLeft" />
+				<div class="min-w-[20rem]">
+					<slot name="topLeft" />
+				</div>
 				<slot name="topCenter" />
 				<slot name="topRight" />
 			</div>
