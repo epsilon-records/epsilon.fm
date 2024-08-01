@@ -2,7 +2,7 @@
 	import WaveSurfer from 'wavesurfer.js';
 	import { onMount } from 'svelte';
 	import vozzRich from '$lib/audio/vozz-rich.mp3';
-	import { sidebarVisible } from '$lib/stores/ui';
+	import { sidebarVisible, statusBarVisible, audioControlsReady } from '$lib/stores/ui';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	import Hover from 'wavesurfer.js/dist/plugins/hover.esm.js';
 
@@ -12,7 +12,6 @@
 		const audio = new Audio();
 		audio.controls = true;
 		audio.src = vozzRich;
-		audio.className = 'p-0';
 		wavesurfer = WaveSurfer.create({
 			container: '#waveform',
 			waveColor: 'rgb(200, 0, 200)',
@@ -27,24 +26,23 @@
 					lineWidth: 2,
 					labelBackground: '#555',
 					labelColor: '#fff',
-					labelSize: '11px'
+					labelSize: '18px'
 				})
 			]
 		});
-		const audioControls = document.querySelector('#audio-controls');
-		if (audioControls) {
-			audio.className = 'h-6';
-			audioControls.appendChild(audio);
-		}
-
+		audioControlsReady.subscribe((ready) => {
+			if (ready) {
+				const audioControls = document.querySelector('#audio-controls');
+				if (audioControls && !audioControls.contains(audio)) {
+					audio.className = 'h-6';
+					audioControls.appendChild(audio);
+				}
+			}
+		});
 		wavesurfer.on('interaction', () => {
 			wavesurfer.play();
 		});
-
 		return () => {
-			if (audioControls) {
-				audioControls.removeChild(audio);
-			}
 			wavesurfer.destroy();
 		};
 	});
@@ -53,7 +51,11 @@
 <SignedIn>
 	<div
 		id="waveform"
-		class="fixed bottom-0 left-0 w-full border-t bg-background class:pl-14={$sidebarVisible}"
+		class="fixed w-full border-t bg-background"
+		class:left-0={!$sidebarVisible}
+		class:left-14={$sidebarVisible}
+		class:bottom-0={!$statusBarVisible}
+		class:bottom-8={$statusBarVisible}
 	>
 		<!-- the waveform will be rendered here -->
 	</div>

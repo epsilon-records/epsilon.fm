@@ -11,6 +11,7 @@
 	import ClerkLoading from 'clerk-sveltekit/client/ClerkLoading.svelte';
 	import PageTransition from '$lib/components/PageTransition.svelte';
 	import AudioPlayer from '$lib/components/AudioPlayer.svelte';
+	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 
 	export let data: LayoutData;
 </script>
@@ -25,7 +26,9 @@
 				<slot />
 				<ModeWatcher />
 				<Toaster />
-				<AudioPlayer />
+				<SignedIn>
+					<AudioPlayer />
+				</SignedIn>
 				<StatusBar />
 				<!-- <SvelteQueryDevtools /> -->
 			</QueryClientProvider>

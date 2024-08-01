@@ -19,7 +19,7 @@
 	});
 </script>
 
-<div class={cn('pb-[200px] pt-4 md:pt-10', className)}>
+<div class={cn('pb-[300px] pt-4 md:pt-10', className)}>
 	{#if $messages.length}
 		<ChatList {messages} />
 	{:else}

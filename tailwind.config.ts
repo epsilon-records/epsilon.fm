@@ -56,6 +56,9 @@ const config: Config = {
 			},
 			fontFamily: {
 				sans: [...fontFamily.sans]
+			},
+			borderWidth: {
+				DEFAULT: '2px'
 			}
 		}
 	}

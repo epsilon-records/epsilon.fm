@@ -12,7 +12,7 @@
 </script>
 
 <Menubar.Root
-	class="sticky top-0 z-50 flex items-center rounded-none border-b border-none px-2 lg:px-4"
+	class="sticky top-0 z-50 flex items-center rounded-none border-b-4 border-none px-2 lg:px-4"
 >
 	<MenuAbout />
 	<MenuFile />
