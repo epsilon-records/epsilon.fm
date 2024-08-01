@@ -1,20 +1,20 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
-	import { sidebarVisible } from '$lib/stores/ui';
+	// import { onMount, onDestroy } from 'svelte';
+	// import { sidebarVisible } from '$lib/stores/ui';
 	import HomeCard from '@/components/HomeCard.svelte';
 	import NewsletterCard from '$lib/components/NewsletterCard.svelte';
-	import GitHubCorner from '$lib/components/GitHubCorner.svelte';
+	// import GitHubCorner from '$lib/components/GitHubCorner.svelte';
 
-	let originalSidebarValue: boolean;
+	// let originalSidebarValue: boolean;
 
-	onMount(() => {
-		originalSidebarValue = $sidebarVisible;
-		sidebarVisible.set(false);
-	});
+	// onMount(() => {
+	// 	originalSidebarValue = $sidebarVisible;
+	// 	sidebarVisible.set(false);
+	// });
 
-	onDestroy(() => {
-		sidebarVisible.set(originalSidebarValue);
-	});
+	// onDestroy(() => {
+	// 	sidebarVisible.set(originalSidebarValue);
+	// });
 </script>
 
 <svelte:head>
@@ -25,7 +25,7 @@
 	/>
 </svelte:head>
 
-<GitHubCorner />
+<!-- <GitHubCorner /> -->
 <div class="flex flex-grow flex-col items-center justify-center">
 	<HomeCard></HomeCard>
 	<NewsletterCard></NewsletterCard>

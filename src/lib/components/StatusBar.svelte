@@ -12,36 +12,23 @@
 </script>
 
 {#if $statusBarVisible}
-	<SignedOut>
-		<div class="fixed bottom-0 left-0 z-30 w-full bg-background">
-			<div class="flex items-center justify-between p-1">
-				<div class="flex items-center"></div>
-				<div class="flex items-center">
-					<MadeWithLove />
-				</div>
-				<div class="flex items-center"></div>
+	<div class="fixed bottom-0 left-0 z-30 w-full bg-background">
+		<div class="flex items-center justify-between p-1">
+			<div class="flex items-center">
+				<FavouritesMenu />{#if $currentTrack}
+					<Badge variant={$isPlaying ? 'default' : 'secondary'}>
+						{$isPlaying ? '⏸️ Now Playing:' : '▶️ Paused:'}
+						{$currentTrack.title} - {$currentTrack.artist}
+					</Badge>
+				{/if}
+			</div>
+			<div class="flex items-center">
+				<MadeWithLove />
+			</div>
+			<div class="flex items-center">
+				<NetworkStatus />
+				<SystemClock />
 			</div>
 		</div>
-	</SignedOut>
-	<SignedIn>
-		<div class="fixed bottom-0 left-0 z-30 w-full border-t bg-background">
-			<div class="flex items-center justify-between p-1">
-				<div class="flex items-center">
-					<FavouritesMenu />
-				</div>
-				<div class="flex items-center">
-					{#if $currentTrack}
-						<Badge variant={$isPlaying ? 'default' : 'secondary'}>
-							{$isPlaying ? '⏸️ Now Playing:' : '▶️ Paused:'}
-							{$currentTrack.title} - {$currentTrack.artist}
-						</Badge>
-					{/if}
-				</div>
-				<div class="flex items-center">
-					<NetworkStatus />
-					<SystemClock />
-				</div>
-			</div>
-		</div>
-	</SignedIn>
+	</div>
 {/if}

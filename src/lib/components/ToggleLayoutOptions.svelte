@@ -12,13 +12,13 @@
 	}
 </script>
 
-<Menubar.CheckboxItem checked={$waveformBarVisible} on:click={toggleWaveformBar}>
-	{$waveformBarVisible ? 'Hide' : 'Show'} Waveform
-	<Menubar.Shortcut>⌘E</Menubar.Shortcut>
-</Menubar.CheckboxItem>
 <Menubar.CheckboxItem checked={$sidebarVisible} on:click={toggleSideBar}>
 	{$sidebarVisible ? 'Hide' : 'Show'} Sidebar
 	<Menubar.Shortcut>⌘\</Menubar.Shortcut>
+</Menubar.CheckboxItem>
+<Menubar.CheckboxItem checked={$waveformBarVisible} on:click={toggleWaveformBar}>
+	{$waveformBarVisible ? 'Hide' : 'Show'} Waveform
+	<Menubar.Shortcut>⌘E</Menubar.Shortcut>
 </Menubar.CheckboxItem>
 <Menubar.CheckboxItem checked={$statusBarVisible} on:click={toggleStatusBar}>
 	{$statusBarVisible ? 'Hide' : 'Show'} Status Bar

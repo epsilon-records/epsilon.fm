@@ -12,7 +12,7 @@
 <Breadcrumb.Root class="hidden md:flex">
 	<Breadcrumb.List>
 		<Breadcrumb.Item>
-			<Breadcrumb.Link href="/dashboard">Home</Breadcrumb.Link>
+			<Breadcrumb.Link href="/">Home</Breadcrumb.Link>
 		</Breadcrumb.Item>
 		{#each breadcrumbs as crumb, index}
 			<Breadcrumb.Separator />

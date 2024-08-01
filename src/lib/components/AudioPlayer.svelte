@@ -68,18 +68,12 @@
 	});
 </script>
 
-<SignedIn>
-	<div
-		id="waveform"
-		class="sticky z-50 mb-2 mt-4 h-16 border-t bg-background"
-		class:hidden={!$waveformBarVisible}
-		class:w-full={!$sidebarVisible}
-		class:w-[calc(100%-3.5rem)]={$sidebarVisible}
-		class:left-0={!$sidebarVisible}
-		class:left-14={$sidebarVisible}
-		class:bottom-0={!$statusBarVisible}
-		class:bottom-8={$statusBarVisible}
-	>
-		<!-- the waveform will be rendered here -->
-	</div>
-</SignedIn>
+<div
+	id="waveform"
+	class="sticky z-50 mb-2 mt-4 h-16 border-t bg-background"
+	class:hidden={!$waveformBarVisible}
+	class:bottom-0={!$statusBarVisible}
+	class:bottom-8={$statusBarVisible}
+>
+	<!-- the waveform will be rendered here -->
+</div>
