@@ -15,10 +15,8 @@
 		<ArtistSwitcher />
 		<Breadcrumbs />
 	</div>
-	<div class="flex items-center">
-		<SearchBar />
-	</div>
 	<div class="flex items-center gap-4">
+		<SearchBar />
 		<SelectMode />
 		<UserSwitcher />
 	</div>
