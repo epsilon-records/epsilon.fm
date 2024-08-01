@@ -120,7 +120,7 @@
 		"install": "^0.13.0",
 		"lint-staged": "^15.2.7",
 		"lodash": "^4.17.21",
-		"lucide-svelte": "^0.417.0",
+		"lucide-svelte": "^0.418.0",
 		"mode-watcher": "^0.4.0",
 		"nanoid": "^5.0.7",
 		"node-gyp": "^10.2.0",
