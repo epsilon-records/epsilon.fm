@@ -2,7 +2,12 @@
 	import WaveSurfer from 'wavesurfer.js';
 	import { onMount } from 'svelte';
 	import vozzRich from '$lib/audio/vozz-rich.mp3';
-	import { sidebarVisible, statusBarVisible, audioControlsReady } from '$lib/stores/ui';
+	import {
+		sidebarVisible,
+		statusBarVisible,
+		waveformBarVisible,
+		audioControlsReady
+	} from '$lib/stores/ui';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	import Hover from 'wavesurfer.js/dist/plugins/hover.esm.js';
 
@@ -33,7 +38,7 @@
 		audioControlsReady.subscribe((ready) => {
 			if (ready) {
 				const audioControls = document.querySelector('#audio-controls');
-				if (audioControls && !audioControls.contains(audio)) {
+				if (audioControls && audioControls.childNodes.length === 0) {
 					audio.className = 'h-6';
 					audioControls.appendChild(audio);
 				}
@@ -51,7 +56,10 @@
 <SignedIn>
 	<div
 		id="waveform"
-		class="fixed w-full border-t bg-background"
+		class="fixed border-t bg-background"
+		class:hidden={!$waveformBarVisible}
+		class:w-full={!$sidebarVisible}
+		class:w-[calc(100%-3.5rem)]={$sidebarVisible}
 		class:left-0={!$sidebarVisible}
 		class:left-14={$sidebarVisible}
 		class:bottom-0={!$statusBarVisible}

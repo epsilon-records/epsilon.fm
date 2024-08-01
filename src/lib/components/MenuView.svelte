@@ -4,7 +4,7 @@
 	import ToggleFullScreen from '$lib/components/ToggleFullScreen.svelte';
 	import * as Menubar from '$lib/components/ui/menubar/index';
 	import { goto } from '$app/navigation';
-	import { statusBarVisible, sidebarVisible } from '$lib/stores/ui';
+	import { waveformBarVisible, sidebarVisible, statusBarVisible } from '$lib/stores/ui';
 	import QuickNavigateSettings from '$lib/components/QuickNavigateSettings.svelte';
 
 	const items = ['dashboard', 'music', 'orders', 'products', 'customers', 'analytics'];
@@ -28,6 +28,9 @@
 		if (event.key === 'f') {
 			event.preventDefault();
 			toggleFullScreen();
+		} else if (event.key === 'e') {
+			event.preventDefault();
+			waveformBarVisible.update((value) => !value);
 		} else if (event.key === '/') {
 			event.preventDefault();
 			statusBarVisible.update((value) => !value);

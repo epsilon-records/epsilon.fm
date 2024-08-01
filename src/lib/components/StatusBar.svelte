@@ -4,7 +4,7 @@
 	import NetworkStatus from './NetworkStatus.svelte';
 	import MadeWithLove from './MadeWithLove.svelte';
 	import '$src/app.css';
-	import { statusBarVisible, sidebarVisible } from '$lib/stores/ui';
+	import { statusBarVisible } from '$lib/stores/ui';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
 </script>
