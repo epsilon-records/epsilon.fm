@@ -8,6 +8,7 @@
 	import MenuView from './MenuView.svelte';
 	import * as Menubar from '$lib/components/ui/menubar/index.js';
 	import StarOnGitHub from './StarOnGitHub.svelte';
+	import AudioControls from './AudioControls.svelte';
 </script>
 
 <Menubar.Root
@@ -19,6 +20,9 @@
 	<MenuView />
 	<MenuAccount />
 	<MenuHelp />
+	<MenuSpacer />
+	<AudioControls />
+	<MenuSpacer />
 	<MenuSpacer />
 	<StarOnGitHub />
 </Menubar.Root>

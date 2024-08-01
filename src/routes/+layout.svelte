@@ -4,7 +4,7 @@
 	import '$src/app.css';
 	import { ModeWatcher } from 'mode-watcher';
 	import { QueryClientProvider } from '@tanstack/svelte-query';
-	import { SvelteQueryDevtools } from '@tanstack/svelte-query-devtools';
+	// import { SvelteQueryDevtools } from '@tanstack/svelte-query-devtools';
 	import type { LayoutData } from './$types';
 	import { Toaster } from 'svelte-french-toast';
 	import ClerkLoaded from 'clerk-sveltekit/client/ClerkLoaded.svelte';
@@ -27,7 +27,7 @@
 				<Toaster />
 				<AudioPlayer />
 				<StatusBar />
-				<SvelteQueryDevtools />
+				<!-- <SvelteQueryDevtools /> -->
 			</QueryClientProvider>
 		</ClerkLoaded>
 	</div>

@@ -11,7 +11,7 @@
 
 {#if $statusBarVisible}
 	<SignedOut>
-		<div class="status-bar fixed bottom-0 left-0 w-full" class:pl-14={$sidebarVisible}>
+		<div class="fixed bottom-0 left-0 z-30 w-full bg-background">
 			<div class="flex items-center justify-between p-1">
 				<div class="flex items-center"></div>
 				<div class="flex items-center">
@@ -22,7 +22,7 @@
 		</div>
 	</SignedOut>
 	<SignedIn>
-		<div class="status-bar fixed bottom-0 left-0 z-30 w-full border-t bg-background">
+		<div class="fixed bottom-0 left-0 z-30 w-full border-t bg-background">
 			<div class="flex items-center justify-between p-1">
 				<div class="flex items-center">
 					<FavouritesMenu />
