@@ -5,7 +5,6 @@
 	import SelectMode from './SelectMode.svelte';
 	import NavbarSheet from './NavbarSheet.svelte';
 	import Breadcrumbs from './Breadcrumbs.svelte';
-	import AudioControls from './AudioControls.svelte';
 </script>
 
 <header
@@ -16,8 +15,10 @@
 		<ArtistSwitcher />
 		<Breadcrumbs />
 	</div>
-	<div class="flex items-center gap-4">
+	<div class="flex items-center">
 		<SearchBar />
+	</div>
+	<div class="flex items-center gap-4">
 		<SelectMode />
 		<UserSwitcher />
 	</div>

@@ -8,6 +8,6 @@
 	<Input
 		type="search"
 		placeholder="Search..."
-		class="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[320px]"
+		class="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[400px]"
 	/>
 </div>

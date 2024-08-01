@@ -9,6 +9,8 @@
 	import * as Menubar from '$lib/components/ui/menubar/index.js';
 	import StarOnGitHub from './StarOnGitHub.svelte';
 	import AudioControls from './AudioControls.svelte';
+
+	import BrainQuickButton from './BrainQuickButton.svelte';
 </script>
 
 <Menubar.Root
@@ -24,5 +26,6 @@
 	<AudioControls />
 	<MenuSpacer />
 	<MenuSpacer />
-	<StarOnGitHub />
+	<BrainQuickButton />
+	<!-- <StarOnGitHub /> -->
 </Menubar.Root>
