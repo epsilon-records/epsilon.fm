@@ -17,7 +17,7 @@
 
 	onDestroy(() => {
 		statusBarVisible.set(originalStatusBarVisible);
-		statusBarVisible.set(originalWaveformBarVisible);
+		waveformBarVisible.set(originalWaveformBarVisible);
 	});
 </script>
 
