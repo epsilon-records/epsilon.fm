@@ -62,9 +62,6 @@
 		wavesurfer.on('interaction', () => {
 			wavesurfer.play();
 		});
-		return () => {
-			wavesurfer.destroy();
-		};
 	});
 </script>
 
