@@ -2,26 +2,9 @@
 	import { page } from '$app/stores';
 	import { Section, Page404, Page500 } from 'flowbite-svelte-blocks';
 	import { Button } from '$lib/components/ui/button';
-	import { statusBarVisible, waveformBarVisible } from '$lib/stores/ui';
-	import { onMount, onDestroy } from 'svelte';
-
-	let originalStatusBarVisible: boolean;
-	let originalWaveformBarVisible: boolean;
-
-	onMount(() => {
-		originalStatusBarVisible = $statusBarVisible;
-		originalWaveformBarVisible = $waveformBarVisible;
-		statusBarVisible.set(false);
-		waveformBarVisible.set(false);
-	});
-
-	onDestroy(() => {
-		statusBarVisible.set(originalStatusBarVisible);
-		statusBarVisible.set(originalWaveformBarVisible);
-	});
 </script>
 
-<div class="flex min-h-screen items-center justify-center">
+<div class="flex items-center justify-center">
 	{#if $page.status === 404}
 		<Section name="page404">
 			<Page404>
@@ -36,14 +19,14 @@
 						The page you're looking for doesn't exist or has been moved. Let's get you back on
 						track.
 					</p>
-					<Button href="/dashboard" size="lg">👈 Return to Dashboard</Button>
+					<Button href="/" size="lg">🏠 Return Home</Button>
 				</svelte:fragment>
 			</Page404>
 		</Section>
 	{:else}
 		<Section name="page500">
 			<Page500>
-				<svelte:fragment slot="h1">500</svelte:fragment>
+				<svelte:fragment slot="h1"><div class="text-4xl">500</div></svelte:fragment>
 				<svelte:fragment slot="paragraph">
 					<p
 						class="mb-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-white md:text-4xl"
@@ -54,7 +37,7 @@
 						We're experiencing some technical difficulties. Our team has been notified and is
 						working on a fix.
 					</p>
-					<Button href="/dashboard" size="lg">👈 Try again</Button>
+					<Button href="/dashboard" size="lg">🔄 Try Again</Button>
 				</svelte:fragment>
 			</Page500>
 		</Section>

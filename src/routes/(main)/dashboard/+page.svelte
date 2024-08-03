@@ -3,8 +3,6 @@
 	import StatsCard from '$lib/components/StatsCard.svelte';
 	import Dashboard from '$lib/components/Dashboard.svelte';
 	import type { PageServerData } from './$types';
-	import OrdersThisMonth from '$lib/components/OrdersThisMonth.svelte';
-	import OrderTabs from '$lib/components/OrderTabs.svelte';
 	export let data: PageServerData;
 </script>
 
@@ -13,20 +11,11 @@
 		<WelcomeCard />
 	</svelte:fragment>
 	<svelte:fragment slot="topCenter"></svelte:fragment>
-	<svelte:fragment slot="topRight">
-		<OrdersThisMonth />
-	</svelte:fragment>
+	<svelte:fragment slot="topRight"></svelte:fragment>
 	<svelte:fragment slot="content"
-		>{#await data}
-			<p>Loading stats...</p>
-		{:then data}
-			<StatsCard artistInfo={data.artistInfo} error={data.error} />
-			<StatsCard artistInfo={data.artistInfo} error={data.error} />
-		{:catch error}
-			<p>Error loading stats: {error.message}</p>
+		>{#await data then { artistInfo, error }}
+			<StatsCard {artistInfo} {error} />
 		{/await}
 	</svelte:fragment>
-	<svelte:fragment slot="sidebar">
-		<OrderTabs />
-	</svelte:fragment>
+	<svelte:fragment slot="sidebar"></svelte:fragment>
 </Dashboard>

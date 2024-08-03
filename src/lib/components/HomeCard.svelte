@@ -16,19 +16,21 @@
 			>The modern open-source music business platform for industry professionals.</Card.Description
 		>
 	</Card.Header>
-	<Card.Content>
-		<Typewriter mode="loopOnce" interval={100} cursor={true} keepCursorOnFinish={true}>
-			<h4 class="scroll-m-20 text-center text-4xl font-semibold tracking-tight">
-				Goodbye DistroKid.
-			</h4>
-			<h4 class="scroll-m-20 text-center text-4xl font-semibold tracking-tight">
-				Hello Epsilon FM.
-			</h4>
-			<h4 class="scroll-m-20 text-center text-4xl font-semibold tracking-tight">
-				Welcome to the future.
-			</h4>
-		</Typewriter>
-	</Card.Content>
+	<SignedOut>
+		<Card.Content>
+			<Typewriter mode="loopOnce" interval={100} cursor={true} keepCursorOnFinish={true}>
+				<h4 class="scroll-m-20 text-center text-4xl font-semibold tracking-tight">
+					Goodbye DistroKid.
+				</h4>
+				<h4 class="scroll-m-20 text-center text-4xl font-semibold tracking-tight">
+					Hello Epsilon FM.
+				</h4>
+				<h4 class="scroll-m-20 text-center text-4xl font-semibold tracking-tight">
+					Welcome to the future.
+				</h4>
+			</Typewriter>
+		</Card.Content>
+	</SignedOut>
 	<Card.Content>
 		<SignedIn>
 			<div class="flex flex-row justify-between">

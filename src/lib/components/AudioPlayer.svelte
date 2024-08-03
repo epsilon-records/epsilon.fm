@@ -31,9 +31,9 @@
 			height: 64,
 			autoCenter: true,
 			container: '#waveform',
-			waveColor: '#ff4e00',
-			progressColor: '#dd5e98',
-			cursorColor: '#000000',
+			waveColor: '#000000',
+			progressColor: '#666666',
+			cursorColor: '#ff0000',
 			media: audio,
 			cursorWidth: 4,
 			barWidth: 0,
@@ -42,7 +42,7 @@
 			barHeight: 0,
 			plugins: [
 				Hover.create({
-					lineColor: '#ff0000',
+					lineColor: '#dd5e98',
 					lineWidth: 2,
 					labelBackground: '#555',
 					labelColor: '#fff',

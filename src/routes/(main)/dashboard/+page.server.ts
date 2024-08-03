@@ -5,7 +5,7 @@ import type { MusicfetchArtist } from '$lib/consumer/musicfetch';
 
 export const load = (async () => {
 	const musicfetch = new Musicfetch(MUSICFETCH_API_KEY);
-	const trackUrl = 'https://open.spotify.com/track/0mrka7jzpLiieKpZmkrDr4';
+	const trackUrl = 'https://open.spotify.com/track/1nKvvv6lsPrsqpRUzld5zq?si=24a3399b3f2d4426';
 	const services = ['appleMusic', 'deezer', 'tidal'];
 	let artistInfo: MusicfetchArtist | null = null;
 	let error: string | null = null;

@@ -1,20 +1,8 @@
 <script lang="ts">
-	// import { onMount, onDestroy } from 'svelte';
-	// import { sidebarVisible } from '$lib/stores/ui';
 	import HomeCard from '@/components/HomeCard.svelte';
 	import NewsletterCard from '$lib/components/NewsletterCard.svelte';
-	// import GitHubCorner from '$lib/components/GitHubCorner.svelte';
-
-	// let originalSidebarValue: boolean;
-
-	// onMount(() => {
-	// 	originalSidebarValue = $sidebarVisible;
-	// 	sidebarVisible.set(false);
-	// });
-
-	// onDestroy(() => {
-	// 	sidebarVisible.set(originalSidebarValue);
-	// });
+	import GitHubCorner from '$lib/components/GitHubCorner.svelte';
+	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte';
 </script>
 
 <svelte:head>
@@ -25,8 +13,10 @@
 	/>
 </svelte:head>
 
-<!-- <GitHubCorner /> -->
-<div class="flex flex-grow flex-col items-center justify-center">
+<SignedOut>
+	<GitHubCorner />
+</SignedOut>
+<div class="mt-16 flex flex-grow flex-col items-center justify-center">
 	<HomeCard></HomeCard>
 	<NewsletterCard></NewsletterCard>
 </div>
