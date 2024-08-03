@@ -12,8 +12,8 @@
 	</svelte:fragment>
 	<svelte:fragment slot="topCenter"></svelte:fragment>
 	<svelte:fragment slot="topRight"></svelte:fragment>
-	<svelte:fragment slot="content"
-		>{#await data then { artistInfo, error }}
+	<svelte:fragment slot="content">
+		{#await data then { artistInfo, error }}
 			<StatsCard {artistInfo} {error} />
 		{/await}
 	</svelte:fragment>

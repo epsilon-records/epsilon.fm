@@ -31,7 +31,7 @@
 			height: 64,
 			autoCenter: true,
 			container: '#waveform',
-			waveColor: '#000000',
+			waveColor: '#FFA500',
 			progressColor: '#666666',
 			cursorColor: '#ff0000',
 			media: audio,
