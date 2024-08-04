@@ -1,5 +1,5 @@
 <p align="center">
-  **⚠️ CURRENTLY UNDER ACTIVE DEVELOPMENT - NOT YET GENERALLY AVAILABLE ⚠️**
+  ⚠️ <strong></strong>CURRENTLY UNDER ACTIVE DEVELOPMENT - NOT YET GENERALLY AVAILABLE</strong> ⚠️**
 </p>
 
 <h1 align="center">
