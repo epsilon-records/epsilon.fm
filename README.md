@@ -3,11 +3,11 @@
 </h1>
 
 <p align="center">
-  ⚠️ A modern open-source music distribution management system. ⚠️
+  A modern open-source music distribution management system.
 </p>
 
 <p align="center">
-  Currently under active development, not yet generally available.
+  ⚠️ Currently under active development, not yet generally available. ⚠️
 </p>
 
 <p align="center">
