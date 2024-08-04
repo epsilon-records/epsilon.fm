@@ -1,13 +1,13 @@
+<p align="center">
+  **⚠️ CURRENTLY UNDER ACTIVE DEVELOPMENT - NOT YET GENERALLY AVAILABLE ⚠️**
+</p>
+
 <h1 align="center">
   <a href="https://ms.epsilon.fm">Epsilon Management System</a>
 </h1>
 
 <p align="center">
   A modern open-source music distribution management system.
-</p>
-
-<p align="center">
-  ⚠️ Currently under active development, not yet generally available. ⚠️
 </p>
 
 <p align="center">
