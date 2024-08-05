@@ -81,12 +81,15 @@ class ArtistMediaBase(Base):
     )
 
 
-class ArtistUserBase(Base):
+class ArtistOrgBase(Base):
     clerk_org_id: str = Field(
         description="Clerk Organization ID associated with the artist",
         max_length=255,
         unique=True,
     )
+
+
+class ArtistAnalyticsBase(Base):
     soundcharts_artist_id: UUID = Field(
         description="Soundcharts Artist ID associated with the artist",
         default=None,
@@ -97,7 +100,8 @@ class ArtistUserBase(Base):
 class Artist(
     UUIDMixin,
     ArtistContentBase,
-    ArtistUserBase,
+    ArtistOrgBase,
+    ArtistAnalyticsBase,
     TimestampMixin,
     SoftDeleteMixin,
     table=True,
