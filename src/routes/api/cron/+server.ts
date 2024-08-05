@@ -21,5 +21,10 @@ export const GET = (async ({ request }) => {
 		path: { uuid: '8fab7c54-0e0f-43a5-bf62-def4792d345a' }
 	});
 	console.log(response);
+	if (response.data && response.data.items) {
+		for (const album of response.data.items) {
+			console.log(album);
+		}
+	}
 	return json({ success: true });
 }) satisfies RequestHandler;
