@@ -11,6 +11,7 @@ from src.core.common.models import SoftDeleteMixin, TimestampMixin, UUIDMixin, B
 
 class ArtistContentBase(Base):
     org_id: str = Field(max_length=255, unique=True)
+    soundcharts_id: UUID = Field(default=None, unique=True)
     email: str = Field(max_length=255)
     biography: str = Field(
         max_length=1000,
