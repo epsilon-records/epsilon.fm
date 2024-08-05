@@ -32,7 +32,7 @@
 			autoCenter: true,
 			container: '#waveform',
 			waveColor: '#4A90E2',
-			progressColor: '#F5A623',
+			progressColor: '#666666',
 			cursorColor: '#ff0000',
 			media: audio,
 			cursorWidth: 4,

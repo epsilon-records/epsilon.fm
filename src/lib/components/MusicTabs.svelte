@@ -7,6 +7,16 @@
 	import { Separator } from '$lib/components/ui/separator';
 	import * as Tabs from '$lib/components/ui/tabs';
 	import { ScrollArea } from '$lib/components/ui/scroll-area';
+	import { ArtistService } from '$lib/api/soundcharts/client/services.gen';
+
+	let artistData = ArtistService.getApiV29ArtistByUuid({
+		path: { uuid: '8fab7c54-0e0f-43a5-bf62-def4792d345a' }
+	})
+		.then((response) => response.data)
+		.catch((error) => {
+			console.error('Error fetching artist data:', error);
+			return null;
+		});
 </script>
 
 <Tabs.Root value="music" class="h-full space-y-6">

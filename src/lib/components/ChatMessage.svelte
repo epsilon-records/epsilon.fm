@@ -5,8 +5,10 @@
 	export let message: Message;
 	export let typewriter: boolean;
 
-	// Assume message has a timestamp property
-	let timestamp = new Date(message.timestamp).toLocaleTimeString();
+	let timestamp = '';
+	if (message.createdAt) {
+		timestamp = new Date(message.createdAt).toLocaleTimeString();
+	}
 </script>
 
 <div class="w-full">

@@ -18,55 +18,60 @@
 	import Header from '$lib/components/Header.svelte';
 	import { sidebarVisible } from '$lib/stores/ui';
 	import MadeWithLove from '$lib/components/MadeWithLove.svelte';
+	import { browser } from '$app/environment';
 
 	export let data: LayoutData;
 </script>
 
 <div class="app flex min-h-screen flex-col">
-	<ClerkLoading>
+	{#if !browser}
 		<Loading />
-	</ClerkLoading>
-	<ClerkLoaded>
-		<QueryClientProvider client={data.queryClient}>
-			<SignedOut>
-				<div class="flex min-h-screen w-full flex-col bg-muted/40">
-					<div
-						class="flex flex-col sm:gap-4 sm:py-4"
-						class:sm:pl-14={$sidebarVisible}
-						class:sm:pl-0={!$sidebarVisible}
-					>
-						<PageTransition key={data.url.pathname}>
-							<slot />
-						</PageTransition>
-						<div class="flex justify-center">
-							<MadeWithLove />
+	{:else}
+		<ClerkLoading>
+			<Loading />
+		</ClerkLoading>
+		<ClerkLoaded>
+			<QueryClientProvider client={data.queryClient}>
+				<SignedOut>
+					<div class="flex min-h-screen w-full flex-col bg-muted/40">
+						<div
+							class="flex flex-col sm:gap-4 sm:py-4"
+							class:sm:pl-14={$sidebarVisible}
+							class:sm:pl-0={!$sidebarVisible}
+						>
+							<PageTransition key={data.url.pathname}>
+								<slot />
+							</PageTransition>
+							<div class="flex justify-center">
+								<MadeWithLove />
+							</div>
 						</div>
 					</div>
-				</div>
-			</SignedOut>
-			<SignedIn>
-				<div class="flex min-h-[calc(100vh-96px)] w-full flex-col bg-muted/40">
-					<Menu />
-					{#if $sidebarVisible}
-						<Aside></Aside>
-					{/if}
-					<div
-						class="flex flex-col sm:gap-4 sm:py-4"
-						class:sm:pl-14={$sidebarVisible}
-						class:sm:pl-0={!$sidebarVisible}
-					>
-						<Header />
-						<PageTransition key={data.url.pathname}>
-							<slot />
-						</PageTransition>
+				</SignedOut>
+				<SignedIn>
+					<div class="flex min-h-[calc(100vh-96px)] w-full flex-col bg-muted/40">
+						<Menu />
+						{#if $sidebarVisible}
+							<Aside></Aside>
+						{/if}
+						<div
+							class="flex flex-col sm:gap-4 sm:py-4"
+							class:sm:pl-14={$sidebarVisible}
+							class:sm:pl-0={!$sidebarVisible}
+						>
+							<Header />
+							<PageTransition key={data.url.pathname}>
+								<slot />
+							</PageTransition>
+						</div>
 					</div>
-				</div>
-				<Toaster />
-				<AudioPlayer />
-				<StatusBar />
-			</SignedIn>
-			<ModeWatcher />
-			<SvelteQueryDevtools />
-		</QueryClientProvider>
-	</ClerkLoaded>
+					<Toaster />
+					<AudioPlayer />
+					<StatusBar />
+				</SignedIn>
+				<ModeWatcher />
+				<SvelteQueryDevtools />
+			</QueryClientProvider>
+		</ClerkLoaded>
+	{/if}
 </div>

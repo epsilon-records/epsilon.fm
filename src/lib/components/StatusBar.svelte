@@ -19,7 +19,7 @@
 				<div class="flex items-center">
 					{#if $currentTrack}
 						<Badge variant={$isPlaying ? 'destructive' : 'default'}>
-							{$isPlaying ? '▶️ Now Playing:' : '⏸️ Paused:'}
+							{$isPlaying ? '⏯ Now Playing:' : '⏯ Paused:'}
 							{$currentTrack.title} - {$currentTrack.artist}
 						</Badge>
 					{/if}
