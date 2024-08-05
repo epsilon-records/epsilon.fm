@@ -82,11 +82,6 @@ class ArtistMediaBase(Base):
 
 
 class ArtistUserBase(Base):
-    user_id: UUID = Field(
-        description="User ID associated with the artist",
-        foreign_key="admin_user.id",
-        index=True,
-    )
     clerk_org_id: str = Field(
         description="Clerk Organization ID associated with the artist",
         max_length=255,
