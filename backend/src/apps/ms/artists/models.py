@@ -10,8 +10,6 @@ from src.core.common.models import SoftDeleteMixin, TimestampMixin, UUIDMixin, B
 
 
 class ArtistContentBase(Base):
-    org_id: str = Field(max_length=255, unique=True)
-    soundcharts_id: UUID = Field(default=None, unique=True)
     email: str = Field(max_length=255)
     biography: str = Field(
         max_length=1000,
@@ -88,6 +86,16 @@ class ArtistUserBase(Base):
         description="User ID associated with the artist",
         foreign_key="admin_user.id",
         index=True,
+    )
+    clerk_org_id: str = Field(
+        description="Clerk Organization ID associated with the artist",
+        max_length=255,
+        unique=True,
+    )
+    soundcharts_artist_id: UUID = Field(
+        description="Soundcharts Artist ID associated with the artist",
+        default=None,
+        unique=True,
     )
 
 
