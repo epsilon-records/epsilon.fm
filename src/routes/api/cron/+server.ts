@@ -17,7 +17,7 @@ export const GET = (async ({ request }) => {
 		request.headers.set('x-app-id', SOUNDCHARTS_APP_ID);
 		return request;
 	});
-	const response = await ArtistService.getApiV2ArtistByUuid({
+	const response = await ArtistService.getApiV2ArtistByUuidAlbums({
 		path: { uuid: '8fab7c54-0e0f-43a5-bf62-def4792d345a' }
 	});
 	console.log(response);
