@@ -82,7 +82,7 @@ class ArtistMediaBase(Base):
 
 
 class ArtistOrgBase(Base):
-    clerk_org_id: str = Field(
+    org_id: str = Field(
         description="Clerk Organization ID associated with the artist",
         max_length=255,
         unique=True,
@@ -92,6 +92,7 @@ class ArtistOrgBase(Base):
 class ArtistAnalyticsBase(Base):
     soundcharts_artist_id: UUID = Field(
         description="Soundcharts Artist ID associated with the artist",
+        nullable=True,
         default=None,
         unique=True,
     )

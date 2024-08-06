@@ -1,17 +1,22 @@
 # Built-in Dependencies
 from logging.config import fileConfig
 import asyncio
+import os
 
 # Third-Party Dependencies
 from sqlalchemy.ext.asyncio import async_engine_from_config
 from sqlalchemy.engine import Connection
 from sqlalchemy import pool
 from alembic import context
+from dotenv import load_dotenv
 
 # Local Dependencies
 from src.core.config import settings
 from src.core.common.models import Base
 import src.core.db  # noqa: F401
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Define the custom Alembic version table name
 custom_alembic_version_table_name = "_alembic_version"
@@ -21,6 +26,15 @@ config = context.config
 
 # Set the SQLAlchemy URL using the Postgres async URI from settings
 config.set_main_option(name="sqlalchemy.url", value=f"{settings.POSTGRES_ASYNC_URI}")
+
+# Override with the database URL from environment variable if it exists
+if "MIGRATE_DATABASE_URL" in os.environ:
+    config.set_main_option(
+        name="sqlalchemy.url", value=f"{os.environ['MIGRATE_DATABASE_URL']}"
+    )
+    print(
+        f"Using database URL from environment variable: {os.environ['MIGRATE_DATABASE_URL']}"
+    )
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
@@ -39,11 +53,6 @@ target_metadata.naming_convention = {
     "pk": "pk_%(table_name)s",  # Primary key
 }
 
-# Other values from the config, defined by the needs of env.py,
-# can be acquired:
-# my_important_option = config.get_main_option("my_important_option")
-# ... etc.
-
 
 def filter_db_objects(
     object,
@@ -52,19 +61,6 @@ def filter_db_objects(
     *args,
     **kwargs,
 ):
-    """
-    Filter the database objects based on the given criteria.
-
-    Args:
-        object: The database object to be filtered. # noqa: indirect usage
-        name: The name of the database object.
-        type_: The type of the database object.
-        *args: Additional positional arguments. # noqa: indirect usage
-        **kwargs: Additional keyword arguments. # noqa: indirect usage
-
-    Returns:
-        bool: True if the object should be included, False if it should be filtered out.
-    """
     if type_ == "index" and name.startswith("idx") and name.endswith("geom"):
         return False
 
@@ -72,14 +68,10 @@ def filter_db_objects(
 
 
 def do_run_migrations(connection: Connection) -> None:
-    """Perform the actual migration process.
-
-    This function is responsible for running migrations when the application is connected to a database.
-    """
     context.configure(
         connection=connection,
         target_metadata=target_metadata,
-        version_table=custom_alembic_version_table_name,  # Change the alembic version table name
+        version_table=custom_alembic_version_table_name,
     )
 
     with context.begin_transaction():
@@ -87,16 +79,12 @@ def do_run_migrations(connection: Connection) -> None:
             connection=connection,
             target_metadata=target_metadata,
             include_object=filter_db_objects,
-            version_table=custom_alembic_version_table_name,  # Change the alembic version table name
+            version_table=custom_alembic_version_table_name,
         )
         context.run_migrations()
 
 
 async def run_async_migrations() -> None:
-    """Run migrations asynchronously.
-
-    This function is responsible for running migrations in an asynchronous manner.
-    """
     connectable = async_engine_from_config(
         config.get_section(config.config_ini_section, {}),
         prefix="sqlalchemy.",
@@ -111,13 +99,6 @@ async def run_async_migrations() -> None:
 
 
 def run_migrations_offline() -> None:
-    """Run migrations in 'offline' mode.
-
-    This configures the context with just a URL and not an Engine, though an Engine is acceptable here as well.
-    By skipping the Engine creation, we don't even need a DBAPI to be available.
-
-    This function is responsible for running migrations when the application is not connected to a database.
-    """
     url = config.get_main_option("sqlalchemy.url")
     context.configure(
         url=url,
@@ -125,7 +106,7 @@ def run_migrations_offline() -> None:
         literal_binds=True,
         dialect_opts={"paramstyle": "named"},
         include_object=filter_db_objects,
-        version_table=custom_alembic_version_table_name,  # Change the alembic version table name
+        version_table=custom_alembic_version_table_name,
     )
 
     with context.begin_transaction():
@@ -133,10 +114,6 @@ def run_migrations_offline() -> None:
 
 
 def run_migrations_online() -> None:
-    """Run migrations in 'online' mode.
-
-    This function is responsible for running migrations when the application is online.
-    """
     asyncio.run(run_async_migrations())
 
 
