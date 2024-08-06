@@ -10,7 +10,7 @@ on:
       # https://docs.github.com/actions/using-workflows/events-that-trigger-workflows
       - main
   schedule:
-    - cron: '* * * * *'
+    - cron: '0 * * * *'
 
 jobs:
   rdme-openapi:
