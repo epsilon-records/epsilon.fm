@@ -475,8 +475,11 @@ export class AlbumService {
 	/**
 	 * Get album metadata
 	 */
-	public static getApiV2AlbumByUuidByUuid(options: Options<GetApiV2AlbumByUuidByUuidData>) {
+	public static getApiV2AlbumByUuidByUuid<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2AlbumByUuidByUuidData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2AlbumByUuidByUuidResponse,
 			GetApiV2AlbumByUuidByUuidError
 		>({
@@ -488,8 +491,11 @@ export class AlbumService {
 	/**
 	 * Get album metadata (deprecated)
 	 */
-	public static getApiV2AlbumBySlugBySlug(options: Options<GetApiV2AlbumBySlugBySlugData>) {
+	public static getApiV2AlbumBySlugBySlug<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2AlbumBySlugBySlugData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2AlbumBySlugBySlugResponse,
 			GetApiV2AlbumBySlugBySlugError
 		>({
@@ -501,8 +507,11 @@ export class AlbumService {
 	/**
 	 * Get album metadata (deprecated)
 	 */
-	public static getApiV215AlbumBySlugBySlug(options: Options<GetApiV215AlbumBySlugBySlugData>) {
+	public static getApiV215AlbumBySlugBySlug<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV215AlbumBySlugBySlugData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV215AlbumBySlugBySlugResponse,
 			GetApiV215AlbumBySlugBySlugError
 		>({
@@ -514,8 +523,11 @@ export class AlbumService {
 	/**
 	 * Get album by UPC
 	 */
-	public static getApiV2AlbumByUpcByUpc(options: Options<GetApiV2AlbumByUpcByUpcData>) {
+	public static getApiV2AlbumByUpcByUpc<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2AlbumByUpcByUpcData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2AlbumByUpcByUpcResponse,
 			GetApiV2AlbumByUpcByUpcError
 		>({
@@ -527,8 +539,11 @@ export class AlbumService {
 	/**
 	 * Get album by UPC
 	 */
-	public static getApiV215AlbumByUpcByUpc(options: Options<GetApiV215AlbumByUpcByUpcData>) {
+	public static getApiV215AlbumByUpcByUpc<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV215AlbumByUpcByUpcData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV215AlbumByUpcByUpcResponse,
 			GetApiV215AlbumByUpcByUpcError
 		>({
@@ -540,8 +555,11 @@ export class AlbumService {
 	/**
 	 * Get album by UPC
 	 */
-	public static getApiV226AlbumByUpcByUpc(options: Options<GetApiV226AlbumByUpcByUpcData>) {
+	public static getApiV226AlbumByUpcByUpc<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV226AlbumByUpcByUpcData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV226AlbumByUpcByUpcResponse,
 			GetApiV226AlbumByUpcByUpcError
 		>({
@@ -553,10 +571,11 @@ export class AlbumService {
 	/**
 	 * Get album by platform ID
 	 */
-	public static getApiV2AlbumByPlatformByPlatformByIdentifier(
-		options: Options<GetApiV2AlbumByPlatformByPlatformByIdentifierData>
+	public static getApiV2AlbumByPlatformByPlatformByIdentifier<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2AlbumByPlatformByPlatformByIdentifierData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2AlbumByPlatformByPlatformByIdentifierResponse,
 			GetApiV2AlbumByPlatformByPlatformByIdentifierError
 		>({
@@ -568,10 +587,11 @@ export class AlbumService {
 	/**
 	 * Get album by platform ID
 	 */
-	public static getApiV215AlbumByPlatformByPlatformByIdentifier(
-		options: Options<GetApiV215AlbumByPlatformByPlatformByIdentifierData>
-	) {
+	public static getApiV215AlbumByPlatformByPlatformByIdentifier<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV215AlbumByPlatformByPlatformByIdentifierData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV215AlbumByPlatformByPlatformByIdentifierResponse,
 			GetApiV215AlbumByPlatformByPlatformByIdentifierError
 		>({
@@ -583,10 +603,11 @@ export class AlbumService {
 	/**
 	 * Get album by platform ID
 	 */
-	public static getApiV226AlbumByPlatformByPlatformByIdentifier(
-		options: Options<GetApiV226AlbumByPlatformByPlatformByIdentifierData>
-	) {
+	public static getApiV226AlbumByPlatformByPlatformByIdentifier<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV226AlbumByPlatformByPlatformByIdentifierData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV226AlbumByPlatformByPlatformByIdentifierResponse,
 			GetApiV226AlbumByPlatformByPlatformByIdentifierError
 		>({
@@ -598,10 +619,11 @@ export class AlbumService {
 	/**
 	 * Get IDs
 	 */
-	public static getApiV226AlbumByUuidIdentifiers(
-		options: Options<GetApiV226AlbumByUuidIdentifiersData>
+	public static getApiV226AlbumByUuidIdentifiers<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV226AlbumByUuidIdentifiersData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV226AlbumByUuidIdentifiersResponse,
 			GetApiV226AlbumByUuidIdentifiersError
 		>({
@@ -613,10 +635,11 @@ export class AlbumService {
 	/**
 	 * Get IDs (deprecated)
 	 */
-	public static getApiV2AlbumBySlugIdentifiers(
-		options: Options<GetApiV2AlbumBySlugIdentifiersData>
+	public static getApiV2AlbumBySlugIdentifiers<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2AlbumBySlugIdentifiersData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2AlbumBySlugIdentifiersResponse,
 			GetApiV2AlbumBySlugIdentifiersError
 		>({
@@ -628,8 +651,11 @@ export class AlbumService {
 	/**
 	 * Get tracklisting
 	 */
-	public static getApiV226AlbumByUuidTracks(options: Options<GetApiV226AlbumByUuidTracksData>) {
+	public static getApiV226AlbumByUuidTracks<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV226AlbumByUuidTracksData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV226AlbumByUuidTracksResponse,
 			GetApiV226AlbumByUuidTracksError
 		>({
@@ -641,8 +667,11 @@ export class AlbumService {
 	/**
 	 * Get tracklisting (deprecated)
 	 */
-	public static getApiV2AlbumBySlugTracks(options: Options<GetApiV2AlbumBySlugTracksData>) {
+	public static getApiV2AlbumBySlugTracks<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2AlbumBySlugTracksData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2AlbumBySlugTracksResponse,
 			GetApiV2AlbumBySlugTracksError
 		>({
@@ -654,10 +683,11 @@ export class AlbumService {
 	/**
 	 * Get chart entries
 	 */
-	public static getApiV226AlbumByUuidChartsRanksByPlatform(
-		options: Options<GetApiV226AlbumByUuidChartsRanksByPlatformData>
+	public static getApiV226AlbumByUuidChartsRanksByPlatform<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV226AlbumByUuidChartsRanksByPlatformData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV226AlbumByUuidChartsRanksByPlatformResponse,
 			GetApiV226AlbumByUuidChartsRanksByPlatformError
 		>({
@@ -669,10 +699,11 @@ export class AlbumService {
 	/**
 	 * Get chart entries (deprecated)
 	 */
-	public static getApiV2AlbumBySlugChartsRanksByPlatform(
-		options: Options<GetApiV2AlbumBySlugChartsRanksByPlatformData>
+	public static getApiV2AlbumBySlugChartsRanksByPlatform<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2AlbumBySlugChartsRanksByPlatformData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2AlbumBySlugChartsRanksByPlatformResponse,
 			GetApiV2AlbumBySlugChartsRanksByPlatformError
 		>({
@@ -686,20 +717,27 @@ export class ArtistService {
 	/**
 	 * Get artist metadata
 	 */
-	public static getApiV2ArtistByUuid(options: Options<GetApiV2ArtistByUuidData>) {
-		return (options?.client ?? client).get<GetApiV2ArtistByUuidResponse, GetApiV2ArtistByUuidError>(
-			{
-				...options,
-				url: '/api/v2/artist/{uuid}'
-			}
-		);
+	public static getApiV2ArtistByUuid<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ArtistByUuidData, ThrowOnError>
+	) {
+		return (options?.client ?? client).get<
+			ThrowOnError,
+			GetApiV2ArtistByUuidResponse,
+			GetApiV2ArtistByUuidError
+		>({
+			...options,
+			url: '/api/v2/artist/{uuid}'
+		});
 	}
 
 	/**
 	 * Get artist metadata
 	 */
-	public static getApiV29ArtistByUuid(options: Options<GetApiV29ArtistByUuidData>) {
+	public static getApiV29ArtistByUuid<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV29ArtistByUuidData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV29ArtistByUuidResponse,
 			GetApiV29ArtistByUuidError
 		>({
@@ -711,10 +749,11 @@ export class ArtistService {
 	/**
 	 * Get artist by platform ID
 	 */
-	public static getApiV2ArtistByPlatformByPlatformByIdentifier(
-		options: Options<GetApiV2ArtistByPlatformByPlatformByIdentifierData>
-	) {
+	public static getApiV2ArtistByPlatformByPlatformByIdentifier<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV2ArtistByPlatformByPlatformByIdentifierData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByPlatformByPlatformByIdentifierResponse,
 			GetApiV2ArtistByPlatformByPlatformByIdentifierError
 		>({
@@ -726,10 +765,11 @@ export class ArtistService {
 	/**
 	 * Get artist by platform ID
 	 */
-	public static getApiV29ArtistByPlatformByPlatformByIdentifier(
-		options: Options<GetApiV29ArtistByPlatformByPlatformByIdentifierData>
-	) {
+	public static getApiV29ArtistByPlatformByPlatformByIdentifier<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV29ArtistByPlatformByPlatformByIdentifierData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV29ArtistByPlatformByPlatformByIdentifierResponse,
 			GetApiV29ArtistByPlatformByPlatformByIdentifierError
 		>({
@@ -741,10 +781,11 @@ export class ArtistService {
 	/**
 	 * Get artists by country (deprecated)
 	 */
-	public static getApiV2ArtistByCountryByCountryCode(
-		options: Options<GetApiV2ArtistByCountryByCountryCodeData>
+	public static getApiV2ArtistByCountryByCountryCode<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ArtistByCountryByCountryCodeData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByCountryByCountryCodeResponse,
 			GetApiV2ArtistByCountryByCountryCodeError
 		>({
@@ -756,10 +797,11 @@ export class ArtistService {
 	/**
 	 * Get IDs
 	 */
-	public static getApiV2ArtistByUuidIdentifiers(
-		options: Options<GetApiV2ArtistByUuidIdentifiersData>
+	public static getApiV2ArtistByUuidIdentifiers<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ArtistByUuidIdentifiersData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidIdentifiersResponse,
 			GetApiV2ArtistByUuidIdentifiersError
 		>({
@@ -771,8 +813,11 @@ export class ArtistService {
 	/**
 	 * Get songs
 	 */
-	public static getApiV2ArtistByUuidSongs(options: Options<GetApiV2ArtistByUuidSongsData>) {
+	public static getApiV2ArtistByUuidSongs<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ArtistByUuidSongsData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidSongsResponse,
 			GetApiV2ArtistByUuidSongsError
 		>({
@@ -784,8 +829,11 @@ export class ArtistService {
 	/**
 	 * Get songs
 	 */
-	public static getApiV221ArtistByUuidSongs(options: Options<GetApiV221ArtistByUuidSongsData>) {
+	public static getApiV221ArtistByUuidSongs<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV221ArtistByUuidSongsData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV221ArtistByUuidSongsResponse,
 			GetApiV221ArtistByUuidSongsError
 		>({
@@ -797,8 +845,11 @@ export class ArtistService {
 	/**
 	 * Get albums
 	 */
-	public static getApiV2ArtistByUuidAlbums(options: Options<GetApiV2ArtistByUuidAlbumsData>) {
+	public static getApiV2ArtistByUuidAlbums<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ArtistByUuidAlbumsData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidAlbumsResponse,
 			GetApiV2ArtistByUuidAlbumsError
 		>({
@@ -810,8 +861,11 @@ export class ArtistService {
 	/**
 	 * Get albums
 	 */
-	public static getApiV218ArtistByUuidAlbums(options: Options<GetApiV218ArtistByUuidAlbumsData>) {
+	public static getApiV218ArtistByUuidAlbums<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV218ArtistByUuidAlbumsData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV218ArtistByUuidAlbumsResponse,
 			GetApiV218ArtistByUuidAlbumsError
 		>({
@@ -823,8 +877,11 @@ export class ArtistService {
 	/**
 	 * Get albums
 	 */
-	public static getApiV226ArtistByUuidAlbums(options: Options<GetApiV226ArtistByUuidAlbumsData>) {
+	public static getApiV226ArtistByUuidAlbums<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV226ArtistByUuidAlbumsData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV226ArtistByUuidAlbumsResponse,
 			GetApiV226ArtistByUuidAlbumsError
 		>({
@@ -836,8 +893,11 @@ export class ArtistService {
 	/**
 	 * Get albums
 	 */
-	public static getApiV234ArtistByUuidAlbums(options: Options<GetApiV234ArtistByUuidAlbumsData>) {
+	public static getApiV234ArtistByUuidAlbums<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV234ArtistByUuidAlbumsData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV234ArtistByUuidAlbumsResponse,
 			GetApiV234ArtistByUuidAlbumsError
 		>({
@@ -849,8 +909,11 @@ export class ArtistService {
 	/**
 	 * Get similar artists
 	 */
-	public static getApiV2ArtistByUuidRelated(options: Options<GetApiV2ArtistByUuidRelatedData>) {
+	public static getApiV2ArtistByUuidRelated<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ArtistByUuidRelatedData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidRelatedResponse,
 			GetApiV2ArtistByUuidRelatedError
 		>({
@@ -862,10 +925,11 @@ export class ArtistService {
 	/**
 	 * Get audience
 	 */
-	public static getApiV2ArtistByUuidAudienceByPlatform(
-		options: Options<GetApiV2ArtistByUuidAudienceByPlatformData>
+	public static getApiV2ArtistByUuidAudienceByPlatform<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ArtistByUuidAudienceByPlatformData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidAudienceByPlatformResponse,
 			GetApiV2ArtistByUuidAudienceByPlatformError
 		>({
@@ -877,10 +941,13 @@ export class ArtistService {
 	/**
 	 * Get local audience
 	 */
-	public static getApiV2ArtistByUuidSocialByPlatformFollowersByYearByMonth(
-		options: Options<GetApiV2ArtistByUuidSocialByPlatformFollowersByYearByMonthData>
+	public static getApiV2ArtistByUuidSocialByPlatformFollowersByYearByMonth<
+		ThrowOnError extends boolean = false
+	>(
+		options: Options<GetApiV2ArtistByUuidSocialByPlatformFollowersByYearByMonthData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidSocialByPlatformFollowersByYearByMonthResponse,
 			GetApiV2ArtistByUuidSocialByPlatformFollowersByYearByMonthError
 		>({
@@ -892,10 +959,11 @@ export class ArtistService {
 	/**
 	 * Get followers
 	 */
-	public static getApiV2ArtistByUuidSocialByPlatform(
-		options: Options<GetApiV2ArtistByUuidSocialByPlatformData>
+	public static getApiV2ArtistByUuidSocialByPlatform<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ArtistByUuidSocialByPlatformData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidSocialByPlatformResponse,
 			GetApiV2ArtistByUuidSocialByPlatformError
 		>({
@@ -907,10 +975,11 @@ export class ArtistService {
 	/**
 	 * Get listeners/streams/views
 	 */
-	public static getApiV2ArtistByUuidStreamingByPlatformListening(
-		options: Options<GetApiV2ArtistByUuidStreamingByPlatformListeningData>
-	) {
+	public static getApiV2ArtistByUuidStreamingByPlatformListening<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV2ArtistByUuidStreamingByPlatformListeningData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidStreamingByPlatformListeningResponse,
 			GetApiV2ArtistByUuidStreamingByPlatformListeningError
 		>({
@@ -922,10 +991,11 @@ export class ArtistService {
 	/**
 	 * Get Spotify monthly listeners - latest
 	 */
-	public static getApiV2ArtistByUuidStreamingSpotifyListeners(
-		options: Options<GetApiV2ArtistByUuidStreamingSpotifyListenersData>
+	public static getApiV2ArtistByUuidStreamingSpotifyListeners<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ArtistByUuidStreamingSpotifyListenersData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidStreamingSpotifyListenersResponse,
 			GetApiV2ArtistByUuidStreamingSpotifyListenersError
 		>({
@@ -937,10 +1007,13 @@ export class ArtistService {
 	/**
 	 * Get Spotify monthly listeners by month
 	 */
-	public static getApiV2ArtistByUuidStreamingSpotifyListenersByYearByMonth(
-		options: Options<GetApiV2ArtistByUuidStreamingSpotifyListenersByYearByMonthData>
+	public static getApiV2ArtistByUuidStreamingSpotifyListenersByYearByMonth<
+		ThrowOnError extends boolean = false
+	>(
+		options: Options<GetApiV2ArtistByUuidStreamingSpotifyListenersByYearByMonthData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidStreamingSpotifyListenersByYearByMonthResponse,
 			GetApiV2ArtistByUuidStreamingSpotifyListenersByYearByMonthError
 		>({
@@ -952,10 +1025,11 @@ export class ArtistService {
 	/**
 	 * Get YouTube views - latest
 	 */
-	public static getApiV2ArtistByUuidStreamingYoutubeViews(
-		options: Options<GetApiV2ArtistByUuidStreamingYoutubeViewsData>
+	public static getApiV2ArtistByUuidStreamingYoutubeViews<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ArtistByUuidStreamingYoutubeViewsData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidStreamingYoutubeViewsResponse,
 			GetApiV2ArtistByUuidStreamingYoutubeViewsError
 		>({
@@ -967,10 +1041,11 @@ export class ArtistService {
 	/**
 	 * Get YouTube views by month
 	 */
-	public static getApiV2ArtistByUuidStreamingYoutubeViewsByYearByMonth(
-		options: Options<GetApiV2ArtistByUuidStreamingYoutubeViewsByYearByMonthData>
-	) {
+	public static getApiV2ArtistByUuidStreamingYoutubeViewsByYearByMonth<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV2ArtistByUuidStreamingYoutubeViewsByYearByMonthData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidStreamingYoutubeViewsByYearByMonthResponse,
 			GetApiV2ArtistByUuidStreamingYoutubeViewsByYearByMonthError
 		>({
@@ -982,10 +1057,11 @@ export class ArtistService {
 	/**
 	 * Get retention
 	 */
-	public static getApiV2ArtistByUuidByPlatformRetention(
-		options: Options<GetApiV2ArtistByUuidByPlatformRetentionData>
+	public static getApiV2ArtistByUuidByPlatformRetention<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ArtistByUuidByPlatformRetentionData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidByPlatformRetentionResponse,
 			GetApiV2ArtistByUuidByPlatformRetentionError
 		>({
@@ -997,10 +1073,11 @@ export class ArtistService {
 	/**
 	 * Get Spotify popularity
 	 */
-	public static getApiV2ArtistByUuidSpotifyPopularity(
-		options: Options<GetApiV2ArtistByUuidSpotifyPopularityData>
+	public static getApiV2ArtistByUuidSpotifyPopularity<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ArtistByUuidSpotifyPopularityData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidSpotifyPopularityResponse,
 			GetApiV2ArtistByUuidSpotifyPopularityError
 		>({
@@ -1012,10 +1089,11 @@ export class ArtistService {
 	/**
 	 * Get audience report - latest
 	 */
-	public static getApiV2ArtistByUuidAudienceByPlatformReportLatest(
-		options: Options<GetApiV2ArtistByUuidAudienceByPlatformReportLatestData>
-	) {
+	public static getApiV2ArtistByUuidAudienceByPlatformReportLatest<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV2ArtistByUuidAudienceByPlatformReportLatestData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidAudienceByPlatformReportLatestResponse,
 			GetApiV2ArtistByUuidAudienceByPlatformReportLatestError
 		>({
@@ -1027,10 +1105,13 @@ export class ArtistService {
 	/**
 	 * Get audience report dates
 	 */
-	public static getApiV2ArtistByUuidAudienceByPlatformReportAvailableDates(
-		options: Options<GetApiV2ArtistByUuidAudienceByPlatformReportAvailableDatesData>
+	public static getApiV2ArtistByUuidAudienceByPlatformReportAvailableDates<
+		ThrowOnError extends boolean = false
+	>(
+		options: Options<GetApiV2ArtistByUuidAudienceByPlatformReportAvailableDatesData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidAudienceByPlatformReportAvailableDatesResponse,
 			GetApiV2ArtistByUuidAudienceByPlatformReportAvailableDatesError
 		>({
@@ -1042,10 +1123,11 @@ export class ArtistService {
 	/**
 	 * Get audience report for a date
 	 */
-	public static getApiV2ArtistByUuidAudienceByPlatformReportByDate(
-		options: Options<GetApiV2ArtistByUuidAudienceByPlatformReportByDateData>
-	) {
+	public static getApiV2ArtistByUuidAudienceByPlatformReportByDate<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV2ArtistByUuidAudienceByPlatformReportByDateData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidAudienceByPlatformReportByDateResponse,
 			GetApiV2ArtistByUuidAudienceByPlatformReportByDateError
 		>({
@@ -1057,10 +1139,11 @@ export class ArtistService {
 	/**
 	 * Get chart song entries
 	 */
-	public static getApiV2ArtistByUuidChartsSongRanksByPlatform(
-		options: Options<GetApiV2ArtistByUuidChartsSongRanksByPlatformData>
+	public static getApiV2ArtistByUuidChartsSongRanksByPlatform<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ArtistByUuidChartsSongRanksByPlatformData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidChartsSongRanksByPlatformResponse,
 			GetApiV2ArtistByUuidChartsSongRanksByPlatformError
 		>({
@@ -1072,10 +1155,11 @@ export class ArtistService {
 	/**
 	 * Get chart album entries
 	 */
-	public static getApiV2ArtistByUuidChartsAlbumRanksByPlatform(
-		options: Options<GetApiV2ArtistByUuidChartsAlbumRanksByPlatformData>
-	) {
+	public static getApiV2ArtistByUuidChartsAlbumRanksByPlatform<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV2ArtistByUuidChartsAlbumRanksByPlatformData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidChartsAlbumRanksByPlatformResponse,
 			GetApiV2ArtistByUuidChartsAlbumRanksByPlatformError
 		>({
@@ -1087,10 +1171,11 @@ export class ArtistService {
 	/**
 	 * Get chart album entries
 	 */
-	public static getApiV228ArtistByUuidChartsAlbumRanksByPlatform(
-		options: Options<GetApiV228ArtistByUuidChartsAlbumRanksByPlatformData>
-	) {
+	public static getApiV228ArtistByUuidChartsAlbumRanksByPlatform<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV228ArtistByUuidChartsAlbumRanksByPlatformData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV228ArtistByUuidChartsAlbumRanksByPlatformResponse,
 			GetApiV228ArtistByUuidChartsAlbumRanksByPlatformError
 		>({
@@ -1102,10 +1187,11 @@ export class ArtistService {
 	/**
 	 * Get playlist entries
 	 */
-	public static getApiV2ArtistByUuidPlaylistCurrentByPlatform(
-		options: Options<GetApiV2ArtistByUuidPlaylistCurrentByPlatformData>
+	public static getApiV2ArtistByUuidPlaylistCurrentByPlatform<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ArtistByUuidPlaylistCurrentByPlatformData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidPlaylistCurrentByPlatformResponse,
 			GetApiV2ArtistByUuidPlaylistCurrentByPlatformError
 		>({
@@ -1117,10 +1203,11 @@ export class ArtistService {
 	/**
 	 * Get playlist entries
 	 */
-	public static getApiV220ArtistByUuidPlaylistCurrentByPlatform(
-		options: Options<GetApiV220ArtistByUuidPlaylistCurrentByPlatformData>
-	) {
+	public static getApiV220ArtistByUuidPlaylistCurrentByPlatform<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV220ArtistByUuidPlaylistCurrentByPlatformData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV220ArtistByUuidPlaylistCurrentByPlatformResponse,
 			GetApiV220ArtistByUuidPlaylistCurrentByPlatformError
 		>({
@@ -1132,10 +1219,11 @@ export class ArtistService {
 	/**
 	 * Get radio spins
 	 */
-	public static getApiV2ArtistByUuidBroadcasts(
-		options: Options<GetApiV2ArtistByUuidBroadcastsData>
+	public static getApiV2ArtistByUuidBroadcasts<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ArtistByUuidBroadcastsData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidBroadcastsResponse,
 			GetApiV2ArtistByUuidBroadcastsError
 		>({
@@ -1147,10 +1235,11 @@ export class ArtistService {
 	/**
 	 * Get Songkick events
 	 */
-	public static getApiV2ArtistByUuidSongkickEvents(
-		options: Options<GetApiV2ArtistByUuidSongkickEventsData>
+	public static getApiV2ArtistByUuidSongkickEvents<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ArtistByUuidSongkickEventsData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistByUuidSongkickEventsResponse,
 			GetApiV2ArtistByUuidSongkickEventsError
 		>({
@@ -1162,10 +1251,11 @@ export class ArtistService {
 	/**
 	 * Get Songkick events
 	 */
-	public static getApiV219ArtistByUuidSongkickEvents(
-		options: Options<GetApiV219ArtistByUuidSongkickEventsData>
+	public static getApiV219ArtistByUuidSongkickEvents<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV219ArtistByUuidSongkickEventsData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV219ArtistByUuidSongkickEventsResponse,
 			GetApiV219ArtistByUuidSongkickEventsError
 		>({
@@ -1177,10 +1267,11 @@ export class ArtistService {
 	/**
 	 * Add links
 	 */
-	public static postApiV2ArtistByUuidSourcesAdd(
-		options: Options<PostApiV2ArtistByUuidSourcesAddData>
+	public static postApiV2ArtistByUuidSourcesAdd<ThrowOnError extends boolean = false>(
+		options: Options<PostApiV2ArtistByUuidSourcesAddData, ThrowOnError>
 	) {
 		return (options?.client ?? client).post<
+			ThrowOnError,
 			PostApiV2ArtistByUuidSourcesAddResponse,
 			PostApiV2ArtistByUuidSourcesAddError
 		>({
@@ -1194,10 +1285,11 @@ export class ChartService {
 	/**
 	 * Get artist ranking
 	 */
-	public static getApiV2TopArtistByPlatformByMetricType(
-		options: Options<GetApiV2TopArtistByPlatformByMetricTypeData>
+	public static getApiV2TopArtistByPlatformByMetricType<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2TopArtistByPlatformByMetricTypeData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2TopArtistByPlatformByMetricTypeResponse,
 			GetApiV2TopArtistByPlatformByMetricTypeError
 		>({
@@ -1209,10 +1301,13 @@ export class ChartService {
 	/**
 	 * Get artist ranking for a country
 	 */
-	public static getApiV2TopArtistCountryByCountryCodeByPlatformByMetricType(
-		options: Options<GetApiV2TopArtistCountryByCountryCodeByPlatformByMetricTypeData>
+	public static getApiV2TopArtistCountryByCountryCodeByPlatformByMetricType<
+		ThrowOnError extends boolean = false
+	>(
+		options: Options<GetApiV2TopArtistCountryByCountryCodeByPlatformByMetricTypeData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2TopArtistCountryByCountryCodeByPlatformByMetricTypeResponse,
 			GetApiV2TopArtistCountryByCountryCodeByPlatformByMetricTypeError
 		>({
@@ -1224,10 +1319,11 @@ export class ChartService {
 	/**
 	 * Get artist ranking for a city
 	 */
-	public static getApiV2TopArtistCityByCityKeyByPlatformByMetricType(
-		options: Options<GetApiV2TopArtistCityByCityKeyByPlatformByMetricTypeData>
-	) {
+	public static getApiV2TopArtistCityByCityKeyByPlatformByMetricType<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV2TopArtistCityByCityKeyByPlatformByMetricTypeData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2TopArtistCityByCityKeyByPlatformByMetricTypeResponse,
 			GetApiV2TopArtistCityByCityKeyByPlatformByMetricTypeError
 		>({
@@ -1239,10 +1335,11 @@ export class ChartService {
 	/**
 	 * Get song ranking
 	 */
-	public static getApiV2TopSongByPlatformByMetricType(
-		options: Options<GetApiV2TopSongByPlatformByMetricTypeData>
+	public static getApiV2TopSongByPlatformByMetricType<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2TopSongByPlatformByMetricTypeData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2TopSongByPlatformByMetricTypeResponse,
 			GetApiV2TopSongByPlatformByMetricTypeError
 		>({
@@ -1254,10 +1351,11 @@ export class ChartService {
 	/**
 	 * Get radio ranking
 	 */
-	public static getApiV2TopRadioByPlatformByMetricType(
-		options: Options<GetApiV2TopRadioByPlatformByMetricTypeData>
+	public static getApiV2TopRadioByPlatformByMetricType<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2TopRadioByPlatformByMetricTypeData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2TopRadioByPlatformByMetricTypeResponse,
 			GetApiV2TopRadioByPlatformByMetricTypeError
 		>({
@@ -1269,10 +1367,11 @@ export class ChartService {
 	/**
 	 * Get song chart list by platform
 	 */
-	public static getApiV2ChartSongByPlatformByPlatform(
-		options: Options<GetApiV2ChartSongByPlatformByPlatformData>
+	public static getApiV2ChartSongByPlatformByPlatform<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ChartSongByPlatformByPlatformData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ChartSongByPlatformByPlatformResponse,
 			GetApiV2ChartSongByPlatformByPlatformError
 		>({
@@ -1284,10 +1383,11 @@ export class ChartService {
 	/**
 	 * Get song ranking - latest
 	 */
-	public static getApiV2ChartSongBySlugRankingLatest(
-		options: Options<GetApiV2ChartSongBySlugRankingLatestData>
+	public static getApiV2ChartSongBySlugRankingLatest<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ChartSongBySlugRankingLatestData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ChartSongBySlugRankingLatestResponse,
 			GetApiV2ChartSongBySlugRankingLatestError
 		>({
@@ -1299,10 +1399,11 @@ export class ChartService {
 	/**
 	 * Get song ranking - latest
 	 */
-	public static getApiV214ChartSongBySlugRankingLatest(
-		options: Options<GetApiV214ChartSongBySlugRankingLatestData>
+	public static getApiV214ChartSongBySlugRankingLatest<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV214ChartSongBySlugRankingLatestData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV214ChartSongBySlugRankingLatestResponse,
 			GetApiV214ChartSongBySlugRankingLatestError
 		>({
@@ -1314,10 +1415,11 @@ export class ChartService {
 	/**
 	 * Get song ranking dates
 	 */
-	public static getApiV2ChartSongBySlugAvailableRankings(
-		options: Options<GetApiV2ChartSongBySlugAvailableRankingsData>
+	public static getApiV2ChartSongBySlugAvailableRankings<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ChartSongBySlugAvailableRankingsData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ChartSongBySlugAvailableRankingsResponse,
 			GetApiV2ChartSongBySlugAvailableRankingsError
 		>({
@@ -1329,10 +1431,11 @@ export class ChartService {
 	/**
 	 * Get song ranking for a date
 	 */
-	public static getApiV2ChartSongBySlugRankingByDatetime(
-		options: Options<GetApiV2ChartSongBySlugRankingByDatetimeData>
+	public static getApiV2ChartSongBySlugRankingByDatetime<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ChartSongBySlugRankingByDatetimeData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ChartSongBySlugRankingByDatetimeResponse,
 			GetApiV2ChartSongBySlugRankingByDatetimeError
 		>({
@@ -1344,10 +1447,11 @@ export class ChartService {
 	/**
 	 * Get song ranking for a date
 	 */
-	public static getApiV214ChartSongBySlugRankingByDatetime(
-		options: Options<GetApiV214ChartSongBySlugRankingByDatetimeData>
+	public static getApiV214ChartSongBySlugRankingByDatetime<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV214ChartSongBySlugRankingByDatetimeData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV214ChartSongBySlugRankingByDatetimeResponse,
 			GetApiV214ChartSongBySlugRankingByDatetimeError
 		>({
@@ -1359,10 +1463,11 @@ export class ChartService {
 	/**
 	 * Get album chart list by platform
 	 */
-	public static getApiV2ChartAlbumByPlatformByPlatform(
-		options: Options<GetApiV2ChartAlbumByPlatformByPlatformData>
+	public static getApiV2ChartAlbumByPlatformByPlatform<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ChartAlbumByPlatformByPlatformData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ChartAlbumByPlatformByPlatformResponse,
 			GetApiV2ChartAlbumByPlatformByPlatformError
 		>({
@@ -1374,10 +1479,11 @@ export class ChartService {
 	/**
 	 * Get album ranking - latest
 	 */
-	public static getApiV2ChartAlbumBySlugRankingLatest(
-		options: Options<GetApiV2ChartAlbumBySlugRankingLatestData>
+	public static getApiV2ChartAlbumBySlugRankingLatest<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ChartAlbumBySlugRankingLatestData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ChartAlbumBySlugRankingLatestResponse,
 			GetApiV2ChartAlbumBySlugRankingLatestError
 		>({
@@ -1389,10 +1495,11 @@ export class ChartService {
 	/**
 	 * Get album ranking - latest
 	 */
-	public static getApiV226ChartAlbumBySlugRankingLatest(
-		options: Options<GetApiV226ChartAlbumBySlugRankingLatestData>
+	public static getApiV226ChartAlbumBySlugRankingLatest<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV226ChartAlbumBySlugRankingLatestData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV226ChartAlbumBySlugRankingLatestResponse,
 			GetApiV226ChartAlbumBySlugRankingLatestError
 		>({
@@ -1404,10 +1511,11 @@ export class ChartService {
 	/**
 	 * Get album ranking dates
 	 */
-	public static getApiV2ChartAlbumBySlugAvailableRankings(
-		options: Options<GetApiV2ChartAlbumBySlugAvailableRankingsData>
+	public static getApiV2ChartAlbumBySlugAvailableRankings<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ChartAlbumBySlugAvailableRankingsData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ChartAlbumBySlugAvailableRankingsResponse,
 			GetApiV2ChartAlbumBySlugAvailableRankingsError
 		>({
@@ -1419,10 +1527,11 @@ export class ChartService {
 	/**
 	 * Get album ranking for a date
 	 */
-	public static getApiV2ChartAlbumBySlugRankingByDatetime(
-		options: Options<GetApiV2ChartAlbumBySlugRankingByDatetimeData>
+	public static getApiV2ChartAlbumBySlugRankingByDatetime<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ChartAlbumBySlugRankingByDatetimeData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ChartAlbumBySlugRankingByDatetimeResponse,
 			GetApiV2ChartAlbumBySlugRankingByDatetimeError
 		>({
@@ -1434,10 +1543,11 @@ export class ChartService {
 	/**
 	 * Get album ranking for a date
 	 */
-	public static getApiV226ChartAlbumBySlugRankingByDatetime(
-		options: Options<GetApiV226ChartAlbumBySlugRankingByDatetimeData>
+	public static getApiV226ChartAlbumBySlugRankingByDatetime<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV226ChartAlbumBySlugRankingByDatetimeData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV226ChartAlbumBySlugRankingByDatetimeResponse,
 			GetApiV226ChartAlbumBySlugRankingByDatetimeError
 		>({
@@ -1449,10 +1559,11 @@ export class ChartService {
 	/**
 	 * Get TikTok music links ranking - latest
 	 */
-	public static getApiV2ChartTiktokMusicWeeklyRankingLatest(
-		options?: Options<GetApiV2ChartTiktokMusicWeeklyRankingLatestData>
+	public static getApiV2ChartTiktokMusicWeeklyRankingLatest<ThrowOnError extends boolean = false>(
+		options?: Options<GetApiV2ChartTiktokMusicWeeklyRankingLatestData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ChartTiktokMusicWeeklyRankingLatestResponse,
 			GetApiV2ChartTiktokMusicWeeklyRankingLatestError
 		>({
@@ -1464,10 +1575,11 @@ export class ChartService {
 	/**
 	 * Get TikTok music links ranking dates
 	 */
-	public static getApiV2ChartTiktokMusicWeeklyAvailableRankings(
-		options?: Options<GetApiV2ChartTiktokMusicWeeklyAvailableRankingsData>
-	) {
+	public static getApiV2ChartTiktokMusicWeeklyAvailableRankings<
+		ThrowOnError extends boolean = false
+	>(options?: Options<GetApiV2ChartTiktokMusicWeeklyAvailableRankingsData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ChartTiktokMusicWeeklyAvailableRankingsResponse,
 			GetApiV2ChartTiktokMusicWeeklyAvailableRankingsError
 		>({
@@ -1479,10 +1591,11 @@ export class ChartService {
 	/**
 	 * Get TikTok music links ranking for a date
 	 */
-	public static getApiV2ChartTiktokMusicWeeklyRankingByDatetime(
-		options: Options<GetApiV2ChartTiktokMusicWeeklyRankingByDatetimeData>
-	) {
+	public static getApiV2ChartTiktokMusicWeeklyRankingByDatetime<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV2ChartTiktokMusicWeeklyRankingByDatetimeData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ChartTiktokMusicWeeklyRankingByDatetimeResponse,
 			GetApiV2ChartTiktokMusicWeeklyRankingByDatetimeError
 		>({
@@ -1496,8 +1609,11 @@ export class MyLibraryService {
 	/**
 	 * Get artist list
 	 */
-	public static getApiV2LibraryArtist(options?: Options<GetApiV2LibraryArtistData>) {
+	public static getApiV2LibraryArtist<ThrowOnError extends boolean = false>(
+		options?: Options<GetApiV2LibraryArtistData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2LibraryArtistResponse,
 			GetApiV2LibraryArtistError
 		>({
@@ -1509,8 +1625,11 @@ export class MyLibraryService {
 	/**
 	 * Add artists IDs
 	 */
-	public static postApiV2LibraryArtist(options: Options<PostApiV2LibraryArtistData>) {
+	public static postApiV2LibraryArtist<ThrowOnError extends boolean = false>(
+		options: Options<PostApiV2LibraryArtistData, ThrowOnError>
+	) {
 		return (options?.client ?? client).post<
+			ThrowOnError,
 			PostApiV2LibraryArtistResponse,
 			PostApiV2LibraryArtistError
 		>({
@@ -1522,8 +1641,11 @@ export class MyLibraryService {
 	/**
 	 * Delete artists IDs
 	 */
-	public static deleteApiV2LibraryArtist(options: Options<DeleteApiV2LibraryArtistData>) {
+	public static deleteApiV2LibraryArtist<ThrowOnError extends boolean = false>(
+		options: Options<DeleteApiV2LibraryArtistData, ThrowOnError>
+	) {
 		return (options?.client ?? client).delete<
+			ThrowOnError,
 			DeleteApiV2LibraryArtistResponse,
 			DeleteApiV2LibraryArtistError
 		>({
@@ -1535,8 +1657,14 @@ export class MyLibraryService {
 	/**
 	 * Get song list
 	 */
-	public static getApiV2LibrarySong(options?: Options<GetApiV2LibrarySongData>) {
-		return (options?.client ?? client).get<GetApiV2LibrarySongResponse, GetApiV2LibrarySongError>({
+	public static getApiV2LibrarySong<ThrowOnError extends boolean = false>(
+		options?: Options<GetApiV2LibrarySongData, ThrowOnError>
+	) {
+		return (options?.client ?? client).get<
+			ThrowOnError,
+			GetApiV2LibrarySongResponse,
+			GetApiV2LibrarySongError
+		>({
 			...options,
 			url: '/api/v2/library/song'
 		});
@@ -1545,8 +1673,11 @@ export class MyLibraryService {
 	/**
 	 * Add songs IDs
 	 */
-	public static postApiV2LibrarySong(options: Options<PostApiV2LibrarySongData>) {
+	public static postApiV2LibrarySong<ThrowOnError extends boolean = false>(
+		options: Options<PostApiV2LibrarySongData, ThrowOnError>
+	) {
 		return (options?.client ?? client).post<
+			ThrowOnError,
 			PostApiV2LibrarySongResponse,
 			PostApiV2LibrarySongError
 		>({
@@ -1558,8 +1689,11 @@ export class MyLibraryService {
 	/**
 	 * Delete songs IDs
 	 */
-	public static deleteApiV2LibrarySong(options: Options<DeleteApiV2LibrarySongData>) {
+	public static deleteApiV2LibrarySong<ThrowOnError extends boolean = false>(
+		options: Options<DeleteApiV2LibrarySongData, ThrowOnError>
+	) {
 		return (options?.client ?? client).delete<
+			ThrowOnError,
 			DeleteApiV2LibrarySongResponse,
 			DeleteApiV2LibrarySongError
 		>({
@@ -1573,8 +1707,11 @@ export class PlaylistService {
 	/**
 	 * Get playlist metadata
 	 */
-	public static getApiV2PlaylistByUuid(options: Options<GetApiV2PlaylistByUuidData>) {
+	public static getApiV2PlaylistByUuid<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2PlaylistByUuidData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2PlaylistByUuidResponse,
 			GetApiV2PlaylistByUuidError
 		>({
@@ -1586,8 +1723,11 @@ export class PlaylistService {
 	/**
 	 * Get playlist metadata
 	 */
-	public static getApiV28PlaylistByUuid(options: Options<GetApiV28PlaylistByUuidData>) {
+	public static getApiV28PlaylistByUuid<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV28PlaylistByUuidData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV28PlaylistByUuidResponse,
 			GetApiV28PlaylistByUuidError
 		>({
@@ -1599,10 +1739,11 @@ export class PlaylistService {
 	/**
 	 * Get playlist by platform ID
 	 */
-	public static getApiV2PlaylistByPlatformByPlatformByIdentifier(
-		options: Options<GetApiV2PlaylistByPlatformByPlatformByIdentifierData>
-	) {
+	public static getApiV2PlaylistByPlatformByPlatformByIdentifier<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV2PlaylistByPlatformByPlatformByIdentifierData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2PlaylistByPlatformByPlatformByIdentifierResponse,
 			GetApiV2PlaylistByPlatformByPlatformByIdentifierError
 		>({
@@ -1614,10 +1755,11 @@ export class PlaylistService {
 	/**
 	 * Get playlist by platform ID
 	 */
-	public static getApiV28PlaylistByPlatformByPlatformByIdentifier(
-		options: Options<GetApiV28PlaylistByPlatformByPlatformByIdentifierData>
-	) {
+	public static getApiV28PlaylistByPlatformByPlatformByIdentifier<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV28PlaylistByPlatformByPlatformByIdentifierData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV28PlaylistByPlatformByPlatformByIdentifierResponse,
 			GetApiV28PlaylistByPlatformByPlatformByIdentifierError
 		>({
@@ -1629,10 +1771,11 @@ export class PlaylistService {
 	/**
 	 * Get curators by platform
 	 */
-	public static getApiV2PlaylistCuratorsByPlatform(
-		options: Options<GetApiV2PlaylistCuratorsByPlatformData>
+	public static getApiV2PlaylistCuratorsByPlatform<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2PlaylistCuratorsByPlatformData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2PlaylistCuratorsByPlatformResponse,
 			GetApiV2PlaylistCuratorsByPlatformError
 		>({
@@ -1644,10 +1787,11 @@ export class PlaylistService {
 	/**
 	 * Get playlists by curator
 	 */
-	public static getApiV2PlaylistByCuratorByPlatformByCuratorIdentifier(
-		options: Options<GetApiV2PlaylistByCuratorByPlatformByCuratorIdentifierData>
-	) {
+	public static getApiV2PlaylistByCuratorByPlatformByCuratorIdentifier<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV2PlaylistByCuratorByPlatformByCuratorIdentifierData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2PlaylistByCuratorByPlatformByCuratorIdentifierResponse,
 			GetApiV2PlaylistByCuratorByPlatformByCuratorIdentifierError
 		>({
@@ -1659,10 +1803,11 @@ export class PlaylistService {
 	/**
 	 * Get playlists by curator
 	 */
-	public static getApiV220PlaylistByCuratorByPlatformByCuratorIdentifier(
-		options: Options<GetApiV220PlaylistByCuratorByPlatformByCuratorIdentifierData>
-	) {
+	public static getApiV220PlaylistByCuratorByPlatformByCuratorIdentifier<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV220PlaylistByCuratorByPlatformByCuratorIdentifierData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV220PlaylistByCuratorByPlatformByCuratorIdentifierResponse,
 			GetApiV220PlaylistByCuratorByPlatformByCuratorIdentifierError
 		>({
@@ -1674,10 +1819,11 @@ export class PlaylistService {
 	/**
 	 * Get playlists by type
 	 */
-	public static getApiV2PlaylistByTypeByPlatformByType(
-		options: Options<GetApiV2PlaylistByTypeByPlatformByTypeData>
+	public static getApiV2PlaylistByTypeByPlatformByType<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2PlaylistByTypeByPlatformByTypeData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2PlaylistByTypeByPlatformByTypeResponse,
 			GetApiV2PlaylistByTypeByPlatformByTypeError
 		>({
@@ -1689,10 +1835,11 @@ export class PlaylistService {
 	/**
 	 * Get audience
 	 */
-	public static getApiV2PlaylistByUuidAudience(
-		options: Options<GetApiV2PlaylistByUuidAudienceData>
+	public static getApiV2PlaylistByUuidAudience<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2PlaylistByUuidAudienceData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2PlaylistByUuidAudienceResponse,
 			GetApiV2PlaylistByUuidAudienceError
 		>({
@@ -1704,10 +1851,11 @@ export class PlaylistService {
 	/**
 	 * Get audience
 	 */
-	public static getApiV220PlaylistByUuidAudience(
-		options: Options<GetApiV220PlaylistByUuidAudienceData>
+	public static getApiV220PlaylistByUuidAudience<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV220PlaylistByUuidAudienceData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV220PlaylistByUuidAudienceResponse,
 			GetApiV220PlaylistByUuidAudienceError
 		>({
@@ -1719,10 +1867,11 @@ export class PlaylistService {
 	/**
 	 * Get playlists by type
 	 */
-	public static getApiV220PlaylistByTypeByPlatformByType(
-		options: Options<GetApiV220PlaylistByTypeByPlatformByTypeData>
+	public static getApiV220PlaylistByTypeByPlatformByType<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV220PlaylistByTypeByPlatformByTypeData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV220PlaylistByTypeByPlatformByTypeResponse,
 			GetApiV220PlaylistByTypeByPlatformByTypeError
 		>({
@@ -1734,10 +1883,11 @@ export class PlaylistService {
 	/**
 	 * Get tracklisting - latest
 	 */
-	public static getApiV2PlaylistByUuidTracksLatest(
-		options: Options<GetApiV2PlaylistByUuidTracksLatestData>
+	public static getApiV2PlaylistByUuidTracksLatest<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2PlaylistByUuidTracksLatestData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2PlaylistByUuidTracksLatestResponse,
 			GetApiV2PlaylistByUuidTracksLatestError
 		>({
@@ -1749,10 +1899,11 @@ export class PlaylistService {
 	/**
 	 * Get tracklisting - latest
 	 */
-	public static getApiV220PlaylistByUuidTracksLatest(
-		options: Options<GetApiV220PlaylistByUuidTracksLatestData>
+	public static getApiV220PlaylistByUuidTracksLatest<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV220PlaylistByUuidTracksLatestData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV220PlaylistByUuidTracksLatestResponse,
 			GetApiV220PlaylistByUuidTracksLatestError
 		>({
@@ -1764,10 +1915,11 @@ export class PlaylistService {
 	/**
 	 * Get tracklisting dates
 	 */
-	public static getApiV2PlaylistByUuidAvailableTracklistings(
-		options: Options<GetApiV2PlaylistByUuidAvailableTracklistingsData>
+	public static getApiV2PlaylistByUuidAvailableTracklistings<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2PlaylistByUuidAvailableTracklistingsData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2PlaylistByUuidAvailableTracklistingsResponse,
 			GetApiV2PlaylistByUuidAvailableTracklistingsError
 		>({
@@ -1779,10 +1931,11 @@ export class PlaylistService {
 	/**
 	 * Get tracklisting dates
 	 */
-	public static getApiV220PlaylistByUuidAvailableTracklistings(
-		options: Options<GetApiV220PlaylistByUuidAvailableTracklistingsData>
-	) {
+	public static getApiV220PlaylistByUuidAvailableTracklistings<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV220PlaylistByUuidAvailableTracklistingsData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV220PlaylistByUuidAvailableTracklistingsResponse,
 			GetApiV220PlaylistByUuidAvailableTracklistingsError
 		>({
@@ -1794,10 +1947,11 @@ export class PlaylistService {
 	/**
 	 * Get tracklisting for a date
 	 */
-	public static getApiV2PlaylistByUuidTracksByDatetime(
-		options: Options<GetApiV2PlaylistByUuidTracksByDatetimeData>
+	public static getApiV2PlaylistByUuidTracksByDatetime<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2PlaylistByUuidTracksByDatetimeData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2PlaylistByUuidTracksByDatetimeResponse,
 			GetApiV2PlaylistByUuidTracksByDatetimeError
 		>({
@@ -1809,10 +1963,11 @@ export class PlaylistService {
 	/**
 	 * Get tracklisting for a date
 	 */
-	public static getApiV220PlaylistByUuidTracksByDatetime(
-		options: Options<GetApiV220PlaylistByUuidTracksByDatetimeData>
+	public static getApiV220PlaylistByUuidTracksByDatetime<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV220PlaylistByUuidTracksByDatetimeData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV220PlaylistByUuidTracksByDatetimeResponse,
 			GetApiV220PlaylistByUuidTracksByDatetimeError
 		>({
@@ -1826,18 +1981,28 @@ export class RadioService {
 	/**
 	 * Get radios
 	 */
-	public static getApiV2Radio(options?: Options<GetApiV2RadioData>) {
-		return (options?.client ?? client).get<GetApiV2RadioResponse, GetApiV2RadioError>({
-			...options,
-			url: '/api/v2/radio'
-		});
+	public static getApiV2Radio<ThrowOnError extends boolean = false>(
+		options?: Options<GetApiV2RadioData, ThrowOnError>
+	) {
+		return (options?.client ?? client).get<ThrowOnError, GetApiV2RadioResponse, GetApiV2RadioError>(
+			{
+				...options,
+				url: '/api/v2/radio'
+			}
+		);
 	}
 
 	/**
 	 * Get radios
 	 */
-	public static getApiV218Radio(options?: Options<GetApiV218RadioData>) {
-		return (options?.client ?? client).get<GetApiV218RadioResponse, GetApiV218RadioError>({
+	public static getApiV218Radio<ThrowOnError extends boolean = false>(
+		options?: Options<GetApiV218RadioData, ThrowOnError>
+	) {
+		return (options?.client ?? client).get<
+			ThrowOnError,
+			GetApiV218RadioResponse,
+			GetApiV218RadioError
+		>({
 			...options,
 			url: '/api/v2.18/radio'
 		});
@@ -1846,8 +2011,14 @@ export class RadioService {
 	/**
 	 * Get radios
 	 */
-	public static getApiV222Radio(options?: Options<GetApiV222RadioData>) {
-		return (options?.client ?? client).get<GetApiV222RadioResponse, GetApiV222RadioError>({
+	public static getApiV222Radio<ThrowOnError extends boolean = false>(
+		options?: Options<GetApiV222RadioData, ThrowOnError>
+	) {
+		return (options?.client ?? client).get<
+			ThrowOnError,
+			GetApiV222RadioResponse,
+			GetApiV222RadioError
+		>({
 			...options,
 			url: '/api/v2.22/radio'
 		});
@@ -1856,10 +2027,11 @@ export class RadioService {
 	/**
 	 * Get radios by country
 	 */
-	public static getApiV2RadioByCountryByCountryCode(
-		options: Options<GetApiV2RadioByCountryByCountryCodeData>
+	public static getApiV2RadioByCountryByCountryCode<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2RadioByCountryByCountryCodeData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2RadioByCountryByCountryCodeResponse,
 			GetApiV2RadioByCountryByCountryCodeError
 		>({
@@ -1871,10 +2043,11 @@ export class RadioService {
 	/**
 	 * Get radios by country
 	 */
-	public static getApiV218RadioByCountryByCountryCode(
-		options: Options<GetApiV218RadioByCountryByCountryCodeData>
+	public static getApiV218RadioByCountryByCountryCode<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV218RadioByCountryByCountryCodeData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV218RadioByCountryByCountryCodeResponse,
 			GetApiV218RadioByCountryByCountryCodeError
 		>({
@@ -1886,10 +2059,11 @@ export class RadioService {
 	/**
 	 * Get radios by country
 	 */
-	public static getApiV222RadioByCountryByCountryCode(
-		options: Options<GetApiV222RadioByCountryByCountryCodeData>
+	public static getApiV222RadioByCountryByCountryCode<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV222RadioByCountryByCountryCodeData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV222RadioByCountryByCountryCodeResponse,
 			GetApiV222RadioByCountryByCountryCodeError
 		>({
@@ -1901,8 +2075,11 @@ export class RadioService {
 	/**
 	 * Get live feed
 	 */
-	public static getApiV2RadioBySlugLiveFeed(options: Options<GetApiV2RadioBySlugLiveFeedData>) {
+	public static getApiV2RadioBySlugLiveFeed<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2RadioBySlugLiveFeedData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2RadioBySlugLiveFeedResponse,
 			GetApiV2RadioBySlugLiveFeedError
 		>({
@@ -1916,8 +2093,11 @@ export class ReferentialService {
 	/**
 	 * Get platforms
 	 */
-	public static getApiV2ReferentialPlatforms(options?: Options) {
+	public static getApiV2ReferentialPlatforms<ThrowOnError extends boolean = false>(
+		options?: Options<unknown, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ReferentialPlatformsResponse,
 			GetApiV2ReferentialPlatformsError
 		>({
@@ -1929,8 +2109,11 @@ export class ReferentialService {
 	/**
 	 * Get platforms for audience data
 	 */
-	public static getApiV2ReferentialPlatformsSocial(options?: Options) {
+	public static getApiV2ReferentialPlatformsSocial<ThrowOnError extends boolean = false>(
+		options?: Options<unknown, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ReferentialPlatformsSocialResponse,
 			GetApiV2ReferentialPlatformsSocialError
 		>({
@@ -1942,8 +2125,11 @@ export class ReferentialService {
 	/**
 	 * Get platforms for streaming data
 	 */
-	public static getApiV2ReferentialPlatformsStreaming(options?: Options) {
+	public static getApiV2ReferentialPlatformsStreaming<ThrowOnError extends boolean = false>(
+		options?: Options<unknown, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ReferentialPlatformsStreamingResponse,
 			GetApiV2ReferentialPlatformsStreamingError
 		>({
@@ -1955,8 +2141,11 @@ export class ReferentialService {
 	/**
 	 * Get platforms for song charts
 	 */
-	public static getApiV2ChartSongPlatforms(options?: Options) {
+	public static getApiV2ChartSongPlatforms<ThrowOnError extends boolean = false>(
+		options?: Options<unknown, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ChartSongPlatformsResponse,
 			GetApiV2ChartSongPlatformsError
 		>({
@@ -1968,8 +2157,11 @@ export class ReferentialService {
 	/**
 	 * Get platforms for album charts
 	 */
-	public static getApiV2ChartAlbumPlatforms(options?: Options) {
+	public static getApiV2ChartAlbumPlatforms<ThrowOnError extends boolean = false>(
+		options?: Options<unknown, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ChartAlbumPlatformsResponse,
 			GetApiV2ChartAlbumPlatformsError
 		>({
@@ -1981,8 +2173,11 @@ export class ReferentialService {
 	/**
 	 * Get platforms for playlist data
 	 */
-	public static getApiV2PlaylistPlatforms(options?: Options) {
+	public static getApiV2PlaylistPlatforms<ThrowOnError extends boolean = false>(
+		options?: Options<unknown, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2PlaylistPlatformsResponse,
 			GetApiV2PlaylistPlatformsError
 		>({
@@ -1994,8 +2189,11 @@ export class ReferentialService {
 	/**
 	 * Get radio country list
 	 */
-	public static getApiV2RadioCountries(options?: Options<GetApiV2RadioCountriesData>) {
+	public static getApiV2RadioCountries<ThrowOnError extends boolean = false>(
+		options?: Options<GetApiV2RadioCountriesData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2RadioCountriesResponse,
 			GetApiV2RadioCountriesError
 		>({
@@ -2007,10 +2205,11 @@ export class ReferentialService {
 	/**
 	 * Get cities for artist ranking
 	 */
-	public static getApiV2TopArtistReferentialCitiesByCountryCode(
-		options: Options<GetApiV2TopArtistReferentialCitiesByCountryCodeData>
-	) {
+	public static getApiV2TopArtistReferentialCitiesByCountryCode<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV2TopArtistReferentialCitiesByCountryCodeData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2TopArtistReferentialCitiesByCountryCodeResponse,
 			GetApiV2TopArtistReferentialCitiesByCountryCodeError
 		>({
@@ -2024,8 +2223,11 @@ export class SearchService {
 	/**
 	 * Search artist by name
 	 */
-	public static getApiV2ArtistSearchByTerm(options: Options<GetApiV2ArtistSearchByTermData>) {
+	public static getApiV2ArtistSearchByTerm<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2ArtistSearchByTermData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2ArtistSearchByTermResponse,
 			GetApiV2ArtistSearchByTermError
 		>({
@@ -2037,8 +2239,11 @@ export class SearchService {
 	/**
 	 * Search song by name
 	 */
-	public static getApiV2SongSearchByTerm(options: Options<GetApiV2SongSearchByTermData>) {
+	public static getApiV2SongSearchByTerm<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SongSearchByTermData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SongSearchByTermResponse,
 			GetApiV2SongSearchByTermError
 		>({
@@ -2050,8 +2255,11 @@ export class SearchService {
 	/**
 	 * Search playlist by name
 	 */
-	public static getApiV2PlaylistSearchByTerm(options: Options<GetApiV2PlaylistSearchByTermData>) {
+	public static getApiV2PlaylistSearchByTerm<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2PlaylistSearchByTermData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2PlaylistSearchByTermResponse,
 			GetApiV2PlaylistSearchByTermError
 		>({
@@ -2063,8 +2271,11 @@ export class SearchService {
 	/**
 	 * Get Soundcharts URL from platform URL
 	 */
-	public static getApiV2SearchExternalUrl(options: Options<GetApiV2SearchExternalUrlData>) {
+	public static getApiV2SearchExternalUrl<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SearchExternalUrlData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SearchExternalUrlResponse,
 			GetApiV2SearchExternalUrlError
 		>({
@@ -2078,8 +2289,14 @@ export class SongService {
 	/**
 	 * Get song metadata
 	 */
-	public static getApiV2SongByUuid(options: Options<GetApiV2SongByUuidData>) {
-		return (options?.client ?? client).get<GetApiV2SongByUuidResponse, GetApiV2SongByUuidError>({
+	public static getApiV2SongByUuid<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SongByUuidData, ThrowOnError>
+	) {
+		return (options?.client ?? client).get<
+			ThrowOnError,
+			GetApiV2SongByUuidResponse,
+			GetApiV2SongByUuidError
+		>({
 			...options,
 			url: '/api/v2/song/{uuid}'
 		});
@@ -2088,8 +2305,14 @@ export class SongService {
 	/**
 	 * Get song metadata
 	 */
-	public static getApiV28SongByUuid(options: Options<GetApiV28SongByUuidData>) {
-		return (options?.client ?? client).get<GetApiV28SongByUuidResponse, GetApiV28SongByUuidError>({
+	public static getApiV28SongByUuid<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV28SongByUuidData, ThrowOnError>
+	) {
+		return (options?.client ?? client).get<
+			ThrowOnError,
+			GetApiV28SongByUuidResponse,
+			GetApiV28SongByUuidError
+		>({
 			...options,
 			url: '/api/v2.8/song/{uuid}'
 		});
@@ -2098,20 +2321,27 @@ export class SongService {
 	/**
 	 * Get song metadata
 	 */
-	public static getApiV225SongByUuid(options: Options<GetApiV225SongByUuidData>) {
-		return (options?.client ?? client).get<GetApiV225SongByUuidResponse, GetApiV225SongByUuidError>(
-			{
-				...options,
-				url: '/api/v2.25/song/{uuid}'
-			}
-		);
+	public static getApiV225SongByUuid<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV225SongByUuidData, ThrowOnError>
+	) {
+		return (options?.client ?? client).get<
+			ThrowOnError,
+			GetApiV225SongByUuidResponse,
+			GetApiV225SongByUuidError
+		>({
+			...options,
+			url: '/api/v2.25/song/{uuid}'
+		});
 	}
 
 	/**
 	 * Get song by ISRC
 	 */
-	public static getApiV2SongByIsrcByIsrc(options: Options<GetApiV2SongByIsrcByIsrcData>) {
+	public static getApiV2SongByIsrcByIsrc<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SongByIsrcByIsrcData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SongByIsrcByIsrcResponse,
 			GetApiV2SongByIsrcByIsrcError
 		>({
@@ -2123,8 +2353,11 @@ export class SongService {
 	/**
 	 * Get song by ISRC
 	 */
-	public static getApiV28SongByIsrcByIsrc(options: Options<GetApiV28SongByIsrcByIsrcData>) {
+	public static getApiV28SongByIsrcByIsrc<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV28SongByIsrcByIsrcData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV28SongByIsrcByIsrcResponse,
 			GetApiV28SongByIsrcByIsrcError
 		>({
@@ -2136,8 +2369,11 @@ export class SongService {
 	/**
 	 * Get song by ISRC
 	 */
-	public static getApiV225SongByIsrcByIsrc(options: Options<GetApiV225SongByIsrcByIsrcData>) {
+	public static getApiV225SongByIsrcByIsrc<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV225SongByIsrcByIsrcData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV225SongByIsrcByIsrcResponse,
 			GetApiV225SongByIsrcByIsrcError
 		>({
@@ -2149,10 +2385,11 @@ export class SongService {
 	/**
 	 * Get song by platform ID
 	 */
-	public static getApiV2SongByPlatformByPlatformByIdentifier(
-		options: Options<GetApiV2SongByPlatformByPlatformByIdentifierData>
+	public static getApiV2SongByPlatformByPlatformByIdentifier<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SongByPlatformByPlatformByIdentifierData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SongByPlatformByPlatformByIdentifierResponse,
 			GetApiV2SongByPlatformByPlatformByIdentifierError
 		>({
@@ -2164,10 +2401,11 @@ export class SongService {
 	/**
 	 * Get song by platform ID
 	 */
-	public static getApiV28SongByPlatformByPlatformByIdentifier(
-		options: Options<GetApiV28SongByPlatformByPlatformByIdentifierData>
+	public static getApiV28SongByPlatformByPlatformByIdentifier<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV28SongByPlatformByPlatformByIdentifierData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV28SongByPlatformByPlatformByIdentifierResponse,
 			GetApiV28SongByPlatformByPlatformByIdentifierError
 		>({
@@ -2179,10 +2417,11 @@ export class SongService {
 	/**
 	 * Get song by platform ID
 	 */
-	public static getApiV225SongByPlatformByPlatformByIdentifier(
-		options: Options<GetApiV225SongByPlatformByPlatformByIdentifierData>
-	) {
+	public static getApiV225SongByPlatformByPlatformByIdentifier<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV225SongByPlatformByPlatformByIdentifierData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV225SongByPlatformByPlatformByIdentifierResponse,
 			GetApiV225SongByPlatformByPlatformByIdentifierError
 		>({
@@ -2194,8 +2433,11 @@ export class SongService {
 	/**
 	 * Get IDs
 	 */
-	public static getApiV2SongByUuidIdentifiers(options: Options<GetApiV2SongByUuidIdentifiersData>) {
+	public static getApiV2SongByUuidIdentifiers<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SongByUuidIdentifiersData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SongByUuidIdentifiersResponse,
 			GetApiV2SongByUuidIdentifiersError
 		>({
@@ -2207,8 +2449,11 @@ export class SongService {
 	/**
 	 * Get albums
 	 */
-	public static getApiV2SongByUuidAlbums(options: Options<GetApiV2SongByUuidAlbumsData>) {
+	public static getApiV2SongByUuidAlbums<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SongByUuidAlbumsData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SongByUuidAlbumsResponse,
 			GetApiV2SongByUuidAlbumsError
 		>({
@@ -2220,10 +2465,11 @@ export class SongService {
 	/**
 	 * Get TikTok IDs
 	 */
-	public static getApiV2SongByUuidTiktokMusics(
-		options: Options<GetApiV2SongByUuidTiktokMusicsData>
+	public static getApiV2SongByUuidTiktokMusics<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SongByUuidTiktokMusicsData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SongByUuidTiktokMusicsResponse,
 			GetApiV2SongByUuidTiktokMusicsError
 		>({
@@ -2235,10 +2481,11 @@ export class SongService {
 	/**
 	 * Get YouTube IDs
 	 */
-	public static getApiV2SongByUuidYoutubeVideos(
-		options: Options<GetApiV2SongByUuidYoutubeVideosData>
+	public static getApiV2SongByUuidYoutubeVideos<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SongByUuidYoutubeVideosData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SongByUuidYoutubeVideosResponse,
 			GetApiV2SongByUuidYoutubeVideosError
 		>({
@@ -2250,10 +2497,11 @@ export class SongService {
 	/**
 	 * Get YouTube IDs
 	 */
-	public static getApiV216SongByUuidYoutubeVideos(
-		options: Options<GetApiV216SongByUuidYoutubeVideosData>
+	public static getApiV216SongByUuidYoutubeVideos<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV216SongByUuidYoutubeVideosData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV216SongByUuidYoutubeVideosResponse,
 			GetApiV216SongByUuidYoutubeVideosError
 		>({
@@ -2265,10 +2513,11 @@ export class SongService {
 	/**
 	 * Get audience
 	 */
-	public static getApiV2SongByUuidAudienceByPlatform(
-		options: Options<GetApiV2SongByUuidAudienceByPlatformData>
+	public static getApiV2SongByUuidAudienceByPlatform<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SongByUuidAudienceByPlatformData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SongByUuidAudienceByPlatformResponse,
 			GetApiV2SongByUuidAudienceByPlatformError
 		>({
@@ -2280,10 +2529,11 @@ export class SongService {
 	/**
 	 * Get Spotify streams
 	 */
-	public static getApiV2SongByUuidSpotifyStream(
-		options: Options<GetApiV2SongByUuidSpotifyStreamData>
+	public static getApiV2SongByUuidSpotifyStream<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SongByUuidSpotifyStreamData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SongByUuidSpotifyStreamResponse,
 			GetApiV2SongByUuidSpotifyStreamError
 		>({
@@ -2295,10 +2545,11 @@ export class SongService {
 	/**
 	 * Get Spotify streams
 	 */
-	public static getApiV224SongByUuidSpotifyStream(
-		options: Options<GetApiV224SongByUuidSpotifyStreamData>
+	public static getApiV224SongByUuidSpotifyStream<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV224SongByUuidSpotifyStreamData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV224SongByUuidSpotifyStreamResponse,
 			GetApiV224SongByUuidSpotifyStreamError
 		>({
@@ -2310,10 +2561,11 @@ export class SongService {
 	/**
 	 * Get YouTube views
 	 */
-	public static getApiV2SongByUuidYoutubeViews(
-		options: Options<GetApiV2SongByUuidYoutubeViewsData>
+	public static getApiV2SongByUuidYoutubeViews<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SongByUuidYoutubeViewsData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SongByUuidYoutubeViewsResponse,
 			GetApiV2SongByUuidYoutubeViewsError
 		>({
@@ -2325,10 +2577,11 @@ export class SongService {
 	/**
 	 * Get YouTube views by ID (deprecated)
 	 */
-	public static getApiV2SongByUuidYoutubeViewsVideoByIdentifier(
-		options: Options<GetApiV2SongByUuidYoutubeViewsVideoByIdentifierData>
-	) {
+	public static getApiV2SongByUuidYoutubeViewsVideoByIdentifier<
+		ThrowOnError extends boolean = false
+	>(options: Options<GetApiV2SongByUuidYoutubeViewsVideoByIdentifierData, ThrowOnError>) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SongByUuidYoutubeViewsVideoByIdentifierResponse,
 			GetApiV2SongByUuidYoutubeViewsVideoByIdentifierError
 		>({
@@ -2340,8 +2593,11 @@ export class SongService {
 	/**
 	 * Get Shazam count
 	 */
-	public static getApiV2SongByUuidShazamCount(options: Options<GetApiV2SongByUuidShazamCountData>) {
+	public static getApiV2SongByUuidShazamCount<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SongByUuidShazamCountData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SongByUuidShazamCountResponse,
 			GetApiV2SongByUuidShazamCountError
 		>({
@@ -2353,10 +2609,11 @@ export class SongService {
 	/**
 	 * Get Shazam count
 	 */
-	public static getApiV224SongByUuidShazamCount(
-		options: Options<GetApiV224SongByUuidShazamCountData>
+	public static getApiV224SongByUuidShazamCount<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV224SongByUuidShazamCountData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV224SongByUuidShazamCountResponse,
 			GetApiV224SongByUuidShazamCountError
 		>({
@@ -2368,10 +2625,11 @@ export class SongService {
 	/**
 	 * Get Spotify popularity
 	 */
-	public static getApiV2SongByUuidSpotifyIdentifierPopularity(
-		options: Options<GetApiV2SongByUuidSpotifyIdentifierPopularityData>
+	public static getApiV2SongByUuidSpotifyIdentifierPopularity<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SongByUuidSpotifyIdentifierPopularityData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SongByUuidSpotifyIdentifierPopularityResponse,
 			GetApiV2SongByUuidSpotifyIdentifierPopularityError
 		>({
@@ -2383,10 +2641,11 @@ export class SongService {
 	/**
 	 * Get Spotify popularity (deprecated)
 	 */
-	public static getApiV2SongByUuidSpotifyPopularity(
-		options: Options<GetApiV2SongByUuidSpotifyPopularityData>
+	public static getApiV2SongByUuidSpotifyPopularity<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SongByUuidSpotifyPopularityData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SongByUuidSpotifyPopularityResponse,
 			GetApiV2SongByUuidSpotifyPopularityError
 		>({
@@ -2398,10 +2657,11 @@ export class SongService {
 	/**
 	 * Get chart entries
 	 */
-	public static getApiV2SongByUuidChartsRanksByPlatform(
-		options: Options<GetApiV2SongByUuidChartsRanksByPlatformData>
+	public static getApiV2SongByUuidChartsRanksByPlatform<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SongByUuidChartsRanksByPlatformData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SongByUuidChartsRanksByPlatformResponse,
 			GetApiV2SongByUuidChartsRanksByPlatformError
 		>({
@@ -2413,10 +2673,11 @@ export class SongService {
 	/**
 	 * Get playlist entries
 	 */
-	public static getApiV2SongByUuidPlaylistCurrentByPlatform(
-		options: Options<GetApiV2SongByUuidPlaylistCurrentByPlatformData>
+	public static getApiV2SongByUuidPlaylistCurrentByPlatform<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SongByUuidPlaylistCurrentByPlatformData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SongByUuidPlaylistCurrentByPlatformResponse,
 			GetApiV2SongByUuidPlaylistCurrentByPlatformError
 		>({
@@ -2428,10 +2689,11 @@ export class SongService {
 	/**
 	 * Get playlist entries
 	 */
-	public static getApiV220SongByUuidPlaylistCurrentByPlatform(
-		options: Options<GetApiV220SongByUuidPlaylistCurrentByPlatformData>
+	public static getApiV220SongByUuidPlaylistCurrentByPlatform<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV220SongByUuidPlaylistCurrentByPlatformData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV220SongByUuidPlaylistCurrentByPlatformResponse,
 			GetApiV220SongByUuidPlaylistCurrentByPlatformError
 		>({
@@ -2443,8 +2705,11 @@ export class SongService {
 	/**
 	 * Get radio spins
 	 */
-	public static getApiV2SongByUuidBroadcasts(options: Options<GetApiV2SongByUuidBroadcastsData>) {
+	public static getApiV2SongByUuidBroadcasts<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SongByUuidBroadcastsData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SongByUuidBroadcastsResponse,
 			GetApiV2SongByUuidBroadcastsError
 		>({
@@ -2456,10 +2721,11 @@ export class SongService {
 	/**
 	 * Get radio spin count
 	 */
-	public static getApiV2SongByUuidBroadcastGroups(
-		options: Options<GetApiV2SongByUuidBroadcastGroupsData>
+	public static getApiV2SongByUuidBroadcastGroups<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2SongByUuidBroadcastGroupsData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2SongByUuidBroadcastGroupsResponse,
 			GetApiV2SongByUuidBroadcastGroupsError
 		>({
@@ -2471,8 +2737,11 @@ export class SongService {
 	/**
 	 * Add links
 	 */
-	public static postApiV2SongByUuidSourcesAdd(options: Options<PostApiV2SongByUuidSourcesAddData>) {
+	public static postApiV2SongByUuidSourcesAdd<ThrowOnError extends boolean = false>(
+		options: Options<PostApiV2SongByUuidSourcesAddData, ThrowOnError>
+	) {
 		return (options?.client ?? client).post<
+			ThrowOnError,
 			PostApiV2SongByUuidSourcesAddResponse,
 			PostApiV2SongByUuidSourcesAddError
 		>({
@@ -2486,10 +2755,11 @@ export class TikTokService {
 	/**
 	 * Get music
 	 */
-	public static getApiV2TiktokMusicByIdentifier(
-		options: Options<GetApiV2TiktokMusicByIdentifierData>
+	public static getApiV2TiktokMusicByIdentifier<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2TiktokMusicByIdentifierData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2TiktokMusicByIdentifierResponse,
 			GetApiV2TiktokMusicByIdentifierError
 		>({
@@ -2501,10 +2771,11 @@ export class TikTokService {
 	/**
 	 * Get music video count
 	 */
-	public static getApiV2TiktokMusicByIdentifierVideoVolume(
-		options: Options<GetApiV2TiktokMusicByIdentifierVideoVolumeData>
+	public static getApiV2TiktokMusicByIdentifierVideoVolume<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2TiktokMusicByIdentifierVideoVolumeData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2TiktokMusicByIdentifierVideoVolumeResponse,
 			GetApiV2TiktokMusicByIdentifierVideoVolumeError
 		>({
@@ -2516,10 +2787,11 @@ export class TikTokService {
 	/**
 	 * Get music videos
 	 */
-	public static getApiV2TiktokMusicByIdentifierVideos(
-		options: Options<GetApiV2TiktokMusicByIdentifierVideosData>
+	public static getApiV2TiktokMusicByIdentifierVideos<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2TiktokMusicByIdentifierVideosData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2TiktokMusicByIdentifierVideosResponse,
 			GetApiV2TiktokMusicByIdentifierVideosError
 		>({
@@ -2531,8 +2803,11 @@ export class TikTokService {
 	/**
 	 * Get user
 	 */
-	public static getApiV2TiktokUserByUsername(options: Options<GetApiV2TiktokUserByUsernameData>) {
+	public static getApiV2TiktokUserByUsername<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2TiktokUserByUsernameData, ThrowOnError>
+	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2TiktokUserByUsernameResponse,
 			GetApiV2TiktokUserByUsernameError
 		>({
@@ -2544,10 +2819,11 @@ export class TikTokService {
 	/**
 	 * Get user videos
 	 */
-	public static getApiV2TiktokUserByUsernameVideos(
-		options: Options<GetApiV2TiktokUserByUsernameVideosData>
+	public static getApiV2TiktokUserByUsernameVideos<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2TiktokUserByUsernameVideosData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2TiktokUserByUsernameVideosResponse,
 			GetApiV2TiktokUserByUsernameVideosError
 		>({
@@ -2559,10 +2835,11 @@ export class TikTokService {
 	/**
 	 * Get user audience (deprecated)
 	 */
-	public static getApiV2TiktokUserByUsernameAudience(
-		options: Options<GetApiV2TiktokUserByUsernameAudienceData>
+	public static getApiV2TiktokUserByUsernameAudience<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2TiktokUserByUsernameAudienceData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2TiktokUserByUsernameAudienceResponse,
 			GetApiV2TiktokUserByUsernameAudienceError
 		>({
@@ -2574,10 +2851,11 @@ export class TikTokService {
 	/**
 	 * Get user audience (deprecated)
 	 */
-	public static getApiV211TiktokUserByUsernameAudience(
-		options: Options<GetApiV211TiktokUserByUsernameAudienceData>
+	public static getApiV211TiktokUserByUsernameAudience<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV211TiktokUserByUsernameAudienceData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV211TiktokUserByUsernameAudienceResponse,
 			GetApiV211TiktokUserByUsernameAudienceError
 		>({
@@ -2589,10 +2867,11 @@ export class TikTokService {
 	/**
 	 * Get video
 	 */
-	public static getApiV2TiktokVideoByIdentifier(
-		options: Options<GetApiV2TiktokVideoByIdentifierData>
+	public static getApiV2TiktokVideoByIdentifier<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2TiktokVideoByIdentifierData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2TiktokVideoByIdentifierResponse,
 			GetApiV2TiktokVideoByIdentifierError
 		>({
@@ -2604,10 +2883,11 @@ export class TikTokService {
 	/**
 	 * Get video audience
 	 */
-	public static getApiV2TiktokVideoByIdentifierAudience(
-		options: Options<GetApiV2TiktokVideoByIdentifierAudienceData>
+	public static getApiV2TiktokVideoByIdentifierAudience<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2TiktokVideoByIdentifierAudienceData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2TiktokVideoByIdentifierAudienceResponse,
 			GetApiV2TiktokVideoByIdentifierAudienceError
 		>({
@@ -2619,8 +2899,11 @@ export class TikTokService {
 	/**
 	 * Add music links
 	 */
-	public static postApiV2TiktokMusicUrlsAdd(options: Options<PostApiV2TiktokMusicUrlsAddData>) {
+	public static postApiV2TiktokMusicUrlsAdd<ThrowOnError extends boolean = false>(
+		options: Options<PostApiV2TiktokMusicUrlsAddData, ThrowOnError>
+	) {
 		return (options?.client ?? client).post<
+			ThrowOnError,
 			PostApiV2TiktokMusicUrlsAddResponse,
 			PostApiV2TiktokMusicUrlsAddError
 		>({
@@ -2632,8 +2915,11 @@ export class TikTokService {
 	/**
 	 * Add user links
 	 */
-	public static postApiV2TiktokUserUrlsAdd(options: Options<PostApiV2TiktokUserUrlsAddData>) {
+	public static postApiV2TiktokUserUrlsAdd<ThrowOnError extends boolean = false>(
+		options: Options<PostApiV2TiktokUserUrlsAddData, ThrowOnError>
+	) {
 		return (options?.client ?? client).post<
+			ThrowOnError,
 			PostApiV2TiktokUserUrlsAddResponse,
 			PostApiV2TiktokUserUrlsAddError
 		>({
@@ -2647,10 +2933,11 @@ export class UserService {
 	/**
 	 * Get blocklists artists
 	 */
-	public static getApiV2UserByEmailBlocklistArtists(
-		options: Options<GetApiV2UserByEmailBlocklistArtistsData>
+	public static getApiV2UserByEmailBlocklistArtists<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2UserByEmailBlocklistArtistsData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2UserByEmailBlocklistArtistsResponse,
 			GetApiV2UserByEmailBlocklistArtistsError
 		>({
@@ -2662,10 +2949,11 @@ export class UserService {
 	/**
 	 * Get blocklists songs
 	 */
-	public static getApiV2UserByEmailBlocklistSongs(
-		options: Options<GetApiV2UserByEmailBlocklistSongsData>
+	public static getApiV2UserByEmailBlocklistSongs<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2UserByEmailBlocklistSongsData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2UserByEmailBlocklistSongsResponse,
 			GetApiV2UserByEmailBlocklistSongsError
 		>({
@@ -2677,10 +2965,11 @@ export class UserService {
 	/**
 	 * Get blocklists labels
 	 */
-	public static getApiV2UserByEmailBlocklistLabels(
-		options: Options<GetApiV2UserByEmailBlocklistLabelsData>
+	public static getApiV2UserByEmailBlocklistLabels<ThrowOnError extends boolean = false>(
+		options: Options<GetApiV2UserByEmailBlocklistLabelsData, ThrowOnError>
 	) {
 		return (options?.client ?? client).get<
+			ThrowOnError,
 			GetApiV2UserByEmailBlocklistLabelsResponse,
 			GetApiV2UserByEmailBlocklistLabelsError
 		>({
@@ -2691,22 +2980,36 @@ export class UserService {
 }
 
 export class DefaultService {
-	public static getApiV2SwaggerJson(options?: Options) {
-		return (options?.client ?? client).get<GetApiV2SwaggerJsonResponse, GetApiV2SwaggerJsonError>({
+	public static getApiV2SwaggerJson<ThrowOnError extends boolean = false>(
+		options?: Options<unknown, ThrowOnError>
+	) {
+		return (options?.client ?? client).get<
+			ThrowOnError,
+			GetApiV2SwaggerJsonResponse,
+			GetApiV2SwaggerJsonError
+		>({
 			...options,
 			url: '/api/v2/swagger.json'
 		});
 	}
 
-	public static getApiV2DocJson(options?: Options) {
-		return (options?.client ?? client).get<GetApiV2DocJsonResponse, GetApiV2DocJsonError>({
+	public static getApiV2DocJson<ThrowOnError extends boolean = false>(
+		options?: Options<unknown, ThrowOnError>
+	) {
+		return (options?.client ?? client).get<
+			ThrowOnError,
+			GetApiV2DocJsonResponse,
+			GetApiV2DocJsonError
+		>({
 			...options,
 			url: '/api/v2/doc.json'
 		});
 	}
 
-	public static getApiV2Doc(options?: Options) {
-		return (options?.client ?? client).get<GetApiV2DocResponse, GetApiV2DocError>({
+	public static getApiV2Doc<ThrowOnError extends boolean = false>(
+		options?: Options<unknown, ThrowOnError>
+	) {
+		return (options?.client ?? client).get<ThrowOnError, GetApiV2DocResponse, GetApiV2DocError>({
 			...options,
 			url: '/api/v2/doc'
 		});

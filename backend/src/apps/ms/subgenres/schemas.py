@@ -5,41 +5,52 @@ from datetime import datetime
 from pydantic import ConfigDict
 
 # Local Dependencies
-from src.apps.ms.tracks.models import TrackContentBase, TrackMediaBase, TrackUserBase
+from src.apps.ms.subgenres.models import (
+    SubgenreContentBase,
+    SubgenreMediaBase,
+    SubgenreUserBase,
+)
 from src.core.common.models import UUIDMixin, TimestampMixin, SoftDeleteMixin
 from src.core.utils.partial import optional
 
 
-class TrackBase(TrackContentBase):
+class SubgenreBase(SubgenreContentBase):
     pass
 
 
-class Track(
-    TrackBase, TrackMediaBase, TrackUserBase, UUIDMixin, TimestampMixin, SoftDeleteMixin
+class Subgenre(
+    SubgenreBase,
+    SubgenreMediaBase,
+    SubgenreUserBase,
+    UUIDMixin,
+    TimestampMixin,
+    SoftDeleteMixin,
 ):
     pass
 
 
-class TrackRead(TrackBase, TrackMediaBase, TrackUserBase, UUIDMixin, TimestampMixin):
+class SubgenreRead(
+    SubgenreBase, SubgenreMediaBase, SubgenreUserBase, UUIDMixin, TimestampMixin
+):
     pass
 
 
-class TrackCreate(TrackBase, TrackMediaBase):
+class SubgenreCreate(SubgenreBase, SubgenreMediaBase):
     model_config = ConfigDict(extra="forbid")
 
 
-class TrackCreateInternal(TrackCreate, TrackUserBase):
+class SubgenreCreateInternal(SubgenreCreate, SubgenreUserBase):
     pass
 
 
 @optional()
-class TrackUpdate(TrackContentBase, TrackMediaBase):
+class SubgenreUpdate(SubgenreContentBase, SubgenreMediaBase):
     model_config = ConfigDict(extra="forbid")
 
 
-class TrackUpdateInternal(TrackUpdate):
+class SubgenreUpdateInternal(SubgenreUpdate):
     updated_at: datetime
 
 
-class TrackDelete(SoftDeleteMixin):
+class SubgenreDelete(SoftDeleteMixin):
     model_config = ConfigDict(extra="forbid")

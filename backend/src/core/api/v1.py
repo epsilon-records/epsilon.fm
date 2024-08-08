@@ -14,6 +14,10 @@ from src.apps.ms.artists.routers.v1 import router as artists_router
 from src.apps.system.utils.routers.v1 import router as utils_router
 from src.apps.ms.tracks.models import Track
 from src.apps.ms.tracks.schemas import TrackCreateInternal, TrackUpdateInternal
+from src.apps.ms.genres.models import Genre
+from src.apps.ms.genres.schemas import GenreCreateInternal, GenreUpdateInternal
+from src.apps.ms.subgenres.models import Subgenre
+from src.apps.ms.subgenres.schemas import SubgenreCreateInternal, SubgenreUpdateInternal
 
 # Create an APIRouter instance for versioning and prefixing routes
 api_v1_router = APIRouter(prefix="/v1")
@@ -35,6 +39,28 @@ api_v1_router.include_router(
         update_schema=TrackUpdateInternal,
         path="/tracks",
         tags=["Tracks"],
+        included_methods=["create", "read", "read_paginated", "update", "delete"],
+    )
+)
+api_v1_router.include_router(
+    crud_router(
+        session=async_get_db,
+        model=Genre,
+        create_schema=GenreCreateInternal,
+        update_schema=GenreUpdateInternal,
+        path="/genres",
+        tags=["Genres"],
+        included_methods=["create", "read", "read_paginated", "update", "delete"],
+    )
+)
+api_v1_router.include_router(
+    crud_router(
+        session=async_get_db,
+        model=Subgenre,
+        create_schema=SubgenreCreateInternal,
+        update_schema=SubgenreUpdateInternal,
+        path="/subgenres",
+        tags=["Subgenres"],
         included_methods=["create", "read", "read_paginated", "update", "delete"],
     )
 )

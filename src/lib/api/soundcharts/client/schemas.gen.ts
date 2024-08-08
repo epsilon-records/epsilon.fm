@@ -3940,6 +3940,9 @@ export const $Music = {
 		identifier: {
 			type: 'string'
 		},
+		title: {
+			type: 'string'
+		},
 		authorName: {
 			type: 'string'
 		},
@@ -4117,6 +4120,9 @@ export const $Position2 = {
 export const $MusicFull = {
 	properties: {
 		identifier: {
+			type: 'string'
+		},
+		title: {
 			type: 'string'
 		},
 		authorName: {
@@ -4883,6 +4889,9 @@ export const $RelevantTag = {
 export const $Metric = {
 	properties: {
 		type: {
+			type: 'string'
+		},
+		description: {
 			type: 'string'
 		}
 	},

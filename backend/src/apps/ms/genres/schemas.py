@@ -5,41 +5,41 @@ from datetime import datetime
 from pydantic import ConfigDict
 
 # Local Dependencies
-from src.apps.ms.tracks.models import TrackContentBase, TrackMediaBase, TrackUserBase
+from src.apps.ms.genres.models import GenreContentBase, GenreMediaBase, GenreUserBase
 from src.core.common.models import UUIDMixin, TimestampMixin, SoftDeleteMixin
 from src.core.utils.partial import optional
 
 
-class TrackBase(TrackContentBase):
+class GenreBase(GenreContentBase):
     pass
 
 
-class Track(
-    TrackBase, TrackMediaBase, TrackUserBase, UUIDMixin, TimestampMixin, SoftDeleteMixin
+class Genre(
+    GenreBase, GenreMediaBase, GenreUserBase, UUIDMixin, TimestampMixin, SoftDeleteMixin
 ):
     pass
 
 
-class TrackRead(TrackBase, TrackMediaBase, TrackUserBase, UUIDMixin, TimestampMixin):
+class GenreRead(GenreBase, GenreMediaBase, GenreUserBase, UUIDMixin, TimestampMixin):
     pass
 
 
-class TrackCreate(TrackBase, TrackMediaBase):
+class GenreCreate(GenreBase, GenreMediaBase):
     model_config = ConfigDict(extra="forbid")
 
 
-class TrackCreateInternal(TrackCreate, TrackUserBase):
+class GenreCreateInternal(GenreCreate, GenreUserBase):
     pass
 
 
 @optional()
-class TrackUpdate(TrackContentBase, TrackMediaBase):
+class GenreUpdate(GenreContentBase, GenreMediaBase):
     model_config = ConfigDict(extra="forbid")
 
 
-class TrackUpdateInternal(TrackUpdate):
+class GenreUpdateInternal(GenreUpdate):
     updated_at: datetime
 
 
-class TrackDelete(SoftDeleteMixin):
+class GenreDelete(SoftDeleteMixin):
     model_config = ConfigDict(extra="forbid")
