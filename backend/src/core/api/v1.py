@@ -19,12 +19,6 @@ api_v1_router = APIRouter(prefix="/v1")
 
 # Include routers for different modules and functionalities under the v1 API version
 api_v1_router.include_router(auth_router)
-# api_v1_router.include_router(tiers_router)
-# api_v1_router.include_router(rate_limits_router)
-# api_v1_router.include_router(users_router)
-# api_v1_router.include_router(tasks_router)
-# api_v1_router.include_router(posts_router)
-# api_v1_router.include_router(utils_router)
 api_v1_router.include_router(
     crud_router(
         session=async_get_db,
@@ -33,7 +27,7 @@ api_v1_router.include_router(
         update_schema=ArtistUpdateInternal,
         path="/artists",
         tags=["Artists"],
-        included_methods=["create", "read", "read_paginated", "update", "delete"],
+        included_methods=["create", "read", "read_items", "update", "delete"],
     )
 )
 api_v1_router.include_router(
@@ -44,7 +38,7 @@ api_v1_router.include_router(
         update_schema=TrackUpdateInternal,
         path="/tracks",
         tags=["Tracks"],
-        included_methods=["create", "read", "read_paginated", "update", "delete"],
+        included_methods=["create", "read", "read_items", "update", "delete"],
     )
 )
 api_v1_router.include_router(
@@ -55,7 +49,7 @@ api_v1_router.include_router(
         update_schema=GenreUpdateInternal,
         path="/genres",
         tags=["Genres"],
-        included_methods=["create", "read", "read_paginated", "update", "delete"],
+        included_methods=["create", "read", "read_items", "update", "delete"],
     )
 )
 api_v1_router.include_router(
@@ -66,6 +60,6 @@ api_v1_router.include_router(
         update_schema=SubgenreUpdateInternal,
         path="/subgenres",
         tags=["Subgenres"],
-        included_methods=["create", "read", "read_paginated", "update", "delete"],
+        included_methods=["create", "read", "read_items", "update", "delete"],
     )
 )
