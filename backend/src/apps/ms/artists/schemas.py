@@ -8,7 +8,7 @@ from pydantic import ConfigDict
 from src.apps.ms.artists.models import (
     ArtistContentBase,
     ArtistMediaBase,
-    ArtistUserBase,
+    ArtistOrgBase,
 )
 from src.core.common.models import UUIDMixin, TimestampMixin, SoftDeleteMixin
 from src.core.utils.partial import optional
@@ -27,7 +27,7 @@ class ArtistBase(ArtistContentBase):
 class Artist(
     ArtistBase,
     ArtistMediaBase,
-    ArtistUserBase,
+    ArtistOrgBase,
     UUIDMixin,
     TimestampMixin,
     SoftDeleteMixin,
@@ -35,7 +35,7 @@ class Artist(
     """
     Comprehensive Artist model.
 
-    Inherits from ArtistBase, ArtistMediaBase, ArtistUserBase, UUIDMixin, TimestampMixin, and SoftDeleteMixin.
+    Inherits from ArtistBase, ArtistMediaBase, ArtistOrgBase, UUIDMixin, TimestampMixin, and SoftDeleteMixin.
     Represents a complete artist entity with all attributes and functionalities.
     """
 
@@ -86,11 +86,11 @@ class ArtistCreate(ArtistBase, ArtistMediaBase):
     model_config = ConfigDict(extra="forbid")
 
 
-class ArtistCreateInternal(ArtistCreate, ArtistUserBase):
+class ArtistCreateInternal(ArtistCreate, ArtistOrgBase):
     """
     Internal model for creating a new Artist.
 
-    Inherits from ArtistCreate and ArtistUserBase.
+    Inherits from ArtistCreate and ArtistOrgBase.
     Used internally for creating a new artist with user-related information.
     """
 
