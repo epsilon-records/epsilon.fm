@@ -19,7 +19,6 @@ import anyio
 from src.core.middlewares.client_cache_middleware import ClientCacheMiddleware
 from src.apps.admin.users.management.commands import create_first_superuser
 from src.apps.system.tiers.management.commands import create_first_tier
-from src.apps.blog.posts.management.commands import create_first_post
 from src.core.db.session import async_engine as engine
 from src.core.utils.log import log_system_info
 from src.core.utils import cache, rate_limit
@@ -75,7 +74,6 @@ async def run_seed_scripts() -> None:
     # Function to run seed scripts during startup
     await create_first_tier.main()
     await create_first_superuser.main()
-    await create_first_post.main()
 
 
 # --------------------------------------
