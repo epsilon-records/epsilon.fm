@@ -551,13 +551,13 @@ standard = ["fastapi", "uvicorn[standard] (>=0.15.0)"]
 
 [[package]]
 name = "fastcrud"
-version = "0.13.1"
+version = "0.14.0"
 description = "FastCRUD is a Python package for FastAPI, offering robust async CRUD operations and flexible endpoint creation utilities."
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "fastcrud-0.13.1-py3-none-any.whl", hash = "sha256:2c0d911f1dfa7367238a17a7f3dc1617173ad77c9965d4fbc1019aef465fd00d"},
-    {file = "fastcrud-0.13.1.tar.gz", hash = "sha256:b00706297d880b85bd8ab7b7102128a6b31eb7aa11860747b95fb664abe5507b"},
+    {file = "fastcrud-0.14.0-py3-none-any.whl", hash = "sha256:737e4da8dfe302e24dac151f352b93892042fa90894268d0e274205ea7ec672e"},
+    {file = "fastcrud-0.14.0.tar.gz", hash = "sha256:cd1d8de9aad37ef7c3652193403177c0fc6623007eca5cce04bfdd9ca62155db"},
 ]
 
 [package.dependencies]
@@ -2429,4 +2429,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "10e834c029c1dc7d9e208f6cbb639fbd0969294d13e0e7f16ce1537ffa33bc6e"
+content-hash = "fac536ab510d0861f9279ecfe4bcb42f03eb5eaec20eb0120915f53c32a3d7ad"
