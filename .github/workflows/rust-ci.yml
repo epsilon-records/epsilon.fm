@@ -25,7 +25,7 @@ jobs:
           packages: webkit2gtk-4.0 libwebkit2gtk-4.0-37 libgtk-3-0 libgtk-3-dev \
             libappindicator3-1 libsoup2.4 javascriptcoregtk-4.0
           version: 1.0
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/bin/
