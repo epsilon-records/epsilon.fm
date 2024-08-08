@@ -4,12 +4,11 @@ import { zod } from 'sveltekit-superforms/adapters';
 import { artistSchema } from '$lib/schema';
 import { clerkClient } from '@clerk/clerk-sdk-node';
 import { fail } from '@sveltejs/kit';
-import { api } from '$lib/api/v1';
+// import { ArtistsService } from '$lib/api/ms/client/services.gen';
 import _ from 'lodash';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	let form = await superValidate(zod(artistSchema));
-	// Use type assertion to access 'session'
 	const session = _.get(locals, 'session') as { claims?: { org_id?: string } } | undefined;
 	const org_id = _.get(session, 'claims.org_id');
 	if (org_id) {

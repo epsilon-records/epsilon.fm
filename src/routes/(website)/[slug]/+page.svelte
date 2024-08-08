@@ -1,35 +1,35 @@
 <script lang="ts">
 	import Gmail from 'svelte-simples/Gmail.svelte';
-	import Instagram from 'svelte-simples/Instagram.svelte';
-	import Facebook from 'svelte-simples/Facebook.svelte';
-	import Soundcloud from 'svelte-simples/Soundcloud.svelte';
-	import Youtube from 'svelte-simples/Youtube.svelte';
-	import Tiktok from 'svelte-simples/Tiktok.svelte';
-	import Bandsintown from 'svelte-simples/Bandsintown.svelte';
+	// import Instagram from 'svelte-simples/Instagram.svelte';
+	// import Facebook from 'svelte-simples/Facebook.svelte';
+	// import Soundcloud from 'svelte-simples/Soundcloud.svelte';
+	// import Youtube from 'svelte-simples/Youtube.svelte';
+	// import Tiktok from 'svelte-simples/Tiktok.svelte';
+	// import Bandsintown from 'svelte-simples/Bandsintown.svelte';
 	import { modalOpened } from '$lib/stores/website';
 	import { createQuery } from '@tanstack/svelte-query';
-	import { api } from '$lib/api/v1';
+	import { ArtistsService } from '$lib/api/ms/client/services.gen';
 	import { error } from '@sveltejs/kit';
 
 	export let data: { org_id: string };
 
 	const artist = createQuery({
 		queryKey: ['artists', data.org_id],
-		queryFn: async () => api().getArtist(data.org_id),
-		staleTime: 5 * 60 * 1000 // 5 minutes
+		queryFn: async () => ArtistsService.endpointV1ArtistsGetIdGet
 	});
 	$: if ($artist.error) {
+		console.log($artist.error);
 		error(404);
 	}
 </script>
 
 <svelte:head>
-	<title>{$artist.data?.stage_name || 'Artist Page'}</title>
-	<meta name="description" content="Official page of {$artist.data?.stage_name}. DJ & Producer." />
+	<title>Vozz Rich</title>
+	<meta name="description" content="Official page of Vozz Rich. DJ & Producer." />
 </svelte:head>
 
 <main>
-	<h1 class="text-8xl text-white">{$artist.data?.stage_name?.toUpperCase()}</h1>
+	<h1 class="text-8xl text-white">VOZZ RICH</h1>
 	<p class="pt-12 text-3xl text-white">DJ & Producer</p>
 	<div class="icons">
 		<div
@@ -46,7 +46,7 @@
 				<Gmail />
 			</div>
 		</div>
-		{#if $artist.data?.instagram_profile_link}
+		<!-- {#if $artist.data?.instagram_profile_link}
 			<a
 				href={$artist.data?.instagram_profile_link}
 				aria-label="Instagram"
@@ -117,7 +117,7 @@
 					<Youtube />
 				</div>
 			</a>
-		{/if}
+		{/if} -->
 	</div>
 </main>
 
@@ -126,10 +126,10 @@
 		--text-color: white;
 	}
 
-	a {
+	/* a {
 		color: var(--text-color);
 		text-decoration: none;
-	}
+	} */
 
 	main {
 		display: flex;

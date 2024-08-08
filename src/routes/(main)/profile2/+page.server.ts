@@ -4,7 +4,7 @@ import { zod } from 'sveltekit-superforms/adapters';
 import { artistSchema } from '$lib/schema';
 import { clerkClient } from '@clerk/clerk-sdk-node';
 import { fail } from '@sveltejs/kit';
-import { api } from '$lib/api/v1';
+// import { ArtistsService } from '$lib/api/ms/client/services.gen';
 import _ from 'lodash';
 
 export const load: PageServerLoad = async ({ locals }) => {

@@ -1,24 +1,24 @@
 <script>
 	import { Spotify } from 'sveltekit-embed';
 	import { Badge } from '$lib/components/ui/badge';
-	import { createQuery } from '@tanstack/svelte-query';
-	import { api } from '$lib/api/v1';
-	import { error } from '@sveltejs/kit';
+	// import { createQuery } from '@tanstack/svelte-query';
+	// import { ArtistsService } from '$lib/api/ms/client/services.gen';
+	// import { error } from '@sveltejs/kit';
 
-	export let data;
+	// export let data;
 
-	const artist = createQuery({
-		queryKey: ['artists', data.org_id],
-		queryFn: async () => api().getArtist(data.org_id),
-		staleTime: 5 * 60 * 1000 // 5 minutes
-	});
-	$: if ($artist.error) {
-		error(404);
-	}
+	// const artist = createQuery({
+	// 	queryKey: ['artists', data.org_id],
+	// 	queryFn: async () => api().getArtist(data.org_id),
+	// 	staleTime: 5 * 60 * 1000 // 5 minutes
+	// });
+	// $: if ($artist.error) {
+	// 	error(404);
+	// }
 </script>
 
 <svelte:head>
-	<title>{$artist.data?.stage_name} — About</title>
+	<title>Vozz Rich — About</title>
 </svelte:head>
 
 <div class="container">
