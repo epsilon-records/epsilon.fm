@@ -15,60 +15,6 @@ class ArtistContentBase(Base):
         max_length=1000,
         description="Artist Biography",
     )
-    spotify_artist_link: str = Field(
-        default="",
-        max_length=255,
-        description="Artist Spotify URI",
-        regex=r"^(https?:\/\/)?(www\.)?open\.spotify\.com\/artist\/[^\s]+$",
-    )
-    youtube_channel_link: str = Field(
-        default="",
-        max_length=255,
-        description="Artist YouTube URL",
-        regex=r"^(https?:\/\/)?(www\.)?youtube\.com\/(channel\/|user\/|c\/)?[^\s]+$",
-    )
-    instagram_profile_link: str = Field(
-        default="",
-        max_length=255,
-        description="Artist Instagram URL",
-        regex=r"^(https?:\/\/)?(www\.)?instagram\.com\/[^\s]+$",
-    )
-    facebook_profile_link: str = Field(
-        default="",
-        max_length=255,
-        description="Artist Facebook URL",
-        regex=r"^(https?:\/\/)?(www\.)?facebook\.com\/[^\s]+$",
-    )
-    x_profile_link: str = Field(
-        default="",
-        max_length=255,
-        description="Artist X URL",
-        regex=r"^(https?:\/\/)?(www\.)?twitter\.com\/[^\s]+$",
-    )
-    tiktok_profile_link: str = Field(
-        default="",
-        max_length=255,
-        description="Artist TikTok URL",
-        regex=r"^(https?:\/\/)?(www\.)?tiktok\.com\/@[^\s]+$",
-    )
-    soundcloud_profile_link: str = Field(
-        default="",
-        max_length=255,
-        description="Artist SoundCloud URL",
-        regex=r"^(https?:\/\/)?(www\.)?soundcloud\.com\/[^\s]+$",
-    )
-    songkick_profile_link: str = Field(
-        default="",
-        max_length=255,
-        description="Artist SongKick URL",
-        regex=r"^(https?:\/\/)?(www\.)?songkick\.com\/artists\/[^\s]+$",
-    )
-    bandsintown_profile_link: str = Field(
-        default="",
-        max_length=255,
-        description="Artist BandsInTown URL",
-        regex=r"^(https?:\/\/)?(www\.)?bandsintown\.com\/a\/[^\s]+$",
-    )
 
 
 class ArtistMediaBase(Base):
@@ -83,7 +29,7 @@ class ArtistMediaBase(Base):
 
 class ArtistOrgBase(Base):
     org_id: str = Field(
-        description="Clerk Organization ID associated with the artist",
+        description="Organization ID associated with the artist",
         max_length=255,
         unique=True,
     )
@@ -91,7 +37,7 @@ class ArtistOrgBase(Base):
 
 class ArtistAnalyticsBase(Base):
     soundcharts_artist_id: UUID = Field(
-        description="Soundcharts Artist ID associated with the artist",
+        description="Soundcharts Artist UUID associated with the artist",
         nullable=True,
         default=None,
         unique=True,
