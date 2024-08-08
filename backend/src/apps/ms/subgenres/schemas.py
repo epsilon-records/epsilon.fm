@@ -5,10 +5,7 @@ from datetime import datetime
 from pydantic import ConfigDict
 
 # Local Dependencies
-from src.apps.ms.subgenres.models import (
-    SubgenreContentBase,
-    SubgenreUserBase,
-)
+from src.apps.ms.subgenres.models import SubgenreContentBase
 from src.core.common.models import UUIDMixin, TimestampMixin, SoftDeleteMixin
 from src.core.utils.partial import optional
 
@@ -19,7 +16,6 @@ class SubgenreBase(SubgenreContentBase):
 
 class Subgenre(
     SubgenreBase,
-    SubgenreUserBase,
     UUIDMixin,
     TimestampMixin,
     SoftDeleteMixin,
@@ -27,7 +23,7 @@ class Subgenre(
     pass
 
 
-class SubgenreRead(SubgenreBase, SubgenreUserBase, UUIDMixin, TimestampMixin):
+class SubgenreRead(SubgenreBase, UUIDMixin, TimestampMixin):
     pass
 
 
@@ -37,7 +33,7 @@ class SubgenreCreate(
     model_config = ConfigDict(extra="forbid")
 
 
-class SubgenreCreateInternal(SubgenreCreate, SubgenreUserBase):
+class SubgenreCreateInternal(SubgenreCreate):
     pass
 
 
