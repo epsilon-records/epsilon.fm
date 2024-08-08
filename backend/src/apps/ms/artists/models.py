@@ -15,6 +15,42 @@ class ArtistContentBase(Base):
         max_length=1000,
         description="Artist Biography",
     )
+    apple_artist_link: str = Field(
+        default="",
+        max_length=255,
+        description="Artist Apple URL",
+        regex=r"^(https?):\/\/musik.apple.com\/artist\/[^\s]+$",
+    )
+    beatport_artist_link: str = Field(
+        default="",
+        max_length=255,
+        description="Artist Beatport URL",
+        regex=r"^(https?):\/\/www.beatport.com\/artist\/[^\s]+$",
+    )
+    deezer_artist_link: str = Field(
+        default="",
+        max_length=255,
+        description="Artist Deezer URL",
+        regex=r"^(https?):\/\/deezer.com\/artist\/[^\s]+$",
+    )
+    tidal_artist_link: str = Field(
+        default="",
+        max_length=255,
+        description="Artist Tidal URL",
+        regex=r"^(https?):\/\/tidal.com\/browse\/artist\/[^\s]+$",
+    )
+    pandora_artist_link: str = Field(
+        default="",
+        max_length=255,
+        description="Artist Pandora URL",
+        regex=r"^(https?):\/\/www.pandora.com\/artist\/[^\s]+$",
+    )
+    shazam_artist_link: str = Field(
+        default="",
+        max_length=255,
+        description="Artist Shazam URL",
+        regex=r"^(https?):\/\/www.shazam.com\/artist\/[^\s]+$",
+    )
     spotify_artist_link: str = Field(
         default="",
         max_length=255,
