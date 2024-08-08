@@ -75,7 +75,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@ai-sdk/openai": "^0.0.43",
+		"@ai-sdk/openai": "^0.0.44",
 		"@capacitor/android": "^6.1.2",
 		"@capacitor/cli": "^6.1.2",
 		"@capacitor/core": "^6.1.2",
