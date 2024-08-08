@@ -36,11 +36,11 @@ readme-metrics = "^3.1.0"
 pathspec = "^0.12.1"
 fastcrud = "^0.14.0"
 starlette-admin = "^0.14.1"
-mypy = "^1.11.0"
+mypy = "^1.11.1"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.8.0"
-mypy = "^1.11.0"
+mypy = "^1.11.1"
 
 [tool.black]
 line-length = 100
