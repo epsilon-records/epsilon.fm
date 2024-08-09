@@ -5,6 +5,7 @@ from fastcrud import crud_router
 # Local Dependencies
 from src.core.db.session import async_get_db
 from src.apps.auth.routers.v1 import router as auth_router
+from src.apps.ms.artists.routers.v1 import router as artist_router
 from src.apps.ms.artists.models import Artist
 from src.apps.ms.artists.schemas import (
     ArtistCreate,
@@ -35,6 +36,7 @@ api_v1_router = APIRouter(prefix="/v1")
 
 # Include routers for different modules and functionalities under the v1 API version
 api_v1_router.include_router(auth_router)
+api_v1_router.include_router(artist_router)
 api_v1_router.include_router(
     crud_router(
         session=async_get_db,
