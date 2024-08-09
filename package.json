@@ -47,7 +47,7 @@
 		"@types/eslint": "^9.6.0",
 		"autoprefixer": "^10.4.20",
 		"daisyui": "^4.12.10",
-		"drizzle-kit": "^0.23.2",
+		"drizzle-kit": "^0.24.0",
 		"eslint": "^9.8.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-storybook": "^0.8.0",
