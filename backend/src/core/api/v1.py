@@ -44,6 +44,7 @@ api_v1_router.include_router(
         delete_schema=ArtistDeleteInternal,
         path="/artists",
         tags=["Artists"],
+        included_methods=["create", "read", "read_multi", "update", "delete"],
     )
 )
 api_v1_router.include_router(
@@ -55,6 +56,7 @@ api_v1_router.include_router(
         delete_schema=TrackDeleteInternal,
         path="/tracks",
         tags=["Tracks"],
+        included_methods=["create", "read", "read_multi", "update", "delete"],
     )
 )
 api_v1_router.include_router(
@@ -66,6 +68,7 @@ api_v1_router.include_router(
         delete_schema=GenreDeleteInternal,
         path="/genres",
         tags=["Genres"],
+        included_methods=["create", "read", "read_multi", "update", "delete"],
     )
 )
 api_v1_router.include_router(
@@ -77,5 +80,6 @@ api_v1_router.include_router(
         delete_schema=SubgenreDeleteInternal,
         path="/subgenres",
         tags=["Subgenres"],
+        included_methods=["create", "read", "read_multi", "update", "delete"],
     )
 )
