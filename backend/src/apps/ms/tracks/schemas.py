@@ -1,5 +1,4 @@
 # Built-in Dependencies
-from datetime import datetime
 
 # Third-Party Dependencies
 from pydantic import ConfigDict
@@ -20,16 +19,8 @@ class Track(
     pass
 
 
-class TrackRead(TrackBase, TrackMediaBase, TrackUserBase, UUIDMixin, TimestampMixin):
-    pass
-
-
 class TrackCreate(TrackBase, TrackMediaBase):
     model_config = ConfigDict(extra="forbid")
-
-
-class TrackCreateInternal(TrackCreate, TrackUserBase):
-    pass
 
 
 @optional()
@@ -37,9 +28,5 @@ class TrackUpdate(TrackContentBase, TrackMediaBase):
     model_config = ConfigDict(extra="forbid")
 
 
-class TrackUpdateInternal(TrackUpdate):
-    updated_at: datetime
-
-
-class TrackDeleteInternal(SoftDeleteMixin):
+class TrackDelete(SoftDeleteMixin):
     model_config = ConfigDict(extra="forbid")

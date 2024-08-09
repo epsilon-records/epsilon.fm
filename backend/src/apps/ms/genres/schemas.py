@@ -1,5 +1,4 @@
 # Built-in Dependencies
-from datetime import datetime
 
 # Third-Party Dependencies
 from pydantic import ConfigDict
@@ -18,16 +17,8 @@ class Genre(GenreBase, UUIDMixin, TimestampMixin, SoftDeleteMixin):
     pass
 
 
-class GenreRead(GenreBase, UUIDMixin, TimestampMixin):
-    pass
-
-
 class GenreCreate(GenreBase):
     model_config = ConfigDict(extra="forbid")
-
-
-class GenreCreateInternal(GenreCreate):
-    pass
 
 
 @optional()
@@ -35,9 +26,5 @@ class GenreUpdate(GenreContentBase):
     model_config = ConfigDict(extra="forbid")
 
 
-class GenreUpdateInternal(GenreUpdate):
-    updated_at: datetime
-
-
-class GenreDeleteInternal(SoftDeleteMixin):
+class GenreDelete(SoftDeleteMixin):
     model_config = ConfigDict(extra="forbid")
