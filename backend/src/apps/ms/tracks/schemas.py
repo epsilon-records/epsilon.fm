@@ -41,5 +41,5 @@ class TrackUpdateInternal(TrackUpdate):
     updated_at: datetime
 
 
-class TrackDelete(SoftDeleteMixin):
+class TrackDeleteInternal(SoftDeleteMixin):
     model_config = ConfigDict(extra="forbid")

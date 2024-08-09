@@ -48,5 +48,5 @@ class SubgenreUpdateInternal(SubgenreUpdate):
     updated_at: datetime
 
 
-class SubgenreDelete(SoftDeleteMixin):
+class SubgenreDeleteInternal(SoftDeleteMixin):
     model_config = ConfigDict(extra="forbid")

@@ -127,7 +127,7 @@ class ArtistUpdateInternal(ArtistUpdate):
     updated_at: datetime
 
 
-class ArtistDelete(SoftDeleteMixin):
+class ArtistDeleteInternal(SoftDeleteMixin):
     """
     Model for soft-deleting an Artist.
 

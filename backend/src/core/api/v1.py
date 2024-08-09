@@ -6,13 +6,29 @@ from fastcrud import crud_router
 from src.core.db.session import async_get_db
 from src.apps.auth.routers.v1 import router as auth_router
 from src.apps.ms.artists.models import Artist
-from src.apps.ms.artists.schemas import ArtistCreateInternal, ArtistUpdateInternal
+from src.apps.ms.artists.schemas import (
+    ArtistCreateInternal,
+    ArtistUpdateInternal,
+    ArtistDeleteInternal,
+)
 from src.apps.ms.tracks.models import Track
-from src.apps.ms.tracks.schemas import TrackCreateInternal, TrackUpdateInternal
+from src.apps.ms.tracks.schemas import (
+    TrackCreateInternal,
+    TrackUpdateInternal,
+    TrackDeleteInternal,
+)
 from src.apps.ms.genres.models import Genre
-from src.apps.ms.genres.schemas import GenreCreateInternal, GenreUpdateInternal
+from src.apps.ms.genres.schemas import (
+    GenreCreateInternal,
+    GenreUpdateInternal,
+    GenreDeleteInternal,
+)
 from src.apps.ms.subgenres.models import Subgenre
-from src.apps.ms.subgenres.schemas import SubgenreCreateInternal, SubgenreUpdateInternal
+from src.apps.ms.subgenres.schemas import (
+    SubgenreCreateInternal,
+    SubgenreUpdateInternal,
+    SubgenreDeleteInternal,
+)
 
 # Create an APIRouter instance for versioning and prefixing routes
 api_v1_router = APIRouter(prefix="/v1")
@@ -25,6 +41,7 @@ api_v1_router.include_router(
         model=Artist,
         create_schema=ArtistCreateInternal,
         update_schema=ArtistUpdateInternal,
+        delete_schema=ArtistDeleteInternal,
         path="/artists",
         tags=["Artists"],
         endpoint_names={
@@ -44,6 +61,7 @@ api_v1_router.include_router(
         model=Track,
         create_schema=TrackCreateInternal,
         update_schema=TrackUpdateInternal,
+        delete_schema=TrackDeleteInternal,
         path="/tracks",
         tags=["Tracks"],
         included_methods=["create", "read", "read_multi", "update", "delete"],
@@ -64,6 +82,7 @@ api_v1_router.include_router(
         model=Genre,
         create_schema=GenreCreateInternal,
         update_schema=GenreUpdateInternal,
+        delete_schema=GenreDeleteInternal,
         path="/genres",
         tags=["Genres"],
         included_methods=["create", "read", "read_multi", "update", "delete"],
@@ -84,6 +103,7 @@ api_v1_router.include_router(
         model=Subgenre,
         create_schema=SubgenreCreateInternal,
         update_schema=SubgenreUpdateInternal,
+        delete_schema=SubgenreDeleteInternal,
         path="/subgenres",
         tags=["Subgenres"],
         included_methods=["create", "read", "read_multi", "update", "delete"],
