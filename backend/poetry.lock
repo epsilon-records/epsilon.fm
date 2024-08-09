@@ -570,21 +570,17 @@ name = "fastcrud"
 version = "0.14.0"
 description = "FastCRUD is a Python package for FastAPI, offering robust async CRUD operations and flexible endpoint creation utilities."
 optional = false
-python-versions = "^3.9"
-files = []
-develop = false
+python-versions = "<4.0,>=3.9"
+files = [
+    {file = "fastcrud-0.14.0-py3-none-any.whl", hash = "sha256:737e4da8dfe302e24dac151f352b93892042fa90894268d0e274205ea7ec672e"},
+    {file = "fastcrud-0.14.0.tar.gz", hash = "sha256:cd1d8de9aad37ef7c3652193403177c0fc6623007eca5cce04bfdd9ca62155db"},
+]
 
 [package.dependencies]
 fastapi = ">=0.100.0,<0.112.0"
-pydantic = "^2.0.0"
-SQLAlchemy = "^2.0.0"
-SQLAlchemy-Utils = "^0.41.1"
-
-[package.source]
-type = "git"
-url = "https://github.com/igorbenav/fastcrud"
-reference = "main"
-resolved_reference = "c056ab21aaf2b29d36edc7b9ab9d7fde6b417998"
+pydantic = ">=2.0.0,<3.0.0"
+SQLAlchemy = ">=2.0.0,<3.0.0"
+SQLAlchemy-Utils = ">=0.41.1,<0.42.0"
 
 [[package]]
 name = "filelock"
@@ -2470,4 +2466,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "c5b21e149248ec1a8169cbc7c805d4dd4b6058fe0d7342b67ed7a8d07fad2a02"
+content-hash = "6a1f86380a9bde6facc332e7fa38f0f5afb61e1112556aff759304e5f260aece"

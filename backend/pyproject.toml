@@ -34,7 +34,7 @@ pre-commit = "^3.8.0"
 ruff = "^0.5.6"
 readme-metrics = "^3.1.0"
 pathspec = "^0.12.1"
-fastcrud = { git = "https://github.com/igorbenav/fastcrud", rev = "main" }
+fastcrud = "^0.14.0"
 starlette-admin = "^0.14.1"
 mypy = "^1.11.0"
 
