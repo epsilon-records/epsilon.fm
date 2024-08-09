@@ -27,7 +27,15 @@ api_v1_router.include_router(
         update_schema=ArtistUpdateInternal,
         path="/artists",
         tags=["Artists"],
-        # included_methods=["create", "read", "read_multiple", "update", "delete"],
+        endpoint_names={
+            "create": "",
+            "read": "",
+            "update": "",
+            "delete": "",
+            "db_delete": "",
+            "read_multi": "",
+            "read_paginated": "",
+        },
     )
 )
 api_v1_router.include_router(
@@ -38,7 +46,16 @@ api_v1_router.include_router(
         update_schema=TrackUpdateInternal,
         path="/tracks",
         tags=["Tracks"],
-        # included_methods=["create", "read", "read_multiple", "update", "delete"],
+        included_methods=["create", "read", "read_multi", "update", "delete"],
+        endpoint_names={
+            "create": "",
+            "read": "",
+            "update": "",
+            "delete": "",
+            "db_delete": "",
+            "read_multi": "",
+            "read_paginated": "",
+        },
     )
 )
 api_v1_router.include_router(
@@ -49,7 +66,16 @@ api_v1_router.include_router(
         update_schema=GenreUpdateInternal,
         path="/genres",
         tags=["Genres"],
-        # included_methods=["create", "read", "read_multiple", "update", "delete"],
+        included_methods=["create", "read", "read_multi", "update", "delete"],
+        endpoint_names={
+            "create": "",
+            "read": "",
+            "update": "",
+            "delete": "",
+            "db_delete": "",
+            "read_multi": "",
+            "read_paginated": "",
+        },
     )
 )
 api_v1_router.include_router(
@@ -60,6 +86,15 @@ api_v1_router.include_router(
         update_schema=SubgenreUpdateInternal,
         path="/subgenres",
         tags=["Subgenres"],
-        # included_methods=["create", "read", "read_multiple", "update", "delete"],
+        included_methods=["create", "read", "read_multi", "update", "delete"],
+        endpoint_names={
+            "create": "",
+            "read": "",
+            "update": "",
+            "delete": "",
+            "db_delete": "",
+            "read_multi": "",
+            "read_paginated": "",
+        },
     )
 )
