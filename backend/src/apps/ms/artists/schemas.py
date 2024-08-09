@@ -9,7 +9,7 @@ from src.apps.ms.artists.models import (
     ArtistAnalyticsBase,
     ArtistMediaBase,
 )
-from src.core.common.models import SoftDeleteMixin, TimestampMixin, UUIDMixin
+from src.core.common.models import SoftDeleteMixin, TimestampMixin, UUIDMixin, OrgMixin
 from src.core.utils.partial import optional
 
 
@@ -17,7 +17,7 @@ class ArtistBase(ArtistProfileBase, ArtistAnalyticsBase, ArtistMediaBase):
     pass
 
 
-class ArtistRead(ArtistBase, UUIDMixin, TimestampMixin):
+class ArtistRead(ArtistBase, UUIDMixin, OrgMixin, TimestampMixin):
     pass
 
 

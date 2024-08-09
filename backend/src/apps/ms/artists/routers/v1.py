@@ -28,7 +28,7 @@ async def write_artist(
     artist: ArtistCreate,
     db: Annotated[AsyncSession, Depends(async_get_db)],
 ) -> ArtistRead:
-    return await artist_crud.create(db=db, schema_to_select=ArtistRead, object=artist)
+    return await artist_crud.create(db=db, object=artist)
 
 
 @router.get("/artists/{org_id}", response_model=ArtistRead)
