@@ -1,89 +1,89 @@
 services:
-  frontend:
-    build: .
-    command: bun run dev --host
-    volumes:
-      - ./src:/app/src
-    ports:
-      - 5173:5173
-    environment:
-      - MODE=development
-      - VERCEL_GIT_COMMIT_SHA=unknown
-      - PUBLIC_API_URL=${PUBLIC_API_URL}
-      - PUBLIC_API_VERSION=${PUBLIC_API_VERSION}
-      - PUBLIC_POSTHOG_API_KEY=${PUBLIC_POSTHOG_API_KEY}
-      - PUBLIC_METICULOUS_RECORDING_TOKEN=${PUBLIC_METICULOUS_RECORDING_TOKEN}
-      - PUBLIC_WEGLOT_API_KEY=${PUBLIC_WEGLOT_API_KEY}
-      - PUBLIC_GOOGLE_PLACES_API_KEY=${PUBLIC_GOOGLE_PLACES_API_KEY}
-      - PUBLIC_CLERK_PUBLISHABLE_KEY=${PUBLIC_CLERK_PUBLISHABLE_KEY}
-      - CLERK_SECRET_KEY=${CLERK_SECRET_KEY}
-      - STREAM_API_KEY=${STREAM_API_KEY}
-      - STREAM_APP_SECRET=${STREAM_APP_SECRET}
-      - UPLOADTHING_SECRET=${UPLOADTHING_SECRET}
+  # frontend:
+  #   build: .
+  #   command: bun run dev --host
+  #   volumes:
+  #     - ./src:/app/src
+  #   ports:
+  #     - 5173:5173
+  #   environment:
+  #     - MODE=development
+  #     - VERCEL_GIT_COMMIT_SHA=unknown
+  #     - PUBLIC_API_URL=${PUBLIC_API_URL}
+  #     - PUBLIC_API_VERSION=${PUBLIC_API_VERSION}
+  #     - PUBLIC_POSTHOG_API_KEY=${PUBLIC_POSTHOG_API_KEY}
+  #     - PUBLIC_METICULOUS_RECORDING_TOKEN=${PUBLIC_METICULOUS_RECORDING_TOKEN}
+  #     - PUBLIC_WEGLOT_API_KEY=${PUBLIC_WEGLOT_API_KEY}
+  #     - PUBLIC_GOOGLE_PLACES_API_KEY=${PUBLIC_GOOGLE_PLACES_API_KEY}
+  #     - PUBLIC_CLERK_PUBLISHABLE_KEY=${PUBLIC_CLERK_PUBLISHABLE_KEY}
+  #     - CLERK_SECRET_KEY=${CLERK_SECRET_KEY}
+  #     - STREAM_API_KEY=${STREAM_API_KEY}
+  #     - STREAM_APP_SECRET=${STREAM_APP_SECRET}
+  #     - UPLOADTHING_SECRET=${UPLOADTHING_SECRET}
 
-    depends_on:
-      - backend
+  #   depends_on:
+  #     - backend
 
   backend:
     build: ./backend
-    command: uvicorn src.main:app --reload --workers 1 --host 0.0.0.0 --port 8000
+    command: uvicorn src.main:app --reload --workers 16 --host 0.0.0.0 --port 8080
     volumes:
       - ./backend:/app
     ports:
-      - 8000:8000
-    environment:
-      - ENVIRONMENT=development
-      - PROJECT_NAME="Epsilon MS"
-      - PROJECT_DESCRIPTION="A modern open-source music distribution management system."
-      - APP_VERSION="0.0.4"
-      - CONTACT_NAME="Nathaniel Houk"
-      - CONTACT_EMAIL="nate@epsilonrecords.com"
-      - LICENSE_NAME="MIT"
-      - LICENSE_IDENTIFIER="MIT"
-      - BASE_URL="http://backend:8000"
-      - SECRET_KEY=${SECRET_KEY}
-      - ALGORITHM=HS256
-      - ACCESS_TOKEN_EXPIRE_MINUTES=1440
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_SERVER=db
-      - POSTGRES_PORT=5432
-      - POSTGRES_DB=postgres
-      - REDIS_CACHE_HOST=redis
-      - REDIS_CACHE_PORT=6379
-      - REDIS_CACHE_DB=0
-      - REDIS_CACHE_USERNAME=default
-      - REDIS_CACHE_PASSWORD=
-      - REDIS_RATE_LIMIT_HOST=redis
-      - REDIS_RATE_LIMIT_PORT=6379
-      - REDIS_RATE_LIMIT_DB=0
-      - REDIS_RATE_LIMIT_USERNAME=default
-      - REDIS_RATE_LIMIT_PASSWORD=
-      - REDIS_QUEUE_HOST=redis
-      - REDIS_QUEUE_PORT=6379
-      - REDIS_QUEUE_DB=0
-      - REDIS_QUEUE_USERNAME=default
-      - REDIS_QUEUE_PASSWORD=
-      - ADMIN_NAME="John Doe"
-      - ADMIN_EMAIL="johndoe@example.com"
-      - ADMIN_USERNAME=admin
-      - ADMIN_PASSWORD=password
-      - TIER_NAME_DEFAULT=Default
-      - DEFAULT_RATE_LIMIT_LIMIT=4
-      - DEFAULT_RATE_LIMIT_PERIOD=1
-    depends_on:
-      - db
-      - redis
+      - 8080:8000
+    # environment:
+    #   - ENVIRONMENT=development
+    #   - PROJECT_NAME="Epsilon MS"
+    #   - PROJECT_DESCRIPTION="A modern open-source music distribution management system."
+    #   - APP_VERSION="0.0.4"
+    #   - CONTACT_NAME="Nathaniel Houk"
+    #   - CONTACT_EMAIL="nate@epsilonrecords.com"
+    #   - LICENSE_NAME="MIT"
+    #   - LICENSE_IDENTIFIER="MIT"
+    #   - BASE_URL="http://backend:8000"
+    #   - SECRET_KEY=${SECRET_KEY}
+    #   - ALGORITHM=HS256
+    #   - ACCESS_TOKEN_EXPIRE_MINUTES=1440
+    #   - POSTGRES_USER=postgres
+    #   - POSTGRES_PASSWORD=postgres
+    #   - POSTGRES_SERVER=db
+    #   - POSTGRES_PORT=5432
+    #   - POSTGRES_DB=postgres
+    #   - REDIS_CACHE_HOST=redis
+    #   - REDIS_CACHE_PORT=6379
+    #   - REDIS_CACHE_DB=0
+    #   - REDIS_CACHE_USERNAME=default
+    #   - REDIS_CACHE_PASSWORD=
+    #   - REDIS_RATE_LIMIT_HOST=redis
+    #   - REDIS_RATE_LIMIT_PORT=6379
+    #   - REDIS_RATE_LIMIT_DB=0
+    #   - REDIS_RATE_LIMIT_USERNAME=default
+    #   - REDIS_RATE_LIMIT_PASSWORD=
+    #   - REDIS_QUEUE_HOST=redis
+    #   - REDIS_QUEUE_PORT=6379
+    #   - REDIS_QUEUE_DB=0
+    #   - REDIS_QUEUE_USERNAME=default
+    #   - REDIS_QUEUE_PASSWORD=
+    #   - ADMIN_NAME="John Doe"
+    #   - ADMIN_EMAIL="johndoe@example.com"
+    #   - ADMIN_USERNAME=admin
+    #   - ADMIN_PASSWORD=password
+    #   - TIER_NAME_DEFAULT=Default
+    #   - DEFAULT_RATE_LIMIT_LIMIT=4
+    #   - DEFAULT_RATE_LIMIT_PERIOD=1
+    # depends_on:
+    #   - db
+    #   - redis
 
-  db:
-    build: ./backend/src/core/db
-    expose:
-      - 5432
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+  # db:
+  #   build: ./backend/src/core/db
+  #   expose:
+  #     - 5432
+  #   environment:
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=postgres
 
-  redis:
-    image: redis
-    expose:
-      - 6379
+  # redis:
+  #   image: redis
+  #   expose:
+  #     - 6379

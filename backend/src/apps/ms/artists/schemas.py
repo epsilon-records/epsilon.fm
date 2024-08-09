@@ -13,12 +13,6 @@ from src.core.utils.partial import optional
 
 
 class ArtistBase(ArtistProfileBase, ArtistMediaBase):
-    """
-    Base class for Artist models.
-
-    Inherits from ArtistProfileBase.
-    """
-
     pass
 
 
