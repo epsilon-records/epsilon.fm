@@ -19,7 +19,7 @@ class ArtistContentBase(Base):
         default="",
         max_length=255,
         description="Artist Apple URL",
-        regex=r"^(https?):\/\/musik.apple.com\/artist\/[^\s]+$",
+        regex=r"^(https?):\/\/music.apple.com\/artist\/[^\s]+$",
     )
     beatport_artist_link: str = Field(
         default="",

@@ -18,7 +18,13 @@ const artistSchema = z.object({
 	tiktok_profile_link: z.string().max(255).optional(),
 	soundcloud_profile_link: z.string().max(255).optional(),
 	songkick_profile_link: z.string().max(255).optional(),
-	bandsintown_profile_link: z.string().max(255).optional()
+	bandsintown_profile_link: z.string().max(255).optional(),
+	apple_artist_link: z.string().max(255).optional(),
+	beatport_artist_link: z.string().max(255).optional(),
+	deezer_artist_link: z.string().max(255).optional(),
+	tidal_artist_link: z.string().max(255).optional(),
+	pandora_artist_link: z.string().max(255).optional(),
+	shazam_artist_link: z.string().max(255).optional()
 });
 
 const genreSchema = z.object({

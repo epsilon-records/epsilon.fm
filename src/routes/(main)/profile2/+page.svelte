@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import * as Card from '$lib/components/ui/card';
 	import type { PageData } from './$types.js';
 	import ProfileForm from './profile-form.svelte';
@@ -18,4 +18,4 @@
 			<Stretch />
 		{/if}
 	</Card.Content>
-</Card.Root>
+</Card.Root> -->

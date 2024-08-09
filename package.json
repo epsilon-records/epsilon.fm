@@ -107,6 +107,7 @@
 		"@vercel/speed-insights": "^1.0.12",
 		"add": "^2.0.6",
 		"ai": "^3.3.3",
+		"biome": "^0.3.3",
 		"bits-ui": "^0.21.13",
 		"chromatic": "^11.7.0",
 		"class-variance-authority": "^0.7.0",
