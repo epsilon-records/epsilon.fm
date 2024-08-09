@@ -5,8 +5,8 @@ from fastcrud import crud_router
 # Local Dependencies
 from src.core.db.session import async_get_db
 from src.apps.auth.routers.v1 import router as auth_router
+from src.apps.ms.artists.models import Artist
 from src.apps.ms.artists.schemas import (
-    ArtistRead,
     ArtistCreate,
     ArtistUpdate,
     ArtistDelete,
@@ -38,7 +38,7 @@ api_v1_router.include_router(auth_router)
 api_v1_router.include_router(
     crud_router(
         session=async_get_db,
-        model=ArtistRead,
+        model=Artist,
         create_schema=ArtistCreate,
         update_schema=ArtistUpdate,
         delete_schema=ArtistDelete,
