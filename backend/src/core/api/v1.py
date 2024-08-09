@@ -9,21 +9,21 @@ from src.apps.ms.artists.models import Artist
 from src.apps.ms.artists.schemas import ArtistCreate, ArtistUpdate, ArtistDelete
 from src.apps.ms.tracks.models import Track
 from src.apps.ms.tracks.schemas import (
-    TrackCreateInternal,
-    TrackUpdateInternal,
-    TrackDeleteInternal,
+    TrackCreate,
+    TrackUpdate,
+    TrackDelete,
 )
 from src.apps.ms.genres.models import Genre
 from src.apps.ms.genres.schemas import (
-    GenreCreateInternal,
-    GenreUpdateInternal,
-    GenreDeleteInternal,
+    GenreCreate,
+    GenreUpdate,
+    GenreDelete,
 )
 from src.apps.ms.subgenres.models import Subgenre
 from src.apps.ms.subgenres.schemas import (
-    SubgenreCreateInternal,
-    SubgenreUpdateInternal,
-    SubgenreDeleteInternal,
+    SubgenreCreate,
+    SubgenreUpdate,
+    SubgenreDelete,
 )
 
 # Create an APIRouter instance for versioning and prefixing routes
@@ -56,9 +56,9 @@ api_v1_router.include_router(
     crud_router(
         session=async_get_db,
         model=Track,
-        create_schema=TrackCreateInternal,
-        update_schema=TrackUpdateInternal,
-        delete_schema=TrackDeleteInternal,
+        create_schema=TrackCreate,
+        update_schema=TrackUpdate,
+        delete_schema=TrackDelete,
         path="/tracks",
         tags=["Tracks"],
         included_methods=["create", "read", "read_multi", "update", "delete"],
@@ -77,9 +77,9 @@ api_v1_router.include_router(
     crud_router(
         session=async_get_db,
         model=Genre,
-        create_schema=GenreCreateInternal,
-        update_schema=GenreUpdateInternal,
-        delete_schema=GenreDeleteInternal,
+        create_schema=GenreCreate,
+        update_schema=GenreUpdate,
+        delete_schema=GenreDelete,
         path="/genres",
         tags=["Genres"],
         included_methods=["create", "read", "read_multi", "update", "delete"],
@@ -98,9 +98,9 @@ api_v1_router.include_router(
     crud_router(
         session=async_get_db,
         model=Subgenre,
-        create_schema=SubgenreCreateInternal,
-        update_schema=SubgenreUpdateInternal,
-        delete_schema=SubgenreDeleteInternal,
+        create_schema=SubgenreCreate,
+        update_schema=SubgenreUpdate,
+        delete_schema=SubgenreDelete,
         path="/subgenres",
         tags=["Subgenres"],
         included_methods=["create", "read", "read_multi", "update", "delete"],
