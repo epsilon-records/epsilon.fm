@@ -116,7 +116,7 @@
 		"cmdk-sv": "^0.0.18",
 		"cross-env": "^7.0.3",
 		"devmoji": "^2.3.0",
-		"drizzle-orm": "^0.32.2",
+		"drizzle-orm": "^0.33.0",
 		"esbuild": "^0.23.0",
 		"flowbite-svelte-icons": "^1.6.1",
 		"formsnap": "^1.0.1",
