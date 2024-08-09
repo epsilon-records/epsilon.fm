@@ -41,6 +41,15 @@ api_v1_router.include_router(
         path="/artists",
         tags=["Artists"],
         included_methods=["create", "read", "read_multi", "update", "delete"],
+        endpoint_names={
+            "create": "",
+            "read": "",
+            "update": "",
+            "delete": "",
+            "db_delete": "",
+            "read_multi": "",
+            "read_paginated": "",
+        },
     )
 )
 api_v1_router.include_router(
@@ -53,6 +62,15 @@ api_v1_router.include_router(
         path="/tracks",
         tags=["Tracks"],
         included_methods=["create", "read", "read_multi", "update", "delete"],
+        endpoint_names={
+            "create": "",
+            "read": "",
+            "update": "",
+            "delete": "",
+            "db_delete": "",
+            "read_multi": "",
+            "read_paginated": "",
+        },
     )
 )
 api_v1_router.include_router(
@@ -65,6 +83,15 @@ api_v1_router.include_router(
         path="/genres",
         tags=["Genres"],
         included_methods=["create", "read", "read_multi", "update", "delete"],
+        endpoint_names={
+            "create": "",
+            "read": "",
+            "update": "",
+            "delete": "",
+            "db_delete": "",
+            "read_multi": "",
+            "read_paginated": "",
+        },
     )
 )
 api_v1_router.include_router(
@@ -77,5 +104,14 @@ api_v1_router.include_router(
         path="/subgenres",
         tags=["Subgenres"],
         included_methods=["create", "read", "read_multi", "update", "delete"],
+        endpoint_names={
+            "create": "",
+            "read": "",
+            "update": "",
+            "delete": "",
+            "db_delete": "",
+            "read_multi": "",
+            "read_paginated": "",
+        },
     )
 )
