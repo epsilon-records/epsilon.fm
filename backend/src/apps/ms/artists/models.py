@@ -9,7 +9,7 @@ from sqlmodel import Field
 from src.core.common.models import SoftDeleteMixin, TimestampMixin, UUIDMixin, Base
 
 
-class ArtistContentBase(Base):
+class ArtistProfileBase(Base):
     email: str = Field(max_length=255)
     biography: str = Field(
         max_length=1000,
@@ -136,7 +136,7 @@ class ArtistAnalyticsBase(Base):
 
 class Artist(
     UUIDMixin,
-    ArtistContentBase,
+    ArtistProfileBase,
     ArtistOrgBase,
     ArtistAnalyticsBase,
     TimestampMixin,

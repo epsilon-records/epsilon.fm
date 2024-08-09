@@ -6,11 +6,7 @@ from fastcrud import crud_router
 from src.core.db.session import async_get_db
 from src.apps.auth.routers.v1 import router as auth_router
 from src.apps.ms.artists.models import Artist
-from src.apps.ms.artists.schemas import (
-    ArtistCreateInternal,
-    ArtistUpdateInternal,
-    ArtistDeleteInternal,
-)
+from src.apps.ms.artists.schemas import ArtistCreate, ArtistUpdate, ArtistDelete
 from src.apps.ms.tracks.models import Track
 from src.apps.ms.tracks.schemas import (
     TrackCreateInternal,
@@ -39,9 +35,9 @@ api_v1_router.include_router(
     crud_router(
         session=async_get_db,
         model=Artist,
-        create_schema=ArtistCreateInternal,
-        update_schema=ArtistUpdateInternal,
-        delete_schema=ArtistDeleteInternal,
+        create_schema=ArtistCreate,
+        update_schema=ArtistUpdate,
+        delete_schema=ArtistDelete,
         path="/artists",
         tags=["Artists"],
         included_methods=["create", "read", "read_multi", "update", "delete"],

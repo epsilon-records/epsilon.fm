@@ -18,6 +18,25 @@ class Base(SQLModel):
     pass
 
 
+class OrgMixin(SQLModel):
+    """
+    Description:
+    ----------
+    'OrgMixin' SQLModel base class.
+
+    Fields:
+    ----------
+    - 'id': Unique identifier (string) for the record.
+    """
+
+    # Data Columns
+    org_id: str = Field(
+        primary_key=True,
+        max_length=255,
+        description="Organization ID associated with the artist",
+    )
+
+
 class UUIDMixin(SQLModel):
     """
     Description:
