@@ -6,7 +6,13 @@ from typing import Optional
 from sqlmodel import Field
 
 # Local Dependencies
-from src.core.common.models import SoftDeleteMixin, TimestampMixin, UUIDMixin, Base
+from src.core.common.models import (
+    SoftDeleteMixin,
+    TimestampMixin,
+    UUIDMixin,
+    OrgMixin,
+    Base,
+)
 
 
 class ArtistProfileBase(Base):
@@ -117,14 +123,6 @@ class ArtistMediaBase(Base):
     )
 
 
-class ArtistOrgBase(Base):
-    org_id: str = Field(
-        description="Organization ID associated with the artist",
-        max_length=255,
-        unique=True,
-    )
-
-
 class ArtistAnalyticsBase(Base):
     soundcharts_artist_id: UUID = Field(
         description="Soundcharts Artist UUID associated with the artist",
@@ -136,9 +134,10 @@ class ArtistAnalyticsBase(Base):
 
 class Artist(
     UUIDMixin,
+    OrgMixin,
     ArtistProfileBase,
-    ArtistOrgBase,
     ArtistAnalyticsBase,
+    ArtistMediaBase,
     TimestampMixin,
     SoftDeleteMixin,
     table=True,

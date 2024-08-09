@@ -6,23 +6,18 @@ from pydantic import ConfigDict
 # Local Dependencies
 from src.apps.ms.artists.models import (
     ArtistProfileBase,
+    ArtistAnalyticsBase,
     ArtistMediaBase,
 )
-from src.core.common.models import UUIDMixin, TimestampMixin, SoftDeleteMixin, OrgMixin
+from src.core.common.models import SoftDeleteMixin, TimestampMixin, UUIDMixin
 from src.core.utils.partial import optional
 
 
-class ArtistBase(ArtistProfileBase, ArtistMediaBase):
+class ArtistBase(ArtistProfileBase, ArtistAnalyticsBase, ArtistMediaBase):
     pass
 
 
-class Artist(
-    ArtistBase,
-    OrgMixin,
-    UUIDMixin,
-    TimestampMixin,
-    SoftDeleteMixin,
-):
+class ArtistRead(ArtistBase, UUIDMixin, TimestampMixin):
     pass
 
 
