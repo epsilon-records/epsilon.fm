@@ -5,7 +5,7 @@ from sqlmodel import Field
 from src.core.common.models import SoftDeleteMixin, TimestampMixin, UUIDMixin, Base
 
 
-class LabelContentBase(Base):
+class LabelProfileBase(Base):
     label_name: str = Field(
         max_length=255,
         nullable=False,
@@ -16,7 +16,7 @@ class LabelContentBase(Base):
 
 class Labels(
     UUIDMixin,
-    LabelContentBase,
+    LabelProfileBase,
     TimestampMixin,
     SoftDeleteMixin,
     table=True,

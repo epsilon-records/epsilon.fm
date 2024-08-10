@@ -4,12 +4,12 @@
 from pydantic import ConfigDict
 
 # Local Dependencies
-from src.apps.ms.labels.models import LabelContentBase
+from src.apps.ms.labels.models import LabelProfileBase
 from src.core.common.models import UUIDMixin, TimestampMixin, SoftDeleteMixin
 from src.core.utils.partial import optional
 
 
-class LabelBase(LabelContentBase):
+class LabelBase(LabelProfileBase):
     pass
 
 
@@ -22,7 +22,7 @@ class LabelCreate(LabelBase):
 
 
 @optional()
-class LabelUpdate(LabelContentBase):
+class LabelUpdate(LabelProfileBase):
     model_config = ConfigDict(extra="forbid")
 
 
