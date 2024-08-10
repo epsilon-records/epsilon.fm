@@ -40,8 +40,7 @@ class Labels(
 ):
     __tablename__ = "ms_label"
     __table_args__ = ({"comment": "Management System label information"},)
-from src.apps.ms.genres.models import Genre
-from src.apps.ms.subgenres.models import Subgenre
+
     genres: list["Genre"] = Relationship(
         back_populates="label",
         sa_relationship_kwargs={"primaryjoin": "Labels.id == Genre.label_id"}
@@ -50,3 +49,5 @@ from src.apps.ms.subgenres.models import Subgenre
         back_populates="label",
         sa_relationship_kwargs={"primaryjoin": "Labels.id == Subgenre.label_id"}
     )
+from src.apps.ms.genres.models import Genre
+from src.apps.ms.subgenres.models import Subgenre
