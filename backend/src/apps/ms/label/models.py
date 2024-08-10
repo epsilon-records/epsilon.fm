@@ -5,18 +5,18 @@ from sqlmodel import Field
 from src.core.common.models import SoftDeleteMixin, TimestampMixin, UUIDMixin, Base
 
 
-class LabelContentBase(Base):
+class LabelsContentBase(Base):
     label_name: str = Field(
         max_length=255,
         nullable=False,
-        description="Label Name",
+        description="Labels Name",
         schema_extra={"examples": ["Electronic"]},
     )
 
 
-class Label(
+class Labels(
     UUIDMixin,
-    LabelContentBase,
+    LabelsContentBase,
     TimestampMixin,
     SoftDeleteMixin,
     table=True,
