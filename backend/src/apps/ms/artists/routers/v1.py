@@ -36,7 +36,7 @@ async def read_artist(
     request: Request,
     org_id: str,
     db: Annotated[AsyncSession, Depends(async_get_db)],
-) -> dict:
+) -> ArtistRead:
     db_artist = await artist_crud.get(
         db=db,
         schema_to_select=ArtistRead,
@@ -46,3 +46,13 @@ async def read_artist(
     if db_artist is None:
         raise NotFoundException(detail="Artist not found")
     return db_artist
+
+
+@router.put("/artists/{org_id}", response_model=ArtistRead)
+async def update_artist(
+    request: Request,
+    org_id: str,
+    artist: ArtistCreate,
+    db: Annotated[AsyncSession, Depends(async_get_db)],
+) -> ArtistRead:
+    return await artist_crud.upsert(db=db, object=artist, org_id=org_id)
