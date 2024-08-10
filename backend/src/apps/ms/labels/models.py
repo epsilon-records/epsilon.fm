@@ -33,7 +33,7 @@ class LabelProfileBase(Base):
     )
 
 
-class Labels(
+class Label(
     UUIDMixin,
     LabelProfileBase,
     TimestampMixin,
