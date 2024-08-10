@@ -10,6 +10,35 @@ from src.core.common.models import UUIDMixin, TimestampMixin, SoftDeleteMixin
 from src.core.utils.partial import optional
 from src.apps.ms.genres.models import GenreContentBase
 from src.apps.ms.subgenres.models import SubgenreContentBase
+from src.apps.ms.artists.models import (
+    ArtistProfileBase,
+    ArtistAnalyticsBase,
+    ArtistMediaBase,
+)
+from src.core.common.models import OrgMixin
+from src.apps.ms.releases.models import ReleaseContentBase
+from src.apps.ms.tracks.models import TrackContentBase, TrackMediaBase, TrackUserBase
+
+
+class ArtistBase(ArtistProfileBase, ArtistAnalyticsBase, ArtistMediaBase):
+    pass
+
+
+class ArtistRead(ArtistBase, UUIDMixin, OrgMixin, TimestampMixin):
+    pass
+
+
+class ArtistCreate(ArtistBase):
+    model_config = ConfigDict(extra="forbid")
+
+
+@optional()
+class ArtistUpdate(ArtistBase):
+    model_config = ConfigDict(extra="forbid")
+
+
+class ArtistDelete(SoftDeleteMixin):
+    model_config = ConfigDict(extra="forbid")
 
 
 class GenreBase(GenreContentBase):
@@ -60,6 +89,50 @@ class SubgenreUpdate(
 
 
 class SubgenreDelete(SoftDeleteMixin):
+    model_config = ConfigDict(extra="forbid")
+
+
+class TrackBase(TrackContentBase):
+    pass
+
+
+class Track(
+    TrackBase, TrackMediaBase, TrackUserBase, UUIDMixin, TimestampMixin, SoftDeleteMixin
+):
+    pass
+
+
+class TrackCreate(TrackBase, TrackMediaBase):
+    model_config = ConfigDict(extra="forbid")
+
+
+@optional()
+class TrackUpdate(TrackContentBase, TrackMediaBase):
+    model_config = ConfigDict(extra="forbid")
+
+
+class TrackDelete(SoftDeleteMixin):
+    model_config = ConfigDict(extra="forbid")
+
+
+class ReleaseBase(ReleaseContentBase):
+    pass
+
+
+class Release(ReleaseBase, UUIDMixin, TimestampMixin, SoftDeleteMixin):
+    pass
+
+
+class ReleaseCreate(ReleaseBase):
+    model_config = ConfigDict(extra="forbid")
+
+
+@optional()
+class ReleaseUpdate(ReleaseContentBase):
+    model_config = ConfigDict(extra="forbid")
+
+
+class ReleaseDelete(SoftDeleteMixin):
     model_config = ConfigDict(extra="forbid")
 
 
