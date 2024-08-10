@@ -7,7 +7,11 @@ from fastcrud import crud_router
 from src.core.db.session import async_get_db
 from src.apps.auth.routers.v1 import router as auth_router
 from src.apps.ms.artists.routers.v1 import router as artist_router
-from src.apps.ms.models import Artist, Track, Genre, Release, Label
+from src.apps.ms.artists.models import Artist
+from src.apps.ms.tracks.models import Track
+from src.apps.ms.genres.models import Genre
+from src.apps.ms.genres.models import Release
+from src.apps.ms.labels.models import Label
 from src.apps.ms.releases.schemas import ReleaseCreate, ReleaseUpdate, ReleaseDelete
 from src.apps.ms.labels.schemas import LabelCreate, LabelUpdate, LabelDelete
 from src.apps.ms.artists.schemas import (
