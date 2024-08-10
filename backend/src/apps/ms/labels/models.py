@@ -1,8 +1,10 @@
 # Third-Party Dependencies
-from sqlmodel import Field
+from sqlmodel import Field, Relationship
 
 # Local Dependencies
 from src.core.common.models import SoftDeleteMixin, TimestampMixin, UUIDMixin, Base
+from src.apps.ms.genres.models import Genre
+from src.apps.ms.subgenres.models import Subgenre
 
 
 class LabelProfileBase(Base):
@@ -43,11 +45,9 @@ class Labels(
 
     genres: list["Genre"] = Relationship(
         back_populates="label",
-        sa_relationship_kwargs={"primaryjoin": "Labels.id == Genre.label_id"}
+        sa_relationship_kwargs={"primaryjoin": "Labels.id == Genre.label_id"},
     )
     subgenres: list["Subgenre"] = Relationship(
         back_populates="label",
-        sa_relationship_kwargs={"primaryjoin": "Labels.id == Subgenre.label_id"}
+        sa_relationship_kwargs={"primaryjoin": "Labels.id == Subgenre.label_id"},
     )
-from src.apps.ms.genres.models import Genre
-from src.apps.ms.subgenres.models import Subgenre
