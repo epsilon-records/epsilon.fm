@@ -45,9 +45,9 @@ class Label(
 
     genres: list["Genre"] = Relationship(
         back_populates="label",
-        sa_relationship_kwargs={"primaryjoin": "Labels.id == Genre.label_id"},
+        sa_relationship_kwargs={"primaryjoin": "Label.id == Genre.label_id"},
     )
     subgenres: list["Subgenre"] = Relationship(
         back_populates="label",
-        sa_relationship_kwargs={"primaryjoin": "Labels.id == Subgenre.label_id"},
+        sa_relationship_kwargs={"primaryjoin": "Label.id == Subgenre.label_id"},
     )
