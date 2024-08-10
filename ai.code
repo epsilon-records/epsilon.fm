@@ -1,0 +1,81 @@
+# Structured Output of Codebase
+
+## Backend (FastAPI)
+
+### Main Application
+- backend/src/main.py: Entry point for the FastAPI application
+
+### Core
+- backend/src/core/config.py: Configuration settings
+- backend/src/core/security.py: Authentication and security functions
+- backend/src/core/exceptions/http_exceptions.py: Custom HTTP exceptions
+
+### Database
+- backend/src/core/db/session.py: Database session management
+- backend/src/core/db/base.py: Base model for SQLAlchemy
+
+### API Routes
+- backend/src/apps/admin/users/routes.py: User management routes
+- backend/src/apps/auth/routes.py: Authentication routes
+- backend/src/apps/ms/albums/routes.py: Album-related routes
+- backend/src/apps/ms/artists/routes.py: Artist-related routes
+- backend/src/apps/ms/tracks/routes.py: Track-related routes
+
+### Models
+- backend/src/apps/admin/users/models.py: User model
+- backend/src/apps/ms/albums/models.py: Album model
+- backend/src/apps/ms/artists/models.py: Artist model
+- backend/src/apps/ms/tracks/models.py: Track model
+
+### Schemas
+- backend/src/apps/admin/users/schemas.py: User schemas
+- backend/src/apps/ms/albums/schemas.py: Album schemas
+- backend/src/apps/ms/artists/schemas.py: Artist schemas
+- backend/src/apps/ms/tracks/schemas.py: Track schemas
+
+### CRUD Operations
+- backend/src/core/crud.py: Base CRUD operations
+- backend/src/apps/admin/users/crud.py: User-specific CRUD operations
+- backend/src/apps/ms/albums/crud.py: Album-specific CRUD operations
+- backend/src/apps/ms/artists/crud.py: Artist-specific CRUD operations
+- backend/src/apps/ms/tracks/crud.py: Track-specific CRUD operations
+
+## Frontend (SvelteKit)
+
+### Main Application
+- src/routes/+layout.svelte: Main layout component
+- src/routes/+page.svelte: Home page component
+
+### Components
+- src/lib/components/Header.svelte: Header component
+- src/lib/components/Footer.svelte: Footer component
+- src/lib/components/ArtistCard.svelte: Artist card component
+- src/lib/components/AlbumCard.svelte: Album card component
+- src/lib/components/TrackList.svelte: Track list component
+
+### API Integration
+- src/lib/api/index.ts: API client setup
+- src/lib/api/artists.ts: Artist-related API calls
+- src/lib/api/albums.ts: Album-related API calls
+- src/lib/api/tracks.ts: Track-related API calls
+
+### Stores
+- src/lib/stores/auth.ts: Authentication store
+- src/lib/stores/user.ts: User store
+
+### Utilities
+- src/lib/utils.ts: Utility functions
+
+## Shared
+- shared/types.ts: Shared TypeScript types and interfaces
+
+## Configuration
+- backend/pyproject.toml: Backend dependencies and configuration
+- svelte.config.js: SvelteKit configuration
+- tsconfig.json: TypeScript configuration
+
+## Testing
+- backend/tests/conftest.py: Test configuration for backend
+- src/tests/setup.ts: Test setup for frontend
+
+This structured output provides an overview of the most important files in the codebase, organized by their purpose and location within the project structure.
