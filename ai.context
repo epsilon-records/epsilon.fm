@@ -1,44 +1,55 @@
 # AI Context for Code Understanding and Generation
 
 ## Project Overview
-This project appears to be a music-related web application with both frontend and backend components. It uses a combination of technologies including FastAPI for the backend, SvelteKit for the frontend, and various APIs for music data.
+This project is a music-related web application with both frontend and backend components. It uses FastAPI for the backend, SvelteKit for the frontend, and various APIs for music data. The application is designed to manage artists, albums, tracks, and user accounts, with features for authentication, caching, and rate limiting.
 
 ## Key Technologies
-- Backend: FastAPI, SQLAlchemy, PostgreSQL
+- Backend: FastAPI, SQLAlchemy, SQLModel, PostgreSQL (with asyncpg)
 - Frontend: SvelteKit, TypeScript
+- Authentication: JWT (using python-jose)
+- Caching: Redis
 - APIs: Soundcharts API, custom Music API
-- Other: Redis for caching, Tauri for desktop app capabilities
+- Other: Tauri for desktop app capabilities, Clerk for authentication UI
 
 ## Important Concepts
-1. Music Industry Data: The application deals with artists, albums, tracks, playlists, and genres.
-2. Authentication: JWT-based authentication is implemented.
-3. API Integration: Multiple external APIs are used to fetch music-related data.
-4. Database Models: SQLAlchemy models for various entities like User, Album, Artist, Track, etc.
+1. Music Industry Data: The application manages artists, albums, tracks, genres, and subgenres.
+2. Authentication: JWT-based authentication with refresh tokens.
+3. API Integration: Multiple external APIs are used, including Soundcharts for artist analytics.
+4. Database Models: SQLModel is used for defining database models and Pydantic schemas.
 5. Caching: Redis is used for caching to improve performance.
 6. Rate Limiting: Implemented to prevent API abuse.
 7. Pagination: Used in API responses for large datasets.
+8. Soft Delete: Implemented for data integrity and recovery.
 
 ## Code Structure
-- Backend: Organized into apps (admin, auth, ms) with models, schemas, and API routes.
-- Frontend: Component-based architecture using SvelteKit.
-- Shared: Types and interfaces shared between frontend and backend.
+- Backend:
+  - Organized into apps (admin, auth, ms) with models, schemas, and API routes.
+  - Uses a custom CRUD base class for common database operations.
+  - Implements custom exceptions for better error handling.
+- Frontend:
+  - Component-based architecture using SvelteKit.
+  - Uses Clerk for authentication UI components.
+  - Implements custom utility functions for UI interactions.
 
 ## Best Practices
 1. Follow RESTful API design principles.
-2. Use async/await for asynchronous operations.
-3. Implement proper error handling and validation.
-4. Follow TypeScript best practices for type safety.
-5. Use dependency injection where appropriate.
+2. Use async/await for asynchronous operations, especially in database queries.
+3. Implement proper error handling and validation using custom exceptions.
+4. Follow TypeScript best practices for type safety in the frontend.
+5. Use dependency injection where appropriate, especially in FastAPI route functions.
 6. Implement proper security measures (authentication, authorization, input validation).
+7. Use environment variables for configuration settings.
+8. Implement proper testing setup for both frontend and backend.
 
 ## Potential Areas for AI Assistance
-1. Generating CRUD operations for new entities.
-2. Creating and optimizing database queries.
+1. Generating CRUD operations for new entities using the custom CRUDBase class.
+2. Creating and optimizing database queries, especially for complex relationships.
 3. Implementing new API endpoints and their corresponding frontend components.
 4. Refactoring code for better performance or readability.
 5. Generating test cases for both frontend and backend.
 6. Assisting with API integration and data transformation.
 7. Implementing caching strategies for improved performance.
 8. Enhancing security features and best practices.
+9. Generating and updating Pydantic schemas for new or modified database models.
 
-When working on this project, always consider the existing architecture and coding style to maintain consistency.
+When working on this project, always consider the existing architecture and coding style to maintain consistency. Pay special attention to the use of SQLModel for both database models and Pydantic schemas, and the custom CRUD base class for database operations.
