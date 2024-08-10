@@ -5,7 +5,7 @@ from datetime import datetime
 from pydantic import ConfigDict
 
 # Local Dependencies
-from src.apps.ms.albums.models import AlbumContentBase, AlbumMediaBase, AlbumUserBase
+from src.apps.ms.models import AlbumContentBase, AlbumMediaBase, AlbumUserBase
 from src.core.common.models import UUIDMixin, TimestampMixin, SoftDeleteMixin
 from src.core.utils.partial import optional
 
