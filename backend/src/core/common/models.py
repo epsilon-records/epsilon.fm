@@ -26,7 +26,7 @@ class OrgMixin(SQLModel):
 
     Fields:
     ----------
-    - 'id': Unique identifier for the record.
+    - 'id': Unique identifier (string) for the record.
     """
 
     # Data Columns
