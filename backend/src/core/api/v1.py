@@ -2,33 +2,30 @@
 from fastapi import APIRouter
 from fastcrud import crud_router
 
+
 # Local Dependencies
 from src.core.db.session import async_get_db
 from src.apps.auth.routers.v1 import router as auth_router
 from src.apps.ms.artists.routers.v1 import router as artist_router
-from src.apps.ms.artists.models import Artist
+from src.apps.ms.models import Artist, Track, Genre, Release, Label
+from src.apps.ms.releases.schemas import ReleaseCreate, ReleaseUpdate, ReleaseDelete
+from src.apps.ms.labels.schemas import LabelCreate, LabelUpdate, LabelDelete
 from src.apps.ms.artists.schemas import (
     ArtistCreate,
     ArtistUpdate,
     ArtistDelete,
 )
-from src.apps.ms.tracks.models import Track
+
 from src.apps.ms.tracks.schemas import (
     TrackCreate,
     TrackUpdate,
     TrackDelete,
 )
-from src.apps.ms.genres.models import Genre
+
 from src.apps.ms.genres.schemas import (
     GenreCreate,
     GenreUpdate,
     GenreDelete,
-)
-from src.apps.ms.subgenres.models import Subgenre
-from src.apps.ms.subgenres.schemas import (
-    SubgenreCreate,
-    SubgenreUpdate,
-    SubgenreDelete,
 )
 
 # Create an APIRouter instance for versioning and prefixing routes
@@ -103,12 +100,33 @@ api_v1_router.include_router(
 api_v1_router.include_router(
     crud_router(
         session=async_get_db,
-        model=Subgenre,
-        create_schema=SubgenreCreate,
-        update_schema=SubgenreUpdate,
-        delete_schema=SubgenreDelete,
-        path="/subgenres",
-        tags=["Subgenres"],
+        model=Release,
+        create_schema=ReleaseCreate,
+        update_schema=ReleaseUpdate,
+        delete_schema=ReleaseDelete,
+        path="/releases",
+        tags=["Releases"],
+        included_methods=["create", "read", "read_multi", "update", "delete"],
+        endpoint_names={
+            "create": "",
+            "read": "",
+            "update": "",
+            "delete": "",
+            "db_delete": "",
+            "read_multi": "",
+            "read_paginated": "",
+        },
+    )
+)
+api_v1_router.include_router(
+    crud_router(
+        session=async_get_db,
+        model=Label,
+        create_schema=LabelCreate,
+        update_schema=LabelUpdate,
+        delete_schema=LabelDelete,
+        path="/labels",
+        tags=["Labels"],
         included_methods=["create", "read", "read_multi", "update", "delete"],
         endpoint_names={
             "create": "",

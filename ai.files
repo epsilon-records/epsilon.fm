@@ -1,0 +1,49 @@
+# Structured Output of Codebase
+
+## Backend (FastAPI)
+
+### Main Application
+- backend/src/main.py: Entry point for the FastAPI application, sets up the app using create_application function
+
+### Core
+- backend/src/core/config.py: Comprehensive configuration settings using Pydantic BaseSettings
+- backend/src/core/security.py: Authentication and security functions, including JWT token handling
+- backend/src/core/exceptions/http_exceptions.py: Custom HTTP exceptions for better error handling
+
+### Database
+- backend/src/core/db/session.py: Async database session management using SQLAlchemy and asyncpg
+
+### Models and Schemas
+- backend/src/apps/admin/users/models.py: User model with detailed field definitions
+- backend/src/apps/admin/users/schemas.py: User-related Pydantic schemas for request/response models
+- backend/src/apps/ms/albums/models.py: Album model definition
+- backend/src/apps/ms/albums/schemas.py: Album-related Pydantic schemas
+- backend/src/apps/ms/artists/models.py: Artist model with detailed profile, media, and analytics fields
+- backend/src/apps/ms/artists/schemas.py: Artist-related Pydantic schemas
+- backend/src/apps/ms/tracks/models.py: Track model with relationships to Genre and Subgenre
+- backend/src/apps/ms/tracks/schemas.py: Track-related Pydantic schemas
+
+### CRUD Operations
+- backend/src/apps/admin/users/crud.py: User-specific CRUD operations using CRUDBase
+
+## Frontend (SvelteKit)
+
+### Main Application
+- src/routes/+layout.svelte: Main layout component with authentication handling and global UI components
+- src/routes/+page.svelte: Home page component with newsletter signup and GitHub corner
+
+### Components
+- src/lib/components/Header.svelte: Header component with user switcher, artist switcher, and search bar
+
+### Utilities
+- src/lib/utils.ts: Utility functions for styling, date formatting, and animations
+
+## Configuration
+- backend/pyproject.toml: Backend dependencies and project metadata
+- svelte.config.js: SvelteKit configuration with Vercel adapter
+- tsconfig.json: TypeScript configuration for the frontend
+
+## Testing
+- backend/tests/conftest.py: Test configuration for backend using pytest and FastAPI TestClient
+
+This structured output provides an overview of the most important files in the codebase, organized by their purpose and location within the project structure. It includes details about the implementation of models, schemas, authentication, and frontend components.
