@@ -7,7 +7,7 @@
 		"dev:app": "cargo run --manifest-path=./src-tauri/Cargo.toml tauri dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"start": "node build",
+		"start": "node build ",
 		"sync:api": "bunx @hey-api/openapi-ts -i https://customer.api.soundcharts.com/api/v2/swagger.json -o src/lib/api/soundcharts/client -c @hey-api/client-fetch node ./scripts/sync-api.mjs",
 		"sync:code": "poetry --directory ./backend run python3 ./scripts/consolidate-code.py",
 		"sync:types": "svelte-kit sync",
