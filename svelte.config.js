@@ -19,7 +19,7 @@ const config = {
 };
 
 function getAdapter() {
-	if (process.env.VERCEL && process.env.MODE === 'production') {
+	if (process.env.VERCEL_ENV === 'production') {
 		return vercelAdapter({
 			runtime: 'edge',
 			regions: 'fra1',
@@ -31,7 +31,7 @@ function getAdapter() {
 				domains: [process.env.BASE_URL]
 			}
 		});
-	} else if (process.env.RAILWAY && process.env.MODE === 'production') {
+	} else if (process.env.RAILWAY_ENVIRONMENT_NAME === 'production') {
 		return nodeAdapter();
 	} else {
 		return autoAdapter();
