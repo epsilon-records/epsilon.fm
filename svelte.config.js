@@ -1,5 +1,6 @@
 import vercelAdapter from '@sveltejs/adapter-vercel';
 import nodeAdapter from '@sveltejs/adapter-node';
+import autoAdapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -18,7 +19,7 @@ const config = {
 };
 
 function getAdapter() {
-	if (process.env.MODE === 'production') {
+	if (process.env.VERCEL && process.env.MODE === 'production') {
 		return vercelAdapter({
 			runtime: 'edge',
 			regions: 'fra1',
@@ -30,8 +31,10 @@ function getAdapter() {
 				domains: [process.env.BASE_URL]
 			}
 		});
-	} else {
+	} else if (process.env.RAILWAY && process.env.MODE === 'production') {
 		return nodeAdapter();
+	} else {
+		return autoAdapter();
 	}
 }
 
