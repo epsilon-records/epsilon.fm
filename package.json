@@ -164,7 +164,7 @@
 		"typescript-eslint": "^8.0.1",
 		"uploadthing": "^6.13.2",
 		"vaul-svelte": "^0.3.2",
-		"vercel": "^35.2.3",
+		"vercel": "^37.4.0",
 		"wavesurfer.js": "^7.8.2",
 		"zod": "^3.23.8"
 	},
