@@ -44,7 +44,7 @@
 		"@sveltejs/adapter-auto": "^3.2.2",
 		"@sveltejs/adapter-vercel": "^5.4.1",
 		"@sveltejs/kit": "^2.5.20",
-		"@sveltejs/vite-plugin-svelte": "^3.1.1",
+		"@sveltejs/vite-plugin-svelte": "^7.0.0",
 		"@tailwindcss/typography": "^0.5.14",
 		"@tauri-apps/cli": "^1.6.0",
 		"@types/bun": "^1.1.6",
