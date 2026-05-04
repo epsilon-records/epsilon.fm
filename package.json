@@ -91,7 +91,7 @@
 		"@fontsource/inter": "^5.0.20",
 		"@fontsource/jetbrains-mono": "^5.0.20",
 		"@hey-api/client-fetch": "^0.2.2",
-		"@internationalized/date": "3.5.4",
+		"@internationalized/date": "3.12.1",
 		"@neoconfetti/svelte": "^2.2.1",
 		"@radix-ui/react-icons": "^1.3.0",
 		"@rollup/pluginutils": "^5.1.0",
