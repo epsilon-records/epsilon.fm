@@ -914,9 +914,9 @@ requests==2.32.3 ; python_version >= "3.12" and python_version < "4.0" \
 rich==13.7.1 ; python_version >= "3.12" and python_version < "4.0" \
     --hash=sha256:4edbae314f59eb482f54e9e30bf00d33350aaa94f4bfcd4e9e3110e64d0d7222 \
     --hash=sha256:9be308cb1fe2f1f57d67ce99e95af38a1e2bc71ad9813b0e247cf7ffbcc3a432
-rsa==4.9 ; python_version >= "3.12" and python_version < "4" \
-    --hash=sha256:90260d9058e514786967344d0ef75fa8727eed8a7d2e43ce9f4bcf1b536174f7 \
-    --hash=sha256:e38464a49c6c85d7f1351b0126661487a7e0a14a50f1675ec50eb34d4f20ef21
+rsa==4.9.1 ; python_version >= "3.12" and python_version < "4" \
+    --hash=sha256:68635866661c6836b8d39430f97a996acbd61bfa49406748ea243539fe239762 \
+    --hash=sha256:e7bdbfdb5497da4c07dfd35530e1a902659db6ff241e39d9953cad06ebd0ae75
 ruff==0.5.7 ; python_version >= "3.12" and python_version < "4.0" \
     --hash=sha256:00cc8872331055ee017c4f1071a8a31ca0809ccc0657da1d154a1d2abac5c0be \
     --hash=sha256:083bbcbe6fadb93cd86709037acc510f86eed5a314203079df174c40bbbca6b3 \
