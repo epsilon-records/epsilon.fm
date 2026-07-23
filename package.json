@@ -134,7 +134,7 @@
 		"lucide-svelte": "^0.424.0",
 		"mode-watcher": "^0.4.1",
 		"musicfetch": "^1.0.2",
-		"nanoid": "^5.0.7",
+		"nanoid": "^6.0.0",
 		"node-gyp": "^10.2.0",
 		"openai": "^4.55.1",
 		"openai-edge": "^1.2.2",
