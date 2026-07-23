@@ -97,7 +97,7 @@
 		"@rollup/pluginutils": "^5.1.0",
 		"@sentry/sveltekit": "^8.24.0",
 		"@silintl/svelte-google-places-autocomplete": "^1.2.5",
-		"@storybook/svelte": "^8.2.8",
+		"@storybook/svelte": "^10.5.3",
 		"@storybook/test": "^8.2.8",
 		"@sveltejs/adapter-node": "^5.2.1",
 		"@sveltejs/adapter-static": "^3.0.2",
