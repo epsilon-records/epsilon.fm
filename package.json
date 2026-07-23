@@ -40,7 +40,7 @@
 		"@storybook/addon-links": "^8.2.8",
 		"@storybook/addon-svelte-csf": "^4.1.5",
 		"@storybook/blocks": "^8.2.8",
-		"@storybook/sveltekit": "^8.2.8",
+		"@storybook/sveltekit": "^10.5.3",
 		"@sveltejs/adapter-auto": "^3.2.2",
 		"@sveltejs/adapter-vercel": "^5.4.1",
 		"@sveltejs/kit": "^2.5.20",
