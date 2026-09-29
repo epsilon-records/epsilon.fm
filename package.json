@@ -115,7 +115,7 @@
 		"ai": "^3.3.3",
 		"biome": "^0.3.3",
 		"bits-ui": "^0.21.13",
-		"chromatic": "^11.7.0",
+		"chromatic": "^18.9.5",
 		"class-variance-authority": "^0.7.0",
 		"clerk-sveltekit": "^0.4.2",
 		"clsx": "^2.1.1",
