@@ -84,7 +84,7 @@
 		"@capacitor/android": "^6.1.2",
 		"@capacitor/cli": "^6.1.2",
 		"@capacitor/core": "^6.1.2",
-		"@capacitor/ios": "^6.1.2",
+		"@capacitor/ios": "^8.5.2",
 		"@clerk/clerk-js": "^5.13.2",
 		"@clerk/clerk-sdk-node": "^5.0.25",
 		"@clerk/themes": "^2.1.18",
